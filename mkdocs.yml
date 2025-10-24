@@ -26,7 +26,7 @@ nav:
     - Software design: design.md
     - How to install: installation.md
     - How to run: run.md
-    - Simulation:
+    - Simulation tools:
       - Notebooks:
           - DPEnsemble.ipynb: DPEnsemble-ipynb-reference.md
           - DPSimulation.ipynb: DPSimulation-ipynb-reference.md
