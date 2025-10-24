@@ -9,9 +9,9 @@ requires = ["meson-python", "wheel", "pybind11", "ninja", "numpy"]
 
 [project]
 name = 'lvn'
-version = '2025.10.23a2'
+version = '2025.10.23a3'
 # dynamic = ["version"]
-description = 'Operator-splitting method of integrating directed percolation/absorbing phase transition Langevin equations'
+description = 'Integration of Langevin equations representing absorbing phase transitions'
 readme = 'README.md'
 
 requires-python = '>=3.12'
@@ -38,7 +38,7 @@ keywords = [
 # Development Status :: 4 - Beta
 # Development Status :: 5 - Production/Stable
 classifiers = [
-  "Development Status :: 2 - Pre-Alpha",
+  "Development Status :: 3 - Alpha",
   "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
   "Topic :: Scientific/Engineering :: Physics",
   "Intended Audience :: Science/Research",
