@@ -1,0 +1,408 @@
+"""
+Write to files.
+"""
+import warnings
+import logging
+from typing import Any, Callable, Sequence, List
+from pathlib import Path
+from os.path import exists, join, realpath, pardir
+from os import mkdir
+import builtins
+from shutil import rmtree
+import numpy as np
+from json import dump, dumps, load
+from io import TextIOWrapper
+from . import dplvn  #type: ignore
+from .utils import progress, progress_disabled   #type: ignore
+
+warnings.filterwarnings("ignore")
+
+__all__ = [
+    "create_dir",
+    "create_directories",
+    "is_serializable", 
+    "to_serializable",
+    "from_serializable",
+    "import_info",
+    "export_info",
+    "read_info",
+    "export_plots",
+    "export_plot"
+]
+
+def create_directories(
+        results_path: Sequence = ("..", "Results",), 
+        results_dir: str = "Demo",
+        do_clean: bool=False,
+    ) -> str:
+    """
+    Create results parent and target directory.
+
+    Args:
+        results_path: path to parent results directory
+            (to be created if necessary)
+        results_dir: target results directory (to be created)
+
+    Returns:
+        path to target results directory (see :mod:`os.path`)
+    """
+    results_path_ = ["."] + list(results_path)
+    create_dir(join(*results_path_))
+    results_dir_ = results_path_ + [results_dir]
+    if do_clean and exists(join(*results_dir_)):
+        rmtree(join(*results_dir_))
+    return create_dir(join(*results_dir_))
+
+def create_dir(dir: str) -> str:
+    """
+    Try to create an output directory if one doesn't exist.
+
+    Throws an exception if the directory cannot be created.
+    Returns quietly if the directory already exists.
+
+    Args:
+        dir: 
+            name of directory
+
+    Returns:
+        path to directory (see :mod:`os.path`)
+    """
+    try:
+        if not exists(dir):
+            mkdir(dir)
+        else:
+            return dir
+    except OSError:
+        print(f'Cannot create directory "{realpath(dir)}"')
+        raise
+    except Exception:
+        print(Exception)
+        raise
+    return dir
+
+def is_serializable(value: Any,) -> bool:
+    """
+    Check value is serializable and can be written to a JSON file.
+
+    Args:
+        value: to be checked.
+
+    Returns: 
+        true if value is serializable.
+    """
+    try:
+        dumps(value)
+        return True
+    except TypeError:
+        return False
+
+def to_serializable(value: Any,) -> Any:
+    """
+    Convert value into serializable version.
+
+    Args:
+        value: to be converted.
+
+    Returns: 
+        serializable value.
+    """
+    match type(value):
+        case builtins.str:
+            return value
+        case np.float64 | builtins.float:
+            return float(value)
+        case builtins.int:
+            return int(value)
+        case builtins.bool:
+            return value
+        case builtins.list:
+            return value
+        case dplvn.GridDimension:
+            match value:
+                case dplvn.D1:
+                    return "D1"
+                case dplvn.D2:
+                    return "D2"
+                case dplvn.D3:
+                    return "D3"
+                case _:
+                    return None
+        case dplvn.InitialCondition:
+            match value:
+                case dplvn.RANDOM_UNIFORM:
+                     return "RANDOM_UNIFORM"
+                case dplvn.RANDOM_GAUSSIAN:
+                     return "RANDOM_GAUSSIAN"
+                case dplvn.CONSTANT_VALUE:
+                     return "CONSTANT_VALUE"
+                case dplvn.SINGLE_SEED:
+                     return "SINGLE_SEED"
+                case _:
+                    return None
+        case dplvn.IntegrationMethod:
+            match value:
+                case dplvn.RUNGE_KUTTA:
+                    return "RUNGE_KUTTA"
+                case dplvn.EULER:
+                    return "EULER"
+                case _:
+                    return None
+        case builtins.tuple:
+            if is_serializable(value[0]) and is_serializable(value):
+                return value
+            combo: list = []
+            for value_ in value:
+                match value_:
+                    case dplvn.BOUNDED:
+                        combo += ["BOUNDED"]
+                        continue
+                    case dplvn.PERIODIC:
+                        combo += ["PERIODIC"]
+                        continue
+                    case dplvn.FLOATING:
+                        combo += ["FLOATING"] 
+                        continue
+                    case dplvn.FIXED_VALUE:
+                        combo += ["FIXED_VALUE"] 
+                        continue
+                    case dplvn.FIXED_FLUX :
+                        combo += ["FIXED_FLUX"] 
+                        continue
+                    case _:
+                        combo += [None]
+                        continue
+            return combo
+        case np.ndarray:
+            return value.tolist()
+        case _:
+            return value
+    
+def from_serializable(value: Any,) -> Any:
+    """
+    Convert dict from serializable version.
+
+    Args:
+        value: To be converted.
+
+    Returns:  Converted value.
+    """
+    match type(value):
+        case builtins.str:
+            match value:
+                case "D1":
+                    return dplvn.D1
+                case "D2":
+                    return dplvn.D2
+                case "D3":
+                    return dplvn.D3
+                case "RANDOM_UNIFORM":
+                    return dplvn.RANDOM_UNIFORM
+                case "RANDOM_GAUSSIAN":
+                    return dplvn.RANDOM_GAUSSIAN
+                case "CONSTANT_VALUE":
+                    return dplvn.CONSTANT_VALUE
+                case "SINGLE_SEED":
+                    return dplvn.SINGLE_SEED
+                case "RUNGE_KUTTA":
+                    return dplvn.RUNGE_KUTTA
+                case "EULER":
+                    return dplvn.EULER
+                case _:
+                    return None
+        case builtins.tuple | builtins.list:
+            combo: list = []
+            if type(value[0])!=builtins.str:
+                return tuple(value)
+            for value_ in value:
+                match value_:
+                    case "BOUNDED":
+                        combo += [dplvn.BOUNDED]
+                        continue
+                    case "PERIODIC":
+                        combo += [dplvn.PERIODIC]
+                        continue
+                    case "FLOATING":
+                        combo += [dplvn.FLOATING]
+                        continue
+                    case "FIXED_VALUE":
+                        combo += [dplvn.FIXED_VALUE]
+                        continue
+                    case "FIXED_FLUX":
+                        combo += [dplvn.FIXED_FLUX]
+                        continue
+                    case _:
+                        combo += [None]
+                        continue
+            return tuple(combo)
+        case _:
+            return value
+
+def import_info(
+        info_dir: str, 
+        file_name: str
+    ) -> dict:
+    """
+    Read and adapt parameters specified in a JSON file.
+
+    Args:
+      file_name:  JSON file name.
+
+    Returns: info as dictionary.
+    """
+    file: TextIOWrapper
+    raw_info: dict
+    info_path = [str(info_dir)] + [f"{file_name}.json"]
+    with open(join(*info_path), "r",) as file:
+        raw_info = load(file)
+    parameters: dict = {}
+    for item_ in raw_info["Parameters"].items():
+        parameters.update({item_[0]: from_serializable(item_[1])})
+    info: dict = {
+        "Analysis": raw_info["Analysis"],
+        "Parameters": parameters,
+        "Misc":  raw_info["Misc"]
+    }
+    return info
+
+def export_info(
+        info_dir: str, 
+        file_name: str, 
+        source_dict: dict, 
+        suffix: str | None = None,
+        encoding: str = "utf-8", #"latin-1"
+    ) -> tuple[dict, str]:
+    """
+    Export results dictionary to JSON file.
+
+    Tries to ensure all dictionary entries are
+    serializable by running `latex`
+    on keys and converting values to floats.
+
+    Args:
+        results_dir: name of output directory
+        filename: name of output JSON file
+        suffix: to append to filename prior to addition of '.json' extension
+        source_dict: dictionary of results, possibly requiring conversion
+            from latex form such that serialization into a JSON file
+            is possible
+    
+    Returns:
+        serialized dictionary and the file path string
+    """
+    # A bit of recursion for a change
+    def render_serializable(source) -> dict:
+        serialized: dict = {}
+        for item_ in source.items():
+            if type(item_[1]) is dict:
+                serialized.update({item_[0]: render_serializable(item_[1])})
+            else:
+                serialized.update({item_[0]: to_serializable(item_[1])})
+        return serialized
+
+    serializable_dict: dict = render_serializable(source_dict)
+    info_path = [str(info_dir)] + [
+        str(file_name) + ("_"+suffix if suffix is not None else "") + ".json"
+    ]
+
+    file: TextIOWrapper
+    with open(join(*info_path), "w", encoding=encoding) as file:
+        logging.info(join(*info_path))
+        dump(serializable_dict, file, indent=4, ensure_ascii=False,) #separators=(", \n", ": ")
+    return (serializable_dict, info_dir,)
+
+def read_info(path: Sequence[str],) -> tuple[str, dict]:
+    """
+    Wrapper around method to import info dictionary.
+
+    Args:
+        path: to info JSON file.
+
+    Returns:
+        path to file and imported dictionary
+    """
+    full_path: str = join(pardir, *path,)
+    info: dict = import_info(full_path, "Info")
+    return (full_path, info,)
+
+def export_plots(
+        fig_dict: dict,
+        results_dir: str,
+        file_types: list[str] | tuple[str] | str = "png",
+        suffix: str = "",
+        dpi: int = 150,
+        do_verbose: bool=False,
+    ) -> str:
+    """
+    Export plots to PDF or other format files.
+
+    Args:
+        fig_dict: dictionary of figures
+        results_dir: name of output directory
+        file_types: file format (or list of file formats)
+        suffix: filename suffix
+        dpi: output image resolution
+        do_verbose: use tqdm progress bar to track 
+
+    Returns:
+        the supplied export directory
+    """
+    results_path: str = realpath(results_dir)
+    logging.info(
+        "gmplib.save.export_plots:\n   " + f'Writing to dir: "{results_path}"'
+    )
+    file_types_: List[str] = (
+        file_types if isinstance(file_types, list) else [str(file_types)]
+    )
+    progress_bar: Callable = (
+        progress if do_verbose else progress_disabled
+    )
+    for file_type in file_types_:
+        # logging.info(f'Image file type: "{file_type}"')
+        for fig_name, fig in progress_bar(fig_dict.items(),):
+            export_plot(
+                fig_name, fig,
+                results_path,
+                file_type=file_type,
+                suffix=suffix,
+                dpi=dpi,
+            )
+    return results_dir
+
+def export_plot(
+        fig_name: str,
+        fig: Any,
+        results_dir: str,
+        file_type: str = "pdf", 
+        suffix: str = "",
+        dpi: int | None = None,
+    ) -> None:
+    """
+    Export plot to PDF or other format file.
+
+    Args:
+        fig_name: name to be used for file (extension auto-appended)
+        fig: figure object
+        results_dir: name of output directory
+        file_type: file format
+        suffix: filename suffix
+        dpi: output image resolution
+    """
+    fig_name_ = f"{fig_name}{suffix}.{file_type.lower()}"
+    # print(f"{fig_name_} exists: {exists(join(results_dir, fig_name_))}")
+    try:
+        # logging.info(f'dpi={dpi}')
+        fig.savefig(
+            join(results_dir, fig_name_),
+            bbox_inches="tight",
+            pad_inches=0.05,
+            dpi=dpi,
+            format=file_type,
+        )
+        logging.info(f'export_plot: Exported "{fig_name_}"')
+    except OSError:
+        logging.info(
+            f'export_plot: Failed to export figure "{fig_name_}"'
+        )
+        raise
+    except:
+        raise

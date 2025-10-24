@@ -1,0 +1,182 @@
+name: Upload Python Package to TestPyPI
+
+# Consider switching to using
+#   https://cibuildwheel.pypa.io/en/stable/ci-services/#
+
+on:
+  release:
+    types: [published]
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  build-macos-14:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install build
+          
+      - name: Build package
+        run: |
+          python -m build
+          
+      - name: Upload distribution
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos-14-dist
+          path: dist/
+
+  build-macos-15:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install build
+          
+      - name: Build package
+        run: |
+          python -m build
+          
+      - name: Upload distribution
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos-15-dist
+          path: dist/
+
+  build-macos-latest:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install build
+          
+      - name: Build package
+        run: |
+          python -m build
+          
+      - name: Upload distribution
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos-latest-dist
+          path: dist/
+
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install build auditwheel
+          
+      - name: Build package
+        run: |
+          python -m build
+          mv dist dist_tmp
+          auditwheel repair dist_tmp/*.whl --wheel-dir dist
+          rm -f dist/*-linux_x86_64.whl
+          
+      - name: Upload distribution
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-dist
+          path: dist/
+
+  # build-windows:
+  #   runs-on: windows-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: actions/setup-python@v5
+  #       with:
+  #         python-version: "3.12"
+          
+  #     - name: Install dependencies
+  #       run: |
+  #         python -m pip install --upgrade pip
+  #         python -m pip install build
+          
+  #     - name: Build package
+  #       run: |
+  #         python -m build
+          
+  #     - name: Upload distribution
+  #       uses: actions/upload-artifact@v4
+  #       with:
+  #         name: windows-dist
+  #         path: dist/
+
+  publish-to-testpypi:
+    needs: [
+      build-macos-14, 
+      build-macos-15, 
+      build-macos-latest, 
+      build-linux,
+      # build-windows, 
+    ]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Retrieve macos-14 artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: macos-14-dist
+          path: dist/
+      - name: Retrieve macos-15 artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: macos-15-dist
+          path: dist/
+      - name: Retrieve macos artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: macos-latest-dist
+          path: dist/
+      - name: Retrieve linux artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: linux-dist
+          path: dist/
+      # - name: Retrieve windows artifact
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: windows-dist
+      #     path: dist/
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install twine
+
+      - name: Publish package to TestPyPI
+        run: |
+          twine upload --verbose -r testpypi dist/*
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.TESTPYPI_API_TOKEN }}
