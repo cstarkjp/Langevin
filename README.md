@@ -21,13 +21,13 @@ of grid properties.
 
 The equation solved in the demo here is the DP Langevin for a 2D grid with initial values sampled from U[0,1]: 
 
-![](https://raw.githubusercontent.com/cstarkjp/Langevin/main/images/dplangevin_equation.png
+![](https://raw.githubusercontent.com/cstarkjp/Langevin/main/images/dplangevin_equation3.png
  "DP Langevin equation")
 
 
 <!-- $`\partial_t \rho = a\rho - b\rho^2 + D \nabla^2 \rho + \gamma \sqrt{\rho} \, \eta`$ -->
 
-where *ρ(**x**,t)* is the order parameter field, *a* and *b* are rate constants, *D* is the diffusion rate over **_x_**, *η(**x**,t)* is Gaussian white noise (uncorrelated, zero mean, unit variance), and *γ* is the "demographic" noise amplitude.
+where *ρ(**x**,t)* is the order parameter field, *a* and *b* are rate constants, *D* is the diffusion rate over **_x_**, *ξ(**x**,t)* is Gaussian white noise (uncorrelated, zero mean, unit variance), and *η* is the "demographic" noise amplitude.
 
 See 
 [Victor Buendía's fork of Paula Villa Martín's repo](https://github.com/VictorSeven/Dornic_et_al_integration_class/tree/victor-update)
