@@ -1,8 +1,6 @@
 # Langevin
 
-This Python/C++ package (`lvn`) provides tools to integrate 
-Langevin equations representing absorbing phase transitions (APT). 
-Its main focus at present is the simulation of directed percolation (DP).
+Tools to integrate Langevin equations of absorbing phase transition (APT) type — with a focus on simulation of directed percolation (DP).
 
 ![](https://raw.githubusercontent.com/cstarkjp/Langevin/main/test/density_grid.png
  "Density grid")
