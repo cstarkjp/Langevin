@@ -57,15 +57,15 @@ Next, the code is split into a hierarchy of three groups, with each correspondin
 ## Installation
 
 At minimum, you will need Python≥3.12 and the package `pybind11` to allow installation of
-`lvn`. To run the demos, you will also need `numpy`, `matplotlib`, `jupyter`, and `ipython`.
+`lvn`. To run the demos, you will also need `numpy`, `matplotlib`, `jupyter`, `ipython`, along with `pandas`, `tqdm`, and optionally `ffmpeg-python` (to generate videos from image file sequences).
 
-If you use `conda` or `miniconda`, take a look at the `environment.yml` file and use it to set up a suitable Python environment. If you prefer to use `pip`, you can either install the requisite packages by hand, or use the `requirements.txt` file (it's very strict, so it may not be helpful, but you can use it as a guide).
+If you use `conda` or `miniconda`, take a look at the `environment.yml` file and use it to set up a suitable Python environment. If you prefer to use `pip`, you will have to  install the requisite packages by hand.
 
 Then, use `pip` to install the `lvn` package from `TestPyPI` into whatever Python environment you have set up (even if you use `conda`):
 
     pip install -i https://test.pypi.org/simple/ lvn
 
-This only works if we have pre-built a binary wheel for your platform: we currently support macOS 14, macOS 15, and all(?) flavors of Linux.
+This only works if we have pre-built a binary wheel for your platform: we currently support macOS 14, macOS 15, and all(?) flavors of Linux (note: macOS 15 build is currently turned off).
 
 
 Once project development has matured, the `lvn` package will be made available on the full `PyPI` site with broader platform support.

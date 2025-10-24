@@ -23,6 +23,7 @@ plugins:
 
 nav:
     - Home: index.md
+    - Software design: design.md
     - How to install: installation.md
     - How to run: run.md
     - Simulation:
@@ -41,7 +42,7 @@ nav:
         - file.py: file-reference.md 
         - plot.py: plot-reference.md
         - utils.py: utils-reference.md
-    - C++ source: cplusplus-reference.md
+    - C++ source: cplusplus.md
 
 # https://analog-garage.github.io/mkdocstrings-python-xref/latest/
 # https://github.com/mkdocstrings/autorefs
