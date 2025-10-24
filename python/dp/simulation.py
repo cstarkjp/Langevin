@@ -10,12 +10,12 @@ from datetime import datetime, timedelta
 from numpy.typing import NDArray
 import numpy as np
 from numpy.lib.npyio import NpzFile
-import dplvn  #type: ignore
+from lvn.dp import dplvn  #type: ignore
 import sys, os
 sys.path.insert(0, os.path.join(os.path.pardir, "Packages"))
-from .file import (create_directories, export_info, export_plots,)
-from .utils import (progress, progress_disabled, set_name,)
-from .plot import Viz
+from lvn.dp.file import (create_directories, export_info, export_plots,)
+from lvn.dp.utils import (progress, progress_disabled, set_name,)
+from lvn.dp.plot import Viz
 
 from pprint import PrettyPrinter
 pp = PrettyPrinter(indent=4).pprint

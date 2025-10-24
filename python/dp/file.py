@@ -12,8 +12,8 @@ from shutil import rmtree
 import numpy as np
 from json import dump, dumps, load
 from io import TextIOWrapper
-from . import dplvn  #type: ignore
-from .utils import progress, progress_disabled   #type: ignore
+from lvn.dp import dplvn
+from lvn.dp.utils import progress, progress_disabled
 
 warnings.filterwarnings("ignore")
 
