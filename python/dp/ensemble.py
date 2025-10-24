@@ -9,9 +9,9 @@ from copy import deepcopy
 import numpy as np
 from numpy.typing import NDArray
 import os
-from .simulation import Simulation
-from .plot import Viz #type: ignore
-from .file import create_directories, export_info, read_info, export_plots
+from lvn.dp.simulation import Simulation
+from lvn.dp.plot import Viz #type: ignore
+from lvn.dp.file import create_directories, export_info, read_info, export_plots
 
 warnings.filterwarnings("ignore")
 

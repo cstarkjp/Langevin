@@ -6,7 +6,7 @@ from typing import Callable
 from functools import partial
 from pandas import DataFrame  #type: ignore
 from tqdm import tqdm  #type: ignore
-from . import dplvn  #type: ignore
+from lvn.dp import dplvn  #type: ignore
 
 warnings.filterwarnings("ignore")
 

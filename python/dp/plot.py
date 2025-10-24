@@ -15,11 +15,10 @@ from matplotlib.figure import Figure
 from matplotlib.axes import Axes
 from matplotlib import ticker
 from matplotlib.colors import ListedColormap, Colormap
-# from .Simulation import Simulation  # can't do this
-from .utils import (
+from lvn.dp.utils import (
     progress, make_sim_title, make_name_title, make_multisim_title,
 )
-from .dplvn import PERIODIC   #type: ignore
+from lvn.dp.dplvn import PERIODIC   #type: ignore
 
 warnings.filterwarnings("ignore")
 
