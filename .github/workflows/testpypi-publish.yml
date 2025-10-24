@@ -12,7 +12,7 @@ on:
       # - none
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build-macos-14:
