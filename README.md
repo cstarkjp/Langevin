@@ -39,7 +39,7 @@ The structure of the DP/APT Langevin-equation integrator package is broadly as f
 (detailed documentation is available 
 [here](https://cstarkjp.github.io/Langevin/annotated.html)).
 
-First, there is a wrapper file called [`wrapper_dplvn.cpp`](https://github.com/cstarkjp/Langevin/tree/main/src/wrapper_dplvn.cpp) that uses `pybind11` to link the `C++` code to a Python runtime.
+First, there is a wrapper file called [`src/dp/wrapper_dplvn.cpp`](https://github.com/cstarkjp/Langevin/tree/main/src/wrapper_dplvn.cpp) that uses `pybind11` to link the `C++` code to a Python runtime.
 
 Next, the code is split into a hierarchy of three groups, with each corresponding  file denoted by one of following prefixes: (1) `sim_dplangevin_`, (2) `dplangevin_` and (3) `langevin_`:
 
