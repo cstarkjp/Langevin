@@ -31,7 +31,7 @@ __all__ = [
 ]
 
 def create_directories(
-        results_path: Sequence = ("..", "Results",), 
+        results_path: Sequence = ("..", "experiments",), 
         results_dir: str = "Demo",
         do_clean: bool=False,
     ) -> str:

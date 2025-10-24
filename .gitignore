@@ -101,3 +101,5 @@ git lfs track "*.pickle"
 
 .autoenv*
 private_readme_install
+
+archive/*

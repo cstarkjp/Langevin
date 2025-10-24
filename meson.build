@@ -15,20 +15,20 @@ add_project_arguments(
 )
 
 cpp_sources = files(
-    'src/langevin_construct_grid.cpp', 
-    'src/langevin_construct_grid1d.cpp', 
-    'src/langevin_construct_grid2d.cpp', 
-    'src/langevin_ic.cpp', 
-    'src/langevin_bc.cpp', 
-    'src/langevin_prepare.cpp', 
-    'src/langevin_integrate_rungekutta.cpp', 
-    'src/langevin_integrate_euler.cpp', 
-    'src/langevin_utilities.cpp', 
-    'src/dp/dplangevin.cpp', 
-    'src/dp/sim_dplangevin.cpp', 
-    'src/dp/sim_dplangevin_private.cpp', 
-    'src/dp/sim_dplangevin_utilities.cpp',
-    'src/dp/wrapper_dplvn.cpp'
+    'cplusplus/langevin_construct_grid.cpp', 
+    'cplusplus/langevin_construct_grid1d.cpp', 
+    'cplusplus/langevin_construct_grid2d.cpp', 
+    'cplusplus/langevin_ic.cpp', 
+    'cplusplus/langevin_bc.cpp', 
+    'cplusplus/langevin_prepare.cpp', 
+    'cplusplus/langevin_integrate_rungekutta.cpp', 
+    'cplusplus/langevin_integrate_euler.cpp', 
+    'cplusplus/langevin_utilities.cpp', 
+    'cplusplus/dp/dplangevin.cpp', 
+    'cplusplus/dp/sim_dplangevin.cpp', 
+    'cplusplus/dp/sim_dplangevin_private.cpp', 
+    'cplusplus/dp/sim_dplangevin_utilities.cpp',
+    'cplusplus/dp/wrapper_dplvn.cpp'
 )
 pybind11_dep = dependency('pybind11')
 

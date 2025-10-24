@@ -1,5 +1,4 @@
-# This file may be used to create a conda environment using:
-#  conda env create --prefix=${HOME}/miniconda3/envs/lvn3p14 --file environment.yml
+# conda env create --prefix=${HOME}/miniconda3/envs/lvn3p14 --file environment.yml
 name: lvn3p14
 channels:
   - conda-forge
@@ -16,3 +15,6 @@ dependencies:
   - pandas
   - tqdm
   - ffmpeg-python  # optional: for video generation of grid image time series
+
+# conda install -c conda-forge mkdocstrings mkdocstrings-python python-markdown-math mdx_gh_links black ruff
+# pip install mkdoxy markdown-captions mkdocs-material mkdocs-bootswatch mkdocs-caption    

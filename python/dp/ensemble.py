@@ -23,7 +23,7 @@ class Ensemble:
     """
     Multiprocessing wrapper class to batch run Langevin integrations.
     """
-     # Test: from [`Viz`][glvn.plot.Viz]
+    # Test: from [`Viz`][lvn.dp.plot.Viz]
     def __init__(
             self, info_path: Sequence[str], do_verbose: bool=False,
         ) -> None:
@@ -83,7 +83,7 @@ class Ensemble:
 
     def create(self) -> None:
         """
-        Generate list of [`Simulation`][glvn.simulation.Simulation] instances.
+        Generate list of [`Simulation`][lvn.dp.simulation.Simulation] instances.
         """
         self.sim_list: list[Simulation] = []
         sim_: Simulation
@@ -120,7 +120,7 @@ class Ensemble:
     def initialize(self) -> None:
         """
         Carry out initialization of each 
-        [`Simulation`][glvn.simulation.Simulation] instance.
+        [`Simulation`][lvn.dp.simulation.Simulation] instance.
         """
         for sim_ in self.sim_list:
             sim_.initialize()
@@ -211,7 +211,7 @@ class Ensemble:
                 (os.path.pardir, *self.info["Misc"]["path"]), ""
             )
         if self.do_verbose:
-            print(f"Results outfo path:  {outfo_path}")
+            print(f"experiments outfo path:  {outfo_path}")
         if not do_dummy:
             _ = export_info(outfo_path, "Outfo", self.info,)
 
