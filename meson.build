@@ -24,11 +24,11 @@ cpp_sources = files(
     'src/langevin_integrate_rungekutta.cpp', 
     'src/langevin_integrate_euler.cpp', 
     'src/langevin_utilities.cpp', 
-    'src/dplangevin.cpp', 
-    'src/sim_dplangevin.cpp', 
-    'src/sim_dplangevin_private.cpp', 
-    'src/sim_dplangevin_utilities.cpp',
-    'src/wrapper_dplvn.cpp'
+    'src/dp/dplangevin.cpp', 
+    'src/dp/sim_dplangevin.cpp', 
+    'src/dp/sim_dplangevin_private.cpp', 
+    'src/dp/sim_dplangevin_utilities.cpp',
+    'src/dp/wrapper_dplvn.cpp'
 )
 pybind11_dep = dependency('pybind11')
 

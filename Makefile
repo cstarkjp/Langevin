@@ -1,7 +1,7 @@
 # Helper makefile
 
-HPP = $(wildcard src/*hpp)
-CPP = $(wildcard src/*cpp)
+HPP = $(wildcard src/*hpp) $(wildcard src/dp/*hpp)
+CPP = $(wildcard src/*cpp) $(wildcard src/dp/*cpp)
 PY = $(wildcard python/*) $(wildcard python/dp/*)
 TESTS = $(wildcard test/*py)
 
