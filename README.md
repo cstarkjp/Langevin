@@ -2,7 +2,7 @@
 
 Tools to integrate Langevin equations of absorbing phase transition (APT) type — with a focus on simulation of directed percolation (DP).
 
-![](https://raw.githubusercontent.com/cstarkjp/Langevin/main/test/density_grid.png
+![](https://raw.githubusercontent.com/cstarkjp/Langevin/main/images/density_grid.png
  "Density grid")
 
 The `lvn` package implements the operator-splitting method originally developed by Dornic et al (2005), Pechenik & Levine (1999) and others, and improved upon by Weissmann et al (2018).
@@ -13,7 +13,7 @@ grid dimension and size, boundary topology (bounded or periodic), boundary condi
 in batches, time-slicing the Langevin field grid, and recording of time-series
 of grid properties.
 
-![](https://raw.githubusercontent.com/cstarkjp/Langevin/main/test/meandensity_time.png
+![](https://raw.githubusercontent.com/cstarkjp/Langevin/main/images/meandensity_time.png
  "Mean density over time")
 
 The equation solved in the demo here is the DP Langevin for a 2D grid with initial values sampled from U[0,1]: 
@@ -34,24 +34,24 @@ See
 
 The structure of the DP/APT Langevin-equation integrator package is broadly as follows 
 (detailed documentation is available 
-[here](https://cstarkjp.github.io/Langevin/annotated.html)).
+[here](https://cstarkjp.github.io/Langevin/doxygen/annotated.html)).
 
-First, there is a wrapper file called [`src/dp/wrapper_dplvn.cpp`](https://github.com/cstarkjp/Langevin/tree/main/src/dp/wrapper_dplvn.cpp) that uses `pybind11` to link the `C++` code to a Python runtime.
+First, there is a wrapper file called [`cplusplus/dp/wrapper_dplvn.cpp`](https://github.com/cstarkjp/Langevin/tree/main/cplusplus/dp/wrapper_dplvn.cpp) that uses `pybind11` to link the `C++` code to a Python runtime.
 
 Next, the code is split into a hierarchy of three groups, with each corresponding  file denoted by one of following prefixes: (1) `sim_dplangevin_`, (2) `dplangevin_` and (3) `langevin_`:
 
-   1.   The [`src/dp/sim_dplangevin_*`](https://github.com/cstarkjp/Langevin/tree/main/src/dp) files provide a `SimDP` class, made available through the wrapper at the Python level, required to manage and execute DP Langevin model integration.  This `SimDP` class instantiates a `Langevin` class integrator to do the hard work of numerical integration of the stochastic differential equation. Langevin field density grids are returned to Python (via the wrapper) as `numpy` arrays
+   1.   The [`cplusplus/dp/sim_dplangevin_*`](https://github.com/cstarkjp/Langevin/tree/main/cplusplus/dp) files provide a `SimDP` class, made available through the wrapper at the Python level, required to manage and execute DP Langevin model integration.  This `SimDP` class instantiates a `Langevin` class integrator to do the hard work of numerical integration of the stochastic differential equation. Langevin field density grids are returned to Python (via the wrapper) as `numpy` arrays
    as are time series of the mean density field and its corresponding epochs.
 
 
-   2. The [`src/dp/dplangevin_*`](https://github.com/cstarkjp/Langevin/tree/main/src/dp) files define this `Langevin` integrator class. They inherit the general `BaseLangevin` integrator class and implement several methods left undefined by that parent; most important, they define methods implementing the particular functional form of the directed-percolation Langevin equation and its corresponding nonlinear, deterministic integration step in the split operator scheme.
+   2. The [`cplusplus/dp/dplangevin_*`](https://github.com/cstarkjp/Langevin/tree/main/cplusplus/dp) files define this `Langevin` integrator class. They inherit the general `BaseLangevin` integrator class and implement several methods left undefined by that parent; most important, they define methods implementing the particular functional form of the directed-percolation Langevin equation and its corresponding nonlinear, deterministic integration step in the split operator scheme.
 
        Other types of absorbing-phase transition-type Langevin equation could be
        implemented with alternate subclasses of `BaseLangevin` and alternate 
        versions of the `SimDP` class.
 
 
-   3. The [`src/langevin_*`](https://github.com/cstarkjp/Langevin/tree/main/src) source files provide the base `BaseLangevin` class that implements the operator-splitting integration method in a fairly general fashion. Grid geometry and topology, boundary conditions, initial conditions, the integration scheme, and a general form of the Langevin equation are all coded here. The core Dornic-style integrator is a heavily altered version of the Villa-Martín and Buendía code.
+   3. The [`cplusplus/langevin_*`](https://github.com/cstarkjp/Langevin/tree/main/cplusplus) source files provide the base `BaseLangevin` class that implements the operator-splitting integration method in a fairly general fashion. Grid geometry and topology, boundary conditions, initial conditions, the integration scheme, and a general form of the Langevin equation are all coded here. The core Dornic-style integrator is a heavily altered version of the Villa-Martín and Buendía code.
 
 
 ## Installation
@@ -82,7 +82,7 @@ If your platform is not explicitly supported with a pre-built binary, the follow
 Be aware that this takes a **long** time, because it recompiles pretty much everything needed.
     
 The package can also be built "by hand."
-Some build info is provided in [`src/`](https://github.com/cstarkjp/Langevin/tree/main/src/README.md) directory. The build system is [meson-python](https://mesonbuild.com/meson-python/), using [pybind11](https://pybind11.readthedocs.io/en/stable/) as the C++ wrapper. 
+Some build info is provided in [`cplusplus/`](https://github.com/cstarkjp/Langevin/tree/main/cplusplus/README.md) directory. The build system is [meson-python](https://mesonbuild.com/meson-python/), using [pybind11](https://pybind11.readthedocs.io/en/stable/) as the C++ wrapper. 
 
 
 ## Usage
