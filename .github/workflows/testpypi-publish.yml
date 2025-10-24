@@ -8,8 +8,8 @@ on:
     types: [published]
   push:
     branches:
-      # - main
-      - none
+      - main
+      # - none
 
 permissions:
   contents: read
@@ -38,51 +38,51 @@ jobs:
           name: macos-14-dist
           path: dist/
 
-  build-macos-15:
-    runs-on: macos-15
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+  # build-macos-15:
+  #   runs-on: macos-15
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: actions/setup-python@v5
+  #       with:
+  #         python-version: "3.12"
           
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install build
+  #     - name: Install dependencies
+  #       run: |
+  #         python -m pip install --upgrade pip
+  #         python -m pip install build
           
-      - name: Build package
-        run: |
-          python -m build
+  #     - name: Build package
+  #       run: |
+  #         python -m build
           
-      - name: Upload distribution
-        uses: actions/upload-artifact@v4
-        with:
-          name: macos-15-dist
-          path: dist/
+  #     - name: Upload distribution
+  #       uses: actions/upload-artifact@v4
+  #       with:
+  #         name: macos-15-dist
+  #         path: dist/
 
-  build-macos-latest:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+  # build-macos-latest:
+  #   runs-on: macos-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: actions/setup-python@v5
+  #       with:
+  #         python-version: "3.12"
           
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install build
+  #     - name: Install dependencies
+  #       run: |
+  #         python -m pip install --upgrade pip
+  #         python -m pip install build
           
-      - name: Build package
-        run: |
-          python -m build
+  #     - name: Build package
+  #       run: |
+  #         python -m build
           
-      - name: Upload distribution
-        uses: actions/upload-artifact@v4
-        with:
-          name: macos-latest-dist
-          path: dist/
+  #     - name: Upload distribution
+  #       uses: actions/upload-artifact@v4
+  #       with:
+  #         name: macos-latest-dist
+  #         path: dist/
 
   build-linux:
     runs-on: ubuntu-latest
@@ -136,8 +136,8 @@ jobs:
   publish-to-testpypi:
     needs: [
       build-macos-14, 
-      build-macos-15, 
-      build-macos-latest, 
+      # build-macos-15, 
+      # build-macos-latest, 
       build-linux,
       # build-windows, 
     ]
@@ -149,16 +149,16 @@ jobs:
         with:
           name: macos-14-dist
           path: dist/
-      - name: Retrieve macos-15 artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: macos-15-dist
-          path: dist/
-      - name: Retrieve macos artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: macos-latest-dist
-          path: dist/
+      # - name: Retrieve macos-15 artifact
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: macos-15-dist
+      #     path: dist/
+      # - name: Retrieve macos artifact
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: macos-latest-dist
+      #     path: dist/
       - name: Retrieve linux artifact
         uses: actions/download-artifact@v4
         with:
