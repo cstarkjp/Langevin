@@ -17,7 +17,7 @@
 
         pip install -i https://test.pypi.org/simple/ lvn --upgrade
 
-3. Clone the [`lvn.dp` repo](https://github.com/cstarkjp/Langevin/tree/main) to your local machine:
+3. Clone the [Langevin repo](https://github.com/cstarkjp/Langevin/tree/main) to your local machine:
 
         git clone https://github.com/cstarkjp/Langevin.git
 
