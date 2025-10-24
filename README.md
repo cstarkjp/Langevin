@@ -1,14 +1,13 @@
 # Langevin
-## Operator-splitting method for integrating APT Langevin equations
 
-`lvn` is a Python/C++ package that provides tools to integrate 
+This Python/C++ package (`lvn`) provides tools to integrate 
 Langevin equations representing absorbing phase transitions (APT). 
 Its main focus at present is the simulation of directed percolation (DP).
 
 ![](https://raw.githubusercontent.com/cstarkjp/Langevin/main/test/density_grid.png
  "Density grid")
 
-The package implements the operator-splitting method originally developed by Dornic et al (2005), Pechenik & Levine (1999) and others, and improved upon by Weissmann et al (2018).
+The `lvn` package implements the operator-splitting method originally developed by Dornic et al (2005), Pechenik & Levine (1999) and others, and improved upon by Weissmann et al (2018).
 It provides a Python wrapper around core C++ heavily adapted from a code base written by [Paula Villa Martín](https://github.com/pvillamartin), extended by [Victor Buendía](https://github.com/VictorSeven) ("VMB"), and arising from earlier efforts by Ivan Dornic and Juan Bonachela. The wrapper provides easy access to the Langevin integrator, and broad opportunity to experiment, adapt, and extend it further. 
 
 The current C++ implementation extends the VMB code to allow run-time specification of 
@@ -33,7 +32,7 @@ See
 [Victor Buendía's fork of Paula Villa Martín's repo](https://github.com/VictorSeven/Dornic_et_al_integration_class/tree/victor-update)
  for details on more general applications and on how the integration scheme is implemented.
 
-## Program design
+## Design of `lvn` package
 
 The structure of the DP/APT Langevin-equation integrator package is broadly as follows 
 (detailed documentation is available 
