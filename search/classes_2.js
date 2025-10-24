@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dplangevin_0',['DPLangevin',['../classDPLangevin.html',1,'']]]
+  ['parameters_0',['Parameters',['../structParameters.html',1,'']]]
 ];

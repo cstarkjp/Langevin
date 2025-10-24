@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nonlinear_5frhs_0',['nonlinear_rhs',['../classDPLangevin.html#a2739bf17103f22840b99cee9b1d9092b',1,'DPLangevin::nonlinear_rhs()'],['../classBaseLangevin.html#a2de82e54eb1098353615261ff681d4e6',1,'BaseLangevin::nonlinear_rhs()']]]
+  ['prepare_0',['prepare',['../classBaseLangevin.html#ae3dd30948355470e39e71f077f5acb36',1,'BaseLangevin']]]
 ];

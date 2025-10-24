@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['gamma_5fsampler_0',['gamma_sampler',['../classBaseLangevin.html#aef82bd8912e1899aee057fd07064a722',1,'BaseLangevin']]],
-  ['gaussian_5fsampler_1',['gaussian_sampler',['../classBaseLangevin.html#ac3bdb408f6ce4de3156274e18bff9a8d',1,'BaseLangevin']]],
-  ['grid_5fwiring_2',['grid_wiring',['../classBaseLangevin.html#aa76f81c2fd8eb13da2f25c17cd6424f4',1,'BaseLangevin']]]
+  ['k1_5fgrid_0',['k1_grid',['../classBaseLangevin.html#ac7e29d9da1474a95cc33b172711d8075',1,'BaseLangevin']]],
+  ['k2_5fgrid_1',['k2_grid',['../classBaseLangevin.html#ae90291c345f2e38d7cf9a2ade6ccd7cd',1,'BaseLangevin']]],
+  ['k3_5fgrid_2',['k3_grid',['../classBaseLangevin.html#af1e69fe1571999dc28977505b86f3fce',1,'BaseLangevin']]]
 ];

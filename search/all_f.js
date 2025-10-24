@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['references_0',['References',['../md_README.html#autotoc_md6',1,'']]],
-  ['rng_1',['rng',['../classSimDP.html#ae45f23d880b71cf41ba5a6f1f489b236',1,'SimDP']]],
-  ['rng_5ft_2',['rng_t',['../langevin__types_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56',1,'langevin_types.hpp']]],
-  ['run_3',['run',['../classSimDP.html#a1373e7e03fbe12b058fa9011839ffc19',1,'SimDP']]]
+  ['set_5fnonlinear_5fcoefficients_0',['set_nonlinear_coefficients',['../classBaseLangevin.html#adfcbb53015503e909b0b2c2b5549ae5b',1,'BaseLangevin']]],
+  ['source_1',['Build from source',['../md_README.html#autotoc_md4',1,'']]],
+  ['splitting_20method_20for_20integrating_20apt_20langevin_20equations_2',['Operator-splitting method for integrating APT Langevin equations',['../md_README.html#autotoc_md1',1,'']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['quadratic_5fcoefficient_0',['quadratic_coefficient',['../classDPLangevin.html#a8723c4f8234d74fc47b8dbf237bd1687',1,'DPLangevin']]]
+  ['references_0',['References',['../md_README.html#autotoc_md6',1,'']]],
+  ['rng_5ft_1',['rng_t',['../langevin__types_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56',1,'langevin_types.hpp']]]
 ];

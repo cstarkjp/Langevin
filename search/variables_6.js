@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['lambda_0',['lambda',['../classBaseLangevin.html#a188d74016c9ad9cd915fc385476720a0',1,'BaseLangevin']]],
-  ['lambda_5fon_5fexplcdt_1',['lambda_on_explcdt',['../classBaseLangevin.html#a2b04a9ba2f607d81d061c3039ab5e65c',1,'BaseLangevin']]],
-  ['linear_5fcoefficient_2',['linear_coefficient',['../classBaseLangevin.html#a4c159e8f3feba3731a2c9ed752320156',1,'BaseLangevin']]]
+  ['n_5fcells_0',['n_cells',['../classBaseLangevin.html#a22830e75995d3d0bf5405dd18912fa46',1,'BaseLangevin']]],
+  ['noise_5fcoefficient_1',['noise_coefficient',['../classBaseLangevin.html#a31e32de62ececd446824b3a413254f28',1,'BaseLangevin']]]
 ];
