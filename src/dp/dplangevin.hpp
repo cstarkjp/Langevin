@@ -6,8 +6,8 @@
 #ifndef DPLANGEVIN_HPP
 #define DPLANGEVIN_HPP
 
-#include "langevin_types.hpp"
-#include "langevin_base.hpp"
+#include "../langevin_types.hpp"
+#include "../langevin_base.hpp"
 
 /**
  * @brief DPLangevin model application of BaseLangevin class integrator.
