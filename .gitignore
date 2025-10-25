@@ -103,4 +103,4 @@ git lfs track "*.pickle"
 private_readme_install
 
 archive/*
-test/*png
+tests/*png
