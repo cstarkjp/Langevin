@@ -9,7 +9,7 @@ requires = ["meson-python", "wheel", "pybind11", "ninja", "numpy"]
 
 [project]
 name = 'lvn'
-version = '2025.10.24a4'
+version = '2025.10.24a5'
 # dynamic = ["version"]
 description = 'Integration of Langevin equations representing absorbing phase transitions'
 readme = 'README.md'
