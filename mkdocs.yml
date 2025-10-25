@@ -23,9 +23,11 @@ plugins:
 
 nav:
     - Home: index.md
+    - Navigation: navigation.md
     - Software design: design.md
     - How to install: installation.md
     - How to run: run.md
+    - Tests: tests-reference.md
     - Simulation tools:
       - Notebooks:
           - DPEnsemble.ipynb: DPEnsemble-ipynb-reference.md
@@ -57,18 +59,17 @@ extra_javascript:
   - javascripts/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
   
-
 plugins:
 - search
 - autorefs  
 - caption
-
 - mkdocstrings:
     handlers:
       python:
 
         # Where to find your sources, see "Finding modules".
-        paths: [src]
+        paths: [python, tests]
+        # paths_recursive: true
 
         # Load object inventories to enable cross-references to other projects.
         inventories:
