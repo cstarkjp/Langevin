@@ -1117,24 +1117,25 @@
 
 
 <h1 id="design-of-lvn-package">Design of <code>lvn</code> package</h1>
-<p>The structure of the DP/APT Langevin-equation integrator package is broadly as follows 
-(detailed documentation is available 
-<a href="https://cstarkjp.github.io/Langevin/doxygen/annotated.html">here</a>).</p>
-<p>First, there is a wrapper file called <a href="https://github.com/cstarkjp/Langevin/tree/main/cplusplus/dp/wrapper_dplvn.cpp"><code>cplusplus/dp/wrapper_dplvn.cpp</code></a> that uses <code>pybind11</code> to link the <code>C++</code> code to a Python runtime.</p>
-<p>Next, the code is split into a hierarchy of three groups, with each corresponding  file denoted by one of following prefixes: (1) <code>sim_dplangevin_</code>, (2) <code>dplangevin_</code> and (3) <code>langevin_</code>:</p>
+<p>The structure of the DP/APT Langevin-equation integrator package is broadly as described below. 
+Detailed documentation is available 
+<a href="https://cstarkjp.github.io/Langevin/doxygen/annotated.html">here</a>. 
+The C++ code base is to be found <a href="https://github.com/cstarkjp/Langevin/tree/main/cplusplus">here</a> and the Python wrapper code is located <a href="https://github.com/cstarkjp/Langevin/tree/main/python">here</a>.</p>
+<p>First, there is a wrapper file called <a href="https://cstarkjp.github.io/Langevin/doxygen/wrapper__dplvn_8cpp.html"><code>cplusplus/dp/wrapper_dplvn.cpp</code></a> that uses <a href="https://pybind11.readthedocs.io/en/stable/"><code>pybind11</code></a> to link the <a href="https://cstarkjp.github.io/Langevin/cplusplus/"><code>C++</code> code</a> to a Python runtime.</p>
+<p>Next, the code is split into a hierarchy of three groups, with each corresponding  file denoted by one of following prefixes: (1) <a href="https://cstarkjp.github.io/Langevin/doxygen/dir_29b47bf0c8dc04d64d9bcc2119390c05.html"><code>sim_dplangevin_</code></a>, (2) <a href="https://cstarkjp.github.io/Langevin/doxygen/dir_29b47bf0c8dc04d64d9bcc2119390c05.html"><code>dplangevin_</code></a> and (3) <a href="https://cstarkjp.github.io/Langevin/doxygen/dir_413eba86a22d58dd6c01dd4edd69cedc.html"><code>langevin_</code></a>:</p>
 <ol>
 <li>
-<p>The <a href="https://github.com/cstarkjp/Langevin/tree/main/cplusplus/dp"><code>cplusplus/dp/sim_dplangevin_*</code></a> files provide a <code>SimDP</code> class, made available through the wrapper at the Python level, required to manage and execute DP Langevin model integration.  This <code>SimDP</code> class instantiates a <code>Langevin</code> class integrator to do the hard work of numerical integration of the stochastic differential equation. Langevin field density grids are returned to Python (via the wrapper) as <code>numpy</code> arrays
+<p>The <a href="https://cstarkjp.github.io/Langevin/doxygen/dir_29b47bf0c8dc04d64d9bcc2119390c05.html"><code>cplusplus/dp/sim_dplangevin_*</code></a> files provide a <a href="https://cstarkjp.github.io/Langevin/doxygen/class_sim_d_p.html"><code>SimDP</code> class</a>, made available through the wrapper at the Python level, required to manage and execute DP Langevin model integration.  This <a href="https://cstarkjp.github.io/Langevin/doxygen/class_sim_d_p.html"><code>SimDP</code> class</a> instantiates a <a href="https://cstarkjp.github.io/Langevin/doxygen/class_d_p_langevin.html"><code>DPLangevin</code> class integrator</a> to do the hard work of numerical integration of the stochastic differential equation. Langevin field density grids are returned to Python <a href="https://cstarkjp.github.io/Langevin/doxygen/wrapper__dplvn_8cpp.html">(via the wrapper)</a> as <code>numpy</code> arrays,
    as are time series of the mean density field and its corresponding epochs.</p>
 </li>
 <li>
-<p>The <a href="https://github.com/cstarkjp/Langevin/tree/main/cplusplus/dp"><code>cplusplus/dp/dplangevin_*</code></a> files define this <code>Langevin</code> integrator class. They inherit the general <code>BaseLangevin</code> integrator class and implement several methods left undefined by that parent; most important, they define methods implementing the particular functional form of the directed-percolation Langevin equation and its corresponding nonlinear, deterministic integration step in the split operator scheme.</p>
+<p>The <a href="https://cstarkjp.github.io/Langevin/doxygen/dir_29b47bf0c8dc04d64d9bcc2119390c05.html"><code>cplusplus/dp/dplangevin_*</code></a> files define this <a href="https://cstarkjp.github.io/Langevin/doxygen/class_d_p_langevin.html"><code>DPLangevin</code> integrator class</a>. They inherit the general <a href="https://cstarkjp.github.io/Langevin/doxygen/class_base_langevin.html"><code>BaseLangevin</code> integrator class</a>  and implement several methods left undefined by that parent; most important, they define methods implementing the particular functional form of the directed-percolation Langevin equation and its corresponding nonlinear, deterministic integration step in the split operator scheme.</p>
 <p>Other types of absorbing-phase transition-type Langevin equation could be
-   implemented with alternate subclasses of <code>BaseLangevin</code> and alternate 
-   versions of the <code>SimDP</code> class.</p>
+   implemented with alternate subclasses of <a href="https://cstarkjp.github.io/Langevin/doxygen/class_base_langevin.html"><code>BaseLangevin</code></a> and alternate 
+   versions of the <a href="https://cstarkjp.github.io/Langevin/doxygen/class_sim_d_p.html"><code>SimDP</code> class</a>.</p>
 </li>
 <li>
-<p>The <a href="https://github.com/cstarkjp/Langevin/tree/main/cplusplus"><code>cplusplus/langevin_*</code></a> source files provide the base <code>BaseLangevin</code> class that implements the operator-splitting integration method in a fairly general fashion. Grid geometry and topology, boundary conditions, initial conditions, the integration scheme, and a general form of the Langevin equation are all coded here. The core Dornic-style integrator is a heavily altered version of the Villa-Martín and Buendía code.</p>
+<p>The <a href="https://cstarkjp.github.io/Langevin/doxygen/dir_413eba86a22d58dd6c01dd4edd69cedc.html"><code>cplusplus/langevin_*</code></a> source files provide the base <a href="https://cstarkjp.github.io/Langevin/doxygen/class_base_langevin.html"><code>BaseLangevin</code> class</a> that implements the operator-splitting integration method in a fairly general fashion. Grid geometry and topology, boundary conditions, initial conditions, the integration scheme, and a general form of the Langevin equation are all coded here. The core Dornic-style integrator is a heavily altered version of the <a href="../references/">Villa-Martín and Buendía code</a>.</p>
 </li>
 </ol>
 
