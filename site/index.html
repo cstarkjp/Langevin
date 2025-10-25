@@ -1115,10 +1115,9 @@
 
 
 <h1 id="langevin">Langevin</h1>
-<p><em>Tools for integrating DP and other APT-type Langevin equations.</em></p>
-<p>Software to integrate the evolving density field described by Langevin equations of absorbing phase transition (APT) type — with a focus on simulation of directed percolation (DP) — using the operator-splitting method originated largely by <a href="references/">Dornic et al (2005)</a>. Implemented as a Python package <code>lvn</code> with a C++ core, a set of Jupyter notebooks, and related Python scripts.</p>
-<p><figure id="_figure-1"><img alt="Plot of grid-averaged density \(\overline{\rho}(t)\) versus time, for an ensemble of simulations with \(a\) taking values ranging symmetrically about criticality \(a_c \approx 1.8857\) by up to \(\Delta{a}=\pm 0.01\):" src="images/%CF%81_t_loglog.png"><figcaption>Figure 1: Plot of grid-averaged density \(\overline{\rho}(t)\) versus time, for an ensemble of simulations with \(a\) taking values ranging symmetrically about criticality \(a_c \approx 1.8857\) by up to \(\Delta{a}=\pm 0.01\):</figcaption></figure></p>
-<p>The directed-percolation (DP) Langevin equation is:
+<p><em>Tools for integrating APT-type Langevin equations.</em></p>
+<p>The package <code>lvn</code> provides software tools to help integrate the evolving density field described by Langevin equations of absorbing phase transition (APT) type.
+Directed percolation is the type-example of such an absorbing phase transition. Its Langevin equation is:
 $$
     \partial_t\rho
     =
@@ -1130,7 +1129,9 @@ $$
     +
     \eta\sqrt{\rho}\,\xi
 $$
-which describes a field <span class="arithmatex">\(\rho(\mathbf{x},t)\)</span> evolving nonlinearly (with coefficients <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span>) subject to diffusion (with rate <span class="arithmatex">\(D\)</span>) and multiplicative white noise <span class="arithmatex">\(\sqrt{\rho}\,\xi(\mathbf{x},t)\)</span> (with amplitude <span class="arithmatex">\(\eta\)</span>).</p>
+which describes a fluctuating meso-scale field <span class="arithmatex">\(\rho(\mathbf{x},t)\)</span> evolving nonlinearly (with coefficients <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span>) subject to diffusion (with rate <span class="arithmatex">\(D\)</span>) and multiplicative white noise <span class="arithmatex">\(\sqrt{\rho}\,\xi(\mathbf{x},t)\)</span> (with amplitude <span class="arithmatex">\(\eta\)</span>).</p>
+<p><figure id="_figure-1"><img alt="Plot of grid-averaged density \(\overline{\rho}(t)\) versus time, for an ensemble of simulations with \(a\) taking values ranging symmetrically about criticality \(a_c \approx 1.8857\) by up to \(\Delta{a}=\pm 0.01\):" src="images/%CF%81_t_loglog_reduced.png"><figcaption>Figure 1: Plot of grid-averaged density \(\overline{\rho}(t)\) versus time, for an ensemble of simulations with \(a\) taking values ranging symmetrically about criticality \(a_c \approx 1.8857\) by up to \(\Delta{a}=\pm 0.01\):</figcaption></figure></p>
+<p>The <code>lvn</code> Langevin integrator employs the operator-splitting method originated largely by <a href="references/">Dornic et al (2005)</a>. The software tools are implemented as a <code>pip</code>-installable Python package with a C++ core, a set of Jupyter notebooks, and related Python scripts.</p>
 
 
 
