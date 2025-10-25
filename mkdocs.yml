@@ -26,8 +26,8 @@ nav:
     - Navigation: navigation.md
     - Software design: design.md
     - How to install: installation.md
-    - How to run: run.md
     - Tests: tests-reference.md
+    - How to run: run.md
     - Simulation tools:
       - Notebooks:
           - DPEnsemble.ipynb: DPEnsemble-ipynb-reference.md
@@ -45,6 +45,7 @@ nav:
         - plot.py: plot-reference.md
         - utils.py: utils-reference.md
     - C++ source: cplusplus.md
+    - References: references.md
 
 # https://analog-garage.github.io/mkdocstrings-python-xref/latest/
 # https://github.com/mkdocstrings/autorefs
