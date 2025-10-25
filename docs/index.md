@@ -1,4 +1,4 @@
-# **Langevin**: the `lvn` software package
+# **Langevin**: the [`lvn` software package](https://test.pypi.org/project/lvn/)
 
 ###  _Tools for integrating APT-type Langevin equations._
 
