@@ -57,7 +57,7 @@ Next, the code is split into a hierarchy of three groups, with each correspondin
 ## Installation
 
 At minimum, you will need Python≥3.12 and the package `pybind11` to allow installation of
-`lvn`. To run the demos, you will also need `numpy`, `matplotlib`, `jupyter`, `ipython`, along with `pandas`, `tqdm`, and optionally `ffmpeg-python` (to generate videos from image file sequences).
+`lvn`; current development uses Python 3.14. To run the demos, you will also need `numpy`, `matplotlib`, `jupyter`, `ipython`, along with `pandas`, `tqdm`, and optionally `ffmpeg-python` (to generate videos from image file sequences). If you want to build locally, you will also need `meson-python`, `wheel`, `pybind11`, and `ninja`.
 
 If you use `conda` or `miniconda`, take a look at the `environment.yml` file and use it to set up a suitable Python environment. If you prefer to use `pip`, you will have to  install the requisite packages by hand.
 
