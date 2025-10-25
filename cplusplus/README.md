@@ -13,12 +13,12 @@ or just build and _not_ deploy:
 
     rm -rf build; meson setup build; meson compile -C build   
 
-Then, test your build/deployment using the Python script and Jupyter notebook in `test/`. See the
-[README](https://github.com/cstarkjp/Langevin/tree/main/test/README.md) there for more details. 
+Then, test your build/deployment using the Python script and Jupyter notebook in `tests/`. See the
+[README](https://github.com/cstarkjp/Langevin/tree/main/tests/README.md) there for more details. 
 
 If you choose to build the `lvn` package and subsequently use it in-place, without deployment, you will need something like the following in all your Python scripts:
 
     import sys, os
     sys.path.insert(0, os.path.join(os.path.pardir, "build"))
 
-Here, the assumption is you're running the script from a directory parallel with `build/`, such as in `test/`.
+Here, the assumption is you're running the script from a directory parallel with `build/`, such as in `tests/`.

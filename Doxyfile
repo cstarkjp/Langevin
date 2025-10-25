@@ -169,7 +169,7 @@ FILE_PATTERNS          = *.c \
                          *.qsf \
                          *.ice
 RECURSIVE              = NO
-EXCLUDE                = test/initialize.py
+EXCLUDE                = tests/initialize.py
 EXCLUDE_SYMLINKS       = NO
 EXCLUDE_PATTERNS       =
 EXCLUDE_SYMBOLS        =
