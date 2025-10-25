@@ -3,7 +3,7 @@
 HPP = $(wildcard src/*hpp) $(wildcard src/dp/*hpp)
 CPP = $(wildcard src/*cpp) $(wildcard src/dp/*cpp)
 PY = $(wildcard python/*) $(wildcard python/dp/*)
-TESTS = $(wildcard test/*py)
+TESTS = $(wildcard tests/*py)
 
 # Build everything (Python package, docs) and deploy pkg
 .PHONY: all
