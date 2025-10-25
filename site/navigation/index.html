@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../navigation/">
+        <link rel="prev" href="..">
       
       
-        <link rel="next" href="../installation/">
+        <link rel="next" href="../design/">
       
       
       <link rel="icon" href="../images/DP1.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Software design - lvn</title>
+        <title>Navigation - lvn</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#design-of-lvn-package" class="md-skip">
+        <a href="#navigation" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Software design
+              Navigation
             
           </span>
         </div>
@@ -187,9 +187,11 @@
   
   
   
+    
   
-    <li class="md-tabs__item">
-      <a href="../navigation/" class="md-tabs__link">
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
         
   
   
@@ -206,11 +208,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../design/" class="md-tabs__link">
         
   
   
@@ -407,28 +407,6 @@
       
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../navigation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Navigation
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
     
   
   
@@ -446,13 +424,35 @@
   
   
   <span class="md-ellipsis">
-    Software design
+    Navigation
     
   </span>
   
 
       </a>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Software design
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1075,27 +1075,14 @@
 
 
 
-<h1 id="design-of-lvn-package">Design of <code>lvn</code> package</h1>
-<p>The structure of the DP/APT Langevin-equation integrator package is broadly as follows 
-(detailed documentation is available 
-<a href="https://cstarkjp.github.io/Langevin/doxygen/annotated.html">here</a>).</p>
-<p>First, there is a wrapper file called <a href="https://github.com/cstarkjp/Langevin/tree/main/cplusplus/dp/wrapper_dplvn.cpp"><code>cplusplus/dp/wrapper_dplvn.cpp</code></a> that uses <code>pybind11</code> to link the <code>C++</code> code to a Python runtime.</p>
-<p>Next, the code is split into a hierarchy of three groups, with each corresponding  file denoted by one of following prefixes: (1) <code>sim_dplangevin_</code>, (2) <code>dplangevin_</code> and (3) <code>langevin_</code>:</p>
-<ol>
-<li>
-<p>The <a href="https://github.com/cstarkjp/Langevin/tree/main/cplusplus/dp"><code>cplusplus/dp/sim_dplangevin_*</code></a> files provide a <code>SimDP</code> class, made available through the wrapper at the Python level, required to manage and execute DP Langevin model integration.  This <code>SimDP</code> class instantiates a <code>Langevin</code> class integrator to do the hard work of numerical integration of the stochastic differential equation. Langevin field density grids are returned to Python (via the wrapper) as <code>numpy</code> arrays
-   as are time series of the mean density field and its corresponding epochs.</p>
-</li>
-<li>
-<p>The <a href="https://github.com/cstarkjp/Langevin/tree/main/cplusplus/dp"><code>cplusplus/dp/dplangevin_*</code></a> files define this <code>Langevin</code> integrator class. They inherit the general <code>BaseLangevin</code> integrator class and implement several methods left undefined by that parent; most important, they define methods implementing the particular functional form of the directed-percolation Langevin equation and its corresponding nonlinear, deterministic integration step in the split operator scheme.</p>
-<p>Other types of absorbing-phase transition-type Langevin equation could be
-   implemented with alternate subclasses of <code>BaseLangevin</code> and alternate 
-   versions of the <code>SimDP</code> class.</p>
-</li>
-<li>
-<p>The <a href="https://github.com/cstarkjp/Langevin/tree/main/cplusplus"><code>cplusplus/langevin_*</code></a> source files provide the base <code>BaseLangevin</code> class that implements the operator-splitting integration method in a fairly general fashion. Grid geometry and topology, boundary conditions, initial conditions, the integration scheme, and a general form of the Langevin equation are all coded here. The core Dornic-style integrator is a heavily altered version of the Villa-Martín and Buendía code.</p>
-</li>
-</ol>
+<h1 id="navigation">Navigation</h1>
+<p><a href="../installation/">Installation notes are available here</a> and via the "How to install" sidebar menu item.</p>
+<p><a href="../run/">Rough notes on how to run simulations are available here</a> and via the "How to run" menu item. </p>
+<p>Simple test scripts are provided under <a href="../tests-reference/"><code>Tests</code></a> via in the sidebar/menu .</p>
+<p>Head to the links under  "Simulation tools" for more complete examples. </p>
+<p>The key driver of a simulation is the <a href="../info-reference/"><code>Info.json</code></a> file; care must be taken to match their implied "job name" with their parent folder name.</p>
+<p>Refer to the links under "Python modules" to see documentation of the <code>lvn</code> Python package. The underlying <code>C++</code> core is documented under "C++ source" using <code>Doxygen</code>.</p>
+<p><code>lvn</code> relies heavily on the C++ based Python library <code>dpvln</code>, which is currently only available on TestPyPI at <a href="https://test.pypi.org/project/dplvn/">https://test.pypi.org/project/dplvn/</a> and documented at <a href="https://cstarkjp.github.io/DPLangevin/md_README.html">https://cstarkjp.github.io/DPLangevin/md_README.html</a></p>
 
 
 
