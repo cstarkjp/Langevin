@@ -2,8 +2,8 @@
 
 ###  _Tools for integrating APT-type Langevin equations._
 
-The `lvn`  package provides software tools to help integrate the evolving density field described by Langevin equations of absorbing phase transition (APT) type.
-Directed percolation (DP) is the _type-example_ of such an absorbing phase transition; its Langevin equation is:
+The  [`lvn` package ](https://test.pypi.org/project/lvn/) provides software tools to help integrate a time-dependent density field described by Langevin equations of absorbing phase transition (APT) type.
+[Directed percolation (DP)](references.md) is the _type-example_ of such an absorbing phase transition — its Langevin equation is:
 $$
     \partial_t\rho
     =
@@ -19,6 +19,6 @@ where $\rho(\mathbf{x},t)$ is a fluctuating meso-scale field  evolving nonlinear
 
 ![Plot of grid-averaged density $\overline{\rho}(t)$ versus time, for an ensemble of simulations with $a$ taking values ranging symmetrically about criticality $a_c \approx 1.8857$ by up to $\Delta{a}=\pm 0.01$:](images/ρ_t_loglog_reduced.png)
 
-The `lvn` Langevin integrator employs the operator-splitting method originated largely by [Dornic et al (2005)](references.md). The software tools are implemented as a `pip`-installable Python package with a C++ core, a set of Jupyter notebooks, and related Python scripts.
+The `lvn` Langevin integrator employs the operator-splitting method originated largely by [Dornic et al (2005)](references.md). The software tools are implemented as a [`pip`-installable Python package](https://test.pypi.org/project/lvn/) with a C++ core, a set of [Jupyter notebooks](https://github.com/cstarkjp/Langevin/tree/main/simulation), and related [Python scripts](https://github.com/cstarkjp/Langevin/tree/main/python/dp).
 
 
