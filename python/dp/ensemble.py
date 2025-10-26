@@ -2,6 +2,7 @@
 Ensemble simulation of Langevin eqn evolution.
 """
 import warnings
+from typing import Any
 from collections.abc import Callable, Sequence
 from multiprocessing.pool import Pool as Pool
 from multiprocessing import cpu_count
@@ -9,10 +10,12 @@ from copy import deepcopy
 import numpy as np
 from numpy.typing import NDArray
 import os
+from lvn.file import (
+    create_directories, export_info, read_info, export_plots
+)
+from lvn.dp import dplvn
 from lvn.dp.simulation import Simulation
-from lvn.file import create_directories, export_info, read_info, export_plots
 from lvn.dp.vizdp import VizDP #type: ignore
-from lvn.dp.serialize import from_serializable, to_serializable
 
 warnings.filterwarnings("ignore")
 
@@ -37,7 +40,7 @@ class Ensemble:
                 flag whether to use `tqdm` progress bar, and report operations
         """
         self.info: dict
-        _, self.info = read_info(info_path, from_serializable)
+        _, self.info = read_info(info_path, dplvn)
         self.info["Misc"]["path"] = info_path
         self.do_verbose =  do_verbose
         if do_verbose:
@@ -196,7 +199,7 @@ class Ensemble:
         for sim_ in self.sim_list:
             sim_.plot()
 
-    def save(self, do_dummy: bool=False,) -> None:
+    def save(self, module: Any, do_dummy: bool=False,) -> None:
         """
         Export Outfo.json, graphs, and data files.
 
@@ -213,7 +216,7 @@ class Ensemble:
         if self.do_verbose:
             print(f"experiments outfo path:  {outfo_path}")
         if not do_dummy:
-            _ = export_info(outfo_path, "Outfo", self.info, to_serializable)
+            _ = export_info(outfo_path, "Outfo", self.info, module,)
 
         graphs_path: str = \
             create_directories(
@@ -248,5 +251,5 @@ class Ensemble:
 
         if self.info["Misc"]["do_export_data"]:
             for (i_, sim_) in enumerate(self.sim_list):
-                sim_.save(do_dummy, do_verbose=True,)
+                sim_.save(dplvn, do_dummy, do_verbose=True,)
 

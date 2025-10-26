@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../ensemble-reference/">
+        <link rel="prev" href="../initialize-reference/">
       
       
-        <link rel="next" href="../simulation-reference/">
+        <link rel="next" href="../utils-reference/">
       
       
       <link rel="icon" href="../images/DP1.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>dp/serialize.py - lvn</title>
+        <title>serialize.py - lvn</title>
       
     
     
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              dp/serialize.py
+              serialize.py
             
           </span>
         </div>
@@ -227,7 +227,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../installation/" class="md-tabs__link">
+      <a href="../how-to-install/" class="md-tabs__link">
         
   
   
@@ -265,7 +265,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../run/" class="md-tabs__link">
+      <a href="../how-to-run/" class="md-tabs__link">
         
   
   
@@ -293,7 +293,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../DPEnsemble-ipynb-reference/" class="md-tabs__link">
+        <a href="../dp-Ensemble-ipynb-reference/" class="md-tabs__link">
           
   
   
@@ -473,7 +473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../installation/" class="md-nav__link">
+      <a href="../how-to-install/" class="md-nav__link">
         
   
   
@@ -517,7 +517,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../run/" class="md-nav__link">
+      <a href="../how-to-run/" class="md-nav__link">
         
   
   
@@ -621,12 +621,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../DPEnsemble-ipynb-reference/" class="md-nav__link">
+      <a href="../dp-Ensemble-ipynb-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    DPEnsemble.ipynb
+    dp/Ensemble.ipynb
     
   </span>
   
@@ -644,12 +644,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../DPSimulation-ipynb-reference/" class="md-nav__link">
+      <a href="../dp-Simulation-ipynb-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    DPSimulation.ipynb
+    dp/Simulation.ipynb
     
   </span>
   
@@ -667,12 +667,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../DPSimulationDirect-ipynb-reference/" class="md-nav__link">
+      <a href="../dp-SimulationDirect-ipynb-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    DPSimulationDirect.ipynb
+    dp/SimulationDirect.ipynb
     
   </span>
   
@@ -739,12 +739,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../DPBatchEnsemble-py-reference/" class="md-nav__link">
+      <a href="../dp-BatchEnsemble-py-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    DPBatchEnsemble.py
+    dp/BatchEnsemble.py
     
   </span>
   
@@ -918,12 +918,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../image-reference/" class="md-nav__link">
+      <a href="../initialize-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    image.py
+    initialize.py
     
   </span>
   
@@ -938,20 +938,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../initialize-reference/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
-    initialize.py
+    serialize.py
     
   </span>
   
 
       </a>
+      
     </li>
   
 
@@ -1030,39 +1040,6 @@
                 
   
   
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    dp/serialize.py
-    
-  </span>
-  
-
-      </a>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
   
   
     <li class="md-nav__item">
@@ -1072,29 +1049,6 @@
   
   <span class="md-ellipsis">
     dp/simulation.py
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../title-reference/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    dp/title.py
     
   </span>
   
@@ -1219,12 +1173,91 @@
 <div class="doc doc-object doc-function">
 
 
-<h1 id="lvn.dp.serialize.from_serializable" class="doc doc-heading">
+<h1 id="lvn.serialize.is_serializable" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <span class="doc doc-object-name doc-function-name">is_serializable</span>
+
+
+</h1>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">is_serializable</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="value (lvn.serialize.is_serializable(value))" href="#lvn.serialize.is_serializable(value)">value</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Check value is serializable and can be written to a JSON file.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<h2 id="lvn.serialize.is_serializable(value)" class="doc doc-heading doc-heading-parameter">              <b><code>value</code></b>
+</h2>              (<code><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>to be checked.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
+          –
+          <div class="doc-md-description">
+            <p>true if value is serializable.</p>
+          </div>
+        </li>
+    </ul>
+
+          </backlinks>
+
+            <details class="quote">
+              <summary>Source code in <code>lvn/serialize.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">is_serializable</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">,)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Check value is serializable and can be written to a JSON file.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        value: to be checked.</span>
+
+<span class="sd">    Returns: </span>
+<span class="sd">        true if value is serializable.</span>
+<span class="sd">    """</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">dumps</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h1 id="lvn.serialize.from_serializable" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <span class="doc doc-object-name doc-function-name">from_serializable</span>
 
 
 </h1>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">from_serializable</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="value (lvn.dp.serialize.from_serializable(value))" href="#lvn.dp.serialize.from_serializable(value)">value</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">from_serializable</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="value (lvn.serialize.from_serializable(value))" href="#lvn.serialize.from_serializable(value)">value</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="module (lvn.serialize.from_serializable(module))" href="#lvn.serialize.from_serializable(module)">module</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
@@ -1235,30 +1268,29 @@
 <p><span class="doc-section-title">Parameters:</span></p>
     <ul>
         <li class="doc-section-item field-body">
-<h2 id="lvn.dp.serialize.from_serializable(value)" class="doc doc-heading doc-heading-parameter">              <b><code>value</code></b>
+<h2 id="lvn.serialize.from_serializable(value)" class="doc doc-heading doc-heading-parameter">              <b><code>value</code></b>
 </h2>              (<code><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></code>)
           –
           <div class="doc-md-description">
-            <p>To be converted.</p>
+            <p>to be converted.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h2 id="lvn.serialize.from_serializable(module)" class="doc doc-heading doc-heading-parameter">              <b><code>module</code></b>
+</h2>              (<code><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>dplvn or other class module</p>
           </div>
         </li>
     </ul>
-        <p>Returns:  Converted value.</p>
+        <p>Returns:  converted value.</p>
 
           </backlinks>
 
             <details class="quote">
-              <summary>Source code in <code>lvn/dp/serialize.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">107</span>
-<span class="normal">108</span>
-<span class="normal">109</span>
-<span class="normal">110</span>
-<span class="normal">111</span>
-<span class="normal">112</span>
-<span class="normal">113</span>
-<span class="normal">114</span>
-<span class="normal">115</span>
-<span class="normal">116</span>
+              <summary>Source code in <code>lvn/serialize.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">116</span>
 <span class="normal">117</span>
 <span class="normal">118</span>
 <span class="normal">119</span>
@@ -1307,36 +1339,47 @@
 <span class="normal">162</span>
 <span class="normal">163</span>
 <span class="normal">164</span>
-<span class="normal">165</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">from_serializable</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">,)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">from_serializable</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">module</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Convert dict from serializable version.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        value: To be converted.</span>
+<span class="sd">        value: to be converted.</span>
+<span class="sd">        module: dplvn or other class module</span>
 
-<span class="sd">    Returns:  Converted value.</span>
+<span class="sd">    Returns:  converted value.</span>
 <span class="sd">    """</span>
     <span class="k">match</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
         <span class="k">case</span> <span class="n">builtins</span><span class="o">.</span><span class="n">str</span><span class="p">:</span>
             <span class="k">match</span> <span class="n">value</span><span class="p">:</span>
                 <span class="k">case</span> <span class="s2">"D1"</span><span class="p">:</span>
-                    <span class="k">return</span> <span class="n">dplvn</span><span class="o">.</span><span class="n">D1</span>
+                    <span class="k">return</span> <span class="n">module</span><span class="o">.</span><span class="n">D1</span>
                 <span class="k">case</span> <span class="s2">"D2"</span><span class="p">:</span>
-                    <span class="k">return</span> <span class="n">dplvn</span><span class="o">.</span><span class="n">D2</span>
+                    <span class="k">return</span> <span class="n">module</span><span class="o">.</span><span class="n">D2</span>
                 <span class="k">case</span> <span class="s2">"D3"</span><span class="p">:</span>
-                    <span class="k">return</span> <span class="n">dplvn</span><span class="o">.</span><span class="n">D3</span>
+                    <span class="k">return</span> <span class="n">module</span><span class="o">.</span><span class="n">D3</span>
                 <span class="k">case</span> <span class="s2">"RANDOM_UNIFORM"</span><span class="p">:</span>
-                    <span class="k">return</span> <span class="n">dplvn</span><span class="o">.</span><span class="n">RANDOM_UNIFORM</span>
+                    <span class="k">return</span> <span class="n">module</span><span class="o">.</span><span class="n">RANDOM_UNIFORM</span>
                 <span class="k">case</span> <span class="s2">"RANDOM_GAUSSIAN"</span><span class="p">:</span>
-                    <span class="k">return</span> <span class="n">dplvn</span><span class="o">.</span><span class="n">RANDOM_GAUSSIAN</span>
+                    <span class="k">return</span> <span class="n">module</span><span class="o">.</span><span class="n">RANDOM_GAUSSIAN</span>
                 <span class="k">case</span> <span class="s2">"CONSTANT_VALUE"</span><span class="p">:</span>
-                    <span class="k">return</span> <span class="n">dplvn</span><span class="o">.</span><span class="n">CONSTANT_VALUE</span>
+                    <span class="k">return</span> <span class="n">module</span><span class="o">.</span><span class="n">CONSTANT_VALUE</span>
                 <span class="k">case</span> <span class="s2">"SINGLE_SEED"</span><span class="p">:</span>
-                    <span class="k">return</span> <span class="n">dplvn</span><span class="o">.</span><span class="n">SINGLE_SEED</span>
+                    <span class="k">return</span> <span class="n">module</span><span class="o">.</span><span class="n">SINGLE_SEED</span>
                 <span class="k">case</span> <span class="s2">"RUNGE_KUTTA"</span><span class="p">:</span>
-                    <span class="k">return</span> <span class="n">dplvn</span><span class="o">.</span><span class="n">RUNGE_KUTTA</span>
+                    <span class="k">return</span> <span class="n">module</span><span class="o">.</span><span class="n">RUNGE_KUTTA</span>
                 <span class="k">case</span> <span class="s2">"EULER"</span><span class="p">:</span>
-                    <span class="k">return</span> <span class="n">dplvn</span><span class="o">.</span><span class="n">EULER</span>
+                    <span class="k">return</span> <span class="n">module</span><span class="o">.</span><span class="n">EULER</span>
                 <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
                     <span class="k">return</span> <span class="kc">None</span>
         <span class="k">case</span> <span class="n">builtins</span><span class="o">.</span><span class="n">tuple</span> <span class="o">|</span> <span class="n">builtins</span><span class="o">.</span><span class="n">list</span><span class="p">:</span>
@@ -1346,19 +1389,19 @@
             <span class="k">for</span> <span class="n">value_</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
                 <span class="k">match</span><span class="w"> </span><span class="n">value</span><span class="k">_</span><span class="p">:</span>
                     <span class="k">case</span> <span class="s2">"BOUNDED"</span><span class="p">:</span>
-                        <span class="n">combo</span> <span class="o">+=</span> <span class="p">[</span><span class="n">dplvn</span><span class="o">.</span><span class="n">BOUNDED</span><span class="p">]</span>
+                        <span class="n">combo</span> <span class="o">+=</span> <span class="p">[</span><span class="n">module</span><span class="o">.</span><span class="n">BOUNDED</span><span class="p">]</span>
                         <span class="k">continue</span>
                     <span class="k">case</span> <span class="s2">"PERIODIC"</span><span class="p">:</span>
-                        <span class="n">combo</span> <span class="o">+=</span> <span class="p">[</span><span class="n">dplvn</span><span class="o">.</span><span class="n">PERIODIC</span><span class="p">]</span>
+                        <span class="n">combo</span> <span class="o">+=</span> <span class="p">[</span><span class="n">module</span><span class="o">.</span><span class="n">PERIODIC</span><span class="p">]</span>
                         <span class="k">continue</span>
                     <span class="k">case</span> <span class="s2">"FLOATING"</span><span class="p">:</span>
-                        <span class="n">combo</span> <span class="o">+=</span> <span class="p">[</span><span class="n">dplvn</span><span class="o">.</span><span class="n">FLOATING</span><span class="p">]</span>
+                        <span class="n">combo</span> <span class="o">+=</span> <span class="p">[</span><span class="n">module</span><span class="o">.</span><span class="n">FLOATING</span><span class="p">]</span>
                         <span class="k">continue</span>
                     <span class="k">case</span> <span class="s2">"FIXED_VALUE"</span><span class="p">:</span>
-                        <span class="n">combo</span> <span class="o">+=</span> <span class="p">[</span><span class="n">dplvn</span><span class="o">.</span><span class="n">FIXED_VALUE</span><span class="p">]</span>
+                        <span class="n">combo</span> <span class="o">+=</span> <span class="p">[</span><span class="n">module</span><span class="o">.</span><span class="n">FIXED_VALUE</span><span class="p">]</span>
                         <span class="k">continue</span>
                     <span class="k">case</span> <span class="s2">"FIXED_FLUX"</span><span class="p">:</span>
-                        <span class="n">combo</span> <span class="o">+=</span> <span class="p">[</span><span class="n">dplvn</span><span class="o">.</span><span class="n">FIXED_FLUX</span><span class="p">]</span>
+                        <span class="n">combo</span> <span class="o">+=</span> <span class="p">[</span><span class="n">module</span><span class="o">.</span><span class="n">FIXED_FLUX</span><span class="p">]</span>
                         <span class="k">continue</span>
                     <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
                         <span class="n">combo</span> <span class="o">+=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span>
@@ -1375,12 +1418,12 @@
 <div class="doc doc-object doc-function">
 
 
-<h1 id="lvn.dp.serialize.to_serializable" class="doc doc-heading">
+<h1 id="lvn.serialize.to_serializable" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <span class="doc doc-object-name doc-function-name">to_serializable</span>
 
 
 </h1>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">to_serializable</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="value (lvn.dp.serialize.to_serializable(value))" href="#lvn.dp.serialize.to_serializable(value)">value</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">to_serializable</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="value (lvn.serialize.to_serializable(value))" href="#lvn.serialize.to_serializable(value)">value</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="module (lvn.serialize.to_serializable(module))" href="#lvn.serialize.to_serializable(module)">module</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
@@ -1391,11 +1434,19 @@
 <p><span class="doc-section-title">Parameters:</span></p>
     <ul>
         <li class="doc-section-item field-body">
-<h2 id="lvn.dp.serialize.to_serializable(value)" class="doc doc-heading doc-heading-parameter">              <b><code>value</code></b>
+<h2 id="lvn.serialize.to_serializable(value)" class="doc doc-heading doc-heading-parameter">              <b><code>value</code></b>
 </h2>              (<code><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></code>)
           –
           <div class="doc-md-description">
             <p>to be converted.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h2 id="lvn.serialize.to_serializable(module)" class="doc doc-heading doc-heading-parameter">              <b><code>module</code></b>
+</h2>              (<code><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>dplvn or other class module</p>
           </div>
         </li>
     </ul>
@@ -1415,16 +1466,8 @@
           </backlinks>
 
             <details class="quote">
-              <summary>Source code in <code>lvn/dp/serialize.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 26</span>
-<span class="normal"> 27</span>
-<span class="normal"> 28</span>
-<span class="normal"> 29</span>
-<span class="normal"> 30</span>
-<span class="normal"> 31</span>
-<span class="normal"> 32</span>
-<span class="normal"> 33</span>
-<span class="normal"> 34</span>
+              <summary>Source code in <code>lvn/serialize.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 34</span>
 <span class="normal"> 35</span>
 <span class="normal"> 36</span>
 <span class="normal"> 37</span>
@@ -1495,12 +1538,22 @@
 <span class="normal">102</span>
 <span class="normal">103</span>
 <span class="normal">104</span>
-<span class="normal">105</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">to_serializable</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">,)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">to_serializable</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">module</span><span class="p">:</span> <span class="n">Any</span><span class="p">,)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Convert value into serializable version.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        value: to be converted.</span>
+<span class="sd">        module: dplvn or other class module</span>
 
 <span class="sd">    Returns: </span>
 <span class="sd">        serializable value.</span>
@@ -1516,33 +1569,33 @@
             <span class="k">return</span> <span class="n">value</span>
         <span class="k">case</span> <span class="n">builtins</span><span class="o">.</span><span class="n">list</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">value</span>
-        <span class="k">case</span> <span class="n">dplvn</span><span class="o">.</span><span class="n">GridDimension</span><span class="p">:</span>
+        <span class="k">case</span> <span class="n">module</span><span class="o">.</span><span class="n">GridDimension</span><span class="p">:</span>
             <span class="k">match</span> <span class="n">value</span><span class="p">:</span>
-                <span class="k">case</span> <span class="n">dplvn</span><span class="o">.</span><span class="n">D1</span><span class="p">:</span>
+                <span class="k">case</span> <span class="n">module</span><span class="o">.</span><span class="n">D1</span><span class="p">:</span>
                     <span class="k">return</span> <span class="s2">"D1"</span>
-                <span class="k">case</span> <span class="n">dplvn</span><span class="o">.</span><span class="n">D2</span><span class="p">:</span>
+                <span class="k">case</span> <span class="n">module</span><span class="o">.</span><span class="n">D2</span><span class="p">:</span>
                     <span class="k">return</span> <span class="s2">"D2"</span>
-                <span class="k">case</span> <span class="n">dplvn</span><span class="o">.</span><span class="n">D3</span><span class="p">:</span>
+                <span class="k">case</span> <span class="n">module</span><span class="o">.</span><span class="n">D3</span><span class="p">:</span>
                     <span class="k">return</span> <span class="s2">"D3"</span>
                 <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
                     <span class="k">return</span> <span class="kc">None</span>
-        <span class="k">case</span> <span class="n">dplvn</span><span class="o">.</span><span class="n">InitialCondition</span><span class="p">:</span>
+        <span class="k">case</span> <span class="n">module</span><span class="o">.</span><span class="n">InitialCondition</span><span class="p">:</span>
             <span class="k">match</span> <span class="n">value</span><span class="p">:</span>
-                <span class="k">case</span> <span class="n">dplvn</span><span class="o">.</span><span class="n">RANDOM_UNIFORM</span><span class="p">:</span>
+                <span class="k">case</span> <span class="n">module</span><span class="o">.</span><span class="n">RANDOM_UNIFORM</span><span class="p">:</span>
                      <span class="k">return</span> <span class="s2">"RANDOM_UNIFORM"</span>
-                <span class="k">case</span> <span class="n">dplvn</span><span class="o">.</span><span class="n">RANDOM_GAUSSIAN</span><span class="p">:</span>
+                <span class="k">case</span> <span class="n">module</span><span class="o">.</span><span class="n">RANDOM_GAUSSIAN</span><span class="p">:</span>
                      <span class="k">return</span> <span class="s2">"RANDOM_GAUSSIAN"</span>
-                <span class="k">case</span> <span class="n">dplvn</span><span class="o">.</span><span class="n">CONSTANT_VALUE</span><span class="p">:</span>
+                <span class="k">case</span> <span class="n">module</span><span class="o">.</span><span class="n">CONSTANT_VALUE</span><span class="p">:</span>
                      <span class="k">return</span> <span class="s2">"CONSTANT_VALUE"</span>
-                <span class="k">case</span> <span class="n">dplvn</span><span class="o">.</span><span class="n">SINGLE_SEED</span><span class="p">:</span>
+                <span class="k">case</span> <span class="n">module</span><span class="o">.</span><span class="n">SINGLE_SEED</span><span class="p">:</span>
                      <span class="k">return</span> <span class="s2">"SINGLE_SEED"</span>
                 <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
                     <span class="k">return</span> <span class="kc">None</span>
-        <span class="k">case</span> <span class="n">dplvn</span><span class="o">.</span><span class="n">IntegrationMethod</span><span class="p">:</span>
+        <span class="k">case</span> <span class="n">module</span><span class="o">.</span><span class="n">IntegrationMethod</span><span class="p">:</span>
             <span class="k">match</span> <span class="n">value</span><span class="p">:</span>
-                <span class="k">case</span> <span class="n">dplvn</span><span class="o">.</span><span class="n">RUNGE_KUTTA</span><span class="p">:</span>
+                <span class="k">case</span> <span class="n">module</span><span class="o">.</span><span class="n">RUNGE_KUTTA</span><span class="p">:</span>
                     <span class="k">return</span> <span class="s2">"RUNGE_KUTTA"</span>
-                <span class="k">case</span> <span class="n">dplvn</span><span class="o">.</span><span class="n">EULER</span><span class="p">:</span>
+                <span class="k">case</span> <span class="n">module</span><span class="o">.</span><span class="n">EULER</span><span class="p">:</span>
                     <span class="k">return</span> <span class="s2">"EULER"</span>
                 <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
                     <span class="k">return</span> <span class="kc">None</span>
@@ -1552,19 +1605,19 @@
             <span class="n">combo</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="k">for</span> <span class="n">value_</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
                 <span class="k">match</span><span class="w"> </span><span class="n">value</span><span class="k">_</span><span class="p">:</span>
-                    <span class="k">case</span> <span class="n">dplvn</span><span class="o">.</span><span class="n">BOUNDED</span><span class="p">:</span>
+                    <span class="k">case</span> <span class="n">module</span><span class="o">.</span><span class="n">BOUNDED</span><span class="p">:</span>
                         <span class="n">combo</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">"BOUNDED"</span><span class="p">]</span>
                         <span class="k">continue</span>
-                    <span class="k">case</span> <span class="n">dplvn</span><span class="o">.</span><span class="n">PERIODIC</span><span class="p">:</span>
+                    <span class="k">case</span> <span class="n">module</span><span class="o">.</span><span class="n">PERIODIC</span><span class="p">:</span>
                         <span class="n">combo</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">"PERIODIC"</span><span class="p">]</span>
                         <span class="k">continue</span>
-                    <span class="k">case</span> <span class="n">dplvn</span><span class="o">.</span><span class="n">FLOATING</span><span class="p">:</span>
+                    <span class="k">case</span> <span class="n">module</span><span class="o">.</span><span class="n">FLOATING</span><span class="p">:</span>
                         <span class="n">combo</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">"FLOATING"</span><span class="p">]</span> 
                         <span class="k">continue</span>
-                    <span class="k">case</span> <span class="n">dplvn</span><span class="o">.</span><span class="n">FIXED_VALUE</span><span class="p">:</span>
+                    <span class="k">case</span> <span class="n">module</span><span class="o">.</span><span class="n">FIXED_VALUE</span><span class="p">:</span>
                         <span class="n">combo</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">"FIXED_VALUE"</span><span class="p">]</span> 
                         <span class="k">continue</span>
-                    <span class="k">case</span> <span class="n">dplvn</span><span class="o">.</span><span class="n">FIXED_FLUX</span> <span class="p">:</span>
+                    <span class="k">case</span> <span class="n">module</span><span class="o">.</span><span class="n">FIXED_FLUX</span> <span class="p">:</span>
                         <span class="n">combo</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">"FIXED_FLUX"</span><span class="p">]</span> 
                         <span class="k">continue</span>
                     <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>

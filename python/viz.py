@@ -1,5 +1,5 @@
 """
-Provide a data visualization class.
+Base data visualization class.
 """
 import warnings
 import logging

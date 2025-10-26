@@ -5,7 +5,7 @@
 project(
     'Langevin',
     'cpp',
-    version: '2025.10.25a1',
+    version: '2025.10.25a2',
     default_options: ['cpp_std=c++11'],
 )
 add_project_arguments(
@@ -48,8 +48,8 @@ py.install_sources(
     [
         'python/__init__.py', 
         'python/file.py', 
-        'python/image.py', 
         'python/initialize.py', 
+        'python/serialize.py', 
         'python/utils.py', 
         'python/viz.py', 
     ],
@@ -59,9 +59,7 @@ py.install_sources(
     [
         'python/dp/__init__.py', 
         'python/dp/ensemble.py', 
-        'python/dp/serialize.py', 
         'python/dp/simulation.py', 
-        'python/dp/title.py', 
         'python/dp/vizdp.py', 
     ],
     subdir: 'lvn/dp'

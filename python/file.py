@@ -7,8 +7,11 @@ from typing import Any, Callable, Sequence, List
 from os.path import exists, join, realpath, pardir
 from os import mkdir
 from shutil import rmtree
-from json import dump, dumps, load
+from json import dump, load
 from io import TextIOWrapper
+from lvn.serialize import (
+    from_serializable, to_serializable,
+)
 from lvn.utils import progress, progress_disabled
 
 warnings.filterwarnings("ignore")
@@ -16,7 +19,6 @@ warnings.filterwarnings("ignore")
 __all__ = [
     "create_dir",
     "create_directories",
-    "is_serializable", 
     "import_info",
     "export_info",
     "read_info",
@@ -74,32 +76,18 @@ def create_dir(dir: str) -> str:
         raise
     return dir
 
-def is_serializable(value: Any,) -> bool:
-    """
-    Check value is serializable and can be written to a JSON file.
-
-    Args:
-        value: to be checked.
-
-    Returns: 
-        true if value is serializable.
-    """
-    try:
-        dumps(value)
-        return True
-    except TypeError:
-        return False
-
 def import_info(
         info_dir: str, 
         file_name: str,
-        from_serializable: Callable,
+        module: Any,
     ) -> dict:
     """
     Read and adapt parameters specified in a JSON file.
 
     Args:
-      file_name:  JSON file name.
+        info_dir: parent folder of JSON file
+        file_name:  JSON file name.
+        module: dplvn or other class module
 
     Returns: info as dictionary.
     """
@@ -110,7 +98,7 @@ def import_info(
         raw_info = load(file)
     parameters: dict = {}
     for item_ in raw_info["Parameters"].items():
-        parameters.update({item_[0]: from_serializable(item_[1])})
+        parameters.update({item_[0]: from_serializable(item_[1], module)})
     info: dict = {
         "Analysis": raw_info["Analysis"],
         "Parameters": parameters,
@@ -122,6 +110,7 @@ def export_info(
         info_dir: str, 
         file_name: str, 
         source_dict: dict, 
+        module: Any,
         suffix: str | None = None,
         encoding: str = "utf-8", #"latin-1"
     ) -> tuple[dict, str]:
@@ -135,6 +124,7 @@ def export_info(
     Args:
         info_dir: target parent folder
         file_name: name of output JSON file
+        module: dplvn or other class module
         source_dict: dictionary of results, possibly requiring conversion
             from latex form such that serialization into a JSON file
             is possible
@@ -144,16 +134,20 @@ def export_info(
         serialized dictionary and the file path string
     """
     # A bit of recursion for a change
-    def render_serializable(source) -> dict:
+    def render_serializable(source, module,) -> dict:
         serialized: dict = {}
         for item_ in source.items():
             if type(item_[1]) is dict:
-                serialized.update({item_[0]: render_serializable(item_[1])})
+                serialized.update(
+                    {item_[0]: render_serializable(item_[1], module,)}
+                )
             else:
-                serialized.update({item_[0]: to_serializable(item_[1])})
+                serialized.update(
+                    {item_[0]: to_serializable(item_[1], module,)}
+                )
         return serialized
 
-    serializable_dict: dict = render_serializable(source_dict)
+    serializable_dict: dict = render_serializable(source_dict, module,)
     info_path = [str(info_dir)] + [
         str(file_name) + ("_"+suffix if suffix is not None else "") + ".json"
     ]
@@ -166,20 +160,20 @@ def export_info(
 
 def read_info(
         path: Sequence[str],
-        from_serializable: Callable,
+        module: Any,
     ) -> tuple[str, dict]:
     """
     Wrapper around method to import info dictionary.
 
     Args:
         path: to info JSON file.
-        from_serializable: function to handle serialization
+        module: dplvn or other class module
 
     Returns:
         path to file and imported dictionary
     """
     full_path: str = join(pardir, *path,)
-    info: dict = import_info(full_path, "Info", from_serializable,)
+    info: dict = import_info(full_path, "Info", module,)
     return (full_path, info,)
 
 def export_plots(

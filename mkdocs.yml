@@ -25,29 +25,27 @@ nav:
     - Home: index.md
     - Navigation: navigation.md
     - Software design: design.md
-    - How to install: installation.md
+    - How to install: how-to-install.md
     - Tests: tests-reference.md
-    - How to run: run.md
+    - How to run: how-to-run.md
     - Simulation tools:
       - Notebooks:
-          - DPEnsemble.ipynb: DPEnsemble-ipynb-reference.md
-          - DPSimulation.ipynb: DPSimulation-ipynb-reference.md
-          - DPSimulationDirect.ipynb: DPSimulationDirect-ipynb-reference.md
+          - dp/Ensemble.ipynb: dp-Ensemble-ipynb-reference.md
+          - dp/Simulation.ipynb: dp-Simulation-ipynb-reference.md
+          - dp/SimulationDirect.ipynb: dp-SimulationDirect-ipynb-reference.md
       - Scripts:
-          - DPBatchEnsemble.py: DPBatchEnsemble-py-reference.md
+          - dp/BatchEnsemble.py: dp-BatchEnsemble-py-reference.md
       - JSON info files: 
           - Example: info-reference.md
     - Python modules:
         - file.py: file-reference.md 
-        - image.py: image-reference.md 
         - initialize.py: initialize-reference.md 
+        - serialize.py: serialize-reference.md 
         - utils.py: utils-reference.md 
         - viz.py: viz-reference.md
         # - dp:
         - dp/ensemble.py: ensemble-reference.md
-        - dp/serialize.py: serialize-reference.md 
         - dp/simulation.py: simulation-reference.md
-        - dp/title.py: title-reference.md
         - dp/vizdp.py: vizdp-reference.md
     - C++ source: cplusplus.md
     - References: references.md

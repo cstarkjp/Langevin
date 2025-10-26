@@ -12,7 +12,7 @@
         <link rel="prev" href="../info-reference/">
       
       
-        <link rel="next" href="../image-reference/">
+        <link rel="next" href="../initialize-reference/">
       
       
       <link rel="icon" href="../images/DP1.png">
@@ -227,7 +227,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../installation/" class="md-tabs__link">
+      <a href="../how-to-install/" class="md-tabs__link">
         
   
   
@@ -265,7 +265,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../run/" class="md-tabs__link">
+      <a href="../how-to-run/" class="md-tabs__link">
         
   
   
@@ -293,7 +293,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../DPEnsemble-ipynb-reference/" class="md-tabs__link">
+        <a href="../dp-Ensemble-ipynb-reference/" class="md-tabs__link">
           
   
   
@@ -473,7 +473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../installation/" class="md-nav__link">
+      <a href="../how-to-install/" class="md-nav__link">
         
   
   
@@ -517,7 +517,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../run/" class="md-nav__link">
+      <a href="../how-to-run/" class="md-nav__link">
         
   
   
@@ -621,12 +621,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../DPEnsemble-ipynb-reference/" class="md-nav__link">
+      <a href="../dp-Ensemble-ipynb-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    DPEnsemble.ipynb
+    dp/Ensemble.ipynb
     
   </span>
   
@@ -644,12 +644,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../DPSimulation-ipynb-reference/" class="md-nav__link">
+      <a href="../dp-Simulation-ipynb-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    DPSimulation.ipynb
+    dp/Simulation.ipynb
     
   </span>
   
@@ -667,12 +667,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../DPSimulationDirect-ipynb-reference/" class="md-nav__link">
+      <a href="../dp-SimulationDirect-ipynb-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    DPSimulationDirect.ipynb
+    dp/SimulationDirect.ipynb
     
   </span>
   
@@ -739,12 +739,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../DPBatchEnsemble-py-reference/" class="md-nav__link">
+      <a href="../dp-BatchEnsemble-py-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    DPBatchEnsemble.py
+    dp/BatchEnsemble.py
     
   </span>
   
@@ -928,12 +928,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../image-reference/" class="md-nav__link">
+      <a href="../initialize-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    image.py
+    initialize.py
     
   </span>
   
@@ -951,12 +951,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../initialize-reference/" class="md-nav__link">
+      <a href="../serialize-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    initialize.py
+    serialize.py
     
   </span>
   
@@ -1043,58 +1043,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../serialize-reference/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    dp/serialize.py
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../simulation-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     dp/simulation.py
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../title-reference/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    dp/title.py
     
   </span>
   
@@ -1262,9 +1216,7 @@ Returns quietly if the directory already exists.</p>
 
             <details class="quote">
               <summary>Source code in <code>lvn/file.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">52</span>
 <span class="normal">53</span>
 <span class="normal">54</span>
 <span class="normal">55</span>
@@ -1287,7 +1239,9 @@ Returns quietly if the directory already exists.</p>
 <span class="normal">72</span>
 <span class="normal">73</span>
 <span class="normal">74</span>
-<span class="normal">75</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">create_dir</span><span class="p">(</span><span class="nb">dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">create_dir</span><span class="p">(</span><span class="nb">dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Try to create an output directory if one doesn't exist.</span>
 
@@ -1380,9 +1334,7 @@ Returns quietly if the directory already exists.</p>
 
             <details class="quote">
               <summary>Source code in <code>lvn/file.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">29</span>
 <span class="normal">30</span>
 <span class="normal">31</span>
 <span class="normal">32</span>
@@ -1401,7 +1353,9 @@ Returns quietly if the directory already exists.</p>
 <span class="normal">45</span>
 <span class="normal">46</span>
 <span class="normal">47</span>
-<span class="normal">48</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">create_directories</span><span class="p">(</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">create_directories</span><span class="p">(</span>
         <span class="n">results_path</span><span class="p">:</span> <span class="n">Sequence</span> <span class="o">=</span> <span class="p">(</span><span class="s2">".."</span><span class="p">,</span> <span class="s2">"experiments"</span><span class="p">,),</span> 
         <span class="n">results_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"Demo"</span><span class="p">,</span>
         <span class="n">do_clean</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
@@ -1441,6 +1395,7 @@ Returns quietly if the directory already exists.</p>
     <span class="n"><a class="autorefs autorefs-internal" title="info_dir (lvn.file.export_info(info_dir))" href="#lvn.file.export_info(info_dir)">info_dir</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">,</span>
     <span class="n"><a class="autorefs autorefs-internal" title="file_name (lvn.file.export_info(file_name))" href="#lvn.file.export_info(file_name)">file_name</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">,</span>
     <span class="n"><a class="autorefs autorefs-internal" title="source_dict (lvn.file.export_info(source_dict))" href="#lvn.file.export_info(source_dict)">source_dict</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="module (lvn.file.export_info(module))" href="#lvn.file.export_info(module)">module</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></span><span class="p">,</span>
     <span class="n"><a class="autorefs autorefs-internal" title="suffix (lvn.file.export_info(suffix))" href="#lvn.file.export_info(suffix)">suffix</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n"><span title="lvn.file.export_info(encoding)">encoding</span></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span> <span class="o">=</span> <span class="s2">"utf-8"</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">]</span>
@@ -1470,6 +1425,14 @@ on keys and converting values to floats.</p>
           –
           <div class="doc-md-description">
             <p>name of output JSON file</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h2 id="lvn.file.export_info(module)" class="doc doc-heading doc-heading-parameter">              <b><code>module</code></b>
+</h2>              (<code><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>dplvn or other class module</p>
           </div>
         </li>
         <li class="doc-section-item field-body">
@@ -1510,7 +1473,19 @@ is possible</p>
 
             <details class="quote">
               <summary>Source code in <code>lvn/file.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">121</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
 <span class="normal">122</span>
 <span class="normal">123</span>
 <span class="normal">124</span>
@@ -1548,16 +1523,11 @@ is possible</p>
 <span class="normal">156</span>
 <span class="normal">157</span>
 <span class="normal">158</span>
-<span class="normal">159</span>
-<span class="normal">160</span>
-<span class="normal">161</span>
-<span class="normal">162</span>
-<span class="normal">163</span>
-<span class="normal">164</span>
-<span class="normal">165</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">export_info</span><span class="p">(</span>
+<span class="normal">159</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">export_info</span><span class="p">(</span>
         <span class="n">info_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
         <span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
         <span class="n">source_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> 
+        <span class="n">module</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
         <span class="n">suffix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">encoding</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"utf-8"</span><span class="p">,</span> <span class="c1">#"latin-1"</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
@@ -1571,6 +1541,7 @@ is possible</p>
 <span class="sd">    Args:</span>
 <span class="sd">        info_dir: target parent folder</span>
 <span class="sd">        file_name: name of output JSON file</span>
+<span class="sd">        module: dplvn or other class module</span>
 <span class="sd">        source_dict: dictionary of results, possibly requiring conversion</span>
 <span class="sd">            from latex form such that serialization into a JSON file</span>
 <span class="sd">            is possible</span>
@@ -1580,16 +1551,20 @@ is possible</p>
 <span class="sd">        serialized dictionary and the file path string</span>
 <span class="sd">    """</span>
     <span class="c1"># A bit of recursion for a change</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">render_serializable</span><span class="p">(</span><span class="n">source</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">render_serializable</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">module</span><span class="p">,)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
         <span class="n">serialized</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">for</span> <span class="n">item_</span> <span class="ow">in</span> <span class="n">source</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">item_</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">dict</span><span class="p">:</span>
-                <span class="n">serialized</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">item_</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">render_serializable</span><span class="p">(</span><span class="n">item_</span><span class="p">[</span><span class="mi">1</span><span class="p">])})</span>
+                <span class="n">serialized</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                    <span class="p">{</span><span class="n">item_</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">render_serializable</span><span class="p">(</span><span class="n">item_</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">module</span><span class="p">,)}</span>
+                <span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">serialized</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">item_</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">to_serializable</span><span class="p">(</span><span class="n">item_</span><span class="p">[</span><span class="mi">1</span><span class="p">])})</span>
+                <span class="n">serialized</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                    <span class="p">{</span><span class="n">item_</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">to_serializable</span><span class="p">(</span><span class="n">item_</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">module</span><span class="p">,)}</span>
+                <span class="p">)</span>
         <span class="k">return</span> <span class="n">serialized</span>
 
-    <span class="n">serializable_dict</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">render_serializable</span><span class="p">(</span><span class="n">source_dict</span><span class="p">)</span>
+    <span class="n">serializable_dict</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">render_serializable</span><span class="p">(</span><span class="n">source_dict</span><span class="p">,</span> <span class="n">module</span><span class="p">,)</span>
     <span class="n">info_path</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">info_dir</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span>
         <span class="nb">str</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="s2">"_"</span><span class="o">+</span><span class="n">suffix</span> <span class="k">if</span> <span class="n">suffix</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s2">""</span><span class="p">)</span> <span class="o">+</span> <span class="s2">".json"</span>
     <span class="p">]</span>
@@ -1690,7 +1665,13 @@ is possible</p>
 
             <details class="quote">
               <summary>Source code in <code>lvn/file.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">229</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
 <span class="normal">230</span>
 <span class="normal">231</span>
 <span class="normal">232</span>
@@ -1721,13 +1702,7 @@ is possible</p>
 <span class="normal">257</span>
 <span class="normal">258</span>
 <span class="normal">259</span>
-<span class="normal">260</span>
-<span class="normal">261</span>
-<span class="normal">262</span>
-<span class="normal">263</span>
-<span class="normal">264</span>
-<span class="normal">265</span>
-<span class="normal">266</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">export_plot</span><span class="p">(</span>
+<span class="normal">260</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">export_plot</span><span class="p">(</span>
         <span class="n">fig_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">fig</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
         <span class="n">results_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -1870,7 +1845,13 @@ is possible</p>
 
             <details class="quote">
               <summary>Source code in <code>lvn/file.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">185</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
 <span class="normal">186</span>
 <span class="normal">187</span>
 <span class="normal">188</span>
@@ -1906,13 +1887,7 @@ is possible</p>
 <span class="normal">218</span>
 <span class="normal">219</span>
 <span class="normal">220</span>
-<span class="normal">221</span>
-<span class="normal">222</span>
-<span class="normal">223</span>
-<span class="normal">224</span>
-<span class="normal">225</span>
-<span class="normal">226</span>
-<span class="normal">227</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">export_plots</span><span class="p">(</span>
+<span class="normal">221</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">export_plots</span><span class="p">(</span>
         <span class="n">fig_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
         <span class="n">results_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">file_types</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"png"</span><span class="p">,</span>
@@ -1969,7 +1944,7 @@ is possible</p>
 
 
 </h1>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">import_info</span><span class="p">(</span><span class="n"><span title="lvn.file.import_info(info_dir)">info_dir</span></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="file_name (lvn.file.import_info(file_name))" href="#lvn.file.import_info(file_name)">file_name</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">,</span> <span class="n"><span title="lvn.file.import_info(from_serializable)">from_serializable</span></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="typing.Callable" href="https://docs.python.org/3/library/typing.html#typing.Callable">Callable</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">import_info</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="info_dir (lvn.file.import_info(info_dir))" href="#lvn.file.import_info(info_dir)">info_dir</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="file_name (lvn.file.import_info(file_name))" href="#lvn.file.import_info(file_name)">file_name</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="module (lvn.file.import_info(module))" href="#lvn.file.import_info(module)">module</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
@@ -1980,11 +1955,27 @@ is possible</p>
 <p><span class="doc-section-title">Parameters:</span></p>
     <ul>
         <li class="doc-section-item field-body">
+<h2 id="lvn.file.import_info(info_dir)" class="doc doc-heading doc-heading-parameter">              <b><code>info_dir</code></b>
+</h2>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>parent folder of JSON file</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
 <h2 id="lvn.file.import_info(file_name)" class="doc doc-heading doc-heading-parameter">              <b><code>file_name</code></b>
 </h2>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
           –
           <div class="doc-md-description">
             <p>JSON file name.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h2 id="lvn.file.import_info(module)" class="doc doc-heading doc-heading-parameter">              <b><code>module</code></b>
+</h2>              (<code><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>dplvn or other class module</p>
           </div>
         </li>
     </ul>
@@ -1994,7 +1985,21 @@ is possible</p>
 
             <details class="quote">
               <summary>Source code in <code>lvn/file.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 93</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
 <span class="normal"> 94</span>
 <span class="normal"> 95</span>
 <span class="normal"> 96</span>
@@ -2008,28 +2013,18 @@ is possible</p>
 <span class="normal">104</span>
 <span class="normal">105</span>
 <span class="normal">106</span>
-<span class="normal">107</span>
-<span class="normal">108</span>
-<span class="normal">109</span>
-<span class="normal">110</span>
-<span class="normal">111</span>
-<span class="normal">112</span>
-<span class="normal">113</span>
-<span class="normal">114</span>
-<span class="normal">115</span>
-<span class="normal">116</span>
-<span class="normal">117</span>
-<span class="normal">118</span>
-<span class="normal">119</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">import_info</span><span class="p">(</span>
+<span class="normal">107</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">import_info</span><span class="p">(</span>
         <span class="n">info_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
         <span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-        <span class="n">from_serializable</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
+        <span class="n">module</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Read and adapt parameters specified in a JSON file.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">      file_name:  JSON file name.</span>
+<span class="sd">        info_dir: parent folder of JSON file</span>
+<span class="sd">        file_name:  JSON file name.</span>
+<span class="sd">        module: dplvn or other class module</span>
 
 <span class="sd">    Returns: info as dictionary.</span>
 <span class="sd">    """</span>
@@ -2040,7 +2035,7 @@ is possible</p>
         <span class="n">raw_info</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
     <span class="n">parameters</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">item_</span> <span class="ow">in</span> <span class="n">raw_info</span><span class="p">[</span><span class="s2">"Parameters"</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="n">parameters</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">item_</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">from_serializable</span><span class="p">(</span><span class="n">item_</span><span class="p">[</span><span class="mi">1</span><span class="p">])})</span>
+        <span class="n">parameters</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">item_</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">from_serializable</span><span class="p">(</span><span class="n">item_</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">module</span><span class="p">)})</span>
     <span class="n">info</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s2">"Analysis"</span><span class="p">:</span> <span class="n">raw_info</span><span class="p">[</span><span class="s2">"Analysis"</span><span class="p">],</span>
         <span class="s2">"Parameters"</span><span class="p">:</span> <span class="n">parameters</span><span class="p">,</span>
@@ -2061,7 +2056,7 @@ is possible</p>
 
 
 </h1>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">read_info</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="path (lvn.file.read_info(path))" href="#lvn.file.read_info(path)">path</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="typing.Sequence" href="https://docs.python.org/3/library/typing.html#typing.Sequence">Sequence</a></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">],</span> <span class="n"><a class="autorefs autorefs-internal" title="from_serializable (lvn.file.read_info(from_serializable))" href="#lvn.file.read_info(from_serializable)">from_serializable</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="typing.Callable" href="https://docs.python.org/3/library/typing.html#typing.Callable">Callable</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></span><span class="p">]</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">read_info</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="path (lvn.file.read_info(path))" href="#lvn.file.read_info(path)">path</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="typing.Sequence" href="https://docs.python.org/3/library/typing.html#typing.Sequence">Sequence</a></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">],</span> <span class="n"><a class="autorefs autorefs-internal" title="module (lvn.file.read_info(module))" href="#lvn.file.read_info(module)">module</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></span><span class="p">]</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
@@ -2080,11 +2075,11 @@ is possible</p>
           </div>
         </li>
         <li class="doc-section-item field-body">
-<h2 id="lvn.file.read_info(from_serializable)" class="doc doc-heading doc-heading-parameter">              <b><code>from_serializable</code></b>
-</h2>              (<code><a class="autorefs autorefs-external" title="typing.Callable" href="https://docs.python.org/3/library/typing.html#typing.Callable">Callable</a></code>)
+<h2 id="lvn.file.read_info(module)" class="doc doc-heading doc-heading-parameter">              <b><code>module</code></b>
+</h2>              (<code><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></code>)
           –
           <div class="doc-md-description">
-            <p>function to handle serialization</p>
+            <p>dplvn or other class module</p>
           </div>
         </li>
     </ul>
@@ -2105,7 +2100,13 @@ is possible</p>
 
             <details class="quote">
               <summary>Source code in <code>lvn/file.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">167</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
 <span class="normal">168</span>
 <span class="normal">169</span>
 <span class="normal">170</span>
@@ -2115,108 +2116,23 @@ is possible</p>
 <span class="normal">174</span>
 <span class="normal">175</span>
 <span class="normal">176</span>
-<span class="normal">177</span>
-<span class="normal">178</span>
-<span class="normal">179</span>
-<span class="normal">180</span>
-<span class="normal">181</span>
-<span class="normal">182</span>
-<span class="normal">183</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">read_info</span><span class="p">(</span>
+<span class="normal">177</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">read_info</span><span class="p">(</span>
         <span class="n">path</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
-        <span class="n">from_serializable</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
+        <span class="n">module</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Wrapper around method to import info dictionary.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        path: to info JSON file.</span>
-<span class="sd">        from_serializable: function to handle serialization</span>
+<span class="sd">        module: dplvn or other class module</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        path to file and imported dictionary</span>
 <span class="sd">    """</span>
     <span class="n">full_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">join</span><span class="p">(</span><span class="n">pardir</span><span class="p">,</span> <span class="o">*</span><span class="n">path</span><span class="p">,)</span>
-    <span class="n">info</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">import_info</span><span class="p">(</span><span class="n">full_path</span><span class="p">,</span> <span class="s2">"Info"</span><span class="p">,</span> <span class="n">from_serializable</span><span class="p">,)</span>
+    <span class="n">info</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">import_info</span><span class="p">(</span><span class="n">full_path</span><span class="p">,</span> <span class="s2">"Info"</span><span class="p">,</span> <span class="n">module</span><span class="p">,)</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">full_path</span><span class="p">,</span> <span class="n">info</span><span class="p">,)</span>
-</code></pre></div></td></tr></table></div>
-            </details>
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h1 id="lvn.file.is_serializable" class="doc doc-heading">
-<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <span class="doc doc-object-name doc-function-name">is_serializable</span>
-
-
-</h1>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">is_serializable</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="value (lvn.file.is_serializable(value))" href="#lvn.file.is_serializable(value)">value</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span>
-</code></pre></div>
-
-    <div class="doc doc-contents first">
-
-        <p>Check value is serializable and can be written to a JSON file.</p>
-
-
-<p><span class="doc-section-title">Parameters:</span></p>
-    <ul>
-        <li class="doc-section-item field-body">
-<h2 id="lvn.file.is_serializable(value)" class="doc doc-heading doc-heading-parameter">              <b><code>value</code></b>
-</h2>              (<code><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></code>)
-          –
-          <div class="doc-md-description">
-            <p>to be checked.</p>
-          </div>
-        </li>
-    </ul>
-
-
-<p><span class="doc-section-title">Returns:</span></p>
-    <ul>
-        <li class="doc-section-item field-body">
-              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
-          –
-          <div class="doc-md-description">
-            <p>true if value is serializable.</p>
-          </div>
-        </li>
-    </ul>
-
-          </backlinks>
-
-            <details class="quote">
-              <summary>Source code in <code>lvn/file.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">77</span>
-<span class="normal">78</span>
-<span class="normal">79</span>
-<span class="normal">80</span>
-<span class="normal">81</span>
-<span class="normal">82</span>
-<span class="normal">83</span>
-<span class="normal">84</span>
-<span class="normal">85</span>
-<span class="normal">86</span>
-<span class="normal">87</span>
-<span class="normal">88</span>
-<span class="normal">89</span>
-<span class="normal">90</span>
-<span class="normal">91</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">is_serializable</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">,)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Check value is serializable and can be written to a JSON file.</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        value: to be checked.</span>
-
-<span class="sd">    Returns: </span>
-<span class="sd">        true if value is serializable.</span>
-<span class="sd">    """</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">dumps</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-        <span class="k">return</span> <span class="kc">True</span>
-    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">False</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>

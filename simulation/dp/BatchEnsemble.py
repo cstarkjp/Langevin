@@ -22,7 +22,9 @@ def main() -> None:
     ensemble_name_: str
     for ensemble_name_ in ensemble_name_list:
         print(f"Executing: {a_critical}/{ensemble_name_}")
-        info_path_: list[str] = ["experiments", a_critical, ensemble_name_]
+        info_path_: list[str] = [
+            pardir, "experiments", a_critical, ensemble_name_
+        ]
         ensemble_: Ensemble = Ensemble(info_path_, do_verbose,)
         ensemble_.create()
         ensemble_.exec()

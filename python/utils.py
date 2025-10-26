@@ -2,10 +2,12 @@
 Utility functions.
 """
 import warnings
-from typing import Callable
+from typing import Callable, Any
 from functools import partial
-from pandas import DataFrame  #type: ignore
-from tqdm import tqdm  #type: ignore
+from pandas import DataFrame
+from tqdm import tqdm
+from os.path import join
+from IPython.display import Image 
 
 warnings.filterwarnings("ignore")
 
@@ -15,7 +17,9 @@ __all__ = [
     "set_name",
     "make_multisim_title",
     "make_name_title",
+    "make_sim_title",
     "make_dataframe",
+    "fetch_image",
 ]
 
 progress: Callable = partial(tqdm, colour="green",)
@@ -143,6 +147,66 @@ def make_name_title(
     )
     return (name, title,)
     
+def make_sim_title(
+    p: dict,
+    analysis: dict,
+    module: Any,
+    do_omit_a: bool=False,
+) -> str:
+    """
+    Define a title string to use when annotating plots.
+  
+    Args:
+        p: parameters dictionary
+        analysis: analysis dictionary
+        module: dplvn or other class module
+        do_omit_a: skip linear coefficient "a" in string
+
+    Returns:
+        title string
+    
+    """
+    def grid_topology(i: int) -> str:
+        return "bnd" if p["grid_topologies"][i]==module.BOUNDED else "pdc"
+
+    def boundary_condition(i: int) -> str:
+        match p["boundary_conditions"][i]:
+            case module.FIXED_VALUE:
+                return "fxd"
+            case module.FIXED_FLUX:
+                return "flx"
+            case module.FLOATING:
+                return "flt"
+            case _:
+                return "";
+        
+    title: str = ""\
+        + (
+            rf"$a$={p["linear"]:0.5f}   " if not do_omit_a 
+            else rf"$a_c \approx ${analysis["a_c"]:0.5f}              "
+        ) \
+        + rf"$b$={p["quadratic"]}   " \
+        + rf"$D$={p["diffusion"]}   " \
+        + rf"$η$={p["noise"]}" \
+        + (
+            rf"      $rs$={p["random_seed"]}      " if not do_omit_a 
+            else "          "
+        ) \
+        + (
+            rf"$a_c \approx ${analysis["a_c"]:0.5f}" if not do_omit_a 
+            else ""
+        ) \
+        + "\n" \
+        + rf"$n_x$={p["grid_size"][0]}  " \
+        + rf"$n_y$={p["grid_size"][1]}   "   \
+        + rf"$\Delta$$x$={p["dx"]}   " \
+        + rf"$\Delta$$t$={p["dt"]}   " \
+        + rf"gt:({grid_topology(0)}, {grid_topology(1)})  " \
+        + rf"bc:({boundary_condition(0)}, {boundary_condition(1)}, " \
+            +rf"{boundary_condition(2)}, {boundary_condition(3)})   " 
+        # + (rf"$t$={t_epoch:08.2f}     " if t_epoch is not None else "")
+    return title
+
 def make_dataframe(p: dict) -> DataFrame:
     """
     Convert a dictionary into a pandas dataframe to prettify it.
@@ -160,3 +224,18 @@ def make_dataframe(p: dict) -> DataFrame:
         = DataFrame.from_dict(p, orient="index").rename_axis("name")
     df.rename(columns={0:"value"}, inplace=True,)
     return df
+
+def fetch_image(dir: tuple, file_name: str, width: int=600,) -> Image:
+    """
+    Read an image file and return for embedded display.
+
+    Args:
+        dir: path to images as tuple
+        file_name: of image
+        width: in pixels of returned image
+
+    Returns:
+        resized image as IPython display image
+
+    """
+    return Image(join(*dir, file_name), width=width,)
