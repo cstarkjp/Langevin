@@ -48,7 +48,7 @@ They are grouped into a set of base modules,
 located in the 
 [root Python source folder](https://github.com/cstarkjp/Langevin/tree/main/python),
 and a set of DP-application modules, which can be found in 
-[its `dp` subfolder](https://github.com/cstarkjp/Langevin/tree/main/python).
+[its `dp` subfolder](https://github.com/cstarkjp/Langevin/tree/main/python/dp).
 
 In addition, [Python scripts and related Jupyter notebooks](https://github.com/cstarkjp/Langevin/tree/main/simulation) are provided to help run DP-type Langevin simulations 
 (documented [here](simulation-reference.md)).
