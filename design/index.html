@@ -537,17 +537,17 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#wrapping" class="md-nav__link">
     <span class="md-ellipsis">
       Wrapping
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1283,17 +1283,17 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#wrapping" class="md-nav__link">
     <span class="md-ellipsis">
       Wrapping
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1343,8 +1343,8 @@ versions of the <a href="https://cstarkjp.github.io/Langevin/doxygen/class_sim_d
 <h3 id="sim_dplangevin"><code>sim_dplangevin</code></h3>
 <p>The <a href="https://cstarkjp.github.io/Langevin/doxygen/dir_29b47bf0c8dc04d64d9bcc2119390c05.html"><code>cplusplus/dp/sim_dplangevin_*</code></a> files provide a <a href="https://cstarkjp.github.io/Langevin/doxygen/class_sim_d_p.html"><code>SimDP</code> class</a>, made available through the wrapper at the Python level, required to manage and execute DP Langevin model integration.  This <a href="https://cstarkjp.github.io/Langevin/doxygen/class_sim_d_p.html"><code>SimDP</code> class</a> instantiates a <a href="https://cstarkjp.github.io/Langevin/doxygen/class_d_p_langevin.html"><code>DPLangevin</code> class integrator</a> to do the hard work of numerical integration of the stochastic differential equation. Langevin field density grids are returned to Python <a href="https://cstarkjp.github.io/Langevin/doxygen/wrapper__dplvn_8cpp.html">(via the wrapper)</a> as <code>numpy</code> arrays,
    as are time series of the mean density field and its corresponding epochs.</p>
-<h3 id="wrapping">Wrapping</h3>
-<p>To make this code accessible to Python, there is a wrapper file called <a href="https://cstarkjp.github.io/Langevin/doxygen/wrapper__dplvn_8cpp.html"><code>cplusplus/dp/wrapper_dplvn.cpp</code></a>. 
+<h2 id="wrapping">Wrapping</h2>
+<p>To make the core <code>C++</code> code accessible to Python, there is a wrapper file called <a href="https://cstarkjp.github.io/Langevin/doxygen/wrapper__dplvn_8cpp.html"><code>cplusplus/dp/wrapper_dplvn.cpp</code></a>. 
 It uses <a href="https://pybind11.readthedocs.io/en/stable/"><code>pybind11</code></a> to link the <a href="https://cstarkjp.github.io/Langevin/cplusplus/"><code>C++</code> code</a> to a Python runtime via a class instance.</p>
 <h2 id="python-support-modules">Python support modules</h2>
 <p>The <code>lvn</code> package includes several Python modules to support
