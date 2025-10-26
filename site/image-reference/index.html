@@ -293,7 +293,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../DPEnsemble-ipynb-reference/" class="md-tabs__link">
+        <a href="../dp-Ensemble-ipynb-reference/" class="md-tabs__link">
           
   
   
@@ -621,12 +621,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../DPEnsemble-ipynb-reference/" class="md-nav__link">
+      <a href="../dp-Ensemble-ipynb-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    DPEnsemble.ipynb
+    dp/Ensemble.ipynb
     
   </span>
   
@@ -644,12 +644,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../DPSimulation-ipynb-reference/" class="md-nav__link">
+      <a href="../dp-Simulation-ipynb-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    DPSimulation.ipynb
+    dp/Simulation.ipynb
     
   </span>
   
@@ -667,12 +667,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../DPSimulationDirect-ipynb-reference/" class="md-nav__link">
+      <a href="../dp-SimulationDirect-ipynb-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    DPSimulationDirect.ipynb
+    dp/SimulationDirect.ipynb
     
   </span>
   
@@ -739,12 +739,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../DPBatchEnsemble-py-reference/" class="md-nav__link">
+      <a href="../dp-BatchEnsemble-py-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    DPBatchEnsemble.py
+    dp/BatchEnsemble.py
     
   </span>
   
@@ -974,6 +974,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../serialize-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    serialize.py
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../utils-reference/" class="md-nav__link">
         
   
@@ -1026,29 +1049,6 @@
   
   <span class="md-ellipsis">
     dp/ensemble.py
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../serialize-reference/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    dp/serialize.py
     
   </span>
   
@@ -1224,18 +1224,25 @@
 
 
 </h1>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">fetch_image</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="file_name (lvn.image.fetch_image(file_name))" href="#lvn.image.fetch_image(file_name)">file_name</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="width (lvn.image.fetch_image(width))" href="#lvn.image.fetch_image(width)">width</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></span> <span class="o">=</span> <span class="mi">600</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="IPython.display.Image">Image</span></span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">fetch_image</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="dir (lvn.image.fetch_image(dir))" href="#lvn.image.fetch_image(dir)">dir</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="file_name (lvn.image.fetch_image(file_name))" href="#lvn.image.fetch_image(file_name)">file_name</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="width (lvn.image.fetch_image(width))" href="#lvn.image.fetch_image(width)">width</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></span> <span class="o">=</span> <span class="mi">600</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="IPython.display.Image">Image</span></span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
 
         <p>Read an image file and return for embedded display.</p>
-<p>Images are assumed to lie in to which "../images"
-(TODO: generalize).</p>
+<p>Images are assumed to lie in to which "<lvn>/images".</lvn></p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
     <ul>
+        <li class="doc-section-item field-body">
+<h2 id="lvn.image.fetch_image(dir)" class="doc doc-heading doc-heading-parameter">              <b><code>dir</code></b>
+</h2>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>path to images as tuple</p>
+          </div>
+        </li>
         <li class="doc-section-item field-body">
 <h2 id="lvn.image.fetch_image(file_name)" class="doc doc-heading doc-heading-parameter">              <b><code>file_name</code></b>
 </h2>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
@@ -1272,8 +1279,7 @@
 
             <details class="quote">
               <summary>Source code in <code>lvn/image.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">14</span>
-<span class="normal">15</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">15</span>
 <span class="normal">16</span>
 <span class="normal">17</span>
 <span class="normal">18</span>
@@ -1287,14 +1293,16 @@
 <span class="normal">26</span>
 <span class="normal">27</span>
 <span class="normal">28</span>
-<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fetch_image</span><span class="p">(</span><span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Image</span><span class="p">:</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fetch_image</span><span class="p">(</span><span class="nb">dir</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">,</span> <span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">600</span><span class="p">,)</span> <span class="o">-&gt;</span> <span class="n">Image</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Read an image file and return for embedded display.</span>
 
-<span class="sd">    Images are assumed to lie in to which "../images"</span>
-<span class="sd">    (TODO: generalize).</span>
+<span class="sd">    Images are assumed to lie in to which "&lt;lvn&gt;/images".</span>
 
 <span class="sd">    Args:</span>
+<span class="sd">        dir: path to images as tuple</span>
 <span class="sd">        file_name: of image</span>
 <span class="sd">        width: in pixels of returned image</span>
 
@@ -1302,7 +1310,8 @@
 <span class="sd">        resized image as IPython display image</span>
 
 <span class="sd">    """</span>
-    <span class="k">return</span> <span class="n">Image</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">pardir</span><span class="p">,</span> <span class="s2">"images"</span><span class="p">,</span> <span class="n">file_name</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,)</span>
+    <span class="c1"># images_dir: str = abspath(join(lvn.__file__, pardir, "images"))</span>
+    <span class="k">return</span> <span class="n">Image</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="o">*</span><span class="nb">dir</span><span class="p">,</span> <span class="n">file_name</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>

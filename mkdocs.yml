@@ -30,11 +30,11 @@ nav:
     - How to run: run.md
     - Simulation tools:
       - Notebooks:
-          - DPEnsemble.ipynb: DPEnsemble-ipynb-reference.md
-          - DPSimulation.ipynb: DPSimulation-ipynb-reference.md
-          - DPSimulationDirect.ipynb: DPSimulationDirect-ipynb-reference.md
+          - dp/Ensemble.ipynb: dp-Ensemble-ipynb-reference.md
+          - dp/Simulation.ipynb: dp-Simulation-ipynb-reference.md
+          - dp/SimulationDirect.ipynb: dp-SimulationDirect-ipynb-reference.md
       - Scripts:
-          - DPBatchEnsemble.py: DPBatchEnsemble-py-reference.md
+          - dp/BatchEnsemble.py: dp-BatchEnsemble-py-reference.md
       - JSON info files: 
           - Example: info-reference.md
     - Python modules:
