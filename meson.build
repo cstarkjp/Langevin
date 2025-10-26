@@ -50,6 +50,7 @@ py.install_sources(
         'python/file.py', 
         'python/image.py', 
         'python/initialize.py', 
+        'python/serialize.py', 
         'python/utils.py', 
         'python/viz.py', 
     ],
@@ -59,7 +60,6 @@ py.install_sources(
     [
         'python/dp/__init__.py', 
         'python/dp/ensemble.py', 
-        'python/dp/serialize.py', 
         'python/dp/simulation.py', 
         'python/dp/title.py', 
         'python/dp/vizdp.py', 

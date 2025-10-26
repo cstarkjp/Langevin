@@ -10,11 +10,15 @@ from datetime import datetime, timedelta
 from numpy.typing import NDArray
 import numpy as np
 from numpy.lib.npyio import NpzFile
-from lvn.dp import dplvn  #type: ignore
 import sys, os
 sys.path.insert(0, os.path.join(os.path.pardir, "Packages"))
-from lvn.file import (create_directories, export_info, export_plots,)
-from lvn.utils import (progress, progress_disabled, set_name,)
+from lvn.file import (
+    create_directories, export_info, export_plots,
+)
+from lvn.utils import (
+    progress, progress_disabled, set_name,
+)
+from lvn.dp import dplvn
 from lvn.dp.vizdp import VizDP
 
 from pprint import PrettyPrinter
@@ -168,11 +172,17 @@ class Simulation:
             do_rescale=True,
         )
 
-    def save(self, do_dummy: bool=False, do_verbose: bool=False,) -> None:
+    def save(
+            self, 
+            module: Any,
+            do_dummy: bool=False, 
+            do_verbose: bool=False,
+        ) -> None:
         """
         Export outfo JSON, graphs, and data files.
 
         Args:
+            module: dplvn or other class module
             do_dummy: just print (possibly create) the output folders
             do_verbose: report how the exporting is going
         """
@@ -190,7 +200,7 @@ class Simulation:
             "Misc" : self.misc
         }        
         if not do_dummy:
-            _ = export_info(outfo_path, "Outfo", outfo,)
+            _ = export_info(outfo_path, "Outfo", outfo, module,)
 
         if self.misc["do_export_graphs"]:
             graphs_path: str = \

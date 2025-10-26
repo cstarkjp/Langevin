@@ -4,6 +4,7 @@ __all__ = [
     "file",
     "image",
     "initialize",
+    "serialize",
     "utils",
     "viz",
 ]

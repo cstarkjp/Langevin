@@ -5,7 +5,6 @@
 
 __all__ = [
     "ensemble",
-    "serialize",
     "simulation",
     "title",
     "vizdp"

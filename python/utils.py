@@ -4,8 +4,8 @@ Utility functions.
 import warnings
 from typing import Callable
 from functools import partial
-from pandas import DataFrame  #type: ignore
-from tqdm import tqdm  #type: ignore
+from pandas import DataFrame
+from tqdm import tqdm
 
 warnings.filterwarnings("ignore")
 

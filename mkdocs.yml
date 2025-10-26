@@ -41,11 +41,11 @@ nav:
         - file.py: file-reference.md 
         - image.py: image-reference.md 
         - initialize.py: initialize-reference.md 
+        - serialize.py: serialize-reference.md 
         - utils.py: utils-reference.md 
         - viz.py: viz-reference.md
         # - dp:
         - dp/ensemble.py: ensemble-reference.md
-        - dp/serialize.py: serialize-reference.md 
         - dp/simulation.py: simulation-reference.md
         - dp/title.py: title-reference.md
         - dp/vizdp.py: vizdp-reference.md

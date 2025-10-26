@@ -2,7 +2,7 @@
 Utility functions.
 """
 import warnings
-from lvn.dp import dplvn  #type: ignore
+from lvn.dp import dplvn
 
 warnings.filterwarnings("ignore")
 
