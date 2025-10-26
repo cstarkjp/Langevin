@@ -25,9 +25,9 @@ The [`cplusplus/langevin_*`](https://cstarkjp.github.io/Langevin/doxygen/dir_413
 
 The [`cplusplus/dp/dplangevin_*`](https://cstarkjp.github.io/Langevin/doxygen/dir_29b47bf0c8dc04d64d9bcc2119390c05.html) files define this [`DPLangevin` integrator class](https://cstarkjp.github.io/Langevin/doxygen/class_d_p_langevin.html). They inherit the general [`BaseLangevin` integrator class](https://cstarkjp.github.io/Langevin/doxygen/class_base_langevin.html)  and implement several methods left undefined by that parent; most important, they define methods implementing the particular functional form of the directed-percolation Langevin equation and its corresponding nonlinear, deterministic integration step in the split operator scheme.
 
-       Other types of absorbing-phase transition-type Langevin equation could be
-       implemented with alternate subclasses of [`BaseLangevin`](https://cstarkjp.github.io/Langevin/doxygen/class_base_langevin.html) and alternate 
-       versions of the [`SimDP` class](https://cstarkjp.github.io/Langevin/doxygen/class_sim_d_p.html).
+Other types of absorbing-phase transition-type Langevin equation could be
+implemented with alternate subclasses of [`BaseLangevin`](https://cstarkjp.github.io/Langevin/doxygen/class_base_langevin.html) and alternate 
+versions of the [`SimDP` class](https://cstarkjp.github.io/Langevin/doxygen/class_sim_d_p.html).
 
 ### `sim_dplangevin`
 
