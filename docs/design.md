@@ -42,7 +42,7 @@ It uses [`pybind11`](https://pybind11.readthedocs.io/en/stable/) to link the [`C
 
 ## Python support modules
 
-The `lvn` package includes [several Python modules](https://github.com/cstarkjp/Langevin/tree/main/python) to support
+The `lvn` package includes several Python modules to support
 use of the core `C++`-based integrator.
 They are grouped into a set of base modules, 
 located in the 
@@ -50,7 +50,7 @@ located in the
 and a set of DP-application modules, which can be found in 
 [its `dp` subfolder](https://github.com/cstarkjp/Langevin/tree/main/python/dp).
 
-In addition, [Python scripts and related Jupyter notebooks](https://github.com/cstarkjp/Langevin/tree/main/simulation) are provided to help run DP-type Langevin simulations 
+In addition, [Python scripts and related Jupyter notebooks](https://github.com/cstarkjp/Langevin/tree/main/simulation/dp) are provided to help run DP-type Langevin simulations 
 (documented [here](simulation-reference.md)).
 
 The main support modules are:
