@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../design/">
+        <link rel="prev" href="../simulation-reference/">
       
       
-        <link rel="next" href="../tests-reference/">
+        <link rel="next" href="../vizdp-reference/">
       
       
       <link rel="icon" href="../images/DP1.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>How to install - lvn</title>
+        <title>dp/title.py - lvn</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-install" class="md-skip">
+        <a href="#titlepy" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How to install
+              dp/title.py
             
           </span>
         </div>
@@ -225,11 +225,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../installation/" class="md-tabs__link">
         
   
   
@@ -314,10 +312,12 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../file-reference/" class="md-tabs__link">
           
   
@@ -470,19 +470,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
         
   
   
@@ -493,7 +484,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -856,24 +846,29 @@
       
   
   
+    
   
   
+  
     
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
         
           
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
             
   
   
@@ -886,7 +881,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             Python modules
@@ -1081,10 +1076,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../title-reference/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1095,6 +1099,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -1208,36 +1213,189 @@
 
 
 
-<h1 id="how-to-install">How to install</h1>
-<ol>
-<li>
-<p>Install Python <span class="arithmatex">\(\geq\)</span> 3.12 and the following packages, ideally in a Python environment:</p>
-<ul>
-<li><code>numpy</code></li>
-<li><code>jupyter</code></li>
-<li><code>ipython</code></li>
-<li><code>matplotlib</code>  </li>
-<li><code>pandas</code></li>
-<li><code>tqdm</code></li>
-<li><code>ffmpeg-python</code></li>
-</ul>
-</li>
-<li>
-<p>Install the <a href="https://test.pypi.org/project/lvn/">Python library <code>lvn</code></a> using <code>pip</code>, hopefully within a Python environment, from TestPyPI:</p>
-<pre><code>pip install -i https://test.pypi.org/simple/ lvn
-</code></pre>
-<p><em>If you already have a pre-existing installation</em> of this package, you may need to <code>upgrade</code> (update) to the latest version:</p>
-<pre><code>pip install -i https://test.pypi.org/simple/ lvn --upgrade
-</code></pre>
-</li>
-<li>
-<p>Clone the <a href="https://github.com/cstarkjp/Langevin/tree/main">Langevin repo</a> to your local machine:</p>
-<pre><code>git clone https://github.com/cstarkjp/Langevin.git
-</code></pre>
-<p>which will create a <code>Langevin/</code> folder. </p>
-<p>If you already have a local copy of the repo, update it with <code>git pull</code>, making sure you are on the <code>main</code> branch (do <code>git checkout main</code>).</p>
-</li>
-</ol>
+<h1 id="titlepy">title.py</h1>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h1 id="lvn.dp.title.make_sim_title" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <span class="doc doc-object-name doc-function-name">make_sim_title</span>
+
+
+</h1>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">make_sim_title</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="p (lvn.dp.title.make_sim_title(p))" href="#lvn.dp.title.make_sim_title(p)">p</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="analysis (lvn.dp.title.make_sim_title(analysis))" href="#lvn.dp.title.make_sim_title(analysis)">analysis</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="do_omit_a (lvn.dp.title.make_sim_title(do_omit_a))" href="#lvn.dp.title.make_sim_title(do_omit_a)">do_omit_a</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Define a title string to use when annotating plots.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<h2 id="lvn.dp.title.make_sim_title(p)" class="doc doc-heading doc-heading-parameter">              <b><code>p</code></b>
+</h2>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>parameters dictionary</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h2 id="lvn.dp.title.make_sim_title(analysis)" class="doc doc-heading doc-heading-parameter">              <b><code>analysis</code></b>
+</h2>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>analysis dictionary</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h2 id="lvn.dp.title.make_sim_title(do_omit_a)" class="doc doc-heading doc-heading-parameter">              <b><code>do_omit_a</code></b>
+</h2>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>, default:
+                  <code>False</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>skip linear coefficient "a" in string</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
+          –
+          <div class="doc-md-description">
+            <p>title string</p>
+          </div>
+        </li>
+    </ul>
+
+          </backlinks>
+
+            <details class="quote">
+              <summary>Source code in <code>lvn/dp/title.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_sim_title</span><span class="p">(</span>
+    <span class="n">p</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+    <span class="n">analysis</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+    <span class="n">do_omit_a</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Define a title string to use when annotating plots.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        p: parameters dictionary</span>
+<span class="sd">        analysis: analysis dictionary</span>
+<span class="sd">        do_omit_a: skip linear coefficient "a" in string</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        title string</span>
+
+<span class="sd">    """</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">grid_topology</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">"bnd"</span> <span class="k">if</span> <span class="n">p</span><span class="p">[</span><span class="s2">"grid_topologies"</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="n">dplvn</span><span class="o">.</span><span class="n">BOUNDED</span> <span class="k">else</span> <span class="s2">"pdc"</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">boundary_condition</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">match</span> <span class="n">p</span><span class="p">[</span><span class="s2">"boundary_conditions"</span><span class="p">][</span><span class="n">i</span><span class="p">]:</span>
+            <span class="k">case</span> <span class="n">dplvn</span><span class="o">.</span><span class="n">FIXED_VALUE</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s2">"fxd"</span>
+            <span class="k">case</span> <span class="n">dplvn</span><span class="o">.</span><span class="n">FIXED_FLUX</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s2">"flx"</span>
+            <span class="k">case</span> <span class="n">dplvn</span><span class="o">.</span><span class="n">FLOATING</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s2">"flt"</span>
+            <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s2">""</span><span class="p">;</span>
+
+    <span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span>\
+        <span class="o">+</span> <span class="p">(</span>
+            <span class="sa">rf</span><span class="s2">"$a$=</span><span class="si">{</span><span class="n">p</span><span class="p">[</span><span class="s2">"linear"</span><span class="p">]</span><span class="si">:</span><span class="s2">0.5f</span><span class="si">}</span><span class="s2">   "</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">do_omit_a</span> 
+            <span class="k">else</span> <span class="sa">rf</span><span class="s2">"$a_c \approx $</span><span class="si">{</span><span class="n">analysis</span><span class="p">[</span><span class="s2">"a_c"</span><span class="p">]</span><span class="si">:</span><span class="s2">0.5f</span><span class="si">}</span><span class="s2">              "</span>
+        <span class="p">)</span> \
+        <span class="o">+</span> <span class="sa">rf</span><span class="s2">"$b$=</span><span class="si">{</span><span class="n">p</span><span class="p">[</span><span class="s2">"quadratic"</span><span class="p">]</span><span class="si">}</span><span class="s2">   "</span> \
+        <span class="o">+</span> <span class="sa">rf</span><span class="s2">"$D$=</span><span class="si">{</span><span class="n">p</span><span class="p">[</span><span class="s2">"diffusion"</span><span class="p">]</span><span class="si">}</span><span class="s2">   "</span> \
+        <span class="o">+</span> <span class="sa">rf</span><span class="s2">"$η$=</span><span class="si">{</span><span class="n">p</span><span class="p">[</span><span class="s2">"noise"</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span> \
+        <span class="o">+</span> <span class="p">(</span>
+            <span class="sa">rf</span><span class="s2">"      $rs$=</span><span class="si">{</span><span class="n">p</span><span class="p">[</span><span class="s2">"random_seed"</span><span class="p">]</span><span class="si">}</span><span class="s2">      "</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">do_omit_a</span> 
+            <span class="k">else</span> <span class="s2">"          "</span>
+        <span class="p">)</span> \
+        <span class="o">+</span> <span class="p">(</span>
+            <span class="sa">rf</span><span class="s2">"$a_c \approx $</span><span class="si">{</span><span class="n">analysis</span><span class="p">[</span><span class="s2">"a_c"</span><span class="p">]</span><span class="si">:</span><span class="s2">0.5f</span><span class="si">}</span><span class="s2">"</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">do_omit_a</span> 
+            <span class="k">else</span> <span class="s2">""</span>
+        <span class="p">)</span> \
+        <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> \
+        <span class="o">+</span> <span class="sa">rf</span><span class="s2">"$n_x$=</span><span class="si">{</span><span class="n">p</span><span class="p">[</span><span class="s2">"grid_size"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">  "</span> \
+        <span class="o">+</span> <span class="sa">rf</span><span class="s2">"$n_y$=</span><span class="si">{</span><span class="n">p</span><span class="p">[</span><span class="s2">"grid_size"</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">   "</span>   \
+        <span class="o">+</span> <span class="sa">rf</span><span class="s2">"$\Delta$$x$=</span><span class="si">{</span><span class="n">p</span><span class="p">[</span><span class="s2">"dx"</span><span class="p">]</span><span class="si">}</span><span class="s2">   "</span> \
+        <span class="o">+</span> <span class="sa">rf</span><span class="s2">"$\Delta$$t$=</span><span class="si">{</span><span class="n">p</span><span class="p">[</span><span class="s2">"dt"</span><span class="p">]</span><span class="si">}</span><span class="s2">   "</span> \
+        <span class="o">+</span> <span class="sa">rf</span><span class="s2">"gt:(</span><span class="si">{</span><span class="n">grid_topology</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">grid_topology</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">)  "</span> \
+        <span class="o">+</span> <span class="sa">rf</span><span class="s2">"bc:(</span><span class="si">{</span><span class="n">boundary_condition</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">boundary_condition</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">, "</span> \
+            <span class="o">+</span><span class="sa">rf</span><span class="s2">"</span><span class="si">{</span><span class="n">boundary_condition</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">boundary_condition</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2">)   "</span> 
+        <span class="c1"># + (rf"$t$={t_epoch:08.2f}     " if t_epoch is not None else "")</span>
+    <span class="k">return</span> <span class="n">title</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
 
 
 
