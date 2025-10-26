@@ -34,9 +34,9 @@ versions of the [`SimDP` class](https://cstarkjp.github.io/Langevin/doxygen/clas
  The [`cplusplus/dp/sim_dplangevin_*`](https://cstarkjp.github.io/Langevin/doxygen/dir_29b47bf0c8dc04d64d9bcc2119390c05.html) files provide a [`SimDP` class](https://cstarkjp.github.io/Langevin/doxygen/class_sim_d_p.html), made available through the wrapper at the Python level, required to manage and execute DP Langevin model integration.  This [`SimDP` class](https://cstarkjp.github.io/Langevin/doxygen/class_sim_d_p.html) instantiates a [`DPLangevin` class integrator](https://cstarkjp.github.io/Langevin/doxygen/class_d_p_langevin.html) to do the hard work of numerical integration of the stochastic differential equation. Langevin field density grids are returned to Python [(via the wrapper)](https://cstarkjp.github.io/Langevin/doxygen/wrapper__dplvn_8cpp.html) as `numpy` arrays,
    as are time series of the mean density field and its corresponding epochs.
 
-### Wrapping
+## Wrapping
 
-To make this code accessible to Python, there is a wrapper file called [`cplusplus/dp/wrapper_dplvn.cpp`](https://cstarkjp.github.io/Langevin/doxygen/wrapper__dplvn_8cpp.html). 
+To make the core `C++` code accessible to Python, there is a wrapper file called [`cplusplus/dp/wrapper_dplvn.cpp`](https://cstarkjp.github.io/Langevin/doxygen/wrapper__dplvn_8cpp.html). 
 It uses [`pybind11`](https://pybind11.readthedocs.io/en/stable/) to link the [`C++` code](https://cstarkjp.github.io/Langevin/cplusplus/) to a Python runtime via a class instance.
 
 
