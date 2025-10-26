@@ -54,7 +54,6 @@ In addition, [Python scripts and related Jupyter notebooks](https://github.com/c
 The main support modules are:
 
 - [file.py](file-reference.md)
-- [initialize.py](initialize-reference.md)
 - [serialize.py](serialize-reference.md)
 - [utils.py](utils-reference.md)
 - [viz.py](viz-reference.md)

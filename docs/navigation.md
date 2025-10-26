@@ -1,6 +1,6 @@
 # Navigation
 
-The structure of this software package is outlined [here](design.md) or via the "Software design" sidebar menu item.
+The structure of this software package is outlined [here](software-design.md) or via the "Software design" sidebar menu item.
 
 Installation notes are available [here](how-to-install.md) or via the "How to install" menu item.
 
