@@ -7,4 +7,3 @@
 ::: lvn.file.export_plots
 ::: lvn.file.import_info
 ::: lvn.file.read_info
-::: lvn.file.is_serializable

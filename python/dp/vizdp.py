@@ -312,7 +312,7 @@ class VizDP(Viz):
             md_trend: NDArray = (t_trend)**(-dp_δ) * (md_[0])
 
             label_: str = (
-                f"{round(Δ*1e3,n_digits-3):01.1f}" if do_label_Δ 
+                f"{round(Δ*100,n_digits-2):01.1f}" if do_label_Δ 
                 else f"{parameters_["linear"]:01.6f}"
             )
             plt.plot(
@@ -352,7 +352,7 @@ class VizDP(Viz):
 
         plt.legend(
             fontsize=7, 
-            title=r"$10^3(a-a_c)$", title_fontsize=8,
+            title=r"$100(a-a_c)$", title_fontsize=8,
             loc=("upper left" if do_rescale else "lower left"),
         )
         plt.grid(ls=":")
