@@ -5,6 +5,8 @@ Detailed documentation is available
 [here](https://cstarkjp.github.io/Langevin/doxygen/annotated.html). 
 The C++ code base is to be found [here](https://github.com/cstarkjp/Langevin/tree/main/cplusplus) and the Python wrapper code is located [here](https://github.com/cstarkjp/Langevin/tree/main/python).
 
+TODO: add info about supporting Python files.
+
 First, there is a wrapper file called [`cplusplus/dp/wrapper_dplvn.cpp`](https://cstarkjp.github.io/Langevin/doxygen/wrapper__dplvn_8cpp.html) that uses [`pybind11`](https://pybind11.readthedocs.io/en/stable/) to link the [`C++` code](https://cstarkjp.github.io/Langevin/cplusplus/) to a Python runtime.
 
 Next, the code is split into a hierarchy of three groups, with each corresponding  file denoted by one of following prefixes: (1) [`sim_dplangevin_`](https://cstarkjp.github.io/Langevin/doxygen/dir_29b47bf0c8dc04d64d9bcc2119390c05.html), (2) [`dplangevin_`](https://cstarkjp.github.io/Langevin/doxygen/dir_29b47bf0c8dc04d64d9bcc2119390c05.html) and (3) [`langevin_`](https://cstarkjp.github.io/Langevin/doxygen/dir_413eba86a22d58dd6c01dd4edd69cedc.html):
