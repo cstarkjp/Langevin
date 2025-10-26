@@ -15,7 +15,7 @@ import sys, os
 sys.path.insert(0, os.path.join(os.path.pardir, "Packages"))
 from lvn.dp.file import (create_directories, export_info, export_plots,)
 from lvn.dp.utils import (progress, progress_disabled, set_name,)
-from lvn.dp.plot import Viz
+from lvn.dp.viz import Viz
 
 from pprint import PrettyPrinter
 pp = PrettyPrinter(indent=4).pprint
@@ -168,7 +168,7 @@ class Simulation:
             do_rescale=True,
         )
 
-    def save(self, do_dummy=False, do_verbose=False,) -> None:
+    def save(self, do_dummy: bool=False, do_verbose: bool=False,) -> None:
         """
         Export outfo JSON, graphs, and data files.
 

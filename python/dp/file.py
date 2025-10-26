@@ -279,12 +279,12 @@ def export_info(
     on keys and converting values to floats.
 
     Args:
-        results_dir: name of output directory
-        filename: name of output JSON file
-        suffix: to append to filename prior to addition of '.json' extension
+        info_dir: target parent folder
+        file_name: name of output JSON file
         source_dict: dictionary of results, possibly requiring conversion
             from latex form such that serialization into a JSON file
             is possible
+        suffix: to append to filename prior to addition of '.json' extension
     
     Returns:
         serialized dictionary and the file path string

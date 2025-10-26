@@ -10,8 +10,8 @@ import numpy as np
 from numpy.typing import NDArray
 import os
 from lvn.dp.simulation import Simulation
-from lvn.dp.plot import Viz #type: ignore
 from lvn.dp.file import create_directories, export_info, read_info, export_plots
+from lvn.dp.viz import Viz #type: ignore
 
 warnings.filterwarnings("ignore")
 
@@ -23,7 +23,7 @@ class Ensemble:
     """
     Multiprocessing wrapper class to batch run Langevin integrations.
     """
-    # Test: from [`Viz`][lvn.dp.plot.Viz]
+    # Test: from [`Viz`][lvn.dp.viz.Viz]
     def __init__(
             self, info_path: Sequence[str], do_verbose: bool=False,
         ) -> None:
@@ -196,7 +196,7 @@ class Ensemble:
         for sim_ in self.sim_list:
             sim_.plot()
 
-    def save(self, do_dummy=False,) -> None:
+    def save(self, do_dummy: bool=False,) -> None:
         """
         Export Outfo.json, graphs, and data files.
 
