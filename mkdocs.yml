@@ -38,12 +38,17 @@ nav:
       - JSON info files: 
           - Example: info-reference.md
     - Python modules:
-        - ensemble.py: ensemble-reference.md
-        - simulation.py: simulation-reference.md
-        - image.py: image-reference.md 
         - file.py: file-reference.md 
-        - plot.py: plot-reference.md
-        - utils.py: utils-reference.md
+        - image.py: image-reference.md 
+        - initialize.py: initialize-reference.md 
+        - utils.py: utils-reference.md 
+        - viz.py: viz-reference.md
+        # - dp:
+        - dp/ensemble.py: ensemble-reference.md
+        - dp/serialize.py: serialize-reference.md 
+        - dp/simulation.py: simulation-reference.md
+        - dp/title.py: title-reference.md
+        - dp/vizdp.py: vizdp-reference.md
     - C++ source: cplusplus.md
     - References: references.md
 

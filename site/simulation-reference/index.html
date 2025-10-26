@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../ensemble-reference/">
+        <link rel="prev" href="../serialize-reference/">
       
       
-        <link rel="next" href="../image-reference/">
+        <link rel="next" href="../title-reference/">
       
       
       <link rel="icon" href="../images/DP1.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>simulation.py - lvn</title>
+        <title>dp/simulation.py - lvn</title>
       
     
     
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              simulation.py
+              dp/simulation.py
             
           </span>
         </div>
@@ -318,7 +318,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../ensemble-reference/" class="md-tabs__link">
+        <a href="../file-reference/" class="md-tabs__link">
           
   
   
@@ -895,50 +895,17 @@
   
   
     <li class="md-nav__item">
-      <a href="../ensemble-reference/" class="md-nav__link">
+      <a href="../file-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    ensemble.py
+    file.py
     
   </span>
   
 
       </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    simulation.py
-    
-  </span>
-  
-
-      </a>
-      
     </li>
   
 
@@ -974,35 +941,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../file-reference/" class="md-nav__link">
+      <a href="../initialize-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    file.py
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../plot-reference/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    plot.py
+    initialize.py
     
   </span>
   
@@ -1026,6 +970,154 @@
   
   <span class="md-ellipsis">
     utils.py
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../viz-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    viz.py
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ensemble-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    dp/ensemble.py
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serialize-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    dp/serialize.py
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    dp/simulation.py
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../title-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    dp/title.py
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vizdp-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    dp/vizdp.py
     
   </span>
   
@@ -1520,8 +1612,8 @@ from <code>dplvn.SimDP</code></p>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Generate all the required graphs and images.</span>
 <span class="sd">    """</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">graphs</span><span class="p">:</span> <span class="n">Viz</span> <span class="o">=</span> <span class="n">Viz</span><span class="p">()</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">images</span><span class="p">:</span> <span class="n">Viz</span> <span class="o">=</span> <span class="n">Viz</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">graphs</span><span class="p">:</span> <span class="n">VizDP</span> <span class="o">=</span> <span class="n">VizDP</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">images</span><span class="p">:</span> <span class="n">VizDP</span> <span class="o">=</span> <span class="n">VizDP</span><span class="p">()</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">graphs</span><span class="o">.</span><span class="n">plot_mean_density_evolution</span><span class="p">(</span>
         <span class="s2">"ρ_t_loglog"</span><span class="p">,</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">analysis</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">misc</span><span class="p">,</span>
@@ -1686,7 +1778,7 @@ from <code>dplvn.SimDP</code></p>
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">save</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="do_dummy (lvn.dp.simulation.Simulation.save(do_dummy))" href="#lvn.dp.simulation.Simulation.save(do_dummy)">do_dummy</a></span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="do_verbose (lvn.dp.simulation.Simulation.save(do_verbose))" href="#lvn.dp.simulation.Simulation.save(do_verbose)">do_verbose</a></span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">save</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="do_dummy (lvn.dp.simulation.Simulation.save(do_dummy))" href="#lvn.dp.simulation.Simulation.save(do_dummy)">do_dummy</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="do_verbose (lvn.dp.simulation.Simulation.save(do_verbose))" href="#lvn.dp.simulation.Simulation.save(do_verbose)">do_verbose</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -1698,14 +1790,20 @@ from <code>dplvn.SimDP</code></p>
     <ul>
         <li class="doc-section-item field-body">
 <h3 id="lvn.dp.simulation.Simulation.save(do_dummy)" class="doc doc-heading doc-heading-parameter">              <b><code>do_dummy</code></b>
-</h3>          –
+</h3>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>, default:
+                  <code>False</code>
+)
+          –
           <div class="doc-md-description">
             <p>just print (possibly create) the output folders</p>
           </div>
         </li>
         <li class="doc-section-item field-body">
 <h3 id="lvn.dp.simulation.Simulation.save(do_verbose)" class="doc doc-heading doc-heading-parameter">              <b><code>do_verbose</code></b>
-</h3>          –
+</h3>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>, default:
+                  <code>False</code>
+)
+          –
           <div class="doc-md-description">
             <p>report how the exporting is going</p>
           </div>
@@ -1766,7 +1864,7 @@ from <code>dplvn.SimDP</code></p>
 <span class="normal">218</span>
 <span class="normal">219</span>
 <span class="normal">220</span>
-<span class="normal">221</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">do_dummy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">do_verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="normal">221</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">do_dummy</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">do_verbose</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Export outfo JSON, graphs, and data files.</span>
 

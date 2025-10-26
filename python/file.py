@@ -4,16 +4,12 @@ Write to files.
 import warnings
 import logging
 from typing import Any, Callable, Sequence, List
-from pathlib import Path
 from os.path import exists, join, realpath, pardir
 from os import mkdir
-import builtins
 from shutil import rmtree
-import numpy as np
 from json import dump, dumps, load
 from io import TextIOWrapper
-from lvn.dp import dplvn
-from lvn.dp.utils import progress, progress_disabled
+from lvn.utils import progress, progress_disabled
 
 warnings.filterwarnings("ignore")
 
@@ -21,8 +17,6 @@ __all__ = [
     "create_dir",
     "create_directories",
     "is_serializable", 
-    "to_serializable",
-    "from_serializable",
     "import_info",
     "export_info",
     "read_info",
@@ -96,150 +90,10 @@ def is_serializable(value: Any,) -> bool:
     except TypeError:
         return False
 
-def to_serializable(value: Any,) -> Any:
-    """
-    Convert value into serializable version.
-
-    Args:
-        value: to be converted.
-
-    Returns: 
-        serializable value.
-    """
-    match type(value):
-        case builtins.str:
-            return value
-        case np.float64 | builtins.float:
-            return float(value)
-        case builtins.int:
-            return int(value)
-        case builtins.bool:
-            return value
-        case builtins.list:
-            return value
-        case dplvn.GridDimension:
-            match value:
-                case dplvn.D1:
-                    return "D1"
-                case dplvn.D2:
-                    return "D2"
-                case dplvn.D3:
-                    return "D3"
-                case _:
-                    return None
-        case dplvn.InitialCondition:
-            match value:
-                case dplvn.RANDOM_UNIFORM:
-                     return "RANDOM_UNIFORM"
-                case dplvn.RANDOM_GAUSSIAN:
-                     return "RANDOM_GAUSSIAN"
-                case dplvn.CONSTANT_VALUE:
-                     return "CONSTANT_VALUE"
-                case dplvn.SINGLE_SEED:
-                     return "SINGLE_SEED"
-                case _:
-                    return None
-        case dplvn.IntegrationMethod:
-            match value:
-                case dplvn.RUNGE_KUTTA:
-                    return "RUNGE_KUTTA"
-                case dplvn.EULER:
-                    return "EULER"
-                case _:
-                    return None
-        case builtins.tuple:
-            if is_serializable(value[0]) and is_serializable(value):
-                return value
-            combo: list = []
-            for value_ in value:
-                match value_:
-                    case dplvn.BOUNDED:
-                        combo += ["BOUNDED"]
-                        continue
-                    case dplvn.PERIODIC:
-                        combo += ["PERIODIC"]
-                        continue
-                    case dplvn.FLOATING:
-                        combo += ["FLOATING"] 
-                        continue
-                    case dplvn.FIXED_VALUE:
-                        combo += ["FIXED_VALUE"] 
-                        continue
-                    case dplvn.FIXED_FLUX :
-                        combo += ["FIXED_FLUX"] 
-                        continue
-                    case _:
-                        combo += [None]
-                        continue
-            return combo
-        case np.ndarray:
-            return value.tolist()
-        case _:
-            return value
-    
-def from_serializable(value: Any,) -> Any:
-    """
-    Convert dict from serializable version.
-
-    Args:
-        value: To be converted.
-
-    Returns:  Converted value.
-    """
-    match type(value):
-        case builtins.str:
-            match value:
-                case "D1":
-                    return dplvn.D1
-                case "D2":
-                    return dplvn.D2
-                case "D3":
-                    return dplvn.D3
-                case "RANDOM_UNIFORM":
-                    return dplvn.RANDOM_UNIFORM
-                case "RANDOM_GAUSSIAN":
-                    return dplvn.RANDOM_GAUSSIAN
-                case "CONSTANT_VALUE":
-                    return dplvn.CONSTANT_VALUE
-                case "SINGLE_SEED":
-                    return dplvn.SINGLE_SEED
-                case "RUNGE_KUTTA":
-                    return dplvn.RUNGE_KUTTA
-                case "EULER":
-                    return dplvn.EULER
-                case _:
-                    return None
-        case builtins.tuple | builtins.list:
-            combo: list = []
-            if type(value[0])!=builtins.str:
-                return tuple(value)
-            for value_ in value:
-                match value_:
-                    case "BOUNDED":
-                        combo += [dplvn.BOUNDED]
-                        continue
-                    case "PERIODIC":
-                        combo += [dplvn.PERIODIC]
-                        continue
-                    case "FLOATING":
-                        combo += [dplvn.FLOATING]
-                        continue
-                    case "FIXED_VALUE":
-                        combo += [dplvn.FIXED_VALUE]
-                        continue
-                    case "FIXED_FLUX":
-                        combo += [dplvn.FIXED_FLUX]
-                        continue
-                    case _:
-                        combo += [None]
-                        continue
-            return tuple(combo)
-        case _:
-            return value
-
 def import_info(
         info_dir: str, 
-        file_name: str
+        file_name: str,
+        from_serializable: Callable,
     ) -> dict:
     """
     Read and adapt parameters specified in a JSON file.
@@ -279,12 +133,12 @@ def export_info(
     on keys and converting values to floats.
 
     Args:
-        results_dir: name of output directory
-        filename: name of output JSON file
-        suffix: to append to filename prior to addition of '.json' extension
+        info_dir: target parent folder
+        file_name: name of output JSON file
         source_dict: dictionary of results, possibly requiring conversion
             from latex form such that serialization into a JSON file
             is possible
+        suffix: to append to filename prior to addition of '.json' extension
     
     Returns:
         serialized dictionary and the file path string
@@ -310,18 +164,22 @@ def export_info(
         dump(serializable_dict, file, indent=4, ensure_ascii=False,) #separators=(", \n", ": ")
     return (serializable_dict, info_dir,)
 
-def read_info(path: Sequence[str],) -> tuple[str, dict]:
+def read_info(
+        path: Sequence[str],
+        from_serializable: Callable,
+    ) -> tuple[str, dict]:
     """
     Wrapper around method to import info dictionary.
 
     Args:
         path: to info JSON file.
+        from_serializable: function to handle serialization
 
     Returns:
         path to file and imported dictionary
     """
     full_path: str = join(pardir, *path,)
-    info: dict = import_info(full_path, "Info")
+    info: dict = import_info(full_path, "Info", from_serializable,)
     return (full_path, info,)
 
 def export_plots(

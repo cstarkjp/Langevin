@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../design/">
+        <link rel="prev" href="../image-reference/">
       
       
-        <link rel="next" href="../tests-reference/">
+        <link rel="next" href="../utils-reference/">
       
       
       <link rel="icon" href="../images/DP1.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>How to install - lvn</title>
+        <title>initialize.py - lvn</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-install" class="md-skip">
+        <a href="#initializepy" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How to install
+              initialize.py
             
           </span>
         </div>
@@ -225,11 +225,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../installation/" class="md-tabs__link">
         
   
   
@@ -314,10 +312,12 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../file-reference/" class="md-tabs__link">
           
   
@@ -470,19 +470,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
         
   
   
@@ -493,7 +484,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -856,24 +846,29 @@
       
   
   
+    
   
   
+  
     
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
         
           
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
             
   
   
@@ -886,7 +881,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             Python modules
@@ -943,10 +938,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../initialize-reference/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -957,6 +961,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -1208,36 +1213,137 @@
 
 
 
-<h1 id="how-to-install">How to install</h1>
-<ol>
-<li>
-<p>Install Python <span class="arithmatex">\(\geq\)</span> 3.12 and the following packages, ideally in a Python environment:</p>
+<h1 id="initializepy">initialize.py</h1>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h1 id="lvn.initialize" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>            <span class="doc doc-object-name doc-module-name">initialize</span>
+
+
+</h1>
+
+    <div class="doc doc-contents first">
+
+        <p>Configure to run in <code>IPython</code>_.</p>
+<hr>
+<p>Sets up <code>IPython</code><em> environment if we're running
+in a <code>Jupyter notebook</code></em> or <code>Jupyter QtConsole</code>_.</p>
 <ul>
-<li><code>numpy</code></li>
-<li><code>jupyter</code></li>
-<li><code>ipython</code></li>
-<li><code>matplotlib</code>  </li>
-<li><code>pandas</code></li>
-<li><code>tqdm</code></li>
-<li><code>ffmpeg-python</code></li>
+<li>prepares Matplotlib to display inline and (for Macs)
+   at a 'retina' resolution -- if this
+   is not available, a benign error report (currently disabled)
+   is made and progress continues</li>
+<li>enables automatic reloading (in case the code has been modded) 
+   when a notebook is re-run in-situ</li>
 </ul>
-</li>
-<li>
-<p>Install the <a href="https://test.pypi.org/project/lvn/">Python library <code>lvn</code></a> using <code>pip</code>, hopefully within a Python environment, from TestPyPI:</p>
-<pre><code>pip install -i https://test.pypi.org/simple/ lvn
-</code></pre>
-<p><em>If you already have a pre-existing installation</em> of this package, you may need to <code>upgrade</code> (update) to the latest version:</p>
-<pre><code>pip install -i https://test.pypi.org/simple/ lvn --upgrade
-</code></pre>
-</li>
-<li>
-<p>Clone the <a href="https://github.com/cstarkjp/Langevin/tree/main">Langevin repo</a> to your local machine:</p>
-<pre><code>git clone https://github.com/cstarkjp/Langevin.git
-</code></pre>
-<p>which will create a <code>Langevin/</code> folder. </p>
-<p>If you already have a local copy of the repo, update it with <code>git pull</code>, making sure you are on the <code>main</code> branch (do <code>git checkout main</code>).</p>
-</li>
-</ol>
+<hr>
+<p>Requires <code>Matplotlib</code><em> and <code>IPython</code></em>.</p>
+<p>Uses IPython extensions <code>autoreload</code>_.</p>
+<p>The  <code>autoreload</code>_ extension forces the parent package to be reloaded on
+restart. This makes code modding and subsequent rerunning of a notebook
+smooth and seamless. It is not needed for normal operation, and if
+unavailable processing continues regardless.</p>
+<hr>
+<p>.. _Matplotlib: https://matplotlib.org/
+.. _autoreload:
+    https://ipython.readthedocs.io/en/stable/config/extensions/autoreload.html
+.. _IPython: https://ipython.readthedocs.io/en/stable/
+.. _Jupyter notebook: https://jupyter-notebook.readthedocs.io/en/stable/
+.. _Jupyter QtConsole: https://qtconsole.readthedocs.io/en/stable/</p>
+
+          </backlinks>
+
+
+
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Functions:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="            check_is_ipython (lvn.initialize.check_is_ipython)" href="#lvn.initialize.check_is_ipython">check_is_ipython</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Check if we are running an IPython kernel from Jupyter etc.</p>
+            </div>
+          </li>
+    </ul>
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="lvn.initialize.check_is_ipython" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <span class="doc doc-object-name doc-function-name">check_is_ipython</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">check_is_ipython</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Check if we are running an IPython kernel from Jupyter etc.</p>
+
+          </backlinks>
+
+            <details class="quote">
+              <summary>Source code in <code>lvn/initialize.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">check_is_ipython</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Check if we are running an IPython kernel from Jupyter etc."""</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s2">"IPKernelApp"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">config</span><span class="p">:</span>   <span class="c1">#type: ignore</span>
+            <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="kc">True</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
 
 
 

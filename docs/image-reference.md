@@ -1,3 +1,3 @@
 # image.py
 
-::: lvn.dp.image.fetch_image
+::: lvn.image.fetch_image

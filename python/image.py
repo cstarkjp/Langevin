@@ -11,16 +11,19 @@ __all__ = [
     "fetch_image"
 ]
 
-def fetch_image(filename: str, width: int=600) -> Image:
+def fetch_image(file_name: str, width: int=600) -> Image:
     """
     Read an image file and return for embedded display.
 
+    Images are assumed to lie in to which "../images"
+    (TODO: generalize).
+
     Args:
-        filename: to which "../Images" are prepended when trying to load
+        file_name: of image
         width: in pixels of returned image
 
     Returns:
         resized image as IPython display image
 
     """
-    return Image(join(pardir, "Images", filename), width=width,)
+    return Image(join(pardir, "images", file_name), width=width,)
