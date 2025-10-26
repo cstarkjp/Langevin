@@ -293,7 +293,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../DPEnsemble-ipynb-reference/" class="md-tabs__link">
+        <a href="../dp-Ensemble-ipynb-reference/" class="md-tabs__link">
           
   
   
@@ -621,12 +621,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../DPEnsemble-ipynb-reference/" class="md-nav__link">
+      <a href="../dp-Ensemble-ipynb-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    DPEnsemble.ipynb
+    dp/Ensemble.ipynb
     
   </span>
   
@@ -644,12 +644,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../DPSimulation-ipynb-reference/" class="md-nav__link">
+      <a href="../dp-Simulation-ipynb-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    DPSimulation.ipynb
+    dp/Simulation.ipynb
     
   </span>
   
@@ -667,12 +667,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../DPSimulationDirect-ipynb-reference/" class="md-nav__link">
+      <a href="../dp-SimulationDirect-ipynb-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    DPSimulationDirect.ipynb
+    dp/SimulationDirect.ipynb
     
   </span>
   
@@ -739,12 +739,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../DPBatchEnsemble-py-reference/" class="md-nav__link">
+      <a href="../dp-BatchEnsemble-py-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    DPBatchEnsemble.py
+    dp/BatchEnsemble.py
     
   </span>
   
@@ -964,6 +964,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../serialize-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    serialize.py
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../utils-reference/" class="md-nav__link">
         
   
@@ -1016,29 +1039,6 @@
   
   <span class="md-ellipsis">
     dp/ensemble.py
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../serialize-reference/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    dp/serialize.py
     
   </span>
   
@@ -2053,7 +2053,7 @@ and may have log-log axes.</p>
         <span class="n">md_trend</span><span class="p">:</span> <span class="n">NDArray</span> <span class="o">=</span> <span class="p">(</span><span class="n">t_trend</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">dp_δ</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">md_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
         <span class="n">label_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">Δ</span><span class="o">*</span><span class="mf">1e3</span><span class="p">,</span><span class="n">n_digits</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="si">:</span><span class="s2">01.1f</span><span class="si">}</span><span class="s2">"</span> <span class="k">if</span> <span class="n">do_label_Δ</span> 
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">Δ</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span><span class="n">n_digits</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="si">:</span><span class="s2">01.1f</span><span class="si">}</span><span class="s2">"</span> <span class="k">if</span> <span class="n">do_label_Δ</span> 
             <span class="k">else</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">parameters_</span><span class="p">[</span><span class="s2">"linear"</span><span class="p">]</span><span class="si">:</span><span class="s2">01.6f</span><span class="si">}</span><span class="s2">"</span>
         <span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
@@ -2093,7 +2093,7 @@ and may have log-log axes.</p>
 
     <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span>
         <span class="n">fontsize</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> 
-        <span class="n">title</span><span class="o">=</span><span class="sa">r</span><span class="s2">"$10^3(a-a_c)$"</span><span class="p">,</span> <span class="n">title_fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="sa">r</span><span class="s2">"$100(a-a_c)$"</span><span class="p">,</span> <span class="n">title_fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
         <span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="s2">"upper left"</span> <span class="k">if</span> <span class="n">do_rescale</span> <span class="k">else</span> <span class="s2">"lower left"</span><span class="p">),</span>
     <span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">ls</span><span class="o">=</span><span class="s2">":"</span><span class="p">)</span>
