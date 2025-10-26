@@ -39,7 +39,7 @@ nav:
           - Example: info-reference.md
     - Python modules:
         - file.py: file-reference.md 
-        - initialize.py: initialize-reference.md 
+        # - initialize.py: initialize-reference.md 
         - serialize.py: serialize-reference.md 
         - utils.py: utils-reference.md 
         - viz.py: viz-reference.md
