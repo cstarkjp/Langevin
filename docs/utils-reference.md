@@ -5,4 +5,5 @@
 ::: lvn.utils.make_dataframe
 ::: lvn.utils.make_multisim_title
 ::: lvn.utils.make_name_title
+::: lvn.utils.make_sim_title
 ::: lvn.utils.set_name

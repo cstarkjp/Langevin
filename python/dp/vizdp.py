@@ -10,7 +10,8 @@ import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
 from matplotlib.colors import ListedColormap, Colormap
 from lvn.viz import Viz
-from lvn.dp.title import make_sim_title
+from lvn.utils import make_sim_title
+from lvn.dp import dplvn
 
 warnings.filterwarnings("ignore")
 
@@ -56,7 +57,7 @@ class VizDP(Viz):
             r"$\rho(\mathbf{x},t=$" + f"{t_epoch:0{n_digits+2}.1f}" + r"$)$  "
         )
         title = make_sim_title(
-            parameters, analysis,
+            parameters, analysis, dplvn,
         )
         plt.title(prefix+title, fontdict={"size":10},)
 
@@ -67,13 +68,13 @@ class VizDP(Viz):
         n_pad_lr: int
         if (
             do_extend_if_periodic 
-            and parameters["grid_topologies"][0]==PERIODIC
+            and parameters["grid_topologies"][0]==dplvn.PERIODIC
         ):
             n_pad_ud = max(grid_.shape[0]//5, 10)
             grid_ = np.vstack([grid_, grid_[:n_pad_ud]])
         if (
             do_extend_if_periodic 
-            and parameters["grid_topologies"][1]==PERIODIC
+            and parameters["grid_topologies"][1]==dplvn.PERIODIC
         ):
             n_pad_lr = max(grid_.shape[1]//5, 10)
             grid_ = np.hstack([grid_, grid_[:,:n_pad_lr]])
@@ -132,7 +133,7 @@ class VizDP(Viz):
         fig_size: tuple[float,float] = (6, 4,)
         fig = self.create_figure(fig_name=name, fig_size=fig_size,)
         title = make_sim_title(
-            parameters, analysis,
+            parameters, analysis, dplvn,
         )
         plt.title(title, fontdict={"size":11},)
 
@@ -250,7 +251,7 @@ class VizDP(Viz):
             sim_.mean_densities for sim_ in sims_list
         ]
         title = make_sim_title(
-            parameters_list[0], analysis_list[0], do_omit_a=True,
+            parameters_list[0], analysis_list[0], dplvn, do_omit_a=True,
         )
         plt.title(title, fontdict={"size":11},)
 

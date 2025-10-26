@@ -48,7 +48,6 @@ py.install_sources(
     [
         'python/__init__.py', 
         'python/file.py', 
-        'python/image.py', 
         'python/initialize.py', 
         'python/serialize.py', 
         'python/utils.py', 
@@ -61,7 +60,6 @@ py.install_sources(
         'python/dp/__init__.py', 
         'python/dp/ensemble.py', 
         'python/dp/simulation.py', 
-        'python/dp/title.py', 
         'python/dp/vizdp.py', 
     ],
     subdir: 'lvn/dp'

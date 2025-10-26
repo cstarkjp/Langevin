@@ -6,6 +6,5 @@
 __all__ = [
     "ensemble",
     "simulation",
-    "title",
     "vizdp"
 ]

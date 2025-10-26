@@ -25,9 +25,9 @@ nav:
     - Home: index.md
     - Navigation: navigation.md
     - Software design: design.md
-    - How to install: installation.md
+    - How to install: how-to-install.md
     - Tests: tests-reference.md
-    - How to run: run.md
+    - How to run: how-to-run.md
     - Simulation tools:
       - Notebooks:
           - dp/Ensemble.ipynb: dp-Ensemble-ipynb-reference.md
@@ -39,7 +39,6 @@ nav:
           - Example: info-reference.md
     - Python modules:
         - file.py: file-reference.md 
-        - image.py: image-reference.md 
         - initialize.py: initialize-reference.md 
         - serialize.py: serialize-reference.md 
         - utils.py: utils-reference.md 
@@ -47,7 +46,6 @@ nav:
         # - dp:
         - dp/ensemble.py: ensemble-reference.md
         - dp/simulation.py: simulation-reference.md
-        - dp/title.py: title-reference.md
         - dp/vizdp.py: vizdp-reference.md
     - C++ source: cplusplus.md
     - References: references.md

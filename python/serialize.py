@@ -1,5 +1,5 @@
 """
-Write to files.
+Serialization of dictionary items.
 """
 import warnings
 from typing import Any
