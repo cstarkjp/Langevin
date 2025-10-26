@@ -2,9 +2,9 @@
 
 The structure of this software package is outlined [here](design.md) or via the "Software design" sidebar menu item.
 
-Installation notes are available [here](installation.md) or via the "How to install" menu item.
+Installation notes are available [here](how-to-install.md) or via the "How to install" menu item.
 
-Rough notes on how to run simulations are available [here](run.md) or via the "How to run" menu item. 
+Rough notes on how to run simulations are available [here](how-to-run.md) or via the "How to run" menu item. 
 
 Simple test scripts are provided under [`Tests`](tests-reference.md) via in the sidebar/menu .
 
