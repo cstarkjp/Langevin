@@ -1,9 +1,8 @@
 # utils.py
 
-<!-- ::: lvn.dp.utils.bold
-::: lvn.dp.utils.progress -->
-::: lvn.dp.utils.make_dataframe
-::: lvn.dp.utils.make_multisim_title
-::: lvn.dp.utils.make_name_title
-::: lvn.dp.utils.make_sim_title
-::: lvn.dp.utils.set_name
+<!-- ::: lvn.utils.bold
+::: lvn.utils.progress -->
+::: lvn.utils.make_dataframe
+::: lvn.utils.make_multisim_title
+::: lvn.utils.make_name_title
+::: lvn.utils.set_name

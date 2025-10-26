@@ -13,9 +13,9 @@ from numpy.lib.npyio import NpzFile
 from lvn.dp import dplvn  #type: ignore
 import sys, os
 sys.path.insert(0, os.path.join(os.path.pardir, "Packages"))
-from lvn.dp.file import (create_directories, export_info, export_plots,)
-from lvn.dp.utils import (progress, progress_disabled, set_name,)
-from lvn.dp.viz import Viz
+from lvn.file import (create_directories, export_info, export_plots,)
+from lvn.utils import (progress, progress_disabled, set_name,)
+from lvn.dp.vizdp import VizDP
 
 from pprint import PrettyPrinter
 pp = PrettyPrinter(indent=4).pprint
@@ -153,8 +153,8 @@ class Simulation:
         """
         Generate all the required graphs and images.
         """
-        self.graphs: Viz = Viz()
-        self.images: Viz = Viz()
+        self.graphs: VizDP = VizDP()
+        self.images: VizDP = VizDP()
         self.graphs.plot_mean_density_evolution(
             "ρ_t_loglog",
             self.parameters, self.analysis, self.misc,

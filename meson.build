@@ -47,9 +47,11 @@ py.extension_module(
 py.install_sources(
     [
         'python/__init__.py', 
+        'python/file.py', 
         'python/image.py', 
         'python/initialize.py', 
-        'python/viz_base.py', 
+        'python/utils.py', 
+        'python/viz.py', 
     ],
     subdir: 'lvn'
 )
@@ -57,10 +59,10 @@ py.install_sources(
     [
         'python/dp/__init__.py', 
         'python/dp/ensemble.py', 
-        'python/dp/file.py', 
+        'python/dp/serialize.py', 
         'python/dp/simulation.py', 
-        'python/dp/utils.py', 
-        'python/dp/viz.py', 
+        'python/dp/title.py', 
+        'python/dp/vizdp.py', 
     ],
     subdir: 'lvn/dp'
 )

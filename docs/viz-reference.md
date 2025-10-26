@@ -1,3 +1,3 @@
 # viz.py
 
-::: lvn.dp.viz.Viz
+::: lvn.viz.Viz

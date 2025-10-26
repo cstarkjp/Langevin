@@ -10,8 +10,9 @@ import numpy as np
 from numpy.typing import NDArray
 import os
 from lvn.dp.simulation import Simulation
-from lvn.dp.file import create_directories, export_info, read_info, export_plots
-from lvn.dp.viz import Viz #type: ignore
+from lvn.file import create_directories, export_info, read_info, export_plots
+from lvn.dp.vizdp import VizDP #type: ignore
+from lvn.dp.serialize import from_serializable, to_serializable
 
 warnings.filterwarnings("ignore")
 
@@ -23,7 +24,6 @@ class Ensemble:
     """
     Multiprocessing wrapper class to batch run Langevin integrations.
     """
-    # Test: from [`Viz`][lvn.dp.viz.Viz]
     def __init__(
             self, info_path: Sequence[str], do_verbose: bool=False,
         ) -> None:
@@ -37,7 +37,7 @@ class Ensemble:
                 flag whether to use `tqdm` progress bar, and report operations
         """
         self.info: dict
-        _, self.info = read_info(info_path)
+        _, self.info = read_info(info_path, from_serializable)
         self.info["Misc"]["path"] = info_path
         self.do_verbose =  do_verbose
         if do_verbose:
@@ -79,7 +79,7 @@ class Ensemble:
             print(f"b: {[round(b_,5) for b_ in b_list]}")
             print(f"seeds: {[seed_ for seed_ in seed_list]}")
         
-        self.graphs: Viz
+        self.graphs: VizDP
 
     def create(self) -> None:
         """
@@ -171,7 +171,7 @@ class Ensemble:
         Generate graphs of the ensemble results.
         """
         if not hasattr(self, "graphs"):
-            self.graphs = Viz()
+            self.graphs = VizDP()
         self.graphs.multiplot_mean_density_evolution(
             "ρ_t_loglog",
             self.info, self.sim_list,
@@ -213,7 +213,7 @@ class Ensemble:
         if self.do_verbose:
             print(f"experiments outfo path:  {outfo_path}")
         if not do_dummy:
-            _ = export_info(outfo_path, "Outfo", self.info,)
+            _ = export_info(outfo_path, "Outfo", self.info, to_serializable)
 
         graphs_path: str = \
             create_directories(
