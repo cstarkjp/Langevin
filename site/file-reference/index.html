@@ -12,7 +12,7 @@
         <link rel="prev" href="../info-reference/">
       
       
-        <link rel="next" href="../initialize-reference/">
+        <link rel="next" href="../serialize-reference/">
       
       
       <link rel="icon" href="../images/DP1.png">
@@ -44,6 +44,8 @@
     
     
       <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../style.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -208,7 +210,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../design/" class="md-tabs__link">
+      <a href="../software-design/" class="md-tabs__link">
         
   
   
@@ -451,7 +453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../design/" class="md-nav__link">
+      <a href="../software-design/" class="md-nav__link">
         
   
   
@@ -739,12 +741,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../dp-BatchEnsemble-py-reference/" class="md-nav__link">
+      <a href="../dp-batch_ensemble-py-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    dp/BatchEnsemble.py
+    dp/batch_ensemble.py
     
   </span>
   
@@ -916,29 +918,6 @@
 
       </a>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../initialize-reference/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    initialize.py
-    
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -1207,7 +1186,7 @@ Returns quietly if the directory already exists.</p>
               <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
           –
           <div class="doc-md-description">
-            <p>path to directory (see :mod:<code>os.path</code>)</p>
+            <p>path to directory.</p>
           </div>
         </li>
     </ul>
@@ -1253,7 +1232,7 @@ Returns quietly if the directory already exists.</p>
 <span class="sd">            name of directory</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        path to directory (see :mod:`os.path`)</span>
+<span class="sd">        path to directory.</span>
 <span class="sd">    """</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">exists</span><span class="p">(</span><span class="nb">dir</span><span class="p">):</span>
@@ -1325,7 +1304,7 @@ Returns quietly if the directory already exists.</p>
               <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
           –
           <div class="doc-md-description">
-            <p>path to target results directory (see :mod:<code>os.path</code>)</p>
+            <p>path to target results directory.</p>
           </div>
         </li>
     </ul>
@@ -1369,7 +1348,7 @@ Returns quietly if the directory already exists.</p>
 <span class="sd">        results_dir: target results directory (to be created)</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        path to target results directory (see :mod:`os.path`)</span>
+<span class="sd">        path to target results directory.</span>
 <span class="sd">    """</span>
     <span class="n">results_path_</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"."</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">results_path</span><span class="p">)</span>
     <span class="n">create_dir</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="o">*</span><span class="n">results_path_</span><span class="p">))</span>

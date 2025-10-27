@@ -40,7 +40,7 @@ def create_directories(
         results_dir: target results directory (to be created)
 
     Returns:
-        path to target results directory (see :mod:`os.path`)
+        path to target results directory.
     """
     results_path_ = ["."] + list(results_path)
     create_dir(join(*results_path_))
@@ -61,7 +61,7 @@ def create_dir(dir: str) -> str:
             name of directory
 
     Returns:
-        path to directory (see :mod:`os.path`)
+        path to directory.
     """
     try:
         if not exists(dir):

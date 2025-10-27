@@ -24,7 +24,7 @@ plugins:
 nav:
     - Home: index.md
     - Navigation: navigation.md
-    - Software design: design.md
+    - Software design: software-design.md
     - How to install: how-to-install.md
     - Tests: tests-reference.md
     - How to run: how-to-run.md
@@ -34,12 +34,12 @@ nav:
           - dp/Simulation.ipynb: dp-Simulation-ipynb-reference.md
           - dp/SimulationDirect.ipynb: dp-SimulationDirect-ipynb-reference.md
       - Scripts:
-          - dp/BatchEnsemble.py: dp-BatchEnsemble-py-reference.md
+          - dp/batch_ensemble.py: dp-batch_ensemble-py-reference.md
       - JSON info files: 
           - Example: info-reference.md
     - Python modules:
         - file.py: file-reference.md 
-        - initialize.py: initialize-reference.md 
+        # - initialize.py: initialize-reference.md 
         - serialize.py: serialize-reference.md 
         - utils.py: utils-reference.md 
         - viz.py: viz-reference.md
@@ -62,7 +62,10 @@ markdown_extensions:
 extra_javascript:
   - javascripts/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
-  
+
+extra_css:
+  - style.css
+
 plugins:
 - search
 - autorefs  

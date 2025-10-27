@@ -22,6 +22,7 @@
     const InitialCondition initial_condition,
     const dbl_vec_t ic_values,
     const IntegrationMethod integration_method,
+    const bool do_snapshot_grid,
     const bool do_verbose
 ) : coefficients(linear, quadratic, diffusion, noise),
     p(
@@ -38,6 +39,7 @@
         ic_values, 
         integration_method
     ),
+    do_snapshot_grid(do_snapshot_grid),
     do_verbose(do_verbose)
 {
     rng = new rng_t(p.random_seed); 
@@ -113,11 +115,16 @@ bool SimDP::postprocess()
 {
     if (not is_initialized) 
     { 
-        std::cout << "SimDP::postprocess failure: no data to process yet" << std::endl;
+        std::cout 
+            << "SimDP::postprocess failure: no data to process yet" 
+            << std::endl;
         return false; 
     }
-    bool did_process = (
-        pyprep_density_grid() and pyprep_t_epochs() and pyprep_mean_densities() 
+    bool did_process_grid;
+    if (do_snapshot_grid) { did_process_grid = pyprep_density_grid(); }
+    else { did_process_grid = true; }
+    bool did_process_time_series = (
+        pyprep_t_epochs() and pyprep_mean_densities() 
     ); 
-    return did_process;
+    return (did_process_grid and did_process_time_series);
 }

@@ -55,6 +55,8 @@ private:
     bool did_integrate = false;
     //! Flag whether simulation has been initialized or not
     bool is_initialized = false;
+    //! Flag whether to take density grid snapshots
+    bool do_snapshot_grid = true;
     //! Flag whether to report sim parameters etc
     bool do_verbose = false;
 
@@ -88,6 +90,7 @@ public:
         const InitialCondition initial_condition,
         const dbl_vec_t ic_values,
         const IntegrationMethod integration_method,
+        const bool do_snapshot_grid,
         const bool do_verbose
     );
     //! Initialize the model simulation

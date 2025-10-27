@@ -155,11 +155,11 @@ public:
 
     void print() 
     {
-            std::cout << std::endl;        
+            // std::cout << std::endl;        
         std::cout << "t_final: " << t_final << std::endl;
         std::cout << "dx: " << dx << std::endl;
         std::cout << "dt: " << dt << std::endl;
-            std::cout << std::endl;        
+            // std::cout << std::endl;        
         std::cout << "random_seed: " << random_seed << std::endl;
         std::cout << "grid_dimension: " << report(grid_dimension) << std::endl;
         std::cout << "grid_size: ";
@@ -180,6 +180,7 @@ public:
             std::cout << std::endl;        
         std::cout << "integration_method: "  
             << report(integration_method) << std::endl;
+        std::cout << std::endl;        
     }
 };
 
