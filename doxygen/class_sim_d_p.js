@@ -1,6 +1,6 @@
 var class_sim_d_p =
 [
-    [ "SimDP", "class_sim_d_p.html#a3817c992778197d2244112b1882a9ea8", null ],
+    [ "SimDP", "class_sim_d_p.html#a568ad2d7eb11633e74aa9782d96aaeed", null ],
     [ "choose_integrator", "class_sim_d_p.html#a70af5f5c5f9f04cd2783f1e14cfba223", null ],
     [ "count_epochs", "class_sim_d_p.html#a587ef106d6540a3f23a24cd86f2861b7", null ],
     [ "get_density", "class_sim_d_p.html#a373628fc3abfe97695a822987305abd8", null ],
@@ -20,6 +20,7 @@ var class_sim_d_p =
     [ "run", "class_sim_d_p.html#a1373e7e03fbe12b058fa9011839ffc19", null ],
     [ "coefficients", "class_sim_d_p.html#a5f60bbc57176c81430f2872dcc25d058", null ],
     [ "did_integrate", "class_sim_d_p.html#ad4860babc24eb75b7c85dc06e28d1071", null ],
+    [ "do_snapshot_grid", "class_sim_d_p.html#a431d84883b1fbc5b0947154c7235b524", null ],
     [ "do_verbose", "class_sim_d_p.html#a1eafe92458aa02525e409de850f6d91f", null ],
     [ "dpLangevin", "class_sim_d_p.html#acac8c8a804fd120accc46154c9812add", null ],
     [ "i_current_epoch", "class_sim_d_p.html#a0f579637e5437deafa5a997995f67dce", null ],
