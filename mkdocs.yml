@@ -34,7 +34,7 @@ nav:
           - dp/Simulation.ipynb: dp-Simulation-ipynb-reference.md
           - dp/SimulationDirect.ipynb: dp-SimulationDirect-ipynb-reference.md
       - Scripts:
-          - dp/BatchEnsemble.py: dp-BatchEnsemble-py-reference.md
+          - dp/batch_ensemble.py: dp-batch_ensemble-py-reference.md
       - JSON info files: 
           - Example: info-reference.md
     - Python modules:

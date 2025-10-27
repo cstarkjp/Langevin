@@ -37,6 +37,7 @@ def main() -> None:
         initial_condition=dplvn.RANDOM_UNIFORM,
         ic_values=(0, 1,),
         integration_method=dplvn.RUNGE_KUTTA,
+        do_snapshot_grid=True,
         do_verbose=True,
     )
 

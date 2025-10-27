@@ -33,6 +33,7 @@ public:
     ) : linear(linear), quadratic(quadratic), diffusion(diffusion), noise(noise) {}
 
     void print() {
+        std::cout << std::endl;        
         std::cout << "linear: " << linear << std::endl;
         std::cout << "quadratic: " << quadratic << std::endl;
         std::cout << "diffusion: " << diffusion << std::endl;

@@ -21,6 +21,6 @@ Example 2D grid with mixed edge (cylindrical) topology. Run with:
 
     ipython tests/Demo.ipynb
 
-but be aware that two image PNG files will be written to the current directory.
+but be aware that two output graph PNG files will be written to the current directory.
 
 

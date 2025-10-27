@@ -37,6 +37,7 @@ class Simulation:
             name: str | None, 
             path: list[str], 
             info: dict, 
+            do_snapshot_grid: bool=False,
             do_verbose: bool=True,
         ) -> None:
         """
@@ -46,6 +47,8 @@ class Simulation:
             name: of sim constructed from parameters etc
             path: path to file
             info: dictionary containing sim coefficients, model parameters, etc
+            do_snapshot_grid: flag whether to copy out final time-slice
+                density grid into numpy array
             do_verbose: flag whether to use tqdm progress bar, report 
                 from `dplvn.SimDP`
         """
@@ -79,6 +82,7 @@ class Simulation:
         self.misc["date_time"] \
             = datetime.now().replace(microsecond=0).isoformat(sep=" ")
 
+        self.do_snapshot_grid: bool = do_snapshot_grid
         self.do_verbose: bool = do_verbose
         self.t_epochs: NDArray = np.empty([])
         self.mean_densities: NDArray= np.empty([])
@@ -118,7 +122,8 @@ class Simulation:
                 raise Exception("Failed to process sim results")
             # i_epoch = sim.get_i_current_epoch()
             t_epoch_ = self.sim.get_t_current_epoch()
-            self.density_dict[t_epoch_] = self.sim.get_density()
+            if self.do_snapshot_grid:
+                self.density_dict[t_epoch_] = self.sim.get_density()
         self.t_epochs = self.sim.get_t_epochs()
         self.mean_densities = self.sim.get_mean_densities()
 

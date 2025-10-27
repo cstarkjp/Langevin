@@ -99,8 +99,8 @@ $(function(){initNavTree('class_sim_d_p.html','','class_sim_d_p-members'); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3817c992778197d2244112b1882a9ea8" id="r_a3817c992778197d2244112b1882a9ea8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3817c992778197d2244112b1882a9ea8">SimDP</a> (const double linear, const double quadratic, const double diffusion, const double noise, const double t_final, const double dx, const double dt, const int random_seed, const <a class="el" href="langevin__enums_8hpp.html#a9712d9f1c8de72f9e8a1a8949908f1e7">GridDimension</a> grid_dimension, const <a class="el" href="langevin__types_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a> grid_size, const <a class="el" href="langevin__types_8hpp.html#a8e652b99fe1e99f2033cf406f9a9a1a5">gt_vec_t</a> grid_topologies, const bc_vec_t boundary_conditions, const <a class="el" href="langevin__types_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a> bc_values, const <a class="el" href="langevin__enums_8hpp.html#ae752395ed9ab021eab6a3f2ffacd763f">InitialCondition</a> initial_condition, const <a class="el" href="langevin__types_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a> ic_values, const <a class="el" href="langevin__enums_8hpp.html#a9eca50997f7f604b063d2cb1874f5fef">IntegrationMethod</a> integration_method, const bool <a class="el" href="#a1eafe92458aa02525e409de850f6d91f">do_verbose</a>)</td></tr>
-<tr class="memdesc:a3817c992778197d2244112b1882a9ea8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <br /></td></tr>
+<tr class="memitem:a568ad2d7eb11633e74aa9782d96aaeed" id="r_a568ad2d7eb11633e74aa9782d96aaeed"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a568ad2d7eb11633e74aa9782d96aaeed">SimDP</a> (const double linear, const double quadratic, const double diffusion, const double noise, const double t_final, const double dx, const double dt, const int random_seed, const <a class="el" href="langevin__enums_8hpp.html#a9712d9f1c8de72f9e8a1a8949908f1e7">GridDimension</a> grid_dimension, const <a class="el" href="langevin__types_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a> grid_size, const <a class="el" href="langevin__types_8hpp.html#a8e652b99fe1e99f2033cf406f9a9a1a5">gt_vec_t</a> grid_topologies, const bc_vec_t boundary_conditions, const <a class="el" href="langevin__types_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a> bc_values, const <a class="el" href="langevin__enums_8hpp.html#ae752395ed9ab021eab6a3f2ffacd763f">InitialCondition</a> initial_condition, const <a class="el" href="langevin__types_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a> ic_values, const <a class="el" href="langevin__enums_8hpp.html#a9eca50997f7f604b063d2cb1874f5fef">IntegrationMethod</a> integration_method, const bool <a class="el" href="#a431d84883b1fbc5b0947154c7235b524">do_snapshot_grid</a>, const bool <a class="el" href="#a1eafe92458aa02525e409de850f6d91f">do_verbose</a>)</td></tr>
+<tr class="memdesc:a568ad2d7eb11633e74aa9782d96aaeed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <br /></td></tr>
 <tr class="memitem:a04e3356058bdc9707c413cc1bd99d389" id="r_a04e3356058bdc9707c413cc1bd99d389"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04e3356058bdc9707c413cc1bd99d389">initialize</a> (int <a class="el" href="#ac9818c1fcb3f3ab022f61cc5eaa5d760">n_decimals</a>)</td></tr>
 <tr class="memdesc:a04e3356058bdc9707c413cc1bd99d389"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the model simulation.  <br /></td></tr>
 <tr class="memitem:a1373e7e03fbe12b058fa9011839ffc19" id="r_a1373e7e03fbe12b058fa9011839ffc19"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1373e7e03fbe12b058fa9011839ffc19">run</a> (const int n_next_epochs)</td></tr>
@@ -177,6 +177,8 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:ad4860babc24eb75b7c85dc06e28d1071"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag whether integration step was successful or not.  <br /></td></tr>
 <tr class="memitem:a90ad057adf7ad95ba23d034ad9cd49c4" id="r_a90ad057adf7ad95ba23d034ad9cd49c4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90ad057adf7ad95ba23d034ad9cd49c4">is_initialized</a> = false</td></tr>
 <tr class="memdesc:a90ad057adf7ad95ba23d034ad9cd49c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag whether simulation has been initialized or not.  <br /></td></tr>
+<tr class="memitem:a431d84883b1fbc5b0947154c7235b524" id="r_a431d84883b1fbc5b0947154c7235b524"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a431d84883b1fbc5b0947154c7235b524">do_snapshot_grid</a> = true</td></tr>
+<tr class="memdesc:a431d84883b1fbc5b0947154c7235b524"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag whether to take density grid snapshots.  <br /></td></tr>
 <tr class="memitem:a1eafe92458aa02525e409de850f6d91f" id="r_a1eafe92458aa02525e409de850f6d91f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1eafe92458aa02525e409de850f6d91f">do_verbose</a> = false</td></tr>
 <tr class="memdesc:a1eafe92458aa02525e409de850f6d91f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag whether to report sim parameters etc.  <br /></td></tr>
 </table>
@@ -186,8 +188,8 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00018">18</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a3817c992778197d2244112b1882a9ea8" name="a3817c992778197d2244112b1882a9ea8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3817c992778197d2244112b1882a9ea8">&#9670;&#160;</a></span>SimDP()</h2>
+<a id="a568ad2d7eb11633e74aa9782d96aaeed" name="a568ad2d7eb11633e74aa9782d96aaeed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a568ad2d7eb11633e74aa9782d96aaeed">&#9670;&#160;</a></span>SimDP()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -271,6 +273,11 @@ Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="langevin__enums_8hpp.html#a9eca50997f7f604b063d2cb1874f5fef">IntegrationMethod</a></td>          <td class="paramname"><span class="paramname"><em>integration_method</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>do_snapshot_grid</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -533,7 +540,7 @@ Private Attributes</h2></td></tr>
 <p>Initialize the model simulation. </p>
 <p>Method to be called first to set up simulation: a grid is constructed; initial conditions are applied; the Langevin equation is prepared; the zeroth-epoch solution state is recorded (after applying boundary conditions). </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8cpp_source.html#l00056">56</a> of file <a class="el" href="sim__dplangevin_8cpp_source.html">sim_dplangevin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8cpp_source.html#l00058">58</a> of file <a class="el" href="sim__dplangevin_8cpp_source.html">sim_dplangevin.cpp</a>.</p>
 
 </div>
 </div>
@@ -584,7 +591,7 @@ Private Attributes</h2></td></tr>
 <p>Process the model results data if available. </p>
 <p>Method to be called after each <span class="tt">run</span>: the density grid and grid-average time series are then packed and made available to Python through the wrapper. This method should be called every time a "snapshot" of the simulation state is desired. </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8cpp_source.html#l00112">112</a> of file <a class="el" href="sim__dplangevin_8cpp_source.html">sim_dplangevin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8cpp_source.html#l00114">114</a> of file <a class="el" href="sim__dplangevin_8cpp_source.html">sim_dplangevin.cpp</a>.</p>
 
 </div>
 </div>
@@ -693,7 +700,7 @@ Private Attributes</h2></td></tr>
 <p>Execute the model simulation for <span class="tt">n_next_epochs</span> </p>
 <p>Method to carry out a set of integration steps; can be rerun repeatedly to allow segmentation of the overall simulation and to allow return of the density grid state to Python as a series of time slices. </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8cpp_source.html#l00097">97</a> of file <a class="el" href="sim__dplangevin_8cpp_source.html">sim_dplangevin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8cpp_source.html#l00099">99</a> of file <a class="el" href="sim__dplangevin_8cpp_source.html">sim_dplangevin.cpp</a>.</p>
 
 </div>
 </div>
@@ -750,6 +757,32 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a431d84883b1fbc5b0947154c7235b524" name="a431d84883b1fbc5b0947154c7235b524"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a431d84883b1fbc5b0947154c7235b524">&#9670;&#160;</a></span>do_snapshot_grid</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SimDP::do_snapshot_grid = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Flag whether to take density grid snapshots. </p>
+
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00059">59</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a1eafe92458aa02525e409de850f6d91f" name="a1eafe92458aa02525e409de850f6d91f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1eafe92458aa02525e409de850f6d91f">&#9670;&#160;</a></span>do_verbose</h2>
 
@@ -772,7 +805,7 @@ Private Attributes</h2></td></tr>
 
 <p>Flag whether to report sim parameters etc. </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00059">59</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00061">61</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
 
 </div>
 </div>
