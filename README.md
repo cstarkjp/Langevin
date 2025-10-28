@@ -1,4 +1,4 @@
-# **Langevin**: the `lvn` software package
+# **Langevin**: the **lvn** software package
 
 Tools to integrate Langevin equations of absorbing phase transition (APT) type — with a focus on simulation of directed percolation (DP).
 
