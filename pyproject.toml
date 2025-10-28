@@ -9,19 +9,22 @@ requires = ["meson-python", "wheel", "pybind11", "ninja", "numpy"]
 
 [project]
 name = 'lvn'
-version = '2025.10.27a1'
+version = '2025.10.28a1'
 # dynamic = ["version"]
 description = 'Integration of Langevin equations representing absorbing phase transitions'
 readme = 'README.md'
 
 requires-python = '>=3.12'
-# dependencies = [
-#     "pybind11",
-#     "numpy",
-#     "jupyter",
-#     "ipython",
-#     "matplotlib",
-# ]
+dependencies = [
+    "pybind11",
+    "numpy",
+    "jupyter",
+    "ipython",
+    "matplotlib",
+    "pandas",
+    "tqdm",
+    # "ffmpeg-python"
+]
 
 authors = [
   {name = 'Colin P. Stark', email = 'cstarkjp@gmail.com'},
