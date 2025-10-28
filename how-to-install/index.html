@@ -1154,11 +1154,16 @@
 <li><code>tqdm</code></li>
 <li><code>ffmpeg-python</code></li>
 </ul>
+<p>Python 3.14 is recommended: current development uses this version.</p>
 </li>
 <li>
 <p>Install the <a href="https://test.pypi.org/project/lvn/">Python library <code>lvn</code></a> using <code>pip</code>, hopefully within a Python environment, from TestPyPI:</p>
-<pre><code>pip install -i https://test.pypi.org/simple/ lvn
+<pre><code>pip install --index-url https://test.pypi.org/simple/ \
+            --extra-index-url https://pypi.org/simple lvn
 </code></pre>
+<p>Note: the <code>--extra-index-url</code> argument ensures that any Python install
+dependencies are also sought in the true PyPI repository rather
+than in TestPyPI alone (which generally won't suffice). </p>
 <p><em>If you already have a pre-existing installation</em> of this package, you may need to <code>upgrade</code> (update) to the latest version:</p>
 <pre><code>pip install -i https://test.pypi.org/simple/ lvn --upgrade
 </code></pre>
