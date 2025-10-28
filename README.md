@@ -30,7 +30,7 @@ See
 [Victor Buendía's fork of Paula Villa Martín's repo](https://github.com/VictorSeven/Dornic_et_al_integration_class/tree/victor-update)
  for details on more general applications and on how the integration scheme is implemented.
 
-## Design of `lvn` package
+## Software design
 
 The structure of the DP/APT Langevin-equation integrator package is broadly as follows 
 (detailed documentation is available 
