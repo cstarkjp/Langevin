@@ -19,7 +19,7 @@ def main() -> None:
         for sim_ in ensemble.sim_list:
             print(f"{sim_.misc["name"]}: {sim_.misc["computation_time"]}")
 
-    do_verbose: bool = True
+    do_verbose: bool = False
     ensemble_name_: str
     for ensemble_name_ in ensemble_name_list:
         print(f"Executing: {a_critical}/{ensemble_name_}")
