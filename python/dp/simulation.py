@@ -110,20 +110,27 @@ class Simulation:
                 f"Failed to segment sim with {n_epochs} epochs "
                 + f"into {n_segments} segment(s)"
             )
-        t_epoch_: int
-        i_segment_: int
         progress_bar: Callable = (
             progress if self.do_verbose else progress_disabled
         )
-        for i_segment_ in progress_bar(range(0, n_segments+1, 1)):
+        def step(i_segment_: int,):
             if i_segment_>0 and not self.sim.run(n_segment_epochs):
                 raise Exception("Failed to run sim")
             if not self.sim.postprocess():
                 raise Exception("Failed to process sim results")
-            # i_epoch = sim.get_i_current_epoch()
             t_epoch_ = self.sim.get_t_current_epoch()
             if self.do_snapshot_grid:
                 self.density_dict[t_epoch_] = self.sim.get_density()
+        # This ridiculous verbiage is needed because tqdm, even when
+        #   disabled, generates some "leaked semaphore objects" errors
+        #   when invoked in a `multiprocessing` process
+        i_segment_: int
+        if self.do_verbose:
+            for i_segment_ in progress_bar(range(0, n_segments+1, 1)):
+                step(i_segment_)
+        else:
+            for i_segment_ in range(0, n_segments+1, 1):
+                step(i_segment_)
         self.t_epochs = self.sim.get_t_epochs()
         self.mean_densities = self.sim.get_mean_densities()
 

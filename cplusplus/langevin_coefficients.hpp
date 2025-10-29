@@ -17,7 +17,7 @@
  * @param linear Coefficient a in linear term +aρ.
  * @param quadratic  Coefficient b in nonlinear term -bρ².
  * @param diffusion Diffusion rate D in diffusion term D∇²ρ.
- * @param noise Noise amplitude γ in noise term γ√(ρ)η.
+ * @param noise Noise amplitude γ in noise term η√(ρ)ξ.
  * 
  */
 struct Coefficients 

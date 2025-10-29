@@ -136,7 +136,17 @@ class Ensemble:
         Returns:
             serialized output returned by the completed sim.
         """
-        return sim.exec()
+        result: Sequence[tuple]
+        try:
+            if sim.do_verbose:
+                print(f"Sim exec starting: {sim}")
+            result = sim.exec()
+        except:
+            print(f"Sim exec error: {sim}")
+        finally:
+            if sim.do_verbose:
+                print(f"Sim exec completion: {sim}")
+        return result
     
     def exec_multiple_sims(self, function: Callable,) -> list[Sequence[tuple]]:
         """
