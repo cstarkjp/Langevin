@@ -72,6 +72,14 @@ Once project development has matured, the `lvn` package will be made available o
 Its package dependencies will then be made automatic; apparently it's not currently possible to 
 set such dependencies with `TestPyPI` without incurring problems. Eventually, `lvn` may also be made available via `conda`. 
 
+Note: you can use `uv`, which allegedly makes everything easier:
+
+    uv venv
+    source .venv/bin/activate
+    uv pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/  lvn
+
+<!-- https://emily.space/posts/251023-uv
+https://realpython.com/python-uv/ -->
 
 ## Build from source
 

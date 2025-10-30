@@ -1,5 +1,13 @@
 # How to install
 
+0. *Experimental*: using `uv`, the creation of a virtual Python environment, installation of dependent packages, and installation of `lvn` itself can all be done with just:
+
+        uv venv
+        
+        source .venv/bin/activate
+
+        uv pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/  lvn
+
 1. Install Python $\geq$ 3.12 and the following packages, ideally in a Python environment:
     - `numpy`
     - `jupyter`
