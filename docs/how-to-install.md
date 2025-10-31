@@ -6,7 +6,8 @@
 
         source .venv/bin/activate
 
-        uv pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/  lvn
+        uv pip install --index-url https://test.pypi.org/simple/ \
+                       --extra-index-url https://pypi.org/simple/  lvn
 
     Alternatively, follow the more standard approach as outlined below.
 
