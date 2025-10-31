@@ -1,15 +1,15 @@
 # How to install
 
-0. *Experimental*: using `uv`, the creation of a virtual Python environment, installation of dependent packages, and installation of `lvn` itself can all be achieved in three simple command lines:
+Using `uv`, the creation of a virtual Python environment, installation of dependent packages, and installation of `lvn` itself can all be achieved in three simple command lines:
 
         uv venv
-
         source .venv/bin/activate
-
         uv pip install --index-url https://test.pypi.org/simple/ \
                        --extra-index-url https://pypi.org/simple/  lvn
 
-    Alternatively, follow the more standard approach as outlined below.
+Note that before doing this you'll have to install `uv` on your machine.
+
+Alternatively, follow the more standard approach as outlined below.
 
 1. Install Python $\geq$ 3.12, ideally in a Python environment; Python 3.14 is recommended, and current development uses this version. 
 
