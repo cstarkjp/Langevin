@@ -13,6 +13,7 @@
 1. Install Python $\geq$ 3.12, ideally in a Python environment; Python 3.14 is recommended, and current development uses this version. 
 
     The following packages are needed by `lvn` (`ffmpeg` is optional); they can be installed by hand at this point, or left to install automatically during the next step (by `pip`):
+    
     - `numpy`
     - `jupyter`
     - `ipython`
