@@ -1142,17 +1142,16 @@
 
 
 <h1 id="how-to-install">How to install</h1>
-<ol>
-<li>
 <p>Using <code>uv</code>, the creation of a virtual Python environment, installation of dependent packages, and installation of <code>lvn</code> itself can all be achieved in three simple command lines:</p>
-<pre><code>uv venv
-source .venv/bin/activate
-uv pip install --index-url https://test.pypi.org/simple/ \
-               --extra-index-url https://pypi.org/simple/  lvn
+<pre><code>    uv venv
+    source .venv/bin/activate
+    uv pip install --index-url https://test.pypi.org/simple/ \
+                   --extra-index-url https://pypi.org/simple/  lvn
+
+Note that before doing this you'll have to install `uv` on your machine.
 </code></pre>
-<p>Note that before doing this you'll have to install <code>uv</code> on your machine.</p>
 <p>Alternatively, follow the more standard approach as outlined below.</p>
-</li>
+<ol>
 <li>
 <p>Install Python <span class="arithmatex">\(\geq\)</span> 3.12, ideally in a Python environment; Python 3.14 is recommended, and current development uses this version. </p>
 <p>The following packages are needed by <code>lvn</code> (<code>ffmpeg</code> is optional); they can be installed by hand at this point, or left to install automatically during the next step (by <code>pip</code>):</p>
