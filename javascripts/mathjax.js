@@ -1,3 +1,5 @@
+//  // This boilerplate breaks $$...$$ rendering
+//
 // window.MathJax = {
 //   tex: {
 //     inlineMath: [["\\(", "\\)"]],
