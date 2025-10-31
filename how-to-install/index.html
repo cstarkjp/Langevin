@@ -1144,14 +1144,13 @@
 <h1 id="how-to-install">How to install</h1>
 <ol>
 <li>
-<p><em>Experimental</em>: using <code>uv</code>, the creation of a virtual Python environment, installation of dependent packages, and installation of <code>lvn</code> itself can all be achieved in three simple command lines:</p>
+<p>Using <code>uv</code>, the creation of a virtual Python environment, installation of dependent packages, and installation of <code>lvn</code> itself can all be achieved in three simple command lines:</p>
 <pre><code>uv venv
-
 source .venv/bin/activate
-
 uv pip install --index-url https://test.pypi.org/simple/ \
                --extra-index-url https://pypi.org/simple/  lvn
 </code></pre>
+<p>Note that before doing this you'll have to install <code>uv</code> on your machine.</p>
 <p>Alternatively, follow the more standard approach as outlined below.</p>
 </li>
 <li>
