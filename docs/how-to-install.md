@@ -6,13 +6,15 @@
 
         source .venv/bin/activate
 
-        uv pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/  lvn
+        uv pip install --index-url https://test.pypi.org/simple/ \
+                       --extra-index-url https://pypi.org/simple/  lvn
 
     Alternatively, follow the more standard approach as outlined below.
 
 1. Install Python $\geq$ 3.12, ideally in a Python environment; Python 3.14 is recommended, and current development uses this version. 
 
     The following packages are needed by `lvn` (`ffmpeg` is optional); they can be installed by hand at this point, or left to install automatically during the next step (by `pip`):
+    
     - `numpy`
     - `jupyter`
     - `ipython`

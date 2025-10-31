@@ -14,7 +14,10 @@ from numpy.typing import NDArray
 from numpy.lib.npyio import NpzFile
 from pprint import PrettyPrinter
 
-import ffmpeg
+try:
+    import ffmpeg
+except:
+    print("ffmpeg not installed: videos cannot be generated")
 sys.path.insert(0, os.path.join(os.path.pardir, "Packages"))
 import lvn.initialize
 from lvn.utils import (
