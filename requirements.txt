@@ -2,6 +2,10 @@
 # $ conda create --name <env> --file <this file>
 # platform: osx-arm64
 # created-by: conda 25.9.1
+
+# -------DEFUNCT---------
+#  switched to using uv
+
 _python_abi3_support=1.0=hd8ed1ab_2
 anyio=4.11.0=pyhcf101f3_0
 aom=3.9.1=h7bae524_0
