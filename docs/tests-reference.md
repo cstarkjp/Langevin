@@ -1,5 +1,6 @@
 # Tests
 
+## Scripts
 
 ### [demo_periodic.py](https://github.com/cstarkjp/Langevin/tree/main/tests/demo_periodic.py)
 
@@ -14,6 +15,7 @@ Example 2D grid with mixed edge (cylindrical) topology. Run with:
 
         python tests/demo_mixed.py
 
+## Notebooks
 
 ### [Demo.ipynb](https://github.com/cstarkjp/Langevin/tree/main/tests/Demo.ipynb)
 
