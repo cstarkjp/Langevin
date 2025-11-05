@@ -12,7 +12,7 @@ from io import TextIOWrapper
 from lvn.base.serialize import (
     from_serializable, to_serializable,
 )
-from lvn.utils import progress, progress_disabled
+from lvn.base.utils import progress, progress_disabled
 
 warnings.filterwarnings("ignore")
 
