@@ -9,7 +9,7 @@ from os import mkdir
 from shutil import rmtree
 from json import dump, load
 from io import TextIOWrapper
-from lvn.serialize import (
+from lvn.base.serialize import (
     from_serializable, to_serializable,
 )
 from lvn.utils import progress, progress_disabled

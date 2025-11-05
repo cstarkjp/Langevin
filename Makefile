@@ -2,7 +2,7 @@
 
 HPP = $(wildcard cplusplus/*hpp) $(wildcard cplusplus/dp/*hpp)
 CPP = $(wildcard cplusplus/*cpp) $(wildcard cplusplus/dp/*cpp)
-PY = $(wildcard python/*) $(wildcard python/dp/*)
+PY = $(wildcard python/*) $(wildcard python/base/*) $(wildcard python/dp/*)
 TESTS = $(wildcard tests/*py)
 
 # Build everything (Python package, docs) and deploy pkg

@@ -12,10 +12,10 @@ import numpy as np
 from numpy.lib.npyio import NpzFile
 import sys, os
 sys.path.insert(0, os.path.join(os.path.pardir, "Packages"))
-from lvn.file import (
+from lvn.base.file import (
     create_directories, export_info, export_plots,
 )
-from lvn.utils import (
+from lvn.base.utils import (
     progress, progress_disabled, set_name,
 )
 from lvn.dp import dplvn
