@@ -16,11 +16,11 @@
       
       
       <link rel="icon" href="../images/DP1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
     
     
       
-        <title>utils.py - lvn</title>
+        <title>base/utils.py - lvn</title>
       
     
     
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              utils.py
+              base/utils.py
             
           </span>
         </div>
@@ -902,7 +902,7 @@
   
   
   <span class="md-ellipsis">
-    file.py
+    base/file.py
     
   </span>
   
@@ -925,7 +925,7 @@
   
   
   <span class="md-ellipsis">
-    serialize.py
+    base/serialize.py
     
   </span>
   
@@ -957,7 +957,7 @@
   
   
   <span class="md-ellipsis">
-    utils.py
+    base/utils.py
     
   </span>
   
@@ -981,7 +981,7 @@
   
   
   <span class="md-ellipsis">
-    viz.py
+    base/viz.py
     
   </span>
   
@@ -1147,19 +1147,19 @@
 
 
 <h1 id="utilspy">utils.py</h1>
-<!-- ::: lvn.utils.bold
-::: lvn.utils.progress -->
+<!-- ::: lvn.base.utils.bold
+::: lvn.base.utils.progress -->
 
 
 <div class="doc doc-object doc-function">
 
 
-<h1 id="lvn.utils.make_dataframe" class="doc doc-heading">
+<h1 id="lvn.base.utils.make_dataframe" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <span class="doc doc-object-name doc-function-name">make_dataframe</span>
 
 
 </h1>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">make_dataframe</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="p (lvn.utils.make_dataframe(p))" href="#lvn.utils.make_dataframe(p)">p</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="pandas.DataFrame">DataFrame</span></span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">make_dataframe</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="p (lvn.base.utils.make_dataframe(p))" href="#lvn.base.utils.make_dataframe(p)">p</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="pandas.DataFrame">DataFrame</span></span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
@@ -1172,7 +1172,7 @@ The dictionary values become a column labeled "value".</p>
 <p><span class="doc-section-title">Parameters:</span></p>
     <ul>
         <li class="doc-section-item field-body">
-<h2 id="lvn.utils.make_dataframe(p)" class="doc doc-heading doc-heading-parameter">              <b><code>p</code></b>
+<h2 id="lvn.base.utils.make_dataframe(p)" class="doc doc-heading doc-heading-parameter">              <b><code>p</code></b>
 </h2>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
           –
           <div class="doc-md-description">
@@ -1196,7 +1196,7 @@ The dictionary values become a column labeled "value".</p>
           </backlinks>
 
             <details class="quote">
-              <summary>Source code in <code>lvn/utils.py</code></summary>
+              <summary>Source code in <code>.venv/lib/python3.14/site-packages/lvn/base/utils.py</code></summary>
               <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">210</span>
 <span class="normal">211</span>
 <span class="normal">212</span>
@@ -1239,13 +1239,13 @@ The dictionary values become a column labeled "value".</p>
 <div class="doc doc-object doc-function">
 
 
-<h1 id="lvn.utils.make_multisim_title" class="doc doc-heading">
+<h1 id="lvn.base.utils.make_multisim_title" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <span class="doc doc-object-name doc-function-name">make_multisim_title</span>
 
 
 </h1>
 <div class="doc-signature highlight"><pre><span></span><code><span class="nf">make_multisim_title</span><span class="p">(</span>
-    <span class="n"><a class="autorefs autorefs-internal" title="p (lvn.utils.make_multisim_title(p))" href="#lvn.utils.make_multisim_title(p)">p</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="analysis (lvn.utils.make_multisim_title(analysis))" href="#lvn.utils.make_multisim_title(analysis)">analysis</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="a_range (lvn.utils.make_multisim_title(a_range))" href="#lvn.utils.make_multisim_title(a_range)">a_range</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="p (lvn.base.utils.make_multisim_title(p))" href="#lvn.base.utils.make_multisim_title(p)">p</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="analysis (lvn.base.utils.make_multisim_title(analysis))" href="#lvn.base.utils.make_multisim_title(analysis)">analysis</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="a_range (lvn.base.utils.make_multisim_title(a_range))" href="#lvn.base.utils.make_multisim_title(a_range)">a_range</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span>
 </code></pre></div>
 
@@ -1257,7 +1257,7 @@ The dictionary values become a column labeled "value".</p>
 <p><span class="doc-section-title">Parameters:</span></p>
     <ul>
         <li class="doc-section-item field-body">
-<h2 id="lvn.utils.make_multisim_title(p)" class="doc doc-heading doc-heading-parameter">              <b><code>p</code></b>
+<h2 id="lvn.base.utils.make_multisim_title(p)" class="doc doc-heading doc-heading-parameter">              <b><code>p</code></b>
 </h2>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
           –
           <div class="doc-md-description">
@@ -1265,7 +1265,7 @@ The dictionary values become a column labeled "value".</p>
           </div>
         </li>
         <li class="doc-section-item field-body">
-<h2 id="lvn.utils.make_multisim_title(analysis)" class="doc doc-heading doc-heading-parameter">              <b><code>analysis</code></b>
+<h2 id="lvn.base.utils.make_multisim_title(analysis)" class="doc doc-heading doc-heading-parameter">              <b><code>analysis</code></b>
 </h2>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
           –
           <div class="doc-md-description">
@@ -1273,7 +1273,7 @@ The dictionary values become a column labeled "value".</p>
           </div>
         </li>
         <li class="doc-section-item field-body">
-<h2 id="lvn.utils.make_multisim_title(a_range)" class="doc doc-heading doc-heading-parameter">              <b><code>a_range</code></b>
+<h2 id="lvn.base.utils.make_multisim_title(a_range)" class="doc doc-heading doc-heading-parameter">              <b><code>a_range</code></b>
 </h2>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a>] | None</code>)
           –
           <div class="doc-md-description">
@@ -1297,7 +1297,7 @@ The dictionary values become a column labeled "value".</p>
           </backlinks>
 
             <details class="quote">
-              <summary>Source code in <code>lvn/utils.py</code></summary>
+              <summary>Source code in <code>.venv/lib/python3.14/site-packages/lvn/base/utils.py</code></summary>
               <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 77</span>
 <span class="normal"> 78</span>
 <span class="normal"> 79</span>
@@ -1374,18 +1374,18 @@ The dictionary values become a column labeled "value".</p>
 <div class="doc doc-object doc-function">
 
 
-<h1 id="lvn.utils.make_name_title" class="doc doc-heading">
+<h1 id="lvn.base.utils.make_name_title" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <span class="doc doc-object-name doc-function-name">make_name_title</span>
 
 
 </h1>
 <div class="doc-signature highlight"><pre><span></span><code><span class="nf">make_name_title</span><span class="p">(</span>
-    <span class="n"><span title="lvn.utils.make_name_title(field_name)">field_name</span></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">,</span>
-    <span class="n"><a class="autorefs autorefs-internal" title="p (lvn.utils.make_name_title(p))" href="#lvn.utils.make_name_title(p)">p</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></span><span class="p">,</span>
-    <span class="n"><a class="autorefs autorefs-internal" title="analysis (lvn.utils.make_name_title(analysis))" href="#lvn.utils.make_name_title(analysis)">analysis</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></span><span class="p">,</span>
-    <span class="n"><a class="autorefs autorefs-internal" title="t_total (lvn.utils.make_name_title(t_total))" href="#lvn.utils.make_name_title(t_total)">t_total</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n"><a class="autorefs autorefs-internal" title="a_range (lvn.utils.make_name_title(a_range))" href="#lvn.utils.make_name_title(a_range)">a_range</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n"><a class="autorefs autorefs-internal" title="do_multisim (lvn.utils.make_name_title(do_multisim))" href="#lvn.utils.make_name_title(do_multisim)">do_multisim</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n"><span title="lvn.base.utils.make_name_title(field_name)">field_name</span></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="p (lvn.base.utils.make_name_title(p))" href="#lvn.base.utils.make_name_title(p)">p</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="analysis (lvn.base.utils.make_name_title(analysis))" href="#lvn.base.utils.make_name_title(analysis)">analysis</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="t_total (lvn.base.utils.make_name_title(t_total))" href="#lvn.base.utils.make_name_title(t_total)">t_total</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="a_range (lvn.base.utils.make_name_title(a_range))" href="#lvn.base.utils.make_name_title(a_range)">a_range</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="do_multisim (lvn.base.utils.make_name_title(do_multisim))" href="#lvn.base.utils.make_name_title(do_multisim)">do_multisim</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">]</span>
 </code></pre></div>
 
@@ -1397,7 +1397,7 @@ The dictionary values become a column labeled "value".</p>
 <p><span class="doc-section-title">Parameters:</span></p>
     <ul>
         <li class="doc-section-item field-body">
-<h2 id="lvn.utils.make_name_title(p)" class="doc doc-heading doc-heading-parameter">              <b><code>p</code></b>
+<h2 id="lvn.base.utils.make_name_title(p)" class="doc doc-heading doc-heading-parameter">              <b><code>p</code></b>
 </h2>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
           –
           <div class="doc-md-description">
@@ -1405,7 +1405,7 @@ The dictionary values become a column labeled "value".</p>
           </div>
         </li>
         <li class="doc-section-item field-body">
-<h2 id="lvn.utils.make_name_title(analysis)" class="doc doc-heading doc-heading-parameter">              <b><code>analysis</code></b>
+<h2 id="lvn.base.utils.make_name_title(analysis)" class="doc doc-heading doc-heading-parameter">              <b><code>analysis</code></b>
 </h2>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
           –
           <div class="doc-md-description">
@@ -1413,7 +1413,7 @@ The dictionary values become a column labeled "value".</p>
           </div>
         </li>
         <li class="doc-section-item field-body">
-<h2 id="lvn.utils.make_name_title(t_total)" class="doc doc-heading doc-heading-parameter">              <b><code>t_total</code></b>
+<h2 id="lvn.base.utils.make_name_title(t_total)" class="doc doc-heading doc-heading-parameter">              <b><code>t_total</code></b>
 </h2>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a> | None</code>, default:
                   <code>None</code>
 )
@@ -1423,7 +1423,7 @@ The dictionary values become a column labeled "value".</p>
           </div>
         </li>
         <li class="doc-section-item field-body">
-<h2 id="lvn.utils.make_name_title(a_range)" class="doc doc-heading doc-heading-parameter">              <b><code>a_range</code></b>
+<h2 id="lvn.base.utils.make_name_title(a_range)" class="doc doc-heading doc-heading-parameter">              <b><code>a_range</code></b>
 </h2>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a>] | None</code>, default:
                   <code>None</code>
 )
@@ -1433,7 +1433,7 @@ The dictionary values become a column labeled "value".</p>
           </div>
         </li>
         <li class="doc-section-item field-body">
-<h2 id="lvn.utils.make_name_title(do_multisim)" class="doc doc-heading doc-heading-parameter">              <b><code>do_multisim</code></b>
+<h2 id="lvn.base.utils.make_name_title(do_multisim)" class="doc doc-heading doc-heading-parameter">              <b><code>do_multisim</code></b>
 </h2>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>, default:
                   <code>False</code>
 )
@@ -1459,7 +1459,7 @@ The dictionary values become a column labeled "value".</p>
           </backlinks>
 
             <details class="quote">
-              <summary>Source code in <code>lvn/utils.py</code></summary>
+              <summary>Source code in <code>.venv/lib/python3.14/site-packages/lvn/base/utils.py</code></summary>
               <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">112</span>
 <span class="normal">113</span>
 <span class="normal">114</span>
@@ -1542,12 +1542,12 @@ The dictionary values become a column labeled "value".</p>
 <div class="doc doc-object doc-function">
 
 
-<h1 id="lvn.utils.make_sim_title" class="doc doc-heading">
+<h1 id="lvn.base.utils.make_sim_title" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <span class="doc doc-object-name doc-function-name">make_sim_title</span>
 
 
 </h1>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">make_sim_title</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="p (lvn.utils.make_sim_title(p))" href="#lvn.utils.make_sim_title(p)">p</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="analysis (lvn.utils.make_sim_title(analysis))" href="#lvn.utils.make_sim_title(analysis)">analysis</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="module (lvn.utils.make_sim_title(module))" href="#lvn.utils.make_sim_title(module)">module</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="do_omit_a (lvn.utils.make_sim_title(do_omit_a))" href="#lvn.utils.make_sim_title(do_omit_a)">do_omit_a</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">make_sim_title</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="p (lvn.base.utils.make_sim_title(p))" href="#lvn.base.utils.make_sim_title(p)">p</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="analysis (lvn.base.utils.make_sim_title(analysis))" href="#lvn.base.utils.make_sim_title(analysis)">analysis</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="module (lvn.base.utils.make_sim_title(module))" href="#lvn.base.utils.make_sim_title(module)">module</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="do_omit_a (lvn.base.utils.make_sim_title(do_omit_a))" href="#lvn.base.utils.make_sim_title(do_omit_a)">do_omit_a</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
@@ -1558,7 +1558,7 @@ The dictionary values become a column labeled "value".</p>
 <p><span class="doc-section-title">Parameters:</span></p>
     <ul>
         <li class="doc-section-item field-body">
-<h2 id="lvn.utils.make_sim_title(p)" class="doc doc-heading doc-heading-parameter">              <b><code>p</code></b>
+<h2 id="lvn.base.utils.make_sim_title(p)" class="doc doc-heading doc-heading-parameter">              <b><code>p</code></b>
 </h2>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
           –
           <div class="doc-md-description">
@@ -1566,7 +1566,7 @@ The dictionary values become a column labeled "value".</p>
           </div>
         </li>
         <li class="doc-section-item field-body">
-<h2 id="lvn.utils.make_sim_title(analysis)" class="doc doc-heading doc-heading-parameter">              <b><code>analysis</code></b>
+<h2 id="lvn.base.utils.make_sim_title(analysis)" class="doc doc-heading doc-heading-parameter">              <b><code>analysis</code></b>
 </h2>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
           –
           <div class="doc-md-description">
@@ -1574,7 +1574,7 @@ The dictionary values become a column labeled "value".</p>
           </div>
         </li>
         <li class="doc-section-item field-body">
-<h2 id="lvn.utils.make_sim_title(module)" class="doc doc-heading doc-heading-parameter">              <b><code>module</code></b>
+<h2 id="lvn.base.utils.make_sim_title(module)" class="doc doc-heading doc-heading-parameter">              <b><code>module</code></b>
 </h2>              (<code><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></code>)
           –
           <div class="doc-md-description">
@@ -1582,7 +1582,7 @@ The dictionary values become a column labeled "value".</p>
           </div>
         </li>
         <li class="doc-section-item field-body">
-<h2 id="lvn.utils.make_sim_title(do_omit_a)" class="doc doc-heading doc-heading-parameter">              <b><code>do_omit_a</code></b>
+<h2 id="lvn.base.utils.make_sim_title(do_omit_a)" class="doc doc-heading doc-heading-parameter">              <b><code>do_omit_a</code></b>
 </h2>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>, default:
                   <code>False</code>
 )
@@ -1608,7 +1608,7 @@ The dictionary values become a column labeled "value".</p>
           </backlinks>
 
             <details class="quote">
-              <summary>Source code in <code>lvn/utils.py</code></summary>
+              <summary>Source code in <code>.venv/lib/python3.14/site-packages/lvn/base/utils.py</code></summary>
               <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">150</span>
 <span class="normal">151</span>
 <span class="normal">152</span>
@@ -1735,19 +1735,19 @@ The dictionary values become a column labeled "value".</p>
 <div class="doc doc-object doc-function">
 
 
-<h1 id="lvn.utils.set_name" class="doc doc-heading">
+<h1 id="lvn.base.utils.set_name" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <span class="doc doc-object-name doc-function-name">set_name</span>
 
 
 </h1>
 <div class="doc-signature highlight"><pre><span></span><code><span class="nf">set_name</span><span class="p">(</span>
-    <span class="n"><a class="autorefs autorefs-internal" title="p (lvn.utils.set_name(p))" href="#lvn.utils.set_name(p)">p</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></span><span class="p">,</span>
-    <span class="n"><a class="autorefs autorefs-internal" title="a (lvn.utils.set_name(a))" href="#lvn.utils.set_name(a)">a</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></span><span class="p">,</span>
-    <span class="n"><a class="autorefs autorefs-internal" title="field_name (lvn.utils.set_name(field_name))" href="#lvn.utils.set_name(field_name)">field_name</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n"><a class="autorefs autorefs-internal" title="suffix (lvn.utils.set_name(suffix))" href="#lvn.utils.set_name(suffix)">suffix</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
-    <span class="n"><a class="autorefs autorefs-internal" title="t_epoch (lvn.utils.set_name(t_epoch))" href="#lvn.utils.set_name(t_epoch)">t_epoch</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n"><a class="autorefs autorefs-internal" title="do_parent (lvn.utils.set_name(do_parent))" href="#lvn.utils.set_name(do_parent)">do_parent</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-    <span class="n"><a class="autorefs autorefs-internal" title="do_dir (lvn.utils.set_name(do_dir))" href="#lvn.utils.set_name(do_dir)">do_dir</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="p (lvn.base.utils.set_name(p))" href="#lvn.base.utils.set_name(p)">p</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="a (lvn.base.utils.set_name(a))" href="#lvn.base.utils.set_name(a)">a</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="field_name (lvn.base.utils.set_name(field_name))" href="#lvn.base.utils.set_name(field_name)">field_name</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="suffix (lvn.base.utils.set_name(suffix))" href="#lvn.base.utils.set_name(suffix)">suffix</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="t_epoch (lvn.base.utils.set_name(t_epoch))" href="#lvn.base.utils.set_name(t_epoch)">t_epoch</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="do_parent (lvn.base.utils.set_name(do_parent))" href="#lvn.base.utils.set_name(do_parent)">do_parent</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="do_dir (lvn.base.utils.set_name(do_dir))" href="#lvn.base.utils.set_name(do_dir)">do_dir</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span>
 </code></pre></div>
 
@@ -1759,7 +1759,7 @@ The dictionary values become a column labeled "value".</p>
 <p><span class="doc-section-title">Parameters:</span></p>
     <ul>
         <li class="doc-section-item field-body">
-<h2 id="lvn.utils.set_name(p)" class="doc doc-heading doc-heading-parameter">              <b><code>p</code></b>
+<h2 id="lvn.base.utils.set_name(p)" class="doc doc-heading doc-heading-parameter">              <b><code>p</code></b>
 </h2>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
           –
           <div class="doc-md-description">
@@ -1767,7 +1767,7 @@ The dictionary values become a column labeled "value".</p>
           </div>
         </li>
         <li class="doc-section-item field-body">
-<h2 id="lvn.utils.set_name(a)" class="doc doc-heading doc-heading-parameter">              <b><code>a</code></b>
+<h2 id="lvn.base.utils.set_name(a)" class="doc doc-heading doc-heading-parameter">              <b><code>a</code></b>
 </h2>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
           –
           <div class="doc-md-description">
@@ -1775,7 +1775,7 @@ The dictionary values become a column labeled "value".</p>
           </div>
         </li>
         <li class="doc-section-item field-body">
-<h2 id="lvn.utils.set_name(field_name)" class="doc doc-heading doc-heading-parameter">              <b><code>field_name</code></b>
+<h2 id="lvn.base.utils.set_name(field_name)" class="doc doc-heading doc-heading-parameter">              <b><code>field_name</code></b>
 </h2>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a> | None</code>, default:
                   <code>None</code>
 )
@@ -1785,7 +1785,7 @@ The dictionary values become a column labeled "value".</p>
           </div>
         </li>
         <li class="doc-section-item field-body">
-<h2 id="lvn.utils.set_name(suffix)" class="doc doc-heading doc-heading-parameter">              <b><code>suffix</code></b>
+<h2 id="lvn.base.utils.set_name(suffix)" class="doc doc-heading doc-heading-parameter">              <b><code>suffix</code></b>
 </h2>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>, default:
                   <code>''</code>
 )
@@ -1795,7 +1795,7 @@ The dictionary values become a column labeled "value".</p>
           </div>
         </li>
         <li class="doc-section-item field-body">
-<h2 id="lvn.utils.set_name(t_epoch)" class="doc doc-heading doc-heading-parameter">              <b><code>t_epoch</code></b>
+<h2 id="lvn.base.utils.set_name(t_epoch)" class="doc doc-heading doc-heading-parameter">              <b><code>t_epoch</code></b>
 </h2>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a> | None</code>, default:
                   <code>None</code>
 )
@@ -1805,7 +1805,7 @@ The dictionary values become a column labeled "value".</p>
           </div>
         </li>
         <li class="doc-section-item field-body">
-<h2 id="lvn.utils.set_name(do_parent)" class="doc doc-heading doc-heading-parameter">              <b><code>do_parent</code></b>
+<h2 id="lvn.base.utils.set_name(do_parent)" class="doc doc-heading doc-heading-parameter">              <b><code>do_parent</code></b>
 </h2>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>, default:
                   <code>False</code>
 )
@@ -1815,7 +1815,7 @@ The dictionary values become a column labeled "value".</p>
           </div>
         </li>
         <li class="doc-section-item field-body">
-<h2 id="lvn.utils.set_name(do_dir)" class="doc doc-heading doc-heading-parameter">              <b><code>do_dir</code></b>
+<h2 id="lvn.base.utils.set_name(do_dir)" class="doc doc-heading doc-heading-parameter">              <b><code>do_dir</code></b>
 </h2>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>, default:
                   <code>False</code>
 )
@@ -1841,7 +1841,7 @@ The dictionary values become a column labeled "value".</p>
           </backlinks>
 
             <details class="quote">
-              <summary>Source code in <code>lvn/utils.py</code></summary>
+              <summary>Source code in <code>.venv/lib/python3.14/site-packages/lvn/base/utils.py</code></summary>
               <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">32</span>
 <span class="normal">33</span>
 <span class="normal">34</span>

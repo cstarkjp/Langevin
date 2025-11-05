@@ -19,12 +19,12 @@ try:
 except:
     print("ffmpeg not installed: videos cannot be generated")
 sys.path.insert(0, os.path.join(os.path.pardir, "Packages"))
-import lvn.initialize
-from lvn.utils import (
+import lvn.base.initialize
+from lvn.base.utils import (
     progress, set_name, make_dataframe, bold, fetch_image
 )
-from lvn.serialize import from_serializable, to_serializable
-from lvn.file import (    
+from lvn.base.serialize import from_serializable, to_serializable
+from lvn.base.file import (    
     create_directories, create_dir, 
     import_info, read_info, export_info, export_plots,
 )

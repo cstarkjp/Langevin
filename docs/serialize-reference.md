@@ -1,5 +1,5 @@
 # serialize.py
 
-::: lvn.serialize.is_serializable
-::: lvn.serialize.from_serializable
-::: lvn.serialize.to_serializable
+::: lvn.base.serialize.is_serializable
+::: lvn.base.serialize.from_serializable
+::: lvn.base.serialize.to_serializable

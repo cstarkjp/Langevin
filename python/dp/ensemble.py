@@ -10,7 +10,7 @@ from copy import deepcopy
 import numpy as np
 from numpy.typing import NDArray
 import os
-from lvn.file import (
+from lvn.base.file import (
     create_directories, export_info, read_info, export_plots
 )
 from lvn.dp import dplvn

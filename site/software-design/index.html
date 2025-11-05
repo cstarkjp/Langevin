@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../images/DP1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
     
     
       
@@ -999,7 +999,7 @@
   
   
   <span class="md-ellipsis">
-    file.py
+    base/file.py
     
   </span>
   
@@ -1022,7 +1022,7 @@
   
   
   <span class="md-ellipsis">
-    serialize.py
+    base/serialize.py
     
   </span>
   
@@ -1045,7 +1045,7 @@
   
   
   <span class="md-ellipsis">
-    utils.py
+    base/utils.py
     
   </span>
   
@@ -1068,7 +1068,7 @@
   
   
   <span class="md-ellipsis">
-    viz.py
+    base/viz.py
     
   </span>
   
@@ -1329,17 +1329,17 @@ It uses <a href="https://pybind11.readthedocs.io/en/stable/"><code>pybind11</cod
 use of the core <code>C++</code>-based integrator.
 They are grouped into a set of base modules, 
 located in the 
-<a href="https://github.com/cstarkjp/Langevin/tree/main/python">root Python source folder</a>,
-and a set of DP-application modules, which can be found in 
-<a href="https://github.com/cstarkjp/Langevin/tree/main/python/dp">its <code>dp</code> subfolder</a>.</p>
+<a href="https://github.com/cstarkjp/Langevin/tree/main/python/base"><code>base</code> folder</a>,
+and a set of DP-application modules, which can be found in the companion
+<a href="https://github.com/cstarkjp/Langevin/tree/main/python/dp"><code>dp</code> folder</a>.</p>
 <p>In addition, <a href="https://github.com/cstarkjp/Langevin/tree/main/simulation/dp">Python scripts and related Jupyter notebooks</a> are provided to help run DP-type Langevin simulations 
 (documented <a href="../simulation-reference/">here</a>).</p>
-<p>The main support modules are:</p>
+<p>The base modules are:</p>
 <ul>
-<li><a href="../file-reference/">file.py</a></li>
-<li><a href="../serialize-reference/">serialize.py</a></li>
-<li><a href="../utils-reference/">utils.py</a></li>
-<li><a href="../viz-reference/">viz.py</a></li>
+<li><a href="../file-reference/">base/file.py</a></li>
+<li><a href="../serialize-reference/">base/serialize.py</a></li>
+<li><a href="../utils-reference/">base/utils.py</a></li>
+<li><a href="../viz-reference/">base/viz.py</a></li>
 </ul>
 <p>The DP-specific modules are:</p>
 <ul>

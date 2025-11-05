@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../images/DP1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
     
     
       
@@ -484,6 +484,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    How to install
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -495,6 +508,67 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-set-up-lvn-in-a-custom-python-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Set up lvn in a custom Python environment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1: Set up lvn in a custom Python environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-practice-use-uv" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best practice: use uv
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alternative-by-hand" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alternative: by hand
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-make-a-local-copy-of-the-demo-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Make a local copy of the demo scripts
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -907,7 +981,7 @@
   
   
   <span class="md-ellipsis">
-    file.py
+    base/file.py
     
   </span>
   
@@ -930,7 +1004,7 @@
   
   
   <span class="md-ellipsis">
-    serialize.py
+    base/serialize.py
     
   </span>
   
@@ -953,7 +1027,7 @@
   
   
   <span class="md-ellipsis">
-    utils.py
+    base/utils.py
     
   </span>
   
@@ -976,7 +1050,7 @@
   
   
   <span class="md-ellipsis">
-    viz.py
+    base/viz.py
     
   </span>
   
@@ -1127,6 +1201,56 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-set-up-lvn-in-a-custom-python-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Set up lvn in a custom Python environment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1: Set up lvn in a custom Python environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-practice-use-uv" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best practice: use uv
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alternative-by-hand" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alternative: by hand
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-make-a-local-copy-of-the-demo-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Make a local copy of the demo scripts
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1142,14 +1266,16 @@
 
 
 <h1 id="how-to-install">How to install</h1>
+<h2 id="step-1-set-up-lvn-in-a-custom-python-environment"><strong>Step 1:</strong> Set up <strong>lvn</strong> in a custom Python environment</h2>
+<h3 id="best-practice-use-uv">Best practice: use <strong>uv</strong></h3>
 <p>Using <code>uv</code>, the creation of a virtual Python environment, installation of dependent packages, and installation of <code>lvn</code> itself can all be achieved in three simple command lines:</p>
-<pre><code>    uv venv
-    source .venv/bin/activate
-    uv pip install --index-url https://test.pypi.org/simple/ \
-                   --extra-index-url https://pypi.org/simple/  lvn
+<pre><code>uv venv
+source .venv/bin/activate
+uv pip install --index https://test.pypi.org/simple/ --default-index https://pypi.org/simple/ lvn
 </code></pre>
-<p>Note that before doing this you'll have to install <code>uv</code> on your machine.</p>
-<p>Alternatively, follow the more standard approach as outlined below.</p>
+<p><em>Note that before doing this you'll have to install <code>uv</code> on your machine.</em></p>
+<h3 id="alternative-by-hand">Alternative: by hand</h3>
+<p>Alternatively, you can employ the following two-step process.</p>
 <ol>
 <li>
 <p>Install Python <span class="arithmatex">\(\geq\)</span> 3.12, ideally in a Python environment; Python 3.14 is recommended, and current development uses this version. </p>
@@ -1166,24 +1292,22 @@
 </li>
 <li>
 <p>Install the <a href="https://test.pypi.org/project/lvn/">Python library <code>lvn</code></a> using <code>pip</code>, hopefully within a Python environment, from TestPyPI:</p>
-<pre><code>pip install --index-url https://test.pypi.org/simple/ \
-            --extra-index-url https://pypi.org/simple lvn
+<pre><code>pip install --index https://test.pypi.org/simple/ --default-index https://pypi.org/simple/ lvn
 </code></pre>
-<p>Note: the <code>--extra-index-url</code> argument ensures that any Python install
+<p>Note: the <code>--index</code> argument ensures that any Python install
 dependencies are also sought in the true PyPI repository rather
 than in TestPyPI alone (which generally won't suffice). </p>
 <p><em>If you already have a pre-existing installation</em> of this package, you may need to <code>upgrade</code> (update) to the latest version:</p>
-<pre><code>pip install -i https://test.pypi.org/simple/ lvn --upgrade
+<pre><code>pip install --index https://test.pypi.org/simple/ --default-index https://pypi.org/simple/ lvn --upgrade
 </code></pre>
 </li>
-<li>
+</ol>
+<h2 id="step-2-make-a-local-copy-of-the-demo-scripts"><strong>Step 2:</strong> Make a local copy of the demo scripts</h2>
 <p>Clone the <a href="https://github.com/cstarkjp/Langevin/tree/main">Langevin repo</a> to your local machine:</p>
-<pre><code>git clone https://github.com/cstarkjp/Langevin.git
+<pre><code>    git clone https://github.com/cstarkjp/Langevin.git
 </code></pre>
 <p>which will create a <code>Langevin/</code> folder. </p>
 <p>If you already have a local copy of the repo, update it with <code>git pull</code>, making sure you are on the <code>main</code> branch (do <code>git checkout main</code>).</p>
-</li>
-</ol>
 
 
 

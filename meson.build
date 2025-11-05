@@ -5,7 +5,7 @@
 project(
     'Langevin',
     'cpp',
-    version: '2025.11.5a1',
+    version: '2025.11.5a2',
     default_options: ['cpp_std=c++11'],
 )
 add_project_arguments(
@@ -47,13 +47,19 @@ py.extension_module(
 py.install_sources(
     [
         'python/__init__.py', 
-        'python/file.py', 
-        'python/initialize.py', 
-        'python/serialize.py', 
-        'python/utils.py', 
-        'python/viz.py', 
     ],
     subdir: 'lvn'
+)
+py.install_sources(
+    [
+        'python/base/__init__.py', 
+        'python/base/file.py', 
+        'python/base/initialize.py', 
+        'python/base/serialize.py', 
+        'python/base/utils.py', 
+        'python/base/viz.py', 
+    ],
+    subdir: 'lvn/base'
 )
 py.install_sources(
     [

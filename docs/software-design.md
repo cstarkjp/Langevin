@@ -44,19 +44,19 @@ The `lvn` package includes several Python modules to support
 use of the core `C++`-based integrator.
 They are grouped into a set of base modules, 
 located in the 
-[root Python source folder](https://github.com/cstarkjp/Langevin/tree/main/python),
-and a set of DP-application modules, which can be found in 
-[its `dp` subfolder](https://github.com/cstarkjp/Langevin/tree/main/python/dp).
+[`base` folder](https://github.com/cstarkjp/Langevin/tree/main/python/base),
+and a set of DP-application modules, which can be found in the companion
+[`dp` folder](https://github.com/cstarkjp/Langevin/tree/main/python/dp).
 
 In addition, [Python scripts and related Jupyter notebooks](https://github.com/cstarkjp/Langevin/tree/main/simulation/dp) are provided to help run DP-type Langevin simulations 
 (documented [here](simulation-reference.md)).
 
-The main support modules are:
+The base modules are:
 
-- [file.py](file-reference.md)
-- [serialize.py](serialize-reference.md)
-- [utils.py](utils-reference.md)
-- [viz.py](viz-reference.md)
+- [base/file.py](file-reference.md)
+- [base/serialize.py](serialize-reference.md)
+- [base/utils.py](utils-reference.md)
+- [base/viz.py](viz-reference.md)
 
 The DP-specific modules are:
 
