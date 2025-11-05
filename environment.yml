@@ -21,3 +21,4 @@ dependencies:
 
 # conda install -c conda-forge mkdocstrings mkdocstrings-python python-markdown-math mdx_gh_links black ruff
 # pip install mkdoxy markdown-captions mkdocs-material mkdocs-bootswatch mkdocs-caption    
+

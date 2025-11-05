@@ -11,7 +11,7 @@ requires = ["meson-python", "wheel", "pybind11", "ninja", "numpy"]
 name = 'lvn'
 version = '2025.11.5a1'
 # dynamic = ["version"]
-description = 'Integration of Langevin equations representing absorbing phase transitions'
+description = 'Integrating Langevin equations for absorbing phase transitions'
 readme = 'README.md'
 
 requires-python = '>=3.12'
@@ -61,3 +61,5 @@ documentation = "https://cstarkjp.github.io/Langevin"
 # [[tool.uv.index]]
 # url = "https://test.pypi.org/simple"
 # default = true
+
+# uv pip install mkdocstrings mkdocstrings-python python-markdown-math mdx_gh_links black ruff mkdoxy markdown-captions mkdocs-material mkdocs-bootswatch mkdocs-caption

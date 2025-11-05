@@ -63,10 +63,10 @@ If you use `conda` or `miniconda`, take a look at the `environment.yml` file and
 
 Then, use `pip` to install the `lvn` package from `TestPyPI` into whatever Python environment you have set up (even if you use `conda`):
 
-    pip install --index-url https://test.pypi.org/simple/ \
-        --extra-index-url https://pypi.org/simple lvn
+    pip install --index https://test.pypi.org/simple/ \
+                --default-index https://pypi.org/simple/  lvn
 
-This only works if we have pre-built a binary wheel for your platform: we currently support macOS 14, macOS 15, the latest macOS build, and multiple flavors of Linux (most of which have been tested), as well as Windows (but not yet tested). Note: the `--extra-index-url` ensures that package dependencies are fetched from the main PyPI repository if needed.
+This only works if we have pre-built a binary wheel for your platform: we currently support macOS 14, macOS 15, the latest macOS build, and multiple flavors of Linux (most of which have been tested), as well as Windows (but not yet tested). Note: the `--index` ensures that package dependencies are fetched from the main PyPI repository if needed.
 
 Once project development has matured, the `lvn` package will be made available on the full `PyPI` site with broader platform support.
 Its package dependencies will then be made automatic; apparently it's not currently possible to 
@@ -76,7 +76,8 @@ Note: you can use `uv`, which allegedly makes everything easier:
 
     uv venv
     source .venv/bin/activate
-    uv pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/  lvn
+    uv pip install --index https://test.pypi.org/simple/ \
+                   --default-index https://pypi.org/simple/  lvn
 
 <!-- https://emily.space/posts/251023-uv
 https://realpython.com/python-uv/ -->
