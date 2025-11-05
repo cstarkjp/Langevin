@@ -5,7 +5,7 @@
 project(
     'Langevin',
     'cpp',
-    version: '2025.11.5a2',
+    version: '2025.11.5a3',
     default_options: ['cpp_std=c++11'],
 )
 add_project_arguments(
@@ -15,15 +15,15 @@ add_project_arguments(
 )
 
 cpp_sources = files(
-    'cplusplus/langevin_construct_grid.cpp', 
-    'cplusplus/langevin_construct_grid1d.cpp', 
-    'cplusplus/langevin_construct_grid2d.cpp', 
-    'cplusplus/langevin_ic.cpp', 
-    'cplusplus/langevin_bc.cpp', 
-    'cplusplus/langevin_prepare.cpp', 
-    'cplusplus/langevin_integrate_rungekutta.cpp', 
-    'cplusplus/langevin_integrate_euler.cpp', 
-    'cplusplus/langevin_utilities.cpp', 
+    'cplusplus/core/langevin_construct_grid.cpp', 
+    'cplusplus/core/langevin_construct_grid1d.cpp', 
+    'cplusplus/core/langevin_construct_grid2d.cpp', 
+    'cplusplus/core/langevin_ic.cpp', 
+    'cplusplus/core/langevin_bc.cpp', 
+    'cplusplus/core/langevin_prepare.cpp', 
+    'cplusplus/core/langevin_integrate_rungekutta.cpp', 
+    'cplusplus/core/langevin_integrate_euler.cpp', 
+    'cplusplus/core/langevin_utilities.cpp', 
     'cplusplus/dp/dplangevin.cpp', 
     'cplusplus/dp/sim_dplangevin.cpp', 
     'cplusplus/dp/sim_dplangevin_private.cpp', 
