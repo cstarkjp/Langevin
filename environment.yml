@@ -1,3 +1,6 @@
+# -------DEFUNCT---------
+#  switched to using uv
+
 # conda env create --prefix=${HOME}/miniconda3/envs/lvn3p14 --file environment.yml
 name: lvn3p14
 channels:

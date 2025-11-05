@@ -7,22 +7,22 @@ TESTS = $(wildcard tests/*py)
 
 # Build everything (Python package, docs) and deploy pkg
 .PHONY: all
-all: src doc
+all: install doc
 
 # Build and deploy Python package
-src: $(HPP) $(CPP) $(PY) pyproject.toml meson.build
+install: $(HPP) $(CPP) $(PY) pyproject.toml meson.build
 	@echo "****************************************************************"
 	@echo "Build and deploy Python package"
 	rm -rf build
-	pip install .
+	uv pip install .
 	touch src
 	@echo "Done"
 	@echo "****************************************************************"
 
 # Build Python package but don't deploy
-.PHONY: local
-local: build
-build: $(HPP) $(CPP) $(PY) meson.build
+.PHONY: build
+build: build-local
+build-local: $(HPP) $(CPP) $(PY) meson.build
 	@echo "****************************************************************"
 	@echo "Build Python package locally"
 	rm -rf build

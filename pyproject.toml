@@ -9,7 +9,7 @@ requires = ["meson-python", "wheel", "pybind11", "ninja", "numpy"]
 
 [project]
 name = 'lvn'
-version = '2025.10.31a2'
+version = '2025.11.5a1'
 # dynamic = ["version"]
 description = 'Integration of Langevin equations representing absorbing phase transitions'
 readme = 'README.md'
@@ -58,4 +58,6 @@ repository = "https://github.com/cstarkjp/Langevin"
 documentation = "https://cstarkjp.github.io/Langevin"
 # "Bug Tracker" = "https://github.com/cstarkjp/Langevin"
 
-
+# [[tool.uv.index]]
+# url = "https://test.pypi.org/simple"
+# default = true
