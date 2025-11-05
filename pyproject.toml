@@ -58,6 +58,10 @@ repository = "https://github.com/cstarkjp/Langevin"
 documentation = "https://cstarkjp.github.io/Langevin"
 # "Bug Tracker" = "https://github.com/cstarkjp/Langevin"
 
+
+
+### https://docs.astral.sh/uv/concepts/configuration-files/
+
 # [[tool.uv.index]]
 # url = "https://test.pypi.org/simple"
 # default = true
