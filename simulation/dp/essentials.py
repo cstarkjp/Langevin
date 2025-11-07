@@ -3,7 +3,7 @@ import time
 from time import perf_counter
 from datetime import datetime, timedelta
 import sys, os
-from os.path import pardir
+from os.path import pardir, join
 from shutil import rmtree
 import matplotlib as mpl
 from matplotlib import pyplot as plt
@@ -18,7 +18,7 @@ try:
     import ffmpeg
 except:
     print("ffmpeg not installed: videos cannot be generated")
-sys.path.insert(0, os.path.join(os.path.pardir, "Packages"))
+sys.path.insert(0, join(pardir, "Packages"))
 import lvn.base.initialize
 from lvn.base.utils import (
     progress, set_name, make_dataframe, bold, fetch_image
