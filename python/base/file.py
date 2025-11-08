@@ -9,10 +9,10 @@ from os import mkdir
 from shutil import rmtree
 from json import dump, load
 from io import TextIOWrapper
-from lvn.base.serialize import (
+from langevin.base.serialize import (
     from_serializable, to_serializable,
 )
-from lvn.base.utils import progress, progress_disabled
+from langevin.base.utils import progress, progress_disabled
 
 warnings.filterwarnings("ignore")
 

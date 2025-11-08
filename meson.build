@@ -5,7 +5,7 @@
 project(
     'Langevin',
     'cpp',
-    version: '2025.11.7a1',
+    version: '2025.11.8a1',
     default_options: ['cpp_std=c++11'],
 )
 add_project_arguments(
@@ -40,7 +40,7 @@ py.extension_module(
     cpp_sources,
     install: true,
     dependencies : [pybind11_dep],
-    subdir: 'lvn/dp'
+    subdir: 'langevin/dp'
 )
 
 # Install Python source files
@@ -48,7 +48,7 @@ py.install_sources(
     [
         'python/__init__.py', 
     ],
-    subdir: 'lvn'
+    subdir: 'langevin'
 )
 py.install_sources(
     [
@@ -59,7 +59,7 @@ py.install_sources(
         'python/base/utils.py', 
         'python/base/viz.py', 
     ],
-    subdir: 'lvn/base'
+    subdir: 'langevin/base'
 )
 py.install_sources(
     [
@@ -68,7 +68,7 @@ py.install_sources(
         'python/dp/simulation.py', 
         'python/dp/vizdp.py', 
     ],
-    subdir: 'lvn/dp'
+    subdir: 'langevin/dp'
 )
 
 # # Example of making version available for configuration

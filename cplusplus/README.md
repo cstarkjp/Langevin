@@ -16,7 +16,7 @@ or just build and _not_ deploy:
 Then, test your build/deployment using the Python script and Jupyter notebook in `tests/`. See the
 [README](https://github.com/cstarkjp/Langevin/tree/main/tests/README.md) there for more details. 
 
-If you choose to build the `lvn` package and subsequently use it in-place, without deployment, you will need something like the following in all your Python scripts:
+If you choose to build the `langevin` package and subsequently use it in-place, without deployment, you will need something like the following in all your Python scripts:
 
     import sys, os
     sys.path.insert(0, os.path.join(os.path.pardir, "build"))

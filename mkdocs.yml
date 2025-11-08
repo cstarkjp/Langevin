@@ -1,4 +1,4 @@
-site_name: "lvn"
+site_name: "langevin"
 
 # mkdocs,
 # readthedocs, material, cerulean, cosmo, cyborg,
@@ -176,7 +176,7 @@ plugins:
 
 # - mkdoxy:
 #     projects:
-#       lvn: # name of project must be alphanumeric + numbers (without spaces)
+#       langevin: # name of project must be alphanumeric + numbers (without spaces)
 #         src-dirs: cplusplus # path to source code (support multiple paths separated by space) => INPUT
 #         full-doc: True # if you want to generate full documentation
 #         # doxy-cfg-file: Doxyfile 

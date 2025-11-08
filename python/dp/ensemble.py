@@ -10,12 +10,12 @@ from copy import deepcopy
 import numpy as np
 from numpy.typing import NDArray
 import os
-from lvn.base.file import (
+from langevin.base.file import (
     create_directories, export_info, read_info, export_plots
 )
-from lvn.dp import dplvn
-from lvn.dp.simulation import Simulation
-from lvn.dp.vizdp import VizDP #type: ignore
+from langevin.dp import dplvn
+from langevin.dp.simulation import Simulation
+from langevin.dp.vizdp import VizDP #type: ignore
 
 warnings.filterwarnings("ignore")
 
@@ -86,7 +86,7 @@ class Ensemble:
 
     def create(self) -> None:
         """
-        Generate list of [`Simulation`][lvn.dp.simulation.Simulation] instances.
+        Generate list of [`Simulation`][langevin.dp.simulation.Simulation] instances.
         """
         self.sim_list: list[Simulation] = []
         sim_: Simulation
@@ -123,7 +123,7 @@ class Ensemble:
     def initialize(self) -> None:
         """
         Carry out initialization of each 
-        [`Simulation`][lvn.dp.simulation.Simulation] instance.
+        [`Simulation`][langevin.dp.simulation.Simulation] instance.
         """
         for sim_ in self.sim_list:
             sim_.initialize()

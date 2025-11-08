@@ -1,11 +1,11 @@
-# **Langevin**: the *lvn* software package
+# **langevin**
 
 Tools to integrate Langevin equations of absorbing phase transition (APT) type — with a focus on simulation of directed percolation (DP).
 
 ![](https://raw.githubusercontent.com/cstarkjp/Langevin/main/images/density_grid.png
  "Density grid")
 
-The `lvn` package implements the operator-splitting method originally developed by Dornic et al (2005), Pechenik & Levine (1999) and others, and improved upon by Weissmann et al (2018).
+The `langevin` package implements the operator-splitting method originally developed by Dornic et al (2005), Pechenik & Levine (1999) and others, and improved upon by Weissmann et al (2018).
 It provides a Python wrapper around core C++ heavily adapted from a code base written by [Paula Villa Martín](https://github.com/pvillamartin), extended by [Victor Buendía](https://github.com/VictorSeven) ("VMB"), and arising from earlier efforts by Ivan Dornic and Juan Bonachela. The wrapper provides easy access to the Langevin integrator, and broad opportunity to experiment, adapt, and extend it further. 
 
 The current C++ implementation extends the VMB code to allow run-time specification of 
@@ -57,27 +57,27 @@ Next, the code is split into a hierarchy of three groups, with each correspondin
 ## Installation
 
 At minimum, you will need Python≥3.12 and the package `pybind11` to allow installation of
-`lvn`; current development uses Python 3.14. To run the demos, you will also need `numpy`, `matplotlib`, `jupyter`, `ipython`, along with `pandas`, `tqdm`, and optionally `ffmpeg-python` (to generate videos from image file sequences). If you want to build locally, you will also need `meson-python`, `wheel`, `pybind11`, and `ninja`.
+`langevin`; current development uses Python 3.14. To run the demos, you will also need `numpy`, `matplotlib`, `jupyter`, `ipython`, along with `pandas`, `tqdm`, and optionally `ffmpeg-python` (to generate videos from image file sequences). If you want to build locally, you will also need `meson-python`, `wheel`, `pybind11`, and `ninja`.
 
 If you use `conda` or `miniconda`, take a look at the `environment.yml` file and use it to set up a suitable Python environment. If you prefer to use `pip`, you will have to  install the requisite packages by hand.
 
-Then, use `pip` to install the `lvn` package from `TestPyPI` into whatever Python environment you have set up (even if you use `conda`):
+Then, use `pip` to install the `langevin` package from `TestPyPI` into whatever Python environment you have set up (even if you use `conda`):
 
     pip install --index https://test.pypi.org/simple/ \
-                --default-index https://pypi.org/simple/  lvn
+                --default-index https://pypi.org/simple/  langevin
 
 This only works if we have pre-built a binary wheel for your platform: we currently support macOS 14, macOS 15, the latest macOS build, and multiple flavors of Linux (most of which have been tested), as well as Windows (but not yet tested). Note: the `--index` ensures that package dependencies are fetched from the main PyPI repository if needed.
 
-Once project development has matured, the `lvn` package will be made available on the full `PyPI` site with broader platform support.
+Once project development has matured, the `langevin` package will be made available on the full `PyPI` site with broader platform support.
 Its package dependencies will then be made automatic; apparently it's not currently possible to 
-set such dependencies with `TestPyPI` without incurring problems. Eventually, `lvn` may also be made available via `conda`. 
+set such dependencies with `TestPyPI` without incurring problems. Eventually, `langevin` may also be made available via `conda`. 
 
 Note: you can use `uv`, which allegedly makes everything easier:
 
     uv venv
     source .venv/bin/activate
     uv pip install --index https://test.pypi.org/simple/ \
-                   --default-index https://pypi.org/simple/  lvn
+                   --default-index https://pypi.org/simple/  langevin
 
 <!-- https://emily.space/posts/251023-uv
 https://realpython.com/python-uv/ -->
@@ -86,7 +86,7 @@ https://realpython.com/python-uv/ -->
 
 If your platform is not explicitly supported with a pre-built binary, the following will force a build from source:
 
-    pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/  -v  --no-binary :all: lvn
+    pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/  -v  --no-binary :all: langevin
 
 Be aware that this takes a **long** time, because it recompiles pretty much everything needed.
     

@@ -9,9 +9,9 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
 from matplotlib.colors import ListedColormap, Colormap
-from lvn.base.viz import Viz
-from lvn.base.utils import make_sim_title
-from lvn.dp import dplvn
+from langevin.base.viz import Viz
+from langevin.base.utils import make_sim_title
+from langevin.dp import dplvn
 
 warnings.filterwarnings("ignore")
 

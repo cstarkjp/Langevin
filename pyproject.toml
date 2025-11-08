@@ -8,8 +8,8 @@ build-backend = "mesonpy"
 requires = ["meson-python", "wheel", "pybind11", "ninja", "numpy"]
 
 [project]
-name = 'lvn'
-version = '2025.11.7a1'
+name = 'langevin'
+version = '2025.11.8a1'
 # dynamic = ["version"]
 description = 'Integrating Langevin equations for absorbing phase transitions'
 readme = 'README.md'
