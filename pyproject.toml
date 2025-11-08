@@ -41,7 +41,7 @@ keywords = [
 # Development Status :: 4 - Beta
 # Development Status :: 5 - Production/Stable
 classifiers = [
-  "Development Status :: 3 - Alpha",
+  "Development Status :: 4 - Beta",
   "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
   "Topic :: Scientific/Engineering :: Physics",
   "Intended Audience :: Science/Research",
