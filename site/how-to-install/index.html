@@ -1271,15 +1271,15 @@
 <p>Using <code>uv</code>, the creation of a virtual Python environment, installation of dependent packages, and installation of <code>langevin</code> itself can all be achieved in three simple command lines:</p>
 <pre><code>uv venv
 source .venv/bin/activate
-uv pip install --index https://test.pypi.org/simple/ --default-index https://pypi.org/simple/ langevin
+uv pip install langevin
 </code></pre>
-<p><em>Note that before doing this you'll have to install <code>uv</code> on your machine.</em></p>
+<p><em>Note that before doing this you'll have <a href="https://docs.astral.sh/uv/getting-started/installation/">to install <code>uv</code></a> on your machine.</em></p>
 <h3 id="alternative-by-hand">Alternative: by hand</h3>
 <p>Alternatively, you can employ the following two-step process.</p>
 <ol>
 <li>
 <p>Install Python <span class="arithmatex">\(\geq\)</span> 3.12, ideally in a Python environment; Python 3.14 is recommended, and current development uses this version. </p>
-<p>The following packages are needed by <code>langevin</code> (<code>ffmpeg</code> is optional); they can be installed by hand at this point, or left to install automatically during the next step (by <code>pip</code>):</p>
+<p>The following packages are needed by <code>langevin</code>; they can be installed by hand at this point, or left to install automatically during the next step:</p>
 <ul>
 <li><code>numpy</code></li>
 <li><code>jupyter</code></li>
@@ -1289,16 +1289,15 @@ uv pip install --index https://test.pypi.org/simple/ --default-index https://pyp
 <li><code>tqdm</code></li>
 <li><code>ffmpeg-python</code></li>
 </ul>
+<p>If you are using <code>conda</code> or <code>miniconda</code>, refer to the <a href="https://github.com/cstarkjp/Langevin/tree/main/environment.yml"><code>environment.yml</code></a> 
+file on the project repo for help here.</p>
 </li>
 <li>
-<p>Install the <a href="https://pypi.org/project/langevin/">Python library <code>langevin</code></a> using <code>pip</code>, hopefully within a Python environment, from TestPyPI:</p>
-<pre><code>pip install --index https://test.pypi.org/simple/ --default-index https://pypi.org/simple/ langevin
+<p>Install the <a href="https://pypi.org/project/langevin/">Python library <code>langevin</code></a> using <code>pip</code>, hopefully within a Python environment, from PyPI:</p>
+<pre><code>pip install langevin
 </code></pre>
-<p>Note: the <code>--index</code> argument ensures that any Python install
-dependencies are also sought in the true PyPI repository rather
-than in TestPyPI alone (which generally won't suffice). </p>
 <p><em>If you already have a pre-existing installation</em> of this package, you may need to <code>upgrade</code> (update) to the latest version:</p>
-<pre><code>pip install --index https://test.pypi.org/simple/ --default-index https://pypi.org/simple/ langevin --upgrade
+<pre><code>pip install langevin --upgrade
 </code></pre>
 </li>
 </ol>

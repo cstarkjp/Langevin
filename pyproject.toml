@@ -62,8 +62,8 @@ documentation = "https://cstarkjp.github.io/Langevin"
 
 ### https://docs.astral.sh/uv/concepts/configuration-files/
 
-# [[tool.uv.index]]
-# url = "https://test.pypi.org/simple"
-# default = true
+[[tool.uv.index]]
+url = "https://pypi.org/simple"
+default = true
 
 # uv pip install mkdocstrings mkdocstrings-python python-markdown-math mdx_gh_links black ruff mkdoxy markdown-captions mkdocs-material mkdocs-bootswatch mkdocs-caption

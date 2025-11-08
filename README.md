@@ -56,39 +56,60 @@ Next, the code is split into a hierarchy of three groups, with each correspondin
 
 ## Installation
 
-At minimum, you will need Python≥3.12 and the package `pybind11` to allow installation of
-`langevin`; current development uses Python 3.14. To run the demos, you will also need `numpy`, `matplotlib`, `jupyter`, `ipython`, along with `pandas`, `tqdm`, and optionally `ffmpeg-python` (to generate videos from image file sequences). If you want to build locally, you will also need `meson-python`, `wheel`, `pybind11`, and `ninja`.
+### Python environment 
+First, set up a suitable Python environment. 
+The simplest tool is `uv`, but there are several other options. 
+If you use `conda` or `miniconda`, take a look at the `environment.yml` file provided.
 
-If you use `conda` or `miniconda`, take a look at the `environment.yml` file and use it to set up a suitable Python environment. If you prefer to use `pip`, you will have to  install the requisite packages by hand.
+We recommend installing Python 3.14 since development of `langevin` uses this version.
 
-Then, use `pip` to install the `langevin` package from `TestPyPI` into whatever Python environment you have set up (even if you use `conda`):
-
-    pip install --index https://test.pypi.org/simple/ \
-                --default-index https://pypi.org/simple/  langevin
-
-This only works if we have pre-built a binary wheel for your platform: we currently support macOS 14, macOS 15, the latest macOS build, and multiple flavors of Linux (most of which have been tested), as well as Windows (but not yet tested). Note: the `--index` ensures that package dependencies are fetched from the main PyPI repository if needed.
-
-Once project development has matured, the `langevin` package will be made available on the full `PyPI` site with broader platform support.
-Its package dependencies will then be made automatic; apparently it's not currently possible to 
-set such dependencies with `TestPyPI` without incurring problems. Eventually, `langevin` may also be made available via `conda`. 
-
-Note: you can use `uv`, which allegedly makes everything easier:
+For example, if you're using `uv`, all that's needed is to create an
+appropriately named folder, navigate to it, and execute:
 
     uv venv
     source .venv/bin/activate
-    uv pip install --index https://test.pypi.org/simple/ \
-                   --default-index https://pypi.org/simple/  langevin
 
-<!-- https://emily.space/posts/251023-uv
-https://realpython.com/python-uv/ -->
+### Package from PyPI
+
+Then, install the `langevin` package from PyPI:
+
+    pip install langevin
+
+if you're using `uv`, this command will be
+
+    uv pip install langevin
+
+This step should automatically install all the dependencies as well. 
+If it does not, see below.
+
+### Alternative: Package from TestPyPI
+
+If you want to access more regular updates, you can install from TestPyPI:
+
+    [uv] pip install --index https://test.pypi.org/simple/ \
+                --default-index https://pypi.org/simple/  langevin
+
+Note: the `--default-index` ensures that package dependencies are fetched from the main PyPI repository where needed.
+
+### Dependencies
+
+
+At minimum, `langevin` needs Python≥3.12 and the package `pybind11`. To run the demos, you will also need `numpy`, `matplotlib`, `jupyter`, `ipython`, along with `pandas`, `tqdm`, and  `ffmpeg-python` to generate videos from image file sequences. 
+If you are using `conda` or `miniconda`, it would be best to install them using
+the `environment.yml` file, instead of relying on `pip` to do the job (mixing `pip` and `conda` is not a great idea anyway, but `langevin` is not yet available on `conda`).
+
+If you want to build locally, you will also need `meson-python`, `wheel`, `pybind11`, and `ninja`.
+
+### Platform support
+
+We currently have pre-built binary wheels macOS 14, macOS 15, the latest macOS build, and multiple flavors of Linux (most of which have been tested), as well as Windows (but not yet tested). 
 
 ## Build from source
 
 If your platform is not explicitly supported with a pre-built binary, the following will force a build from source:
 
-    pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/  -v  --no-binary :all: langevin
+    [uv] pip install -v langevin --no-binary langevin
 
-Be aware that this takes a **long** time, because it recompiles pretty much everything needed.
     
 The package can also be built "by hand."
 Some build info is provided in the [`cplusplus/`](https://github.com/cstarkjp/Langevin/tree/main/cplusplus/README.md) directory. The build system is [meson-python](https://mesonbuild.com/meson-python/), using [pybind11](https://pybind11.readthedocs.io/en/stable/) as the C++ wrapper. 
@@ -97,8 +118,6 @@ Some build info is provided in the [`cplusplus/`](https://github.com/cstarkjp/La
 ## Usage
 
 Simple demos are provided in the [`tests/`](https://github.com/cstarkjp/Langevin/tree/main/tests/README.md) directory. The easiest route is to `git` clone the repo to get these files, or you can download one-by-one.
-
-
 
 
 ## References
