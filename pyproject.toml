@@ -11,7 +11,7 @@ requires = ["meson-python", "wheel", "pybind11", "ninja", "numpy"]
 name = 'langevin'
 version = '2025.11.8a1'
 # dynamic = ["version"]
-description = 'Integrating Langevin equations for absorbing phase transitions'
+description = 'Tools to integrate Langevin equations of absorbing phase transition type'
 readme = 'README.md'
 
 requires-python = '>=3.12'
