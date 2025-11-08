@@ -20,7 +20,7 @@
     
     
       
-        <title>How to install - lvn</title>
+        <title>How to install - langevin</title>
       
     
     
@@ -80,7 +80,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="lvn" class="md-header__button md-logo" aria-label="lvn" data-md-component="logo">
+    <a href=".." title="langevin" class="md-header__button md-logo" aria-label="langevin" data-md-component="logo">
       
   <img src="../assets/DP5.png" alt="logo">
 
@@ -93,7 +93,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            lvn
+            langevin
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -392,12 +392,12 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="lvn" class="md-nav__button md-logo" aria-label="lvn" data-md-component="logo">
+    <a href=".." title="langevin" class="md-nav__button md-logo" aria-label="langevin" data-md-component="logo">
       
   <img src="../assets/DP5.png" alt="logo">
 
     </a>
-    lvn
+    langevin
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -525,13 +525,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#step-1-set-up-lvn-in-a-custom-python-environment" class="md-nav__link">
+  <a href="#step-1-set-up-langevin-in-a-custom-python-environment" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 1: Set up lvn in a custom Python environment
+      Step 1: Set up langevin in a custom Python environment
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Step 1: Set up lvn in a custom Python environment">
+    <nav class="md-nav" aria-label="Step 1: Set up langevin in a custom Python environment">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1208,13 +1208,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#step-1-set-up-lvn-in-a-custom-python-environment" class="md-nav__link">
+  <a href="#step-1-set-up-langevin-in-a-custom-python-environment" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 1: Set up lvn in a custom Python environment
+      Step 1: Set up langevin in a custom Python environment
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Step 1: Set up lvn in a custom Python environment">
+    <nav class="md-nav" aria-label="Step 1: Set up langevin in a custom Python environment">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1266,12 +1266,12 @@
 
 
 <h1 id="how-to-install">How to install</h1>
-<h2 id="step-1-set-up-lvn-in-a-custom-python-environment"><strong>Step 1:</strong> Set up <strong>lvn</strong> in a custom Python environment</h2>
+<h2 id="step-1-set-up-langevin-in-a-custom-python-environment"><strong>Step 1:</strong> Set up <strong>langevin</strong> in a custom Python environment</h2>
 <h3 id="best-practice-use-uv">Best practice: use <strong>uv</strong></h3>
-<p>Using <code>uv</code>, the creation of a virtual Python environment, installation of dependent packages, and installation of <code>lvn</code> itself can all be achieved in three simple command lines:</p>
+<p>Using <code>uv</code>, the creation of a virtual Python environment, installation of dependent packages, and installation of <code>langevin</code> itself can all be achieved in three simple command lines:</p>
 <pre><code>uv venv
 source .venv/bin/activate
-uv pip install --index https://test.pypi.org/simple/ --default-index https://pypi.org/simple/ lvn
+uv pip install --index https://test.pypi.org/simple/ --default-index https://pypi.org/simple/ langevin
 </code></pre>
 <p><em>Note that before doing this you'll have to install <code>uv</code> on your machine.</em></p>
 <h3 id="alternative-by-hand">Alternative: by hand</h3>
@@ -1279,7 +1279,7 @@ uv pip install --index https://test.pypi.org/simple/ --default-index https://pyp
 <ol>
 <li>
 <p>Install Python <span class="arithmatex">\(\geq\)</span> 3.12, ideally in a Python environment; Python 3.14 is recommended, and current development uses this version. </p>
-<p>The following packages are needed by <code>lvn</code> (<code>ffmpeg</code> is optional); they can be installed by hand at this point, or left to install automatically during the next step (by <code>pip</code>):</p>
+<p>The following packages are needed by <code>langevin</code> (<code>ffmpeg</code> is optional); they can be installed by hand at this point, or left to install automatically during the next step (by <code>pip</code>):</p>
 <ul>
 <li><code>numpy</code></li>
 <li><code>jupyter</code></li>
@@ -1291,14 +1291,14 @@ uv pip install --index https://test.pypi.org/simple/ --default-index https://pyp
 </ul>
 </li>
 <li>
-<p>Install the <a href="https://test.pypi.org/project/lvn/">Python library <code>lvn</code></a> using <code>pip</code>, hopefully within a Python environment, from TestPyPI:</p>
-<pre><code>pip install --index https://test.pypi.org/simple/ --default-index https://pypi.org/simple/ lvn
+<p>Install the <a href="https://pypi.org/project/langevin/">Python library <code>langevin</code></a> using <code>pip</code>, hopefully within a Python environment, from TestPyPI:</p>
+<pre><code>pip install --index https://test.pypi.org/simple/ --default-index https://pypi.org/simple/ langevin
 </code></pre>
 <p>Note: the <code>--index</code> argument ensures that any Python install
 dependencies are also sought in the true PyPI repository rather
 than in TestPyPI alone (which generally won't suffice). </p>
 <p><em>If you already have a pre-existing installation</em> of this package, you may need to <code>upgrade</code> (update) to the latest version:</p>
-<pre><code>pip install --index https://test.pypi.org/simple/ --default-index https://pypi.org/simple/ lvn --upgrade
+<pre><code>pip install --index https://test.pypi.org/simple/ --default-index https://pypi.org/simple/ langevin --upgrade
 </code></pre>
 </li>
 </ol>

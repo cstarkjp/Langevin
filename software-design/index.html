@@ -20,7 +20,7 @@
     
     
       
-        <title>Software design - lvn</title>
+        <title>Software design - langevin</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#design-of-lvn-package" class="md-skip">
+        <a href="#design-of-langevin-package" class="md-skip">
           Skip to content
         </a>
       
@@ -80,7 +80,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="lvn" class="md-header__button md-logo" aria-label="lvn" data-md-component="logo">
+    <a href=".." title="langevin" class="md-header__button md-logo" aria-label="langevin" data-md-component="logo">
       
   <img src="../assets/DP5.png" alt="logo">
 
@@ -93,7 +93,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            lvn
+            langevin
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -392,12 +392,12 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="lvn" class="md-nav__button md-logo" aria-label="lvn" data-md-component="logo">
+    <a href=".." title="langevin" class="md-nav__button md-logo" aria-label="langevin" data-md-component="logo">
       
   <img src="../assets/DP5.png" alt="logo">
 
     </a>
-    lvn
+    langevin
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -1301,8 +1301,8 @@
 
 
 
-<h1 id="design-of-lvn-package">Design of <code>lvn</code> package</h1>
-<p>The DP/APT Langevin-equation integrator package is fundamentally a <code>C++</code> code base with Python support modules, all bundled into  a <a href="https://test.pypi.org/project/lvn/"><code>pip</code>-installable package</a>,</p>
+<h1 id="design-of-langevin-package">Design of <code>langevin</code> package</h1>
+<p>The DP/APT Langevin-equation integrator package is fundamentally a <code>C++</code> code base with Python support modules, all bundled into  a <a href="https://pypi.org/project/langevin/"><code>pip</code>-installable package</a>,</p>
 <h2 id="core-c">Core C++</h2>
 <p>This <code>C++</code> is split into three groups, with files in each group denoted by one of the following prefixes: 
 (1) <a href="https://cstarkjp.github.io/Langevin/doxygen/dir_413eba86a22d58dd6c01dd4edd69cedc.html"><code>langevin_</code></a>;
@@ -1325,7 +1325,7 @@ versions of the <a href="https://cstarkjp.github.io/Langevin/doxygen/class_sim_d
 <p>To make the core <code>C++</code> code accessible to Python, there is a wrapper file called <a href="https://cstarkjp.github.io/Langevin/doxygen/wrapper__dplvn_8cpp.html"><code>cplusplus/dp/wrapper_dplvn.cpp</code></a>. 
 It uses <a href="https://pybind11.readthedocs.io/en/stable/"><code>pybind11</code></a> to link the <a href="https://cstarkjp.github.io/Langevin/cplusplus/"><code>C++</code> code</a> to a Python runtime via a class instance.</p>
 <h2 id="python-support-modules">Python support modules</h2>
-<p>The <code>lvn</code> package includes several Python modules to support
+<p>The <code>langevin</code> package includes several Python modules to support
 use of the core <code>C++</code>-based integrator.
 They are grouped into a set of base modules, 
 located in the 

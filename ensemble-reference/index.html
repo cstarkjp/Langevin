@@ -20,7 +20,7 @@
     
     
       
-        <title>dp/ensemble.py - lvn</title>
+        <title>dp/ensemble.py - langevin</title>
       
     
     
@@ -80,7 +80,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="lvn" class="md-header__button md-logo" aria-label="lvn" data-md-component="logo">
+    <a href=".." title="langevin" class="md-header__button md-logo" aria-label="langevin" data-md-component="logo">
       
   <img src="../assets/DP5.png" alt="logo">
 
@@ -93,7 +93,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            lvn
+            langevin
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -392,12 +392,12 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="lvn" class="md-nav__button md-logo" aria-label="lvn" data-md-component="logo">
+    <a href=".." title="langevin" class="md-nav__button md-logo" aria-label="langevin" data-md-component="logo">
       
   <img src="../assets/DP5.png" alt="logo">
 
     </a>
-    lvn
+    langevin
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -1153,12 +1153,12 @@
 
 
 
-<h1 id="lvn.dp.ensemble.Ensemble" class="doc doc-heading">
+<h1 id="langevin.dp.ensemble.Ensemble" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>            <span class="doc doc-object-name doc-class-name">Ensemble</span>
 
 
 </h1>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">Ensemble</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="info_path (lvn.dp.ensemble.Ensemble(info_path))" href="#lvn.dp.ensemble.Ensemble(info_path)">info_path</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="collections.abc.Sequence" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence">Sequence</a></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">],</span> <span class="n"><a class="autorefs autorefs-internal" title="do_verbose (lvn.dp.ensemble.Ensemble(do_verbose))" href="#lvn.dp.ensemble.Ensemble(do_verbose)">do_verbose</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">Ensemble</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="info_path (langevin.dp.ensemble.Ensemble(info_path))" href="#langevin.dp.ensemble.Ensemble(info_path)">info_path</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="collections.abc.Sequence" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence">Sequence</a></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">],</span> <span class="n"><a class="autorefs autorefs-internal" title="do_verbose (langevin.dp.ensemble.Ensemble(do_verbose))" href="#langevin.dp.ensemble.Ensemble(do_verbose)">do_verbose</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
@@ -1171,7 +1171,7 @@
 <p><span class="doc-section-title">Parameters:</span></p>
     <ul>
         <li class="doc-section-item field-body">
-<h2 id="lvn.dp.ensemble.Ensemble(info_path)" class="doc doc-heading doc-heading-parameter">              <b><code>info_path</code></b>
+<h2 id="langevin.dp.ensemble.Ensemble(info_path)" class="doc doc-heading doc-heading-parameter">              <b><code>info_path</code></b>
 </h2>              (<code><a class="autorefs autorefs-external" title="collections.abc.Sequence" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence">Sequence</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>]</code>)
           –
           <div class="doc-md-description">
@@ -1179,7 +1179,7 @@
           </div>
         </li>
         <li class="doc-section-item field-body">
-<h2 id="lvn.dp.ensemble.Ensemble(do_verbose)" class="doc doc-heading doc-heading-parameter">              <b><code>do_verbose</code></b>
+<h2 id="langevin.dp.ensemble.Ensemble(do_verbose)" class="doc doc-heading doc-heading-parameter">              <b><code>do_verbose</code></b>
 </h2>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>, default:
                   <code>False</code>
 )
@@ -1205,49 +1205,49 @@
 <p><span class="doc-section-title">Methods:</span></p>
     <ul>
           <li class="doc-section-item field-body">
-            <b><code><a class="autorefs autorefs-internal" title="            create (lvn.dp.ensemble.Ensemble.create)" href="#lvn.dp.ensemble.Ensemble.create">create</a></code></b>
+            <b><code><a class="autorefs autorefs-internal" title="            create (langevin.dp.ensemble.Ensemble.create)" href="#langevin.dp.ensemble.Ensemble.create">create</a></code></b>
             –
             <div class="doc-md-description">
-              <p>Generate list of <a class="autorefs autorefs-internal" title="            Simulation" href="../simulation-reference/#lvn.dp.simulation.Simulation"><code>Simulation</code></a> instances.</p>
+              <p>Generate list of <a class="autorefs autorefs-internal" title="            Simulation" href="../simulation-reference/#langevin.dp.simulation.Simulation"><code>Simulation</code></a> instances.</p>
             </div>
           </li>
           <li class="doc-section-item field-body">
-            <b><code><a class="autorefs autorefs-internal" title="            exec (lvn.dp.ensemble.Ensemble.exec)" href="#lvn.dp.ensemble.Ensemble.exec">exec</a></code></b>
+            <b><code><a class="autorefs autorefs-internal" title="            exec (langevin.dp.ensemble.Ensemble.exec)" href="#langevin.dp.ensemble.Ensemble.exec">exec</a></code></b>
             –
             <div class="doc-md-description">
               <p>Execute an ensemble of sims in parallel using <code>multiprocessing</code>.</p>
             </div>
           </li>
           <li class="doc-section-item field-body">
-            <b><code><a class="autorefs autorefs-internal" title="            exec_multiple_sims (lvn.dp.ensemble.Ensemble.exec_multiple_sims)" href="#lvn.dp.ensemble.Ensemble.exec_multiple_sims">exec_multiple_sims</a></code></b>
+            <b><code><a class="autorefs autorefs-internal" title="            exec_multiple_sims (langevin.dp.ensemble.Ensemble.exec_multiple_sims)" href="#langevin.dp.ensemble.Ensemble.exec_multiple_sims">exec_multiple_sims</a></code></b>
             –
             <div class="doc-md-description">
               <p>Carry out the <code>multiprocessing</code> parallelization of the ensemble of sims.</p>
             </div>
           </li>
           <li class="doc-section-item field-body">
-            <b><code><a class="autorefs autorefs-internal" title="            initialize (lvn.dp.ensemble.Ensemble.initialize)" href="#lvn.dp.ensemble.Ensemble.initialize">initialize</a></code></b>
+            <b><code><a class="autorefs autorefs-internal" title="            initialize (langevin.dp.ensemble.Ensemble.initialize)" href="#langevin.dp.ensemble.Ensemble.initialize">initialize</a></code></b>
             –
             <div class="doc-md-description">
               <p>Carry out initialization of each </p>
             </div>
           </li>
           <li class="doc-section-item field-body">
-            <b><code><a class="autorefs autorefs-internal" title="            multi_plot (lvn.dp.ensemble.Ensemble.multi_plot)" href="#lvn.dp.ensemble.Ensemble.multi_plot">multi_plot</a></code></b>
+            <b><code><a class="autorefs autorefs-internal" title="            multi_plot (langevin.dp.ensemble.Ensemble.multi_plot)" href="#langevin.dp.ensemble.Ensemble.multi_plot">multi_plot</a></code></b>
             –
             <div class="doc-md-description">
               <p>Generate graphs of the ensemble results.</p>
             </div>
           </li>
           <li class="doc-section-item field-body">
-            <b><code><a class="autorefs autorefs-internal" title="            plot (lvn.dp.ensemble.Ensemble.plot)" href="#lvn.dp.ensemble.Ensemble.plot">plot</a></code></b>
+            <b><code><a class="autorefs autorefs-internal" title="            plot (langevin.dp.ensemble.Ensemble.plot)" href="#langevin.dp.ensemble.Ensemble.plot">plot</a></code></b>
             –
             <div class="doc-md-description">
               <p>Generate graphs for results from a single sim.</p>
             </div>
           </li>
           <li class="doc-section-item field-body">
-            <b><code><a class="autorefs autorefs-internal" title="            save (lvn.dp.ensemble.Ensemble.save)" href="#lvn.dp.ensemble.Ensemble.save">save</a></code></b>
+            <b><code><a class="autorefs autorefs-internal" title="            save (langevin.dp.ensemble.Ensemble.save)" href="#langevin.dp.ensemble.Ensemble.save">save</a></code></b>
             –
             <div class="doc-md-description">
               <p>Export Outfo.json, graphs, and data files.</p>
@@ -1259,7 +1259,7 @@
 
   
       staticmethod
-   (lvn.dp.ensemble.Ensemble.sim_exec_wrapper)" href="#lvn.dp.ensemble.Ensemble.sim_exec_wrapper">sim_exec_wrapper</a></code></b>
+   (langevin.dp.ensemble.Ensemble.sim_exec_wrapper)" href="#langevin.dp.ensemble.Ensemble.sim_exec_wrapper">sim_exec_wrapper</a></code></b>
             –
             <div class="doc-md-description">
               <p>Pool wrapper to execute a specific sim instance.</p>
@@ -1270,7 +1270,7 @@
 
 
                   <details class="quote">
-                    <summary>Source code in <code>.venv/lib/python3.14/site-packages/lvn/dp/ensemble.py</code></summary>
+                    <summary>Source code in <code>.venv/lib/python3.14/site-packages/langevin/dp/ensemble.py</code></summary>
                     <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">30</span>
 <span class="normal">31</span>
 <span class="normal">32</span>
@@ -1401,7 +1401,7 @@
 <div class="doc doc-object doc-function">
 
 
-<h2 id="lvn.dp.ensemble.Ensemble.create" class="doc doc-heading">
+<h2 id="langevin.dp.ensemble.Ensemble.create" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">create</span>
 
 
@@ -1411,12 +1411,12 @@
 
     <div class="doc doc-contents ">
 
-        <p>Generate list of <a class="autorefs autorefs-internal" title="            Simulation" href="../simulation-reference/#lvn.dp.simulation.Simulation"><code>Simulation</code></a> instances.</p>
+        <p>Generate list of <a class="autorefs autorefs-internal" title="            Simulation" href="../simulation-reference/#langevin.dp.simulation.Simulation"><code>Simulation</code></a> instances.</p>
 
           </backlinks>
 
             <details class="quote">
-              <summary>Source code in <code>.venv/lib/python3.14/site-packages/lvn/dp/ensemble.py</code></summary>
+              <summary>Source code in <code>.venv/lib/python3.14/site-packages/langevin/dp/ensemble.py</code></summary>
               <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 87</span>
 <span class="normal"> 88</span>
 <span class="normal"> 89</span>
@@ -1453,7 +1453,7 @@
 <span class="normal">120</span>
 <span class="normal">121</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Generate list of [`Simulation`][lvn.dp.simulation.Simulation] instances.</span>
+<span class="sd">    Generate list of [`Simulation`][langevin.dp.simulation.Simulation] instances.</span>
 <span class="sd">    """</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">sim_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Simulation</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">sim_</span><span class="p">:</span> <span class="n">Simulation</span>
@@ -1495,7 +1495,7 @@
 <div class="doc doc-object doc-function">
 
 
-<h2 id="lvn.dp.ensemble.Ensemble.exec" class="doc doc-heading">
+<h2 id="langevin.dp.ensemble.Ensemble.exec" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">exec</span>
 
 
@@ -1510,7 +1510,7 @@
           </backlinks>
 
             <details class="quote">
-              <summary>Source code in <code>.venv/lib/python3.14/site-packages/lvn/dp/ensemble.py</code></summary>
+              <summary>Source code in <code>.venv/lib/python3.14/site-packages/langevin/dp/ensemble.py</code></summary>
               <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">166</span>
 <span class="normal">167</span>
 <span class="normal">168</span>
@@ -1549,12 +1549,12 @@
 <div class="doc doc-object doc-function">
 
 
-<h2 id="lvn.dp.ensemble.Ensemble.exec_multiple_sims" class="doc doc-heading">
+<h2 id="langevin.dp.ensemble.Ensemble.exec_multiple_sims" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">exec_multiple_sims</span>
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">exec_multiple_sims</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="function (lvn.dp.ensemble.Ensemble.exec_multiple_sims(function))" href="#lvn.dp.ensemble.Ensemble.exec_multiple_sims(function)">function</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="collections.abc.Callable" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable">Callable</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-external" title="collections.abc.Sequence" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence">Sequence</a></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></span><span class="p">]]</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">exec_multiple_sims</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="function (langevin.dp.ensemble.Ensemble.exec_multiple_sims(function))" href="#langevin.dp.ensemble.Ensemble.exec_multiple_sims(function)">function</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="collections.abc.Callable" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable">Callable</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-external" title="collections.abc.Sequence" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence">Sequence</a></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></span><span class="p">]]</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -1565,7 +1565,7 @@
 <p><span class="doc-section-title">Parameters:</span></p>
     <ul>
         <li class="doc-section-item field-body">
-<h3 id="lvn.dp.ensemble.Ensemble.exec_multiple_sims(function)" class="doc doc-heading doc-heading-parameter">              <b><code>function</code></b>
+<h3 id="langevin.dp.ensemble.Ensemble.exec_multiple_sims(function)" class="doc doc-heading doc-heading-parameter">              <b><code>function</code></b>
 </h3>              (<code><a class="autorefs autorefs-external" title="collections.abc.Callable" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable">Callable</a></code>)
           –
           <div class="doc-md-description">
@@ -1589,7 +1589,7 @@
           </backlinks>
 
             <details class="quote">
-              <summary>Source code in <code>.venv/lib/python3.14/site-packages/lvn/dp/ensemble.py</code></summary>
+              <summary>Source code in <code>.venv/lib/python3.14/site-packages/langevin/dp/ensemble.py</code></summary>
               <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">151</span>
 <span class="normal">152</span>
 <span class="normal">153</span>
@@ -1626,7 +1626,7 @@
 <div class="doc doc-object doc-function">
 
 
-<h2 id="lvn.dp.ensemble.Ensemble.initialize" class="doc doc-heading">
+<h2 id="langevin.dp.ensemble.Ensemble.initialize" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">initialize</span>
 
 
@@ -1637,12 +1637,12 @@
     <div class="doc doc-contents ">
 
         <p>Carry out initialization of each 
-<a class="autorefs autorefs-internal" title="            Simulation" href="../simulation-reference/#lvn.dp.simulation.Simulation"><code>Simulation</code></a> instance.</p>
+<a class="autorefs autorefs-internal" title="            Simulation" href="../simulation-reference/#langevin.dp.simulation.Simulation"><code>Simulation</code></a> instance.</p>
 
           </backlinks>
 
             <details class="quote">
-              <summary>Source code in <code>.venv/lib/python3.14/site-packages/lvn/dp/ensemble.py</code></summary>
+              <summary>Source code in <code>.venv/lib/python3.14/site-packages/langevin/dp/ensemble.py</code></summary>
               <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">123</span>
 <span class="normal">124</span>
 <span class="normal">125</span>
@@ -1652,7 +1652,7 @@
 <span class="normal">129</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Carry out initialization of each </span>
-<span class="sd">    [`Simulation`][lvn.dp.simulation.Simulation] instance.</span>
+<span class="sd">    [`Simulation`][langevin.dp.simulation.Simulation] instance.</span>
 <span class="sd">    """</span>
     <span class="k">for</span> <span class="n">sim_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim_list</span><span class="p">:</span>
         <span class="n">sim_</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
@@ -1665,7 +1665,7 @@
 <div class="doc doc-object doc-function">
 
 
-<h2 id="lvn.dp.ensemble.Ensemble.multi_plot" class="doc doc-heading">
+<h2 id="langevin.dp.ensemble.Ensemble.multi_plot" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">multi_plot</span>
 
 
@@ -1680,7 +1680,7 @@
           </backlinks>
 
             <details class="quote">
-              <summary>Source code in <code>.venv/lib/python3.14/site-packages/lvn/dp/ensemble.py</code></summary>
+              <summary>Source code in <code>.venv/lib/python3.14/site-packages/langevin/dp/ensemble.py</code></summary>
               <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">182</span>
 <span class="normal">183</span>
 <span class="normal">184</span>
@@ -1721,7 +1721,7 @@
 <div class="doc doc-object doc-function">
 
 
-<h2 id="lvn.dp.ensemble.Ensemble.plot" class="doc doc-heading">
+<h2 id="langevin.dp.ensemble.Ensemble.plot" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">plot</span>
 
 
@@ -1736,7 +1736,7 @@
           </backlinks>
 
             <details class="quote">
-              <summary>Source code in <code>.venv/lib/python3.14/site-packages/lvn/dp/ensemble.py</code></summary>
+              <summary>Source code in <code>.venv/lib/python3.14/site-packages/langevin/dp/ensemble.py</code></summary>
               <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">205</span>
 <span class="normal">206</span>
 <span class="normal">207</span>
@@ -1757,12 +1757,12 @@
 <div class="doc doc-object doc-function">
 
 
-<h2 id="lvn.dp.ensemble.Ensemble.save" class="doc doc-heading">
+<h2 id="langevin.dp.ensemble.Ensemble.save" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">save</span>
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">save</span><span class="p">(</span><span class="n"><span title="lvn.dp.ensemble.Ensemble.save(module)">module</span></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="do_dummy (lvn.dp.ensemble.Ensemble.save(do_dummy))" href="#lvn.dp.ensemble.Ensemble.save(do_dummy)">do_dummy</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">save</span><span class="p">(</span><span class="n"><span title="langevin.dp.ensemble.Ensemble.save(module)">module</span></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="do_dummy (langevin.dp.ensemble.Ensemble.save(do_dummy))" href="#langevin.dp.ensemble.Ensemble.save(do_dummy)">do_dummy</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -1773,7 +1773,7 @@
 <p><span class="doc-section-title">Parameters:</span></p>
     <ul>
         <li class="doc-section-item field-body">
-<h3 id="lvn.dp.ensemble.Ensemble.save(do_dummy)" class="doc doc-heading doc-heading-parameter">              <b><code>do_dummy</code></b>
+<h3 id="langevin.dp.ensemble.Ensemble.save(do_dummy)" class="doc doc-heading doc-heading-parameter">              <b><code>do_dummy</code></b>
 </h3>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>, default:
                   <code>False</code>
 )
@@ -1789,7 +1789,7 @@ for all simulations into separate folders.</p>
           </backlinks>
 
             <details class="quote">
-              <summary>Source code in <code>.venv/lib/python3.14/site-packages/lvn/dp/ensemble.py</code></summary>
+              <summary>Source code in <code>.venv/lib/python3.14/site-packages/langevin/dp/ensemble.py</code></summary>
               <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">212</span>
 <span class="normal">213</span>
 <span class="normal">214</span>
@@ -1904,7 +1904,7 @@ for all simulations into separate folders.</p>
 <div class="doc doc-object doc-function">
 
 
-<h2 id="lvn.dp.ensemble.Ensemble.sim_exec_wrapper" class="doc doc-heading">
+<h2 id="langevin.dp.ensemble.Ensemble.sim_exec_wrapper" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">sim_exec_wrapper</span>
 
 
@@ -1913,7 +1913,7 @@ for all simulations into separate folders.</p>
   </span>
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">sim_exec_wrapper</span><span class="p">(</span><span class="n"><span title="lvn.dp.ensemble.Ensemble.sim_exec_wrapper(sim)">sim</span></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            Simulation (lvn.dp.simulation.Simulation)" href="../simulation-reference/#lvn.dp.simulation.Simulation">Simulation</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" title="collections.abc.Sequence" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence">Sequence</a></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></span><span class="p">]</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">sim_exec_wrapper</span><span class="p">(</span><span class="n"><span title="langevin.dp.ensemble.Ensemble.sim_exec_wrapper(sim)">sim</span></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            Simulation (langevin.dp.simulation.Simulation)" href="../simulation-reference/#langevin.dp.simulation.Simulation">Simulation</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" title="collections.abc.Sequence" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence">Sequence</a></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></span><span class="p">]</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -1935,7 +1935,7 @@ for all simulations into separate folders.</p>
           </backlinks>
 
             <details class="quote">
-              <summary>Source code in <code>.venv/lib/python3.14/site-packages/lvn/dp/ensemble.py</code></summary>
+              <summary>Source code in <code>.venv/lib/python3.14/site-packages/langevin/dp/ensemble.py</code></summary>
               <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">131</span>
 <span class="normal">132</span>
 <span class="normal">133</span>
