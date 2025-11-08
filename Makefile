@@ -15,7 +15,7 @@ install: $(HPP) $(CPP) $(PY) pyproject.toml meson.build
 	@echo "Build and deploy Python package"
 	rm -rf build
 	uv pip install .
-	touch src
+	touch cplusplus
 	@echo "Done"
 	@echo "****************************************************************"
 

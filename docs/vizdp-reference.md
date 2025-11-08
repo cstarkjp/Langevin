@@ -1,3 +1,3 @@
 # vizdp.py
 
-::: lvn.dp.vizdp.VizDP
+::: langevin.dp.vizdp.VizDP

@@ -12,14 +12,14 @@ import numpy as np
 from numpy.lib.npyio import NpzFile
 import sys, os
 sys.path.insert(0, os.path.join(os.path.pardir, "Packages"))
-from lvn.base.file import (
+from langevin.base.file import (
     create_directories, export_info, export_plots,
 )
-from lvn.base.utils import (
+from langevin.base.utils import (
     progress, progress_disabled, set_name,
 )
-from lvn.dp import dplvn
-from lvn.dp.vizdp import VizDP
+from langevin.dp import dplvn
+from langevin.dp.vizdp import VizDP
 
 from pprint import PrettyPrinter
 pp = PrettyPrinter(indent=4).pprint

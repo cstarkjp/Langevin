@@ -1,6 +1,6 @@
-# Design of `lvn` package
+# Design of `langevin` package
 
-The DP/APT Langevin-equation integrator package is fundamentally a `C++` code base with Python support modules, all bundled into  a [`pip`-installable package](https://test.pypi.org/project/lvn/),
+The DP/APT Langevin-equation integrator package is fundamentally a `C++` code base with Python support modules, all bundled into  a [`pip`-installable package](https://pypi.org/project/langevin/),
 
 
 ## Core C++ 
@@ -40,7 +40,7 @@ It uses [`pybind11`](https://pybind11.readthedocs.io/en/stable/) to link the [`C
 
 ## Python support modules
 
-The `lvn` package includes several Python modules to support
+The `langevin` package includes several Python modules to support
 use of the core `C++`-based integrator.
 They are grouped into a set of base modules, 
 located in the 

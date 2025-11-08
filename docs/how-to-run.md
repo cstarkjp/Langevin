@@ -4,7 +4,7 @@
 
 2. Don't run the noteboooks _in-situ_: their output will be written to [`Langevin/experiments/`](https://github.com/cstarkjp/Langevin/tree/main/experiments) which will generate `git` conflicts. 
 
-    Instead, make your own folder elsewhere (e.g., `MyDPLangevin/` ), outside of the cloned `lvn.dp` file hierarchy, and copy [`Langevin/simulation/`](https://github.com/cstarkjp/Langevin/tree/main/simulation) into it.
+    Instead, make your own folder elsewhere (e.g., `MyDPLangevin/` ), outside of the cloned `langevin.dp` file hierarchy, and copy [`Langevin/simulation/`](https://github.com/cstarkjp/Langevin/tree/main/simulation) into it.
 
 3. Do the same for the folder [`Langevin/experiments/`](https://github.com/cstarkjp/Langevin/tree/main/experiments), copying it into e.g. `MyDPLangevin/`. 
 

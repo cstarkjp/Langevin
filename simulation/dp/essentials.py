@@ -3,7 +3,7 @@ import time
 from time import perf_counter
 from datetime import datetime, timedelta
 import sys, os
-from os.path import pardir
+from os.path import pardir, join
 from shutil import rmtree
 import matplotlib as mpl
 from matplotlib import pyplot as plt
@@ -18,20 +18,20 @@ try:
     import ffmpeg
 except:
     print("ffmpeg not installed: videos cannot be generated")
-sys.path.insert(0, os.path.join(os.path.pardir, "Packages"))
-import lvn.base.initialize
-from lvn.base.utils import (
+sys.path.insert(0, join(pardir, "Packages"))
+import langevin.base.initialize
+from langevin.base.utils import (
     progress, set_name, make_dataframe, bold, fetch_image
 )
-from lvn.base.serialize import from_serializable, to_serializable
-from lvn.base.file import (    
+from langevin.base.serialize import from_serializable, to_serializable
+from langevin.base.file import (    
     create_directories, create_dir, 
     import_info, read_info, export_info, export_plots,
 )
-from lvn.dp import dplvn
-from lvn.dp.simulation import Simulation
-from lvn.dp.ensemble import Ensemble
-from lvn.dp.vizdp import VizDP
+from langevin.dp import dplvn
+from langevin.dp.simulation import Simulation
+from langevin.dp.ensemble import Ensemble
+from langevin.dp.vizdp import VizDP
 
 font_size = 11
 font_family = "Arial"

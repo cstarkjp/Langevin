@@ -1,7 +1,7 @@
 # -------DEFUNCT---------
 #  switched to using uv
+# uv pip install mkdocstrings mkdocstrings-python python-markdown-math mdx_gh_links black ruff mkdoxy markdown-captions mkdocs-material mkdocs-bootswatch mkdocs-caption
 
-# conda env create --prefix=${HOME}/miniconda3/envs/lvn3p14 --file environment.yml
 name: lvn3p14
 channels:
   - conda-forge

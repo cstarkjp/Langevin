@@ -10,4 +10,4 @@ Look under under "Simulation tools" in the sidebar for more complete examples an
 
 The key driver of a simulation is the [`Info.json`](info-reference.md) file: care must be taken to match the "job name" implied by this file (a string constructed from the model coefficients and parameters specified by it) with its parent folder name, such that output files are placed correctly.
 
-Refer to the links under "Python modules" to see documentation of the `lvn` Python package. The underlying `C++` core is documented under "C++ source" using `Doxygen`.
+Refer to the links under "Python modules" to see documentation of the `langevin` Python package. The underlying `C++` core is documented under "C++ source" using `Doxygen`.

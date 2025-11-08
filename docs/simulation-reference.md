@@ -1,3 +1,3 @@
 # simulation.py
 
-::: lvn.dp.simulation.Simulation
+::: langevin.dp.simulation.Simulation

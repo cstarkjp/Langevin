@@ -9,7 +9,7 @@
 # sys.path.insert(0, os.path.join(os.path.pardir, "build"))
 import numpy as np
 from numpy.typing import NDArray
-from lvn.dp import dplvn # type: ignore
+from langevin.dp import dplvn # type: ignore
 
 def main() -> None:
     bold = lambda str: ("\033[1m" + str + "\033[0m")
