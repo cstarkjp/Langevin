@@ -1,7 +1,3 @@
-# -------DEFUNCT---------
-#  switched to using uv
-# uv pip install mkdocstrings mkdocstrings-python python-markdown-math mdx_gh_links black ruff mkdoxy markdown-captions mkdocs-material mkdocs-bootswatch mkdocs-caption
-
 name: lvn3p14
 channels:
   - conda-forge
@@ -17,8 +13,4 @@ dependencies:
   - matplotlib  
   - pandas
   - tqdm
-  - ffmpeg-python  # optional: for video generation of grid image time series
-
-# conda install -c conda-forge mkdocstrings mkdocstrings-python python-markdown-math mdx_gh_links black ruff
-# pip install mkdoxy markdown-captions mkdocs-material mkdocs-bootswatch mkdocs-caption    
-
+  - ffmpeg-python

@@ -9,9 +9,9 @@ requires = ["meson-python", "wheel", "pybind11", "ninja", "numpy"]
 
 [project]
 name = 'langevin'
-version = '2025.11.8a1'
+version = '2025.11.8a2'
 # dynamic = ["version"]
-description = 'Integrating Langevin equations for absorbing phase transitions'
+description = 'Tools to integrate Langevin equations of absorbing phase transition type'
 readme = 'README.md'
 
 requires-python = '>=3.12'
@@ -41,7 +41,7 @@ keywords = [
 # Development Status :: 4 - Beta
 # Development Status :: 5 - Production/Stable
 classifiers = [
-  "Development Status :: 3 - Alpha",
+  "Development Status :: 4 - Beta",
   "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
   "Topic :: Scientific/Engineering :: Physics",
   "Intended Audience :: Science/Research",
@@ -62,8 +62,8 @@ documentation = "https://cstarkjp.github.io/Langevin"
 
 ### https://docs.astral.sh/uv/concepts/configuration-files/
 
-# [[tool.uv.index]]
-# url = "https://test.pypi.org/simple"
-# default = true
+[[tool.uv.index]]
+url = "https://pypi.org/simple"
+default = true
 
 # uv pip install mkdocstrings mkdocstrings-python python-markdown-math mdx_gh_links black ruff mkdoxy markdown-captions mkdocs-material mkdocs-bootswatch mkdocs-caption
