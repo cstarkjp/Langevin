@@ -10,8 +10,14 @@ from datetime import datetime, timedelta
 from numpy.typing import NDArray
 import numpy as np
 from numpy.lib.npyio import NpzFile
+try:
+    import ffmpeg
+except:
+    # Quietly fail
+    pass
 import sys, os
-sys.path.insert(0, os.path.join(os.path.pardir, "Packages"))
+from os.path import join, pardir
+sys.path.insert(0, join(pardir, "Packages"))
 from langevin.base.file import (
     create_directories, export_info, export_plots,
 )
@@ -199,12 +205,12 @@ class Simulation:
             do_verbose: report how the exporting is going
         """
         if self.do_verbose | do_verbose:
-            print(f"Outfo/graph/data path:  {self.misc["path"]}")
+            print(f"Outfo/graphs/videos/data path:  {self.misc["path"]}")
         seed_dir_name: str = f"rs{self.parameters["random_seed"]}"
     
         outfo_path: str = \
             create_directories(
-                (os.path.pardir, *self.misc["path"]), seed_dir_name,
+                (pardir, *self.misc["path"]), seed_dir_name,
             )
         outfo: dict = {
             "Parameters" : self.parameters,
@@ -214,10 +220,26 @@ class Simulation:
         if not do_dummy:
             _ = export_info(outfo_path, "Outfo", outfo, module,)
 
+        if self.misc["do_export_data"]:
+            data_path: str = \
+                create_directories(
+                    (pardir, *self.misc["path"], seed_dir_name,), ".", 
+                )
+            if not do_dummy:
+                np.savez_compressed(
+                    join(data_path, "ρ_t",), 
+                    t_epochs=self.t_epochs,
+                    mean_densities=self.mean_densities,
+                )
+                data_npz: NpzFile = np.load(
+                    join(data_path, "ρ_t"+".npz",), 
+                )
+                data_npz["t_epochs"][-10:], data_npz["mean_densities"][-10:]
+
         if self.misc["do_export_graphs"]:
             graphs_path: str = \
                 create_directories(
-                    (os.path.pardir,  *self.misc["path"], seed_dir_name,), ".",
+                    (pardir,  *self.misc["path"], seed_dir_name,), ".",
                 )
             if not do_dummy:
                 _ = export_plots(
@@ -226,18 +248,28 @@ class Simulation:
                         do_verbose=self.do_verbose,
                     )
 
-        if self.misc["do_export_data"]:
-            data_path: str = \
-                create_directories(
-                    (os.path.pardir, *self.misc["path"], seed_dir_name,), ".", 
-                )
-            if not do_dummy:
-                np.savez_compressed(
-                    os.path.join(data_path, "ρ_t",), 
-                    t_epochs=self.t_epochs,
-                    mean_densities=self.mean_densities,
-                )
-                data_npz: NpzFile = np.load(
-                    os.path.join(data_path, "ρ_t"+".npz",), 
-                )
-                data_npz["t_epochs"][-10:], data_npz["mean_densities"][-10:]
+        if self.misc["do_make_video"]:
+            print("Video export not working yet")
+            # videos_path: str = create_directories(
+            #     (pardir, pardir, "experiments", sim_dir_name,), "Videos",
+            # )
+
+            # video_frame_rate: int = misc["video_frame_rate"]
+            # video_format: str = misc["video_format"]
+            # video_images_wildcard: str = "ρ_t"+"?"*n_digits+".png"
+            # input = ffmpeg.input( 
+            #     join(images_path, video_images_wildcard), 
+            #     pattern_type="glob", 
+            #     framerate=video_frame_rate, 
+            #     pix_fmt="yuv420p",
+            # )
+            # output = ffmpeg.output(
+            #     input.video,
+            #     join(
+            #         videos_path, 
+            #         f"ρ_{sim_dir_name}_rs{parameters["random_seed"]}.{video_format}"
+            #     ),
+            #     vf="crop=floor(iw/2)*2:floor(ih/2)*2",
+            #     vcodec="libx264",
+            #     format=video_format,
+            # )

@@ -37,13 +37,11 @@ nav:
           - dp/batch_ensemble.py: dp-batch_ensemble-py-reference.md
       - JSON info files: 
           - Example: info-reference.md
-    - Python modules:
+    - Python modules: 
         - base/file.py: file-reference.md 
-        # - initialize.py: initialize-reference.md 
         - base/serialize.py: serialize-reference.md 
         - base/utils.py: utils-reference.md 
         - base/viz.py: viz-reference.md
-        # - dp:
         - dp/ensemble.py: ensemble-reference.md
         - dp/simulation.py: simulation-reference.md
         - dp/vizdp.py: vizdp-reference.md
