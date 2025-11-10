@@ -1,5 +1,8 @@
 # How to run
 
+![](https://raw.githubusercontent.com/cstarkjp/Langevin/main/images/ρ_a1p18950_b1_D0p04_η1_x100_y50_Δx1_Δt0p1_rs1.gif
+ "Density field evolution over time")
+
 1. Navigate to [`Langevin/simulation/dp/`](https://github.com/cstarkjp/Langevin/tree/main/simulation/dp). There you'll find Jupyter notebooks and Python scripts to run DP-type Langevin simulations.
 
 2. Don't run the noteboooks _in-situ_: their output will be written to [`Langevin/experiments/`](https://github.com/cstarkjp/Langevin/tree/main/experiments) which will generate `git` conflicts. 
