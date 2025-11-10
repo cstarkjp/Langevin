@@ -2,8 +2,11 @@
 
 Tools to integrate Langevin equations of absorbing phase transition (APT) type — with a focus on simulation of directed percolation (DP).
 
-![](https://raw.githubusercontent.com/cstarkjp/Langevin/main/images/density_grid.png
- "Density grid")
+![](images/ρ_a1p18950_b1_D0p04_η1_x100_y50_Δx1_Δt0p1_rs1.gif
+ "Density field evolution over time")
+
+ <!-- ![](https://raw.githubusercontent.com/cstarkjp/Langevin/main/images/density_grid.png
+ "Density grid") -->
 
 The `langevin` package implements the operator-splitting method originally developed by Dornic et al (2005), Pechenik & Levine (1999) and others, and improved upon by Weissmann et al (2018).
 It provides a Python wrapper around core C++ heavily adapted from a code base written by [Paula Villa Martín](https://github.com/pvillamartin), extended by [Victor Buendía](https://github.com/VictorSeven) ("VMB"), and arising from earlier efforts by Ivan Dornic and Juan Bonachela. The wrapper provides easy access to the Langevin integrator, and broad opportunity to experiment, adapt, and extend it further. 

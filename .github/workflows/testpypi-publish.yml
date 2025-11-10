@@ -4,8 +4,8 @@ name: Upload Python Package to TestPyPI
 #   https://cibuildwheel.pypa.io/en/stable/ci-services/#
 
 on:
-  release:
-    types: [published]
+  # release:
+  #   types: [published]
   push:
     branches:
       - main
