@@ -1,29 +1,106 @@
-.autoenv
-.autoenv.leave
+######################
+# Generic .gitignore thanks to Octocat #
+# https://gist.github.com/octocat/9257657 #
+######################
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+#*.sql
+*.sqlite
+
+# OS generated files #
+######################
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Python-related #
+######################
+*.pyc
+*.pyo
+*-checkpoint.ipynb
+.ipynb_checkpoints
+
+# Generic backup #
+######################
+*~
+*#
+*.bak
+**/*.sw[abcdefghijklmnop]
+
+build/
+dist/
+*.pyc
+*~
+\#*
+*.so
+src/cuts.txt
+
+# Ignore big GeoTIFFs
+*.tif
+*.tiff
+
+# Ignore big docs etc
+# Misc/
+
+# VS code settings
+.vscode/*json
+settings.json
+
+*.obj
+*.mtl
+*.3ds
+*.dae
+*.gltf
+*.glb
+*.u3d
+*.wrl
+*.ply
+*.x3d
+*.zip
+*.jpg
+*.jpeg
+*.mp4
+*.mov
+*.mpg
+
+solution.txt
+
+# Make sure LFS is on and tracking the following file types:
+git lfs track "*.mp4"
+git lfs track "*.mov"
+git lfs track "*.pickle"
+
+.autoenv*
 private_readme_install
-.vscode/c_cpp_properties.json
-.vscode/settings.json
-archive/cplusplus-classes-reference.md
-archive/cplusplus-files-reference.md
-archive/Doxyfile_original
-archive/dplangevin_equation.png
-archive/dplangevin_equation2.png
-archive/initialize-reference.md
-archive/mathjax.js
-archive/pypi-publish.yml
-cplusplus/__pycache__/__init__.cpython-312.pyc
-cplusplus/__pycache__/initialize.cpython-312.pyc
-cplusplus/__pycache__/sim.cpython-312.pyc
-cplusplus/__pycache__/template.cpython-312.pyc
-experiments/a1p18950_b1_D0p04_η1_x100_y50_Δx1_Δt0p1/Videos/ρ_a1p18950_b1_D0p04_η1_x100_y50_Δx1_Δt0p1_rs1.mp4
-experiments/a1p18950_b1_D0p04_η1_x40_y25_Δx1_Δt0p1/Videos/ρ_a1p18950_b1_D0p04_η1_x40_y25_Δx1_Δt0p1_rs1.mp4
-images/Henkel2008_Table4p1_APTScalingRelations.jpg
-images/Henkel2008_Table4p3_DirectedPercolationScaling.jpg
-simulation/__pycache__/essentials.cpython-314.pyc
-simulation/dp/__pycache__/essentials.cpython-314.pyc
-site/sitemap.xml.gz
-tests/density_grid.png
-tests/meandensity_time.png
-tests/.ipynb_checkpoints/TestDP-checkpoint.ipynb
-tests/__pycache__/initialize.cpython-314.pyc
+
+archive/*
+tests/*png
