@@ -3,9 +3,9 @@ name: Doxygen gh-pages deploy action
 on:
   release:
     types: [published]
-  # push:
-  #   branches:
-  #     - main
+  push:
+    branches:
+      - main
   #     - none
   # workflow_dispatch:
 
