@@ -1,0 +1,195 @@
+site_name: "langevin"
+
+# mkdocs,
+# readthedocs, material, cerulean, cosmo, cyborg,
+# darkly, flatly, journal, litera, lumen, lux, materia, minty,
+# pulse, sandstone, simplex, slate, solar, spacelab, 
+# superhero, united, yeti
+theme:
+  # name: "readthedocs"
+  name: "material"
+  # name: "materia"
+  # name: "sandstone"
+  # name: "spacelab"
+  # name: "yeti"
+  favicon: images/DP1.png
+  logo: assets/DP5.png
+  features:
+    - navigation.tabs
+
+plugins:
+- search
+- mkdocstrings
+
+nav:
+    - Home: index.md
+    - Navigation: navigation.md
+    - Software design: software-design.md
+    - How to install: how-to-install.md
+    - Tests: tests-reference.md
+    - How to run: how-to-run.md
+    - Simulation tools:
+      - Notebooks:
+          - dp/Ensemble.ipynb: dp-Ensemble-ipynb-reference.md
+          - dp/Simulation.ipynb: dp-Simulation-ipynb-reference.md
+          - dp/SimulationDirect.ipynb: dp-SimulationDirect-ipynb-reference.md
+      - Scripts:
+          - dp/batch_ensemble.py: dp-batch_ensemble-py-reference.md
+      - JSON info files: 
+          - Example: info-reference.md
+    - Python modules: 
+        - base/file.py: file-reference.md 
+        - base/serialize.py: serialize-reference.md 
+        - base/utils.py: utils-reference.md 
+        - base/viz.py: viz-reference.md
+        - dp/ensemble.py: ensemble-reference.md
+        - dp/simulation.py: simulation-reference.md
+        - dp/vizdp.py: vizdp-reference.md
+    - C++ source: cplusplus.md
+    - References: references.md
+
+# https://analog-garage.github.io/mkdocstrings-python-xref/latest/
+# https://github.com/mkdocstrings/autorefs
+# https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/#arithmatex
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.blocks.caption
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js # Example using a CDN
+
+
+
+extra_css:
+  - style.css
+
+plugins:
+- search
+- autorefs  
+- caption
+- mkdocstrings:
+    handlers:
+      python:
+
+        # Where to find your sources, see "Finding modules".
+        paths: [python, tests]
+        # paths_recursive: true
+
+        # Load object inventories to enable cross-references to other projects.
+        inventories:
+        - https://docs.python.org/3/objects.inv
+        # Also load inventories of your dependencies, generally served at
+        # https://docs-url-for-your-dependency/objects.inv.
+
+        options:
+          docstring_style: google
+
+          # DOCSTRINGS -------------------------------------------------------------
+          docstring_options:
+            # Discard first line of `__init__` method docstrings,
+            # useful when merging such docstrings into their parent class'.
+            ignore_init_summary: true
+
+          # Tables are generally too large, lists will fix this.
+          docstring_section_style: list
+
+          # CROSS-REFERENCES -------------------------------------------------------
+          # Enable relative crossrefs and scoped crossrefs, see Docstrings options.
+          relative_crossrefs: true  # Sponsors only!
+          scoped_crossrefs: true  # Sponsors only!
+
+          # Enable cross-references in signatures.
+          signature_crossrefs: true
+
+          # Unwrap actual types from `Annotated` type annotations.
+          unwrap_annotated: true
+
+
+          # MEMBERS ----------------------------------------------------------------
+          # Only render pulic symbols.
+          filters: public  # Sponsors only!
+          # Comment the option otherwise to get the default filters.
+
+          # Show class inherited members.
+          inherited_members: true
+
+          # Render auto-generated summaries of attributes, functions, etc.
+          # at the start of each symbol's documentation.
+          summary: true
+
+          # HEADINGS ---------------------------------------------------------------
+          # For auto-generated pages, one module per page,
+          # make the module heading be the H1 heading of the page.
+          heading_level: 1
+
+          # Render headings for parameters, making them linkable.
+          parameter_headings: true
+
+          # Render headings for type parameters too.
+          type_parameter_headings: true
+
+          # Always show the heading for the symbol you render with `::: id`.
+          show_root_heading: true
+
+          # Only show the name of the symbols you inject render `::: id`.
+          show_root_full_path: false
+
+          # Show the type of symbol (class, function, etc.) in the heading.
+          show_symbol_type_heading: true
+
+          # Show the type of symbol (class, function, etc.) in the table of contents.
+          show_symbol_type_toc: true
+
+          # SIGNATURES -------------------------------------------------------------
+          # Format code to 80 + 10% margin (Black and Ruff defaults)
+          # in signatures and attribute value code blocks.
+          # Needs Black/Ruff installed.
+          line_length: 88
+
+          # Merge signature and docstring of `__init__` methods
+          # into their parent class signature and docstring.
+          merge_init_into_class: true
+
+          # Render signatures and attribute values in a separate code block,
+          # below the symbol heading.
+          separate_signature: true
+
+          # Show type annotations in signatures.
+          show_signature_annotations: true
+
+          # Show type parameters in signatures.
+          show_signature_type_parameters: true
+
+          # OTHER ------------------------------------------------------------------
+          # Show backlinks to other documentation sections within each symbol.
+          backlinks: tree  # Sponsors only!
+
+          # Show base classes OR inheritance diagram.
+          show_bases: false
+          show_inheritance_diagram: true  # Sponsors only!
+
+# - mkdoxy:
+#     projects:
+#       langevin: # name of project must be alphanumeric + numbers (without spaces)
+#         src-dirs: cplusplus # path to source code (support multiple paths separated by space) => INPUT
+#         full-doc: True # if you want to generate full documentation
+#         # doxy-cfg-file: Doxyfile 
+#         doxy-cfg: # standard doxygen configuration (key: value)
+#           FILE_PATTERNS: "*.cpp *.h*" # specify file patterns to filter out
+#           RECURSIVE: True # recursive search in source directories
+#           DOXYFILE_ENCODING: UTF-8
+#           PROJECT_NUMBER:
+#           PROJECT_BRIEF:
+#           PROJECT_LOGO:
+#           PROJECT_ICON:
+#           OUTPUT_DIRECTORY:
+#           CREATE_SUBDIRS: NO
+#           CREATE_SUBDIRS_LEVEL: 8
+#           ALLOW_UNICODE_NAMES: NO
+#           OUTPUT_LANGUAGE: English
+#           BRIEF_MEMBER_DESC: YES
+#           REPEAT_BRIEF: YES
