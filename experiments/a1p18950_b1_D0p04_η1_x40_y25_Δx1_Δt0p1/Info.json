@@ -9,7 +9,7 @@
         "t_final": 300.0,
         "random_seed": 1,
         "grid_dimension": "D2",
-        "grid_size": [100, 50],
+        "grid_size": [40, 25],
         "grid_topologies": ["BOUNDED", "BOUNDED"],
         "boundary_conditions": ["FLOATING","FLOATING","FLOATING","FLOATING"],
         "initial_condition": "RANDOM_UNIFORM",
@@ -20,7 +20,7 @@
         "a_c": 1.18857
     },
     "Misc": {
-        "n_sims": 1,
+        "n_sims": 15,
         "Δa_range": 0.01,
         "n_round_Δt_summation": 5,
         "n_segments": 300,

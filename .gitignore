@@ -86,8 +86,8 @@ settings.json
 *.ply
 *.x3d
 *.zip
-*.jpg
-*.jpeg
+# *.jpg
+# *.jpeg
 *.mp4
 *.mov
 *.mpg

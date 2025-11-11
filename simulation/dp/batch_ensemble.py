@@ -5,8 +5,8 @@ from essentials import *
 def main() -> None:
     a_critical: str =  "ac1p18857"
     sizes: Sequence[int] = (
-        31, 
-        # 62, 125, 250, 500, 1000, 2000,
+        31,  62, 
+        #125, 250, 500, 1000, 2000,
     )
     ensemble_name_list: list[str] = [
         f"b1_D0p04_η1_x{size_}_y{size_}_Δx1_Δt0p1"
