@@ -1,12 +1,12 @@
 name: Doxygen gh-pages deploy action
 
 on:
-  release:
+  # release:
     # types: [published]
   push:
-    # branches:
-    #   - main
-  #     - none
+    branches:
+      # - main
+      - none
   # workflow_dispatch:
 
 jobs:
@@ -19,6 +19,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
-          folder: .
+          folder: /
           config_file: Doxyfile
           doxygen_version: 1.14.0
