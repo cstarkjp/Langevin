@@ -39,6 +39,8 @@ Navigate to the `tests/` folder. Run the demo scripts there as explained on the 
 
 ## Full simulations
 
+### Organization
+
 Navigate to the `simulation/dp/` folder. There you'll find Jupyter notebooks and Python scripts to run more substantial DP-type Langevin simulations:
 
 ![](images/how_to_run5.jpg)
@@ -96,3 +98,13 @@ If instead you want to run an ensemble of simulations for a _range_ of Langevin 
         ipython Ensemble.ipynb
 
 This will run a set of simulations for different size grids:
+
+TBD...
+
+### Running a batch of ensemble simulations for several grid sizes
+
+For substantial ensemble simulations in which the grid size is varied as well as model coefficients, a batch Python script is provided. Run it with `ipython` or `python`:
+
+        python batch_ensemble.py
+
+This script uses 
