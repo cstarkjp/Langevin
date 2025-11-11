@@ -12,7 +12,7 @@
         <link rel="prev" href="../tests-reference/">
       
       
-        <link rel="next" href="../dp-Ensemble-ipynb-reference/">
+        <link rel="next" href="../dp-SimulationDirect-ipynb-reference/">
       
       
       <link rel="icon" href="../images/DP1.png">
@@ -297,7 +297,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../dp-Ensemble-ipynb-reference/" class="md-tabs__link">
+        <a href="../dp-SimulationDirect-ipynb-reference/" class="md-tabs__link">
           
   
   
@@ -734,12 +734,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../dp-Ensemble-ipynb-reference/" class="md-nav__link">
+      <a href="../dp-SimulationDirect-ipynb-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    dp/Ensemble.ipynb
+    dp/SimulationDirect.ipynb
     
   </span>
   
@@ -780,12 +780,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../dp-SimulationDirect-ipynb-reference/" class="md-nav__link">
+      <a href="../dp-EnsembleSimulation-ipynb-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    dp/SimulationDirect.ipynb
+    dp/Ensemble.ipynb
     
   </span>
   
@@ -1390,16 +1390,18 @@ in the <span class="arithmatex">\(y\)</span> direction.</p>
 </ul>
 <p><em>In summary: if you want to run single-grid simulations, with a single set of Langevin coefficients and model parameters, use this notebook as your template.</em></p>
 <h3 id="running-an-ensemble-of-simulations-for-fixed-grid-size">Running an ensemble of simulations for fixed grid size</h3>
-<p>If instead you want to run an ensemble of simulations for a <em>range</em> of Langevin equation coefficients, look at <a href="../dp-Ensemble-ipynb-reference/"><code>Ensemble.ipynb</code></a>.</p>
-<pre><code>    ipython Ensemble.ipynb
+<p>If instead you want to run an ensemble of simulations for a <em>range</em> of Langevin equation coefficients, look at <a href="../dp-EnsembleSimulation-ipynb-reference/"><code>EnsembleSimulation.ipynb</code></a>.</p>
+<pre><code>    ipython EnsembleSimulation.ipynb
 </code></pre>
 <p>This will run a set of simulations for different size grids:</p>
 <p>TBD...</p>
 <h3 id="running-a-batch-of-ensemble-simulations-for-several-grid-sizes">Running a batch of ensemble simulations for several grid sizes</h3>
-<p>For substantial ensemble simulations in which the grid size is varied as well as model coefficients, a batch Python script is provided. 
-This script hard-codes some parameter choices, loops across a set of grid sizes, and constructs a list of job names from a tuple of grid size choices. These names must correspond to a "root" folder and a set of subfolders:</p>
+<p>For substantial ensemble simulations in which the grid size is varied as well as the model coefficients, a batch Python script is provided. 
+This script hard-codes some parameter choices, loops across a set of grid sizes, and constructs a list of ensemble job names from a tuple of grid size choices. These names must correspond to a "root" folder and a set of subfolders:</p>
 <p><img alt="" src="../images/how_to_run6.jpg"></p>
-<p>In this case, the root folder must be named <code>ac1p18857</code> to correspond to the known (more or less) critical value <span class="arithmatex">\(a_c\)</span> of the DP Langevin <span class="arithmatex">\(a\)</span> parameter, and the subfolders follow the pattern <code>b1_D0p04_η1_x{size_}_y{size_}_Δx1_Δt0p1</code>, i.e. the other DP Langevin parameters are <span class="arithmatex">\(b=1\)</span>, <span class="arithmatex">\(D=0.04\)</span>, and <span class="arithmatex">\(\eta=1\)</span>, for grid spacing <span class="arithmatex">\(\Delta{x}=1\)</span> and time step <span class="arithmatex">\(\Delta{t}=0.1\)</span>. There must be <code>Info.json</code> files in each of these subfolders with model parameters to match:</p>
+<p>It then executes each ensemble job in turn:</p>
+<p><img alt="" src="../images/how_to_run9.jpg"></p>
+<p>For this example batch script, the batch root folder (in <code>experiments/</code>) is assumed to be named <code>ac1p18857</code>, corresponding to the known critical value <span class="arithmatex">\(a_c\)</span>  (from previous simulations) of the DP Langevin parameter <span class="arithmatex">\(a\)</span>; its subfolders follow the pattern <code>b1_D0p04_η1_x{size_}_y{size_}_Δx1_Δt0p1</code>, i.e. the other DP Langevin parameters are <span class="arithmatex">\(b=1\)</span>, <span class="arithmatex">\(D=0.04\)</span>, and <span class="arithmatex">\(\eta=1\)</span>, for grid spacing <span class="arithmatex">\(\Delta{x}=1\)</span> and time step <span class="arithmatex">\(\Delta{t}=0.1\)</span>. There must be <code>Info.json</code> files in each of these subfolders with model parameters to match:</p>
 <p><img alt="" src="../images/how_to_run7.jpg"></p>
 <p>Run the batch job using either <code>ipython</code> or <code>python</code>:</p>
 <pre><code>    python batch_ensemble.py

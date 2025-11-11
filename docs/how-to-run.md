@@ -93,9 +93,9 @@ _In summary: if you want to run single-grid simulations, with a single set of La
 
 ### Running an ensemble of simulations for fixed grid size
 
-If instead you want to run an ensemble of simulations for a _range_ of Langevin equation coefficients, look at [`Ensemble.ipynb`](dp-Ensemble-ipynb-reference.md).
+If instead you want to run an ensemble of simulations for a _range_ of Langevin equation coefficients, look at [`EnsembleSimulation.ipynb`](dp-EnsembleSimulation-ipynb-reference.md).
 
-        ipython Ensemble.ipynb
+        ipython EnsembleSimulation.ipynb
 
 This will run a set of simulations for different size grids:
 

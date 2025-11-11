@@ -220,18 +220,14 @@ class Ensemble:
         for all simulations into separate folders.
         """
         outfo_path: str = \
-            create_directories(
-                (os.path.pardir, *self.info["Misc"]["path"]), ""
-            )
+            create_directories(self.info["Misc"]["path"], "",)
         if self.do_verbose:
             print(f"experiments outfo path:  {outfo_path}")
         if not do_dummy:
             _ = export_info(outfo_path, "Outfo", self.info, module,)
 
         graphs_path: str = \
-            create_directories(
-                (os.path.pardir, *self.info["Misc"]["path"]), "",
-            )
+            create_directories(self.info["Misc"]["path"], "",)
         if self.do_verbose:
             print(f"Combo graph path:  {graphs_path}")
         if self.info["Misc"]["do_export_combo_graphs"] and not do_dummy:
@@ -242,9 +238,7 @@ class Ensemble:
             )
 
         data_path: str = \
-            create_directories(
-                (os.path.pardir, *self.info["Misc"]["path"]), "",
-            )
+            create_directories(self.info["Misc"]["path"], "",)
         if self.do_verbose:
             print(f"Combo data path:  {outfo_path}")
         if self.info["Misc"]["do_export_combo_data"]:
@@ -262,4 +256,3 @@ class Ensemble:
         if self.info["Misc"]["do_export_data"]:
             for (i_, sim_) in enumerate(self.sim_list):
                 sim_.save(dplvn, do_dummy, do_verbose=True,)
-

@@ -12,7 +12,9 @@ from essentials import *
 def main() -> None:
     a_critical = "ac1p18857"
     ensemble_name = "b1_D0p04_η1_x31_y31_Δx1_Δt0p1"
-    info_path: list[str] = [pardir, "experiments", a_critical, ensemble_name]
+    info_path: list[str] = [
+        pardir, pardir, "experiments", a_critical, ensemble_name
+    ]
     do_verbose: bool = True
     
     ensemble = Ensemble(info_path, do_verbose,)

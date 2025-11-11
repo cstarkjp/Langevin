@@ -11,7 +11,7 @@ from essentials import *
 
 def main() -> None:
     sim_name: str = "a1p18855_b1_D0p04_η1_x31_y31_Δx1_Δt0p1"
-    info_path: list[str] = [pardir, "experiments", sim_name]
+    info_path: list[str] = [pardir, pardir, "experiments", sim_name]
     info: dict
     _, info = read_info(info_path, dplvn)
 
