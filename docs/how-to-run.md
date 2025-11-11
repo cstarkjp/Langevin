@@ -103,8 +103,32 @@ TBD...
 
 ### Running a batch of ensemble simulations for several grid sizes
 
-For substantial ensemble simulations in which the grid size is varied as well as model coefficients, a batch Python script is provided. Run it with `ipython` or `python`:
+For substantial ensemble simulations in which the grid size is varied as well as model coefficients, a batch Python script is provided. 
+This script hard-codes some parameter choices, loops across a set of grid sizes, and constructs a list of job names from a tuple of grid size choices. These names must correspond to a "root" folder and a set of subfolders:
+
+![](images/how_to_run6.jpg)
+
+In this case, the root folder must be named `ac1p18857` to correspond to the known (more or less) critical value $a_c$ of the DP Langevin $a$ parameter, and the subfolders follow the pattern `b1_D0p04_η1_x{size_}_y{size_}_Δx1_Δt0p1`, i.e. the other DP Langevin parameters are $b=1$, $D=0.04$, and $\eta=1$, for grid spacing $\Delta{x}=1$ and time step $\Delta{t}=0.1$. There must be `Info.json` files in each of these subfolders with model parameters to match:
+
+![](images/how_to_run7.jpg)
+
+Run the batch job using either `ipython` or `python`:
 
         python batch_ensemble.py
 
-This script uses 
+The directory tree for this run should now look like this:
+
+![](images/how_to_run8.jpg)
+
+where you can see that each set of results files has been placed in parallel with the corresponding `Info.json` file for that grid size. The `combo_ρ_t.npz` file in each case is the compressed `numpy` data file containing a single `t_epochs.npy` array and a tuple of `mean_densities.npy` arrays, one for each value of Langevin parameter $a$ used in the ensemble of simulations. The `Outfo.json` file records this set of $a$ values and all the other model variable choices for each simulation.
+
+To run for a wider range of grid sizes, simply modify the list in `batch_ensemble.py`; if you want to choose different sizes, or different model parameters, you will have to modify the whole `ac1p18857/` folder hierarchy, its subfolder names, and the constituent `Info.json1` files to match. This is a bit ungainly, but it keeps the organization of simulations coherent.
+
+
+
+
+
+
+
+
+
