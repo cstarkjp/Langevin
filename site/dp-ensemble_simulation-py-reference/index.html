@@ -9,20 +9,22 @@
       
       
       
+        <link rel="prev" href="../dp-simulation-py-reference/">
       
-        <link rel="next" href="navigation/">
+      
+        <link rel="next" href="../dp-batch_ensemble-py-reference/">
       
       
-      <link rel="icon" href="images/DP1.png">
+      <link rel="icon" href="../images/DP1.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
     
     
       
-        <title>langevin</title>
+        <title>dp/ensemble_simulation.py - langevin</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.84d31ad4.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.84d31ad4.min.css">
       
       
 
@@ -41,11 +43,11 @@
       
     
     
-      <link rel="stylesheet" href="assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
     
-      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="../style.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -64,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#langevin" class="md-skip">
+        <a href="#ensemble_simulationpy" class="md-skip">
           Skip to content
         </a>
       
@@ -78,9 +80,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="langevin" class="md-header__button md-logo" aria-label="langevin" data-md-component="logo">
+    <a href=".." title="langevin" class="md-header__button md-logo" aria-label="langevin" data-md-component="logo">
       
-  <img src="assets/DP5.png" alt="logo">
+  <img src="../assets/DP5.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -97,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              dp/ensemble_simulation.py
             
           </span>
         </div>
@@ -168,11 +170,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
         
   
   
@@ -191,7 +191,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="navigation/" class="md-tabs__link">
+      <a href="../navigation/" class="md-tabs__link">
         
   
   
@@ -210,7 +210,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="software-design/" class="md-tabs__link">
+      <a href="../software-design/" class="md-tabs__link">
         
   
   
@@ -229,7 +229,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="how-to-install/" class="md-tabs__link">
+      <a href="../how-to-install/" class="md-tabs__link">
         
   
   
@@ -248,7 +248,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="tests-reference/" class="md-tabs__link">
+      <a href="../tests-reference/" class="md-tabs__link">
         
   
   
@@ -267,7 +267,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="how-to-run/" class="md-tabs__link">
+      <a href="../how-to-run/" class="md-tabs__link">
         
   
   
@@ -284,6 +284,8 @@
   
   
   
+    
+  
   
     
     
@@ -291,11 +293,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="dp-SimulationDirect-ipynb-reference/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../dp-SimulationDirect-ipynb-reference/" class="md-tabs__link">
           
   
   
@@ -318,7 +322,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="file-reference/" class="md-tabs__link">
+        <a href="../file-reference/" class="md-tabs__link">
           
   
   
@@ -336,7 +340,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="cplusplus/" class="md-tabs__link">
+      <a href="../cplusplus/" class="md-tabs__link">
         
   
   
@@ -355,7 +359,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="references/" class="md-tabs__link">
+      <a href="../references/" class="md-tabs__link">
         
   
   
@@ -390,9 +394,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="langevin" class="md-nav__button md-logo" aria-label="langevin" data-md-component="logo">
+    <a href=".." title="langevin" class="md-nav__button md-logo" aria-label="langevin" data-md-component="logo">
       
-  <img src="assets/DP5.png" alt="logo">
+  <img src="../assets/DP5.png" alt="logo">
 
     </a>
     langevin
@@ -404,32 +408,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Home
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -440,35 +422,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tools-for-integrating-apt-type-langevin-equations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tools for integrating APT-type Langevin equations
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -480,7 +433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="navigation/" class="md-nav__link">
+      <a href="../navigation/" class="md-nav__link">
         
   
   
@@ -502,7 +455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="software-design/" class="md-nav__link">
+      <a href="../software-design/" class="md-nav__link">
         
   
   
@@ -524,7 +477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to-install/" class="md-nav__link">
+      <a href="../how-to-install/" class="md-nav__link">
         
   
   
@@ -546,7 +499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tests-reference/" class="md-nav__link">
+      <a href="../tests-reference/" class="md-nav__link">
         
   
   
@@ -568,7 +521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to-run/" class="md-nav__link">
+      <a href="../how-to-run/" class="md-nav__link">
         
   
   
@@ -587,24 +540,29 @@
       
   
   
+    
   
   
+  
     
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
             
   
   
@@ -617,7 +575,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             Simulation tools
@@ -672,7 +630,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dp-SimulationDirect-ipynb-reference/" class="md-nav__link">
+      <a href="../dp-SimulationDirect-ipynb-reference/" class="md-nav__link">
         
   
   
@@ -695,7 +653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dp-Simulation-ipynb-reference/" class="md-nav__link">
+      <a href="../dp-Simulation-ipynb-reference/" class="md-nav__link">
         
   
   
@@ -718,7 +676,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dp-EnsembleSimulation-ipynb-reference/" class="md-nav__link">
+      <a href="../dp-EnsembleSimulation-ipynb-reference/" class="md-nav__link">
         
   
   
@@ -746,6 +704,8 @@
                 
   
   
+    
+  
   
   
     
@@ -756,11 +716,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" checked>
         
           
           <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
@@ -776,7 +736,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7_2">
             <span class="md-nav__icon md-icon"></span>
             Scripts
@@ -790,7 +750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dp-simulation-py-reference/" class="md-nav__link">
+      <a href="../dp-simulation-py-reference/" class="md-nav__link">
         
   
   
@@ -810,10 +770,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="dp-ensemble_simulation-py-reference/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -824,6 +793,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -836,7 +806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dp-batch_ensemble-py-reference/" class="md-nav__link">
+      <a href="../dp-batch_ensemble-py-reference/" class="md-nav__link">
         
   
   
@@ -908,7 +878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="info-reference/" class="md-nav__link">
+      <a href="../info-reference/" class="md-nav__link">
         
   
   
@@ -987,7 +957,7 @@
   
   
     <li class="md-nav__item">
-      <a href="file-reference/" class="md-nav__link">
+      <a href="../file-reference/" class="md-nav__link">
         
   
   
@@ -1010,7 +980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="serialize-reference/" class="md-nav__link">
+      <a href="../serialize-reference/" class="md-nav__link">
         
   
   
@@ -1033,7 +1003,7 @@
   
   
     <li class="md-nav__item">
-      <a href="utils-reference/" class="md-nav__link">
+      <a href="../utils-reference/" class="md-nav__link">
         
   
   
@@ -1056,7 +1026,7 @@
   
   
     <li class="md-nav__item">
-      <a href="viz-reference/" class="md-nav__link">
+      <a href="../viz-reference/" class="md-nav__link">
         
   
   
@@ -1079,7 +1049,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ensemble-reference/" class="md-nav__link">
+      <a href="../ensemble-reference/" class="md-nav__link">
         
   
   
@@ -1102,7 +1072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="simulation-reference/" class="md-nav__link">
+      <a href="../simulation-reference/" class="md-nav__link">
         
   
   
@@ -1125,7 +1095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="vizdp-reference/" class="md-nav__link">
+      <a href="../vizdp-reference/" class="md-nav__link">
         
   
   
@@ -1155,7 +1125,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cplusplus/" class="md-nav__link">
+      <a href="../cplusplus/" class="md-nav__link">
         
   
   
@@ -1177,7 +1147,7 @@
   
   
     <li class="md-nav__item">
-      <a href="references/" class="md-nav__link">
+      <a href="../references/" class="md-nav__link">
         
   
   
@@ -1212,23 +1182,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tools-for-integrating-apt-type-langevin-equations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tools for integrating APT-type Langevin equations
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1243,24 +1196,9 @@
 
 
 
-<h1 id="langevin"><a href="https://pypi.org/project/langevin/"><strong>langevin</strong></a></h1>
-<h3 id="tools-for-integrating-apt-type-langevin-equations"><em>Tools for integrating APT-type Langevin equations</em></h3>
-<p>The  <a href="https://pypi.org/project/langevin/"><code>langevin</code> package </a> provides software tools to help integrate a time-dependent density field described by Langevin equations of absorbing phase transition (APT) type.
-<a href="references/">Directed percolation (DP)</a> is the <em>type-example</em> of such an absorbing phase transition — its Langevin equation is:
-$$
-    \partial_t\rho
-    =
-    a \rho
-    -
-    b \rho^2
-    +
-    D \nabla^2 \rho
-    +
-    \eta\sqrt{\rho}\,\xi
-$$
-where <span class="arithmatex">\(\rho(\mathbf{x},t)\)</span> is a fluctuating meso-scale field  evolving nonlinearly (with coefficients <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span>) subject to diffusion (with rate <span class="arithmatex">\(D\)</span>) and multiplicative white noise <span class="arithmatex">\(\sqrt{\rho}\,\xi(\mathbf{x},t)\)</span> (with amplitude <span class="arithmatex">\(\eta\)</span>).</p>
-<p><figure id="_figure-1"><img alt="Plot of grid-averaged density \(\overline{\rho}(t)\) versus time, for an ensemble of simulations with \(a\) taking values ranging symmetrically about criticality \(a_c \approx 1.8857\) by up to \(\Delta{a}=\pm 0.01\):" src="images/%CF%81_t_loglog_reduced.png"><figcaption>Figure 1: Plot of grid-averaged density \(\overline{\rho}(t)\) versus time, for an ensemble of simulations with \(a\) taking values ranging symmetrically about criticality \(a_c \approx 1.8857\) by up to \(\Delta{a}=\pm 0.01\):</figcaption></figure></p>
-<p>The <code>langevin</code> integrator employs the operator-splitting method originated largely by <a href="references/">Dornic et al (2005)</a>. The software tools are implemented as a <a href="https://pypi.org/project/langevin/"><code>pip</code>-installable Python package</a> with a C++ core, a set of <a href="https://github.com/cstarkjp/Langevin/tree/main/simulation/dp">Jupyter notebooks</a>, and related <a href="https://github.com/cstarkjp/Langevin/tree/main/python">Python scripts</a>.</p>
+<h1 id="ensemble_simulationpy">ensemble_simulation.py</h1>
+<p>A pure Python version of <a href="../dp-EnsembleSimulation-ipynb-reference/">EnsembleSimulation.ipynb</a>.</p>
+<p>See: <a href="https://github.com/cstarkjp/Langevin/tree/main/simulation/dp/ensemble_simulation.py"><code>Langevin/simulation/dp/ensemble_simulation.py</code></a></p>
 
 
 
@@ -1309,12 +1247,12 @@ where <span class="arithmatex">\(\rho(\mathbf{x},t)\)</span> is a fluctuating me
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs"], "search": "assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
-        <script src="javascripts/mathjax.js"></script>
+        <script src="../javascripts/mathjax.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
