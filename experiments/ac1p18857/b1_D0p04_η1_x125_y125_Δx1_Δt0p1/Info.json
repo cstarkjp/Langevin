@@ -1,0 +1,41 @@
+{
+    "Parameters": {
+        "linear": 1.18855,
+        "quadratic": 1,
+        "diffusion": 0.04,
+        "noise": 1,
+        "dx": 1,
+        "dt": 0.1,
+        "t_final": 10000.0,
+        "random_seed": 1,
+        "grid_dimension": "D2",
+        "grid_size": [125, 125],
+        "grid_topologies": ["BOUNDED", "BOUNDED"],
+        "boundary_conditions": ["FLOATING","FLOATING","FLOATING","FLOATING"],
+        "initial_condition": "RANDOM_UNIFORM",
+        "ic_values": [0, 10],
+        "integration_method": "RUNGE_KUTTA"
+    },
+    "Analysis": {
+        "a_c": 1.18857
+    },
+    "Misc": {
+        "n_sims": 15,
+        "Δa_range": 0.01,
+        "n_round_Δt_summation": 5,
+        "n_segments": 500,
+        "n_digits": 6,
+        "do_export_combo_graphs": true,
+        "do_export_combo_data": true,
+        "do_export_graphs": false,
+        "do_export_data": false,
+        "do_export_images": false,
+        "do_make_video": false,
+        "ylimits_log": [5e-4, 2e0],
+        "xlimits_log": [5e-1, 1.2e4],
+        "ylimits_rescaled": [3e-2, 1e1],
+        "xlimits_rescaled": [5e-5, 2e3],
+        "video_frame_rate": 50,
+        "video_format": "mp4"
+    }
+}
