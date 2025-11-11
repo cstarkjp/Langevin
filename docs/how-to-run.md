@@ -103,18 +103,26 @@ TBD...
 
 ### Running a batch of ensemble simulations for several grid sizes
 
-For substantial ensemble simulations in which the grid size is varied as well as model coefficients, a batch Python script is provided. 
-This script hard-codes some parameter choices, loops across a set of grid sizes, and constructs a list of job names from a tuple of grid size choices. These names must correspond to a "root" folder and a set of subfolders:
+For substantial ensemble simulations in which the grid size is varied as well as the model coefficients, a batch Python script is provided. 
+This script hard-codes some parameter choices, loops across a set of grid sizes, and constructs a list of ensemble job names from a tuple of grid size choices. These names must correspond to a "root" folder and a set of subfolders:
 
 ![](images/how_to_run6.jpg)
 
-In this case, the root folder must be named `ac1p18857` to correspond to the known (more or less) critical value $a_c$ of the DP Langevin $a$ parameter, and the subfolders follow the pattern `b1_D0p04_η1_x{size_}_y{size_}_Δx1_Δt0p1`, i.e. the other DP Langevin parameters are $b=1$, $D=0.04$, and $\eta=1$, for grid spacing $\Delta{x}=1$ and time step $\Delta{t}=0.1$. There must be `Info.json` files in each of these subfolders with model parameters to match:
+It then executes each ensemble job in turn:
+
+![](images/how_to_run9.jpg)
+
+
+For this example batch script, the batch root folder (in `experiments/`) is assumed to be named `ac1p18857`, corresponding to the known critical value $a_c$  (from previous simulations) of the DP Langevin parameter $a$; its subfolders follow the pattern `b1_D0p04_η1_x{size_}_y{size_}_Δx1_Δt0p1`, i.e. the other DP Langevin parameters are $b=1$, $D=0.04$, and $\eta=1$, for grid spacing $\Delta{x}=1$ and time step $\Delta{t}=0.1$. There must be `Info.json` files in each of these subfolders with model parameters to match:
 
 ![](images/how_to_run7.jpg)
 
 Run the batch job using either `ipython` or `python`:
 
         python batch_ensemble.py
+
+In your terminal, you should see summary reports of each ensemble of simulations, two sets of 15 in total, including the name of each simulation job and its computation time.
+Each set of 15 jobs would have been executed in parallel processes spawned by Python's `multiprocessing` tool.
 
 The directory tree for this run should now look like this:
 

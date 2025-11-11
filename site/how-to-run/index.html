@@ -597,6 +597,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Organization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#running-a-simulation-for-fixed-grid-size" class="md-nav__link">
     <span class="md-ellipsis">
       Running a simulation for fixed grid size
@@ -609,6 +618,15 @@
   <a href="#running-an-ensemble-of-simulations-for-fixed-grid-size" class="md-nav__link">
     <span class="md-ellipsis">
       Running an ensemble of simulations for fixed grid size
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-a-batch-of-ensemble-simulations-for-several-grid-sizes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running a batch of ensemble simulations for several grid sizes
     </span>
   </a>
   
@@ -1245,6 +1263,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Organization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#running-a-simulation-for-fixed-grid-size" class="md-nav__link">
     <span class="md-ellipsis">
       Running a simulation for fixed grid size
@@ -1257,6 +1284,15 @@
   <a href="#running-an-ensemble-of-simulations-for-fixed-grid-size" class="md-nav__link">
     <span class="md-ellipsis">
       Running an ensemble of simulations for fixed grid size
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-a-batch-of-ensemble-simulations-for-several-grid-sizes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running a batch of ensemble simulations for several grid sizes
     </span>
   </a>
   
@@ -1318,6 +1354,7 @@ working here.</p>
 
 <p>Navigate to the <code>tests/</code> folder. Run the demo scripts there as explained on the <a href="../tests-reference/">Tests page</a>.</p>
 <h2 id="full-simulations">Full simulations</h2>
+<h3 id="organization">Organization</h3>
 <p>Navigate to the <code>simulation/dp/</code> folder. There you'll find Jupyter notebooks and Python scripts to run more substantial DP-type Langevin simulations:</p>
 <p><img alt="" src="../images/how_to_run5.jpg"></p>
 <p>These notebooks and scripts can be run using <code>ipython</code> and <code>python</code> respectively (<code>ipython</code> can run both). The notebooks can also be run in <code>jupyter</code>.</p>
@@ -1357,6 +1394,22 @@ in the <span class="arithmatex">\(y\)</span> direction.</p>
 <pre><code>    ipython Ensemble.ipynb
 </code></pre>
 <p>This will run a set of simulations for different size grids:</p>
+<p>TBD...</p>
+<h3 id="running-a-batch-of-ensemble-simulations-for-several-grid-sizes">Running a batch of ensemble simulations for several grid sizes</h3>
+<p>For substantial ensemble simulations in which the grid size is varied as well as model coefficients, a batch Python script is provided. 
+This script hard-codes some parameter choices, loops across a set of grid sizes, and constructs a list of job names from a tuple of grid size choices. These names must correspond to a "root" folder and a set of subfolders:</p>
+<p><img alt="" src="../images/how_to_run6.jpg"></p>
+<p>In this case, the root folder must be named <code>ac1p18857</code> to correspond to the known (more or less) critical value <span class="arithmatex">\(a_c\)</span> of the DP Langevin <span class="arithmatex">\(a\)</span> parameter, and the subfolders follow the pattern <code>b1_D0p04_η1_x{size_}_y{size_}_Δx1_Δt0p1</code>, i.e. the other DP Langevin parameters are <span class="arithmatex">\(b=1\)</span>, <span class="arithmatex">\(D=0.04\)</span>, and <span class="arithmatex">\(\eta=1\)</span>, for grid spacing <span class="arithmatex">\(\Delta{x}=1\)</span> and time step <span class="arithmatex">\(\Delta{t}=0.1\)</span>. There must be <code>Info.json</code> files in each of these subfolders with model parameters to match:</p>
+<p><img alt="" src="../images/how_to_run7.jpg"></p>
+<p>Run the batch job using either <code>ipython</code> or <code>python</code>:</p>
+<pre><code>    python batch_ensemble.py
+</code></pre>
+<p>In your terminal, you should see summary reports of each ensemble of simulations, two sets of 15 in total, including the name of each simulation job and its computation time.
+Each set of 15 jobs would have been executed in parallel processes spawned by Python's <code>multiprocessing</code> tool.</p>
+<p>The directory tree for this run should now look like this:</p>
+<p><img alt="" src="../images/how_to_run8.jpg"></p>
+<p>where you can see that each set of results files has been placed in parallel with the corresponding <code>Info.json</code> file for that grid size. The <code>combo_ρ_t.npz</code> file in each case is the compressed <code>numpy</code> data file containing a single <code>t_epochs.npy</code> array and a tuple of <code>mean_densities.npy</code> arrays, one for each value of Langevin parameter <span class="arithmatex">\(a\)</span> used in the ensemble of simulations. The <code>Outfo.json</code> file records this set of <span class="arithmatex">\(a\)</span> values and all the other model variable choices for each simulation.</p>
+<p>To run for a wider range of grid sizes, simply modify the list in <code>batch_ensemble.py</code>; if you want to choose different sizes, or different model parameters, you will have to modify the whole <code>ac1p18857/</code> folder hierarchy, its subfolder names, and the constituent <code>Info.json1</code> files to match. This is a bit ungainly, but it keeps the organization of simulations coherent.</p>
 
 
 
