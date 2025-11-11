@@ -1,0 +1,7 @@
+code.doc-symbol-method::after {
+  content: "method";
+}
+
+code.doc-symbol-function::after {
+  content: "function";
+}
