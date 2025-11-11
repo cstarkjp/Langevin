@@ -4,7 +4,7 @@
 !!! note "This is a work in progress"
     `langevin` is under active development as part of a research effort.
     If you are interested in using it, or even better, interested in
-    collaborating in its development, please contact the maintainer.
+    collaborating in its development, please contact the maintainer cstarkjp@gmail.com.
     
 ###  _Tools for integrating APT-type Langevin equations_
 
