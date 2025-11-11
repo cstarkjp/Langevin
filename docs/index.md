@@ -1,5 +1,11 @@
 # [**langevin**](https://pypi.org/project/langevin/)
 
+
+!!! note "This is a work in progress"
+    `langevin` is under active development as part of a research effort.
+    If you are interested in using it, or even better, interested in
+    collaborating in its development, please contact the maintainer.
+    
 ###  _Tools for integrating APT-type Langevin equations_
 
 The  [`langevin` package ](https://pypi.org/project/langevin/) provides software tools to help integrate a time-dependent density field described by Langevin equations of absorbing phase transition (APT) type.
@@ -20,5 +26,4 @@ where $\rho(\mathbf{x},t)$ is a fluctuating meso-scale field  evolving nonlinear
 ![Plot of grid-averaged density $\overline{\rho}(t)$ versus time, for an ensemble of simulations with $a$ taking values ranging symmetrically about criticality $a_c \approx 1.8857$ by up to $\Delta{a}=\pm 0.01$:](images/ρ_t_loglog_reduced.png)
 
 The `langevin` integrator employs the operator-splitting method originated largely by [Dornic et al (2005)](references.md). The software tools are implemented as a [`pip`-installable Python package](https://pypi.org/project/langevin/) with a C++ core, a set of [Jupyter notebooks](https://github.com/cstarkjp/Langevin/tree/main/simulation/dp), and related [Python scripts](https://github.com/cstarkjp/Langevin/tree/main/python).
-
 
