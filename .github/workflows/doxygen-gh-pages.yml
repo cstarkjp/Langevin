@@ -1,12 +1,12 @@
 name: Doxygen gh-pages deploy action
 
 on:
-  release:
+  # release:
     # types: [published]
   push:
-    # branches:
-    #   - main
-  #     - none
+    branches:
+      # - main
+      - none
   # workflow_dispatch:
 
 jobs:
