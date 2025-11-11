@@ -73,8 +73,8 @@ Orange
 -   [ ] item 3 -->
 
 
---> =/= <--
+<!-- --> =/= <--
 
 CH~3~CH~2~OH
 
-text~a\ subscript~
+text~a\ subscript~ -->
