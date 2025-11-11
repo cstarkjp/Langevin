@@ -1,6 +1,6 @@
 # How to install
 
-## **Step 1:** Set up **langevin** in a custom Python environment
+<!-- ## **Step 1:** Set up **langevin** in a custom Python environment -->
 
 ### Best practice: use **uv**
 
@@ -39,7 +39,7 @@ Alternatively, you can employ the following two-step process.
 
         pip install langevin --upgrade
 
-## **Step 2:** Make a local copy of the demo scripts
+<!-- ## **Step 2:** Make a local copy of the demo scripts
 
 Clone the [Langevin repo](https://github.com/cstarkjp/Langevin/tree/main) to your local machine:
 
@@ -47,4 +47,4 @@ Clone the [Langevin repo](https://github.com/cstarkjp/Langevin/tree/main) to you
 
 which will create a `Langevin/` folder. 
 
-If you already have a local copy of the repo, update it with `git pull`, making sure you are on the `main` branch (do `git checkout main`).
+If you already have a local copy of the repo, update it with `git pull`, making sure you are on the `main` branch (do `git checkout main`). -->

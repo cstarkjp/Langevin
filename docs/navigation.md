@@ -11,7 +11,7 @@ Look under under "Simulation tools" in the sidebar for more complete examples an
 The key driver of a simulation is the [`Info.json`](simulation-tools/info-reference.md) file: care must be taken to match the "job name" implied by this file (a string constructed from the model coefficients and parameters specified by it) with its parent folder name, such that output files are placed correctly.
 
 Refer to the links under "Python modules" to see documentation of the 
-[`langevin` Python package](https://pypi.org/project/langevin/). The underlying `C++` core is documented under ["C++ source"](cplusplus.md) using `Doxygen`.
+[`langevin` Python package](https://pypi.org/project/langevin/). The underlying `C++` core is documented under ["C++ source"](cplusplus-source/index.md) using `Doxygen`.
 
 <!-- !!! note "Feedback wanted!"
     The tutorials are a recent addition to our documentation and we are still

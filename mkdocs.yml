@@ -1,4 +1,19 @@
-site_name: "langevin"
+# Project information
+site_name: langevin
+site_url: https://cstarkjp.github.io/langevin/
+site_author: Colin P. Stark
+site_description: >-
+  Tools to integrate Langevin equations of absorbing phase transition (APT)
+  type — with a focus on simulation of directed percolation (DP).
+  
+
+# Repository
+repo_name: cstarkjp/langevin
+repo_url: https://github.com/cstarkjp/langevin
+
+
+# Copyright
+copyright: Copyright &copy; 2025 Colin P. Stark
 
 # mkdocs,
 # readthedocs, material, cerulean, cosmo, cyborg,
@@ -8,6 +23,7 @@ site_name: "langevin"
 theme:
   # name: "readthedocs"
   name: "material"
+  # custom_dir: material/overrides
   # name: "materia"
   # name: "sandstone"
   # name: "spacelab"
@@ -16,13 +32,13 @@ theme:
   logo: assets/DP5.png
   features:
     # - navigation.tabs
-    - content.action.edit
-    - content.action.view
+    # - content.action.edit
+    # - content.action.view
     - content.code.annotate
     - content.code.copy
     # - content.code.select
     # - content.footnote.tooltips
-    # - content.tabs.link
+    - content.tabs.link
     - content.tooltips
     # - header.autohide
     # - navigation.expand
@@ -35,17 +51,55 @@ theme:
     - navigation.sections
     - navigation.tabs
     # - navigation.tabs.sticky
-    - navigation.top
+    # - navigation.top
     - navigation.tracking
     - search.highlight
     - search.share
     - search.suggest
     - toc.follow
 
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/link
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off
+        name: Switch to system preference
+        
+# Additional configuration
+extra:
+  status:
+    new: Recently added
+    deprecated: Deprecated
+  analytics:
+    provider: google
+    property: !ENV GOOGLE_ANALYTICS_KEY
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/cstarkjp/langevin
+    # - icon: fontawesome/brands/docker
+    #   link: https://hub.docker.com/r/squidfunk/mkdocs-material/
+    # - icon: fontawesome/brands/python
+    #   link: https://pypi.org/project/mkdocs-material/
+    # - icon: fontawesome/brands/bluesky
+    #   link: https://bsky.app/profile/squidfunk.bsky.social
+    # - icon: fontawesome/brands/mastodon
+    #   link: https://fosstodon.org/@squidfunk
+    # - icon: fontawesome/brands/x-twitter
+    #   link: https://x.com/squidfunk
 
-plugins:
-- search
-- mkdocstrings
 
 nav:
     - Home: index.md
@@ -67,14 +121,19 @@ nav:
       - JSON info files: 
           - Example: simulation-tools/info-reference.md
     - Python modules: 
-        - base/file.py: file-reference.md 
-        - base/serialize.py: serialize-reference.md 
-        - base/utils.py: utils-reference.md 
-        - base/viz.py: viz-reference.md
-        - dp/ensemble.py: ensemble-reference.md
-        - dp/simulation.py: simulation-reference.md
-        - dp/vizdp.py: vizdp-reference.md
-    - C++ source: cplusplus.md
+        - python-modules/index.md
+        - base:
+          - base/file.py: python-modules/file-reference.md 
+          - base/serialize.py: python-modules/serialize-reference.md 
+          - base/utils.py: python-modules/utils-reference.md 
+          - base/viz.py: python-modules/viz-reference.md
+        - dp:
+          - dp/ensemble.py: python-modules/ensemble-reference.md
+          - dp/simulation.py: python-modules/simulation-reference.md
+          - dp/vizdp.py: python-modules/vizdp-reference.md
+    - C++ source: 
+      - cplusplus-source/index.md
+      # - cplusplus-source/cplusplus.md
     - References: references.md
 
 # https://analog-garage.github.io/mkdocstrings-python-xref/latest/
@@ -90,8 +149,6 @@ extra_javascript:
   - javascripts/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js # Example using a CDN
-
-
 
 extra_css:
   - style.css

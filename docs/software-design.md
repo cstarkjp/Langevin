@@ -49,18 +49,18 @@ and a set of DP-application modules, which can be found in the companion
 [`dp` folder](https://github.com/cstarkjp/Langevin/tree/main/python/dp).
 
 In addition, [Python scripts and related Jupyter notebooks](https://github.com/cstarkjp/Langevin/tree/main/simulation/dp) are provided to help run DP-type Langevin simulations 
-(documented [here](simulation-reference.md)).
+(documented [here](python-modules/simulation-reference.md)).
 
 The base modules are:
 
-- [base/file.py](file-reference.md)
-- [base/serialize.py](serialize-reference.md)
-- [base/utils.py](utils-reference.md)
-- [base/viz.py](viz-reference.md)
+- [base/file.py](python-modules/file-reference.md)
+- [base/serialize.py](python-modules/serialize-reference.md)
+- [base/utils.py](python-modules/utils-reference.md)
+- [base/viz.py](python-modules/viz-reference.md)
 
 The DP-specific modules are:
 
-- [dp/ensemble.py](ensemble-reference.md)
-- [dp/simulation.py](simulation-reference.md)
-- [dp/vizdp.py](vizdp-reference.md)
+- [dp/ensemble.py](python-modules/ensemble-reference.md)
+- [dp/simulation.py](python-modules/simulation-reference.md)
+- [dp/vizdp.py](python-modules/vizdp-reference.md)
 
