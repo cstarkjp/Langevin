@@ -172,7 +172,7 @@ def read_info(
     Returns:
         path to file and imported dictionary
     """
-    full_path: str = join(pardir, *path,)
+    full_path: str = join(*path,)
     info: dict = import_info(full_path, "Info", module,)
     return (full_path, info,)
 

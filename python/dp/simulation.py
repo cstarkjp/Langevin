@@ -191,10 +191,7 @@ class Simulation:
         )
 
     def save(
-            self, 
-            module: Any,
-            do_dummy: bool=False, 
-            do_verbose: bool=False,
+            self, module: Any, do_dummy: bool=False, do_verbose: bool=False,
         ) -> None:
         """
         Export outfo JSON, graphs, and data files.
@@ -210,7 +207,7 @@ class Simulation:
     
         outfo_path: str = \
             create_directories(
-                (pardir, *self.misc["path"]), seed_dir_name,
+                self.misc["path"], seed_dir_name,
             )
         outfo: dict = {
             "Parameters" : self.parameters,
@@ -223,7 +220,7 @@ class Simulation:
         if self.misc["do_export_data"]:
             data_path: str = \
                 create_directories(
-                    (pardir, *self.misc["path"], seed_dir_name,), ".", 
+                    (*self.misc["path"], seed_dir_name,), ".", 
                 )
             if not do_dummy:
                 np.savez_compressed(
@@ -239,7 +236,7 @@ class Simulation:
         if self.misc["do_export_graphs"]:
             graphs_path: str = \
                 create_directories(
-                    (pardir,  *self.misc["path"], seed_dir_name,), ".",
+                    (*self.misc["path"], seed_dir_name,), ".",
                 )
             if not do_dummy:
                 _ = export_plots(

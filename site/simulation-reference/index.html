@@ -295,7 +295,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../dp-Ensemble-ipynb-reference/" class="md-tabs__link">
+        <a href="../dp-SimulationDirect-ipynb-reference/" class="md-tabs__link">
           
   
   
@@ -623,12 +623,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../dp-Ensemble-ipynb-reference/" class="md-nav__link">
+      <a href="../dp-SimulationDirect-ipynb-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    dp/Ensemble.ipynb
+    dp/SimulationDirect.ipynb
     
   </span>
   
@@ -669,12 +669,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../dp-SimulationDirect-ipynb-reference/" class="md-nav__link">
+      <a href="../dp-EnsembleSimulation-ipynb-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    dp/SimulationDirect.ipynb
+    dp/Ensemble.ipynb
     
   </span>
   
@@ -1852,14 +1852,8 @@ from <code>dplvn.SimDP</code></p>
 <span class="normal">246</span>
 <span class="normal">247</span>
 <span class="normal">248</span>
-<span class="normal">249</span>
-<span class="normal">250</span>
-<span class="normal">251</span>
-<span class="normal">252</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> 
-        <span class="n">module</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
-        <span class="n">do_dummy</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
-        <span class="n">do_verbose</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="normal">249</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">module</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">do_dummy</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">do_verbose</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Export outfo JSON, graphs, and data files.</span>
@@ -1875,7 +1869,7 @@ from <code>dplvn.SimDP</code></p>
 
     <span class="n">outfo_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> \
         <span class="n">create_directories</span><span class="p">(</span>
-            <span class="p">(</span><span class="n">pardir</span><span class="p">,</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">misc</span><span class="p">[</span><span class="s2">"path"</span><span class="p">]),</span> <span class="n">seed_dir_name</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">misc</span><span class="p">[</span><span class="s2">"path"</span><span class="p">],</span> <span class="n">seed_dir_name</span><span class="p">,</span>
         <span class="p">)</span>
     <span class="n">outfo</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s2">"Parameters"</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">,</span>
@@ -1888,7 +1882,7 @@ from <code>dplvn.SimDP</code></p>
     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">misc</span><span class="p">[</span><span class="s2">"do_export_data"</span><span class="p">]:</span>
         <span class="n">data_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> \
             <span class="n">create_directories</span><span class="p">(</span>
-                <span class="p">(</span><span class="n">pardir</span><span class="p">,</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">misc</span><span class="p">[</span><span class="s2">"path"</span><span class="p">],</span> <span class="n">seed_dir_name</span><span class="p">,),</span> <span class="s2">"."</span><span class="p">,</span> 
+                <span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">misc</span><span class="p">[</span><span class="s2">"path"</span><span class="p">],</span> <span class="n">seed_dir_name</span><span class="p">,),</span> <span class="s2">"."</span><span class="p">,</span> 
             <span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">do_dummy</span><span class="p">:</span>
             <span class="n">np</span><span class="o">.</span><span class="n">savez_compressed</span><span class="p">(</span>
@@ -1904,7 +1898,7 @@ from <code>dplvn.SimDP</code></p>
     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">misc</span><span class="p">[</span><span class="s2">"do_export_graphs"</span><span class="p">]:</span>
         <span class="n">graphs_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> \
             <span class="n">create_directories</span><span class="p">(</span>
-                <span class="p">(</span><span class="n">pardir</span><span class="p">,</span>  <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">misc</span><span class="p">[</span><span class="s2">"path"</span><span class="p">],</span> <span class="n">seed_dir_name</span><span class="p">,),</span> <span class="s2">"."</span><span class="p">,</span>
+                <span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">misc</span><span class="p">[</span><span class="s2">"path"</span><span class="p">],</span> <span class="n">seed_dir_name</span><span class="p">,),</span> <span class="s2">"."</span><span class="p">,</span>
             <span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">do_dummy</span><span class="p">:</span>
             <span class="n">_</span> <span class="o">=</span> <span class="n">export_plots</span><span class="p">(</span>
