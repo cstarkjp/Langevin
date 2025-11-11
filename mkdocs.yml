@@ -15,7 +15,33 @@ theme:
   favicon: images/DP1.png
   logo: assets/DP5.png
   features:
+    # - navigation.tabs
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    # - content.code.select
+    # - content.footnote.tooltips
+    # - content.tabs.link
+    - content.tooltips
+    # - header.autohide
+    # - navigation.expand
+    - navigation.footer
+    - navigation.indexes
+    # - navigation.instant
+    # - navigation.instant.prefetch
+    # - navigation.instant.progress
+    # - navigation.prune
+    - navigation.sections
     - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+
 
 plugins:
 - search
@@ -28,17 +54,18 @@ nav:
     - How to install: how-to-install.md
     - Tests: tests-reference.md
     - How to run: how-to-run.md
-    - Simulation tools:
+    - Simulation tools: 
+      - simulation-tools/index.md
       - Notebooks:
-          - dp/SimulationDirect.ipynb: dp-SimulationDirect-ipynb-reference.md
-          - dp/Simulation.ipynb: dp-Simulation-ipynb-reference.md
-          - dp/Ensemble.ipynb: dp-EnsembleSimulation-ipynb-reference.md
+          - dp/SimulationDirect.ipynb: simulation-tools/dp-SimulationDirect-ipynb-reference.md
+          - dp/Simulation.ipynb: simulation-tools/dp-Simulation-ipynb-reference.md
+          - dp/Ensemble.ipynb: simulation-tools/dp-EnsembleSimulation-ipynb-reference.md
       - Scripts:
-          - dp/simulation.py: dp-simulation-py-reference.md
-          - dp/ensemble_simulation.py: dp-ensemble_simulation-py-reference.md
-          - dp/batch_ensemble.py: dp-batch_ensemble-py-reference.md
+          - dp/simulation.py: simulation-tools/dp-simulation-py-reference.md
+          - dp/ensemble_simulation.py: simulation-tools/dp-ensemble_simulation-py-reference.md
+          - dp/batch_ensemble.py: simulation-tools/dp-batch_ensemble-py-reference.md
       - JSON info files: 
-          - Example: info-reference.md
+          - Example: simulation-tools/info-reference.md
     - Python modules: 
         - base/file.py: file-reference.md 
         - base/serialize.py: serialize-reference.md 
