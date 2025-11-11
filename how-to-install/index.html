@@ -1584,17 +1584,17 @@
   
 
 
-<h1 id="how-to-install">How to install</h1>
+<h1 id="how-to-install">How to install<a class="headerlink" href="#how-to-install" title="Permanent link">¶</a></h1>
 <!-- ## **Step 1:** Set up **langevin** in a custom Python environment -->
 
-<h2 id="best-practice-use-uv">Best practice: use <strong>uv</strong></h2>
+<h2 id="best-practice-use-uv">Best practice: use <strong>uv</strong><a class="headerlink" href="#best-practice-use-uv" title="Permanent link">¶</a></h2>
 <p>Using <code>uv</code>, the creation of a virtual Python environment, installation of dependent packages, and installation of <code>langevin</code> itself can all be achieved in three simple command lines:</p>
-<pre><code>uv venv
+<div class="language-text highlight"><pre><span></span><code>uv venv
 source .venv/bin/activate
 uv pip install langevin
-</code></pre>
+</code></pre></div>
 <p><em>Note that before doing this you'll have <a href="https://docs.astral.sh/uv/getting-started/installation/">to install <code>uv</code></a> on your machine.</em></p>
-<h2 id="alternative-by-hand">Alternative: by hand</h2>
+<h2 id="alternative-by-hand">Alternative: by hand<a class="headerlink" href="#alternative-by-hand" title="Permanent link">¶</a></h2>
 <p>Alternatively, you can employ the following two-step process.</p>
 <ol>
 <li>
@@ -1614,11 +1614,11 @@ file on the project repo for help here.</p>
 </li>
 <li>
 <p>Install the <a href="https://pypi.org/project/langevin/">Python library <code>langevin</code></a> using <code>pip</code>, hopefully within a Python environment, from PyPI:</p>
-<pre><code>pip install langevin
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>pip install langevin
+</code></pre></div>
 <p><em>If you already have a pre-existing installation</em> of this package, you may need to <code>upgrade</code> (update) to the latest version:</p>
-<pre><code>pip install langevin --upgrade
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>pip install langevin --upgrade
+</code></pre></div>
 </li>
 </ol>
 <!-- ## **Step 2:** Make a local copy of the demo scripts
