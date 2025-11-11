@@ -11,6 +11,8 @@ site_description: >-
 repo_name: cstarkjp/langevin
 repo_url: https://github.com/cstarkjp/langevin
 
+# https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/?h=edit+uri#code-actions
+edit_uri: edit/main/docs/
 
 # Copyright
 copyright: Copyright &copy; 2025 Colin P. Stark
@@ -23,7 +25,7 @@ copyright: Copyright &copy; 2025 Colin P. Stark
 theme:
   # name: "readthedocs"
   name: "material"
-  # custom_dir: material/overrides
+  # custom_dir: docs/material-overrides
   # name: "materia"
   # name: "sandstone"
   # name: "spacelab"
@@ -33,11 +35,11 @@ theme:
   features:
     # - navigation.tabs
     # - content.action.edit
-    # - content.action.view
+    - content.action.view
     - content.code.annotate
     - content.code.copy
-    # - content.code.select
-    # - content.footnote.tooltips
+    - content.code.select
+    - content.footnote.tooltips
     - content.tabs.link
     - content.tooltips
     # - header.autohide
@@ -57,6 +59,10 @@ theme:
     - search.share
     - search.suggest
     - toc.follow
+
+  # font:
+  #   text: Roboto
+  #   code: Roboto Mono
 
   palette:
     - media: "(prefers-color-scheme)"
@@ -196,6 +202,7 @@ extra_javascript:
   - javascripts/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js # Example using a CDN
+  - javascripts/extra.js
 
 extra_css:
   - style.css
