@@ -1,7 +1,9 @@
 # How to run
 
+These notes expand on the instructions in [How to install](how-to-install.md) and tailor them to the task of setting up simulations.
 
 ## Setting up
+
 
 1. If you haven't done this already, clone or download/unzip the project repository from GitHub:
 
