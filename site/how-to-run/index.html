@@ -1686,14 +1686,14 @@
   
 
 
-<h1 id="how-to-run">How to run</h1>
+<h1 id="how-to-run">How to run<a class="headerlink" href="#how-to-run" title="Permanent link">¶</a></h1>
 <p>These notes expand on the instructions in <a href="../how-to-install/">How to install</a> and tailor them to the task of setting up simulations.</p>
-<h2 id="setting-up">Setting up</h2>
+<h2 id="setting-up">Setting up<a class="headerlink" href="#setting-up" title="Permanent link">¶</a></h2>
 <ol>
 <li>
 <p>If you haven't done this already, clone or download/unzip the project repository from GitHub:</p>
-<pre><code>git clone https://github.com/cstarkjp/Langevin.git
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>git clone https://github.com/cstarkjp/Langevin.git
+</code></pre></div>
 <p>This will create a folder called <code>Langevin/</code>.
 We are going to use its subfolders <code>tests/</code>, <code>simulations/</code>, and <code>experiments/</code>.</p>
 </li>
@@ -1704,40 +1704,40 @@ We are going to use its subfolders <code>tests/</code>, <code>simulations/</code
 <li>
 <p><em>Optional, but strongly advised:</em> create a Python environment for work in this folder.
 If you're using <code>uv</code>, all you need to do here is:</p>
-<pre><code>uv venv
+<div class="language-text highlight"><pre><span></span><code>uv venv
 source .venv/bin/activate
-</code></pre>
+</code></pre></div>
 <p>Then install the <code>langevin</code> package as explained on the <a href="../how-to-install/">How to install</a> page, ideally using <code>uv</code></p>
-<pre><code>uv pip install langevin
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>uv pip install langevin
+</code></pre></div>
 <p>Now you have a <em>local</em> Python environment for work with the <code>langevin</code> package.
 Remember to always first <code>source .venv/bin/activate</code> from the command line when
 working here.</p>
 </li>
 </ol>
 <p>If you choose not to set up a virtual environment, you will need to install the <code>langevin</code> package in the usual way for your default Python. </p>
-<h2 id="test-scripts">Test scripts</h2>
+<h2 id="test-scripts">Test scripts<a class="headerlink" href="#test-scripts" title="Permanent link">¶</a></h2>
 <!-- ![](https://raw.githubusercontent.com/cstarkjp/Langevin/main/images/ρ_a1p18950_b1_D0p04_η1_x100_y50_Δx1_Δt0p1_rs1.gif
  "Density field evolution over time") -->
 
 <p>Navigate to the <code>tests/</code> folder. Run the demo scripts there as explained on the <a href="../tests-reference/">Tests page</a>.</p>
-<h2 id="full-simulations">Full simulations</h2>
-<h3 id="organization">Organization</h3>
+<h2 id="full-simulations">Full simulations<a class="headerlink" href="#full-simulations" title="Permanent link">¶</a></h2>
+<h3 id="organization">Organization<a class="headerlink" href="#organization" title="Permanent link">¶</a></h3>
 <p>Navigate to the <code>simulation/dp/</code> folder. There you'll find Jupyter notebooks and Python scripts to run more substantial DP-type Langevin simulations:</p>
 <p><img alt="" src="../images/how_to_run5.jpg"></p>
 <p>These notebooks and scripts can be run using <code>ipython</code> and <code>python</code> respectively (<code>ipython</code> can run both). The notebooks can also be run in <code>jupyter</code>.</p>
 <p>Now take a look at your copy of the <code>experiments/</code> folder. It should look something like this:</p>
 <p><img alt="" src="../images/how_to_run2.jpg"></p>
 <p>Simulations work with <code>Info.json</code> parameters files in correspondingly named folders, and write their results into subfolders within them. Further explanation is provided below. The naming convention is a bit awkward, but it's tough to come up with a perfect solution to organizing simulations with myriad coefficients and model variables. This is what we have.</p>
-<h3 id="running-a-simulation-for-fixed-grid-size">Running a simulation for fixed grid size</h3>
+<h3 id="running-a-simulation-for-fixed-grid-size">Running a simulation for fixed grid size<a class="headerlink" href="#running-a-simulation-for-fixed-grid-size" title="Permanent link">¶</a></h3>
 <p>Consider the notebook <a href="../simulation-tools/dp-Simulation-ipynb-reference/"><code>Simulation.ipynb</code></a>, which runs a job entitled <code>a1p18855_b1_D0p04_η1_x31_y31_Δx1_Δt0p1</code>. </p>
 <p>This cumbersome name is a concatenation of the key DP model parameters employed in this particular simulation. 
 It corresponds to a subfolder in <code>experiments/</code> called <code>a1p18855_b1_D0p04_η1_x31_y31_Δx1_Δt0p1/</code>. </p>
 <p><em>This subfolder is used both for model parameter input <strong><em>and</em></strong> for results output.</em></p>
 <p>Look in this subfolder of <code>experiments/</code> for <code>Info.json</code>: this JSON file contains all the parameters used by the notebook to run a single integration of the DP Langevin equation on a 2D grid with the model coefficients reflected in the job name.</p>
 <p>Run the simulation:</p>
-<pre><code>    ipython Simulation.ipynb
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>    ipython Simulation.ipynb
+</code></pre></div>
 <p>and you should see text output in your terminal reporting integration of a 2D Langevin equation — on a small grid
 with periodic boundary topology in the <span class="arithmatex">\(x\)</span> direction and "free" edges
 in the <span class="arithmatex">\(y\)</span> direction.</p>
@@ -1757,13 +1757,13 @@ in the <span class="arithmatex">\(y\)</span> direction.</p>
 <li><code>ρ_t_rescaled.png</code> = a DP-model rescaled version of this graph</li>
 </ul>
 <p><em>In summary: if you want to run single-grid simulations, with a single set of Langevin coefficients and model parameters, use this notebook as your template.</em></p>
-<h3 id="running-an-ensemble-of-simulations-for-fixed-grid-size">Running an ensemble of simulations for fixed grid size</h3>
+<h3 id="running-an-ensemble-of-simulations-for-fixed-grid-size">Running an ensemble of simulations for fixed grid size<a class="headerlink" href="#running-an-ensemble-of-simulations-for-fixed-grid-size" title="Permanent link">¶</a></h3>
 <p>If instead you want to run an ensemble of simulations for a <em>range</em> of Langevin equation coefficients, look at <a href="../simulation-tools/dp-EnsembleSimulation-ipynb-reference/"><code>EnsembleSimulation.ipynb</code></a>.</p>
-<pre><code>    ipython EnsembleSimulation.ipynb
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>    ipython EnsembleSimulation.ipynb
+</code></pre></div>
 <p>This will run a set of simulations for different size grids:</p>
 <p>TBD...</p>
-<h3 id="running-a-batch-of-ensemble-simulations-for-several-grid-sizes">Running a batch of ensemble simulations for several grid sizes</h3>
+<h3 id="running-a-batch-of-ensemble-simulations-for-several-grid-sizes">Running a batch of ensemble simulations for several grid sizes<a class="headerlink" href="#running-a-batch-of-ensemble-simulations-for-several-grid-sizes" title="Permanent link">¶</a></h3>
 <p>For substantial ensemble simulations in which the grid size is varied as well as the model coefficients, a batch Python script is provided. 
 This script hard-codes some parameter choices, loops across a set of grid sizes, and constructs a list of ensemble job names from a tuple of grid size choices. These names must correspond to a "root" folder and a set of subfolders:</p>
 <p><img alt="" src="../images/how_to_run6.jpg"></p>
@@ -1772,8 +1772,8 @@ This script hard-codes some parameter choices, loops across a set of grid sizes,
 <p>For this example batch script, the batch root folder (in <code>experiments/</code>) is assumed to be named <code>ac1p18857</code>, corresponding to the known critical value <span class="arithmatex">\(a_c\)</span>  (from previous simulations) of the DP Langevin parameter <span class="arithmatex">\(a\)</span>; its subfolders follow the pattern <code>b1_D0p04_η1_x{size_}_y{size_}_Δx1_Δt0p1</code>, i.e. the other DP Langevin parameters are <span class="arithmatex">\(b=1\)</span>, <span class="arithmatex">\(D=0.04\)</span>, and <span class="arithmatex">\(\eta=1\)</span>, for grid spacing <span class="arithmatex">\(\Delta{x}=1\)</span> and time step <span class="arithmatex">\(\Delta{t}=0.1\)</span>. There must be <code>Info.json</code> files in each of these subfolders with model parameters to match:</p>
 <p><img alt="" src="../images/how_to_run7.jpg"></p>
 <p>Run the batch job using either <code>ipython</code> or <code>python</code>:</p>
-<pre><code>    python batch_ensemble.py
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>    python batch_ensemble.py
+</code></pre></div>
 <p>In your terminal, you should see summary reports of each ensemble of simulations, two sets of 15 in total, including the name of each simulation job and its computation time.
 Each set of 15 jobs would have been executed in parallel processes spawned by Python's <code>multiprocessing</code> tool.</p>
 <p>The directory tree for this run should now look like this:</p>
