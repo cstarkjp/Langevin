@@ -9,9 +9,9 @@ requires = ["meson-python", "wheel", "pybind11", "ninja", "numpy"]
 
 [project]
 name = 'langevin'
-version = '2025.11.11a4'
+version = '2025.11.14a1'
 # dynamic = ["version"]
-description = 'Tools to integrate Langevin equations of absorbing phase transition type'
+description = 'Tools for integrating Langevin equations for directed-percolation in particular and for absorbing phase transitions in general'
 readme = 'README.md'
 
 requires-python = '>=3.12'
@@ -30,8 +30,8 @@ authors = [
   {name = 'Colin P. Stark', email = 'cstarkjp@gmail.com'},
 ]
 keywords = [
-  'Langevin equation', 
   'directed percolation', 
+  'Langevin equation', 
   'operator splitting',
   'stochastic differential equations',
   'phase transition'

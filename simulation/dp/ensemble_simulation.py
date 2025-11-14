@@ -26,7 +26,7 @@ def main() -> None:
         print(f"{sim_.misc["name"]}: {sim_.misc["computation_time"]}")
     ensemble.multi_plot()
     ensemble.plot()
-    ensemble.save(dplvn, do_dummy=False)
+    ensemble.save(dplvn, do_dummy=False,)
 
 if __name__ == "__main__":
     main()
