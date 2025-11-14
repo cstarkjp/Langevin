@@ -6,11 +6,11 @@
     If you are interested in using it, or even better, interested in
     collaborating in its development, please contact the maintainer cstarkjp@gmail.com.
     
-###  _Tools for integrating directed-percolation Langevin equations_
+###  _Tools for integrating the directed-percolation Langevin equation_
 
 The  [`langevin` package ](https://pypi.org/project/langevin/) provides software tools to integrate a time-dependent density field described by Langevin equations of directed-percolation type. It can be extended to solve Langevin equations of absorbing phase transition (APT) type.
 
-[Directed percolation (DP)](references.md) is the _type-example_ of such an absorbing phase transition — its Langevin equation is:
+[Directed percolation (DP)](references.md) is the _type example_ of a non-equilibrium, absorbing phase transition. Its Langevin equation is:
 $$
     \partial_t\rho
     =
