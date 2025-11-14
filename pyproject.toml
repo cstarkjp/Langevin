@@ -9,9 +9,9 @@ requires = ["meson-python", "wheel", "pybind11", "ninja", "numpy"]
 
 [project]
 name = 'langevin'
-version = '2025.11.14a1'
+version = '2025.11.14a2'
 # dynamic = ["version"]
-description = 'Tools for integrating Langevin equations for directed-percolation in particular and for absorbing phase transitions in general'
+description = 'Tools to integrate Langevin equations for directed-percolation in particular and for absorbing phase transitions in general'
 readme = 'README.md'
 
 requires-python = '>=3.12'
