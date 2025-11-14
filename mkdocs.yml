@@ -106,6 +106,8 @@ extra:
     # - icon: fontawesome/brands/x-twitter
     #   link: https://x.com/squidfunk
 
+# not_in_nav: |
+#   /tutorials/**/*.md
 
 nav:
     - Home: index.md
@@ -157,6 +159,8 @@ markdown_extensions:
       permalink: true
   - pymdownx.arithmatex:
       generic: true
+  - pymdownx.blocks.admonition
+  - pymdownx.blocks.details
   - pymdownx.blocks.caption
   - pymdownx.betterem:
       smart_enable: all
@@ -165,6 +169,8 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
       emoji_index: !!python/name:material.extensions.emoji.twemoji
+  - pymdownx.extra
+  - pymdownx.fancylists
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
@@ -174,8 +180,8 @@ markdown_extensions:
   - pymdownx.magiclink:
       normalize_issue_symbols: true
       repo_url_shorthand: true
-      user: squidfunk
-      repo: mkdocs-material
+      user: cstarkjp
+      repo: langevin
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.snippets:
