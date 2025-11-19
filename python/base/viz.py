@@ -85,11 +85,15 @@ class Viz:
         marker_ = lambda i_: self.markers[i_ % self.n_markers]  # type: ignore
         self.color = color_  # type: ignore
         self.marker = marker_  # type: ignore
-        self.font_family = "Arial" #if "Arial" in self.get_fonts() else "Helvetica"
-        try:
-            mpl.rc("font", size=self.font_size, family=self.font_family)
-        except:
-            mpl.rc("font", size=self.font_size, family="")
+        font_size = 11
+        fonts = self.get_fonts()
+        if "Arial" in fonts:
+            self.font_family="Arial"
+        elif "DejaVu Sans" in fonts:
+            self.font_family="DejaVu Sans"
+        else:
+            self.font_family="Helvetica"
+        mpl.rc("font", size=font_size, family=self.font_family)
 
     def get_fonts(self) -> List[str]:
         """Fetch the names of all the font families available on the system."""
