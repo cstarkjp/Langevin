@@ -13,6 +13,7 @@ import numpy as np
 from numpy.typing import NDArray
 from numpy.lib.npyio import NpzFile
 from pprint import PrettyPrinter
+pp = PrettyPrinter(indent=4).pprint
 
 try:
     import ffmpeg
@@ -33,11 +34,21 @@ from langevin.dp.simulation import Simulation
 from langevin.dp.ensemble import Ensemble
 from langevin.dp.vizdp import VizDP
 
+fpaths = mpl.font_manager.findSystemFonts()
+fonts: list[str] = []
+for fpath in fpaths:
+    try:
+        font = mpl.font_manager.get_font(fpath).family_name
+        fonts.append(font)
+    except RuntimeError as re:
+        pass
 font_size = 11
-font_family = "Arial"
-try:
-    mpl.rc("font", size=font_size, family=font_family)
-except:
-    mpl.rc("font", size=font_size, family="")
+if "Arial" in fonts:
+    mpl.rc("font", size=font_size, family="Arial")
+elif "DejaVu Sans" in fonts:
+    mpl.rc("font", size=font_size, family="DejaVu Sans")
+else:
+    mpl.rc("font", size=font_size, family="Helvetica")
 
-pp = PrettyPrinter(indent=4).pprint
+import warnings
+warnings.filterwarnings("ignore")

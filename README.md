@@ -69,8 +69,10 @@ We recommend installing Python 3.14 since development of `langevin` uses this ve
 For example, if you're using `uv`, all that's needed is to create an
 appropriately named folder, navigate to it, and execute:
 
-    uv venv
+    uv venv --python=3.14
     source .venv/bin/activate
+
+where the `--python` option forces `uv` to choose that version of the Python intepreter.
 
 ### Package from PyPI
 
