@@ -19,7 +19,7 @@ These notes expand on the instructions in [How to install](how-to-install.md) an
 1. _Optional, but strongly advised:_ create a Python environment for work in this folder.
 If you're using `uv`, all you need to do here is:
 
-        uv venv
+        uv venv --python=3.14
         source .venv/bin/activate
 
     Then install the `langevin` package as explained on the [How to install](how-to-install.md) page, ideally using `uv`

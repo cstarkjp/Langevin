@@ -6,7 +6,7 @@
 
 Using `uv`, the creation of a virtual Python environment, installation of dependent packages, and installation of `langevin` itself can all be achieved in three simple command lines:
 
-    uv venv
+    uv venv --python=3.14
     source .venv/bin/activate
     uv pip install langevin
 
