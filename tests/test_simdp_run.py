@@ -5,8 +5,8 @@
 """
 
 import unittest
-from langevin.dp import dplvn # type: ignore
 import numpy as np
+from langevin.dp import dplvn # type: ignore
 
 def instantiate_sim_specific() -> dplvn.SimDP:
     return dplvn.SimDP(
