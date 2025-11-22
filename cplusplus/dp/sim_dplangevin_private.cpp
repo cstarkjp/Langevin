@@ -20,7 +20,7 @@ double round_up(const double value, const int n_decimals) {
     //     = static_cast<unsigned int>((value) * multiplier);
     // const double rounded_value = (static_cast<double>(int_value)) / multiplier;
     // return rounded_value;
-    return std::round((value*1e14+0.5))*1e-14;
+    return std::round((value*1e15+0.5))*1e-15;
 }
 
 
@@ -32,19 +32,19 @@ int SimDP::count_epochs() const
     for (n_epochs=0; t<p.t_final; t=round_up(t+p.dt, n_decimals)) 
     {
         n_epochs++;
-        if (do_verbose) {
-            std::cout 
-                << "SimDP::count_epochs:  "
-                << n_epochs << ", "
-                << t << ", "
-                << round_up(t+p.dt, n_decimals) << ", "
-                << p.t_final 
-                << std::endl;
-        }
-        if (n_epochs>static_cast<unsigned int>(p.t_final/p.dt))
-        {
-            break;
-        }
+        // if (do_verbose) {
+        //     std::cout 
+        //         << "SimDP::count_epochs:  "
+        //         << n_epochs << ", "
+        //         << t << ", "
+        //         << round_up(t+p.dt, n_decimals) << ", "
+        //         << p.t_final 
+        //         << std::endl;
+        // }
+        // if (n_epochs>static_cast<unsigned int>(p.t_final/p.dt))
+        // {
+        //     break;
+        // }
     }
     return n_epochs+1;
 }
