@@ -240,13 +240,18 @@ jobs:
           # source venv/bin/activate
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
-          python -m pip install build
+          # python -m pip install build
 
-      - name: Build & install package
+      - name: Retrieve linux artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: linux-dist
+          path: test/
+
+      - name: Install package
         run: |
-          python -m build
-          # python -m pip install langevin-2025.11.22a3-cp314-cp314-linux_x86_64.whl
-          python -m pip install *.whl
+          # python -m build
+          python -m pip install test/*.whl
 
       - name: Unit tests
         run: python -m unittest discover tests
@@ -274,12 +279,18 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
-          python -m pip install build
+          # python -m pip install build
 
-      - name: Build & install package
+      - name: Retrieve windows artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: windows-dist
+          path: test/
+
+      - name: Install package
         run: |
-          python -m build
-          python -m pip install *.whl
+          # python -m build
+          python -m pip install test/*.whl
 
       - name: Unit tests
         run: python -m unittest discover tests
