@@ -211,7 +211,7 @@ jobs:
 
       - name: Install package
         run: |
-          unzip dist/*.zip -d testing/
+          unzip /home/runner/Langevin/Langevin/dist/*.zip -d testing/
           python -m pip install /home/runner/Langevin/Langevin/dist/*.whl
 
       - name: Unit tests
@@ -255,7 +255,7 @@ jobs:
 
       - name: Install package
         run: |
-          unzip dist/*.zip -d testing/
+          unzip /home/runner/Langevin/Langevin/dist/*.zip -d testing/
           python -m pip install /home/runner/Langevin/Langevin/testing/*.whl
 
       - name: Unit tests
@@ -294,7 +294,7 @@ jobs:
 
       - name: Install package
         run: |
-          unzip dist/*.zip -d testing/
+          unzip /home/runner/Langevin/Langevin/dist/*.zip -d testing/
           python -m pip install testing/*.whl
 
       - name: Unit tests
