@@ -98,12 +98,15 @@ Note: the `--default-index` ensures that package dependencies are fetched from t
 
 ### Dependencies
 
-
-At minimum, `langevin` needs Python≥3.12 and the package `pybind11`. To run the demos, you will also need `numpy`, `matplotlib`, `jupyter`, `ipython`, along with `pandas`, `tqdm`, and  `ffmpeg-python` to generate videos from image file sequences. 
+At minimum, `langevin` needs Python≥3.12 and the package `pybind11`. To run the demos, you will also need `numpy`, `matplotlib`, `jupyter`, `ipython`, along with `pandas`, `tqdm`, and  `ffmpeg-python`. 
 If you are using `conda` or `miniconda`, it would be best to install them using
 the `environment.yml` file, instead of relying on `pip` to do the job (mixing `pip` and `conda` is not a great idea anyway, but `langevin` is not yet available on `conda`).
 
 If you want to build locally, you will also need `meson-python`, `wheel`, `pybind11`, and `ninja`.
+
+To turn density field image sequences into animations, `langevin` uses `ffmpeg-python`, which assumes that `ffmpeg` is itself installed on your system. 
+
+On Linux platforms, `matplotlib` has a tendency to complain about missing fonts, e.g., Arial, generating large numbers of warnings in some of the notebooks. This can be fixed by installing the missing fonts and ensuring that `matplotlib`'s cache is refreshed.
 
 ### Platform support
 
@@ -122,7 +125,7 @@ Some build info is provided in the [`cplusplus/`](https://github.com/cstarkjp/La
 
 ## Usage
 
-Simple demos are provided in the [`tests/`](https://github.com/cstarkjp/Langevin/tree/main/tests/README.md) directory. The easiest route is to `git` clone the repo to get these files, or you can download one-by-one.
+Simple demonstration scripts are provided in [`demos/`](https://github.com/cstarkjp/Langevin/tree/main/demos/README.md). More complete examples are provided in the [`simulation/`](https://github.com/cstarkjp/Langevin/tree/main/simulation/dp/) directory. The easiest route is to `git` clone the repo to get these files, or you can download one-by-one.
 
 
 ## References

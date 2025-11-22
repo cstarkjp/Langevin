@@ -114,7 +114,7 @@ nav:
     - Navigation: navigation.md
     - Software design: software-design.md
     - How to install: how-to-install.md
-    - Tests: tests-reference.md
+    - Demos: demos-reference.md
     - How to run: how-to-run.md
     - Simulation tools: 
       - simulation-tools/index.md
@@ -222,7 +222,7 @@ plugins:
       python:
 
         # Where to find your sources, see "Finding modules".
-        paths: [python, tests]
+        paths: [python, demos]
         # paths_recursive: true
 
         # Load object inventories to enable cross-references to other projects.

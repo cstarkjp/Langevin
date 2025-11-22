@@ -104,3 +104,8 @@ private_readme_install
 
 archive/*
 tests/*png
+demos/*png
+experiments/*/Data/*
+experiments/*/Graphs/*
+experiments/*/*/npz
+experiments/*/*/png

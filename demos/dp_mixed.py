@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
 """!
-@file demo_periodic.py
-@brief Demo 2d Langevin simulation with periodic grid topology.
+@file dp_mixed.py
+@brief Demo 2d DP Langevin simulation with mixed grid topology and boundary conditions.
 """
 
 # import sys, os
@@ -20,20 +20,22 @@ def main() -> None:
 
     sim = dplvn.SimDP(
         linear=1.0, quadratic=2.0, diffusion=0.1, noise=1.0, 
-        t_final=20.0-1e-10, 
-        # t_final=1e4-1e-10, 
+        t_final=30.0-1e-10, 
+        # t_final=300.0-1e-8, 
         dx=0.5, dt=0.01,
-        random_seed=1,
-        # grid_dimension=dplvn.D1,
-        # grid_size=(4096,),
+        random_seed=2,
         grid_dimension=dplvn.D2,
         grid_size=(12,8,),
-        # grid_size=(40,20,),
-        grid_topologies=(dplvn.PERIODIC, dplvn.PERIODIC,),
+        # grid_size=(100,60,),
+        grid_topologies=(dplvn.BOUNDED, dplvn.PERIODIC,),
+        # boundary_condition=dplvn.FLOATING,
         boundary_conditions=(
-            dplvn.FLOATING, dplvn.FLOATING, dplvn.FLOATING, dplvn.FLOATING
+            # dplvn.FLOATING, dplvn.FLOATING, dplvn.FLOATING, dplvn.FLOATING,
+            # dplvn.FIXED_VALUE, dplvn.FIXED_VALUE, dplvn.FLOATING, dplvn.FLOATING,
+            dplvn.FIXED_FLUX, dplvn.FIXED_FLUX, dplvn.FLOATING, dplvn.FLOATING,
         ),
-        bc_values=(0, 0, 0, 0,),
+        # bc_values=(-0, +2, 0, 0,),
+        bc_values=(-1e+1, +1e+1, 0, 0,),
         initial_condition=dplvn.RANDOM_UNIFORM,
         ic_values=(0, 1,),
         integration_method=dplvn.RUNGE_KUTTA,
