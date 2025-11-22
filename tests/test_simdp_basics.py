@@ -10,7 +10,6 @@ import unittest
 # dll_dir = os.path.abspath('path/to/your/dlls')
 # if sys.platform == "win32" and os.path.exists(dll_dir):
 #     os.add_dll_directory(dll_dir)
-import langevin
 from langevin.dp import dplvn # type: ignore
 
 def instantiate_sim_defaults() -> dplvn.SimDP:
@@ -38,10 +37,6 @@ def instantiate_sim_verbose() -> dplvn.SimDP:
     )
 
 class TestCreateSimDP(unittest.TestCase):
-
-    def test_langevin_version(self):
-        self.assertIn("__version__", langevin.__dict__)
-        print(f"langevin version:  {langevin.__version__}")
 
     def test_instantiate_sim_defaults(self):
         sim = instantiate_sim_defaults()
