@@ -203,15 +203,15 @@ jobs:
         run: |
           python -m build
 
-      - name: Upload for testing
-        uses: actions/upload-artifact@v4
+      - name: Retrieve linux artifact
+        uses: actions/download-artifact@v4
         with:
-          name: macos-latest-test
+          name: macos-latest
           path: test/
 
       - name: Install package
         run: |
-          python -m pip install test/*.whl
+          python -m pip install /home/runner/Langevin/Langevin/*.whl
 
       - name: Unit tests
         run: python -m unittest discover tests
@@ -240,7 +240,7 @@ jobs:
           # source venv/bin/activate
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
-          # python -m pip install build
+          python -m pip install build
 
       - name: Retrieve linux artifact
         uses: actions/download-artifact@v4
@@ -248,10 +248,14 @@ jobs:
           name: linux-dist
           path: test/
 
+      - name: Build package
+        run: |
+          python -m build
+
       - name: Install package
         run: |
-          # python -m build
-          python -m pip install test/*.whl
+          python -m pip install /home/runner/Langevin/Langevin/*.whl
+          python -m pip install /home/runner/Langevin/Langevin/test/*.whl
 
       - name: Unit tests
         run: python -m unittest discover tests
