@@ -7,7 +7,10 @@
 
 double round_up(const double value, const int n_decimals) {
     const double multiplier = std::pow(10, n_decimals);
-    return std::round((value+1e-14) * multiplier) / multiplier;
+    const unsigned int int_value = static_cast<unsigned int>((value+1e-14) * multiplier);
+    const double rounded_value = static_cast<double>(int_value) / multiplier;
+    return rounded_value;
+    // return std::round((value+1e-14) * multiplier) / multiplier;
 }
 
 
