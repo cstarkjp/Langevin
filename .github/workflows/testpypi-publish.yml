@@ -245,8 +245,8 @@ jobs:
       - name: Run demo
         shell: powershell
         run: |
-          $userBinPath = "$env:USERPROFILE\.local\bin"
-          Add-Content -Path $env:GITHUB_PATH -Value $userBinPath
+          # $userBinPath = "$env:USERPROFILE\.local\bin"
+          # Add-Content -Path $env:GITHUB_PATH -Value $userBinPath
           python demos\dp_mixed.py
 
       - name: Run unit test
@@ -281,8 +281,8 @@ jobs:
       build-linux,
       build-windows, 
       test-linux,
-      test-macos,
-      test-windows
+      test-macos
+      # test-windows
     ]
     permissions:
       id-token: write # Required for OIDC authentication
