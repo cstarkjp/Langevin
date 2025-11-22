@@ -6,6 +6,7 @@
 
 import unittest
 from langevin.dp import dplvn # type: ignore
+import numpy as np
 
 def instantiate_sim_specific() -> dplvn.SimDP:
     return dplvn.SimDP(
@@ -37,7 +38,7 @@ def run_and_postprocess_simdp(
             raise Exception("Failed to run sim")
         was_success &= sim.postprocess()
         i_epochs.append(sim.get_i_current_epoch())
-        t_epochs.append(sim.get_t_current_epoch())
+        t_epochs.append(np.round(sim.get_t_current_epoch(), 5))
     return (was_success, i_epochs, t_epochs,)
 
 
@@ -45,7 +46,7 @@ class TestRunSimDP(unittest.TestCase):
 
     def test_run_simdp(self):
         sim = instantiate_sim_specific()
-        sim.initialize(5)
+        sim.initialize(15)
         n_epochs: int = sim.get_n_epochs()
         n_segments: int = 5
         n_segment_epochs: int = (n_epochs-1) // n_segments
@@ -54,7 +55,7 @@ class TestRunSimDP(unittest.TestCase):
 
     def test_run_and_postprocess_simdp(self):
         sim = instantiate_sim_specific()
-        sim.initialize(5)
+        sim.initialize(15)
         n_epochs: int = sim.get_n_epochs()
         n_segments: int = 5
         n_segment_epochs: int = (n_epochs-1) // n_segments
