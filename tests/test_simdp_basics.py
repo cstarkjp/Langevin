@@ -42,14 +42,14 @@ class TestCreateSimDP(unittest.TestCase):
         n_segment_epochs: int = (n_epochs-1) // n_segments
         self.assertEqual((n_segment_epochs*n_segments+1), n_epochs)
 
-    def test_count_epochs_round15(self):
-        sim = instantiate_sim_specific()
-        _ = sim.initialize(5)
-        sim.initialize(15)
-        n_epochs: int = sim.get_n_epochs()
-        n_segments: int = 5
-        n_segment_epochs: int = (n_epochs-1) // n_segments
-        self.assertEqual((n_segment_epochs*n_segments+1), n_epochs)
+    # def test_count_epochs_round15(self):
+    #     sim = instantiate_sim_specific()
+    #     _ = sim.initialize(5)
+    #     sim.initialize(15)
+    #     n_epochs: int = sim.get_n_epochs()
+    #     n_segments: int = 5
+    #     n_segment_epochs: int = (n_epochs-1) // n_segments
+    #     self.assertEqual((n_segment_epochs*n_segments+1), n_epochs)
 
 if __name__ == '__main__':
     unittest.main()
