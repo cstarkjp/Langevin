@@ -68,7 +68,7 @@ def main() -> None:
         if not sim.postprocess():
             raise Exception("Failed to process sim results")
         i_epoch = sim.get_i_current_epoch()
-        t_epoch = np.round(sim.get_t_current_epoch())
+        t_epoch = np.round(sim.get_t_current_epoch(), 5)
         density_dict[t_epoch] = sim.get_density()
         print(bold(
             f"segment={i_segment}/{n_segments}  "

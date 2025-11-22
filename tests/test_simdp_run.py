@@ -38,6 +38,7 @@ def run_and_postprocess_simdp(
             raise Exception("Failed to run sim")
         was_success &= sim.postprocess()
         i_epochs.append(sim.get_i_current_epoch())
+        # t_epochs.append(sim.get_t_current_epoch())
         t_epochs.append(np.round(sim.get_t_current_epoch(), 5))
     return (was_success, i_epochs, t_epochs,)
 
