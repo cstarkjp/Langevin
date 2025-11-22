@@ -250,7 +250,7 @@ jobs:
 
       - name: Install package
         run: |
-          unzip /home/runner/Langevin/Langevin/dist/*.zip -d testing/
+          unzip /home/runner/work/Langevin/Langevin/dist/*.zip -d testing/
           python -m pip install testing/*.whl
 
       - name: Unit tests
