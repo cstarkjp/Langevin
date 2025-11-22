@@ -6,9 +6,10 @@
 #include "sim_dplangevin.hpp"
 
 double round_up(const double value, const int n_decimals) {
-    const double multiplier = std::pow(10, n_decimals);
-    const unsigned int int_value = static_cast<unsigned int>((value+1e-14) * multiplier);
-    const double rounded_value = static_cast<double>(int_value) / multiplier;
+    const double multiplier = std::pow(10, 10);
+    const unsigned int int_value 
+        = static_cast<unsigned int>((value) * multiplier);
+    const double rounded_value = (static_cast<double>(int_value) + 0.5) / multiplier;
     return rounded_value;
     // return std::round((value+1e-14) * multiplier) / multiplier;
 }
