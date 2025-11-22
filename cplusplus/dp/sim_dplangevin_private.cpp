@@ -15,14 +15,13 @@
 // }
 
 double round_up(const double value, const int n_decimals) {
-    // const double multiplier = std::pow(10, 10);
+    const double multiplier = std::pow(10, 15);
+    return std::round((value*multiplier+0.5))/multiplier;
     // const unsigned int int_value 
     //     = static_cast<unsigned int>((value) * multiplier);
     // const double rounded_value = (static_cast<double>(int_value)) / multiplier;
     // return rounded_value;
-    return std::round((value*1e15+0.5))*1e-15;
 }
-
 
 //! Count total number of time steps, just in case rounding causes problems
 int SimDP::count_epochs() const
