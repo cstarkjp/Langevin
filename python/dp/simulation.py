@@ -137,7 +137,7 @@ class Simulation:
         else:
             for i_segment_ in range(0, n_segments+1, 1):
                 step(i_segment_)
-        self.t_epochs = self.sim.get_t_epochs()
+        self.t_epochs = np.round(self.sim.get_t_epochs(), self.misc["n_round_Δt_summation"])
         self.mean_densities = self.sim.get_mean_densities()
 
     def run_wrapper(self) -> str:
