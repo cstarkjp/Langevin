@@ -18,15 +18,13 @@ double round_up(const double value, const int n_decimals) {
 int SimDP::count_epochs() const
 {
     int n_epochs;
-    double t; 
-    for (
-        n_epochs=0, t=0; 
-        t<p.t_final;
-        t=round_up(t+p.dt, n_decimals), n_epochs++
-    ) 
+    double t=0; 
+    for (n_epochs=0; t<p.t_final; t=round_up(t+p.dt, n_decimals)) 
     {
+        n_epochs++;
         if (do_verbose) {
             std::cout 
+                << "SimDP::count_epochs:  "
                 << n_epochs << ", "
                 << t << ", "
                 << round_up(t+p.dt, n_decimals) << ", "
