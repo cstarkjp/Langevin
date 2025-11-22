@@ -3,6 +3,7 @@
 HPP = $(wildcard cplusplus/*hpp) $(wildcard cplusplus/dp/*hpp)
 CPP = $(wildcard cplusplus/*cpp) $(wildcard cplusplus/dp/*cpp)
 PY = $(wildcard python/*) $(wildcard python/base/*) $(wildcard python/dp/*)
+DEMOS = $(wildcard demos/*py)
 TESTS = $(wildcard tests/*py)
 
 # Build everything (Python package, docs) and deploy pkg
@@ -34,7 +35,7 @@ build-local: $(HPP) $(CPP) $(PY) meson.build
 # Generate Doxygen docs/html/*
 .PHONY: doc
 doc: docs/html
-docs/html: $(HPP) $(CPP) $(TESTS) meson.build pyproject.toml README.md
+docs/html: $(HPP) $(CPP) $(DEMOS) $(TESTS) meson.build pyproject.toml README.md
 	@echo "****************************************************************"
 	@echo "Build Doxygen documentation"
 	doxygen Doxyfile

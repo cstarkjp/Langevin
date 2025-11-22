@@ -17,7 +17,7 @@
         "integration_method": "RUNGE_KUTTA"
     },
     "Analysis": {
-        "a_c": 1.39855
+        "a_c": 1.19050
     },
     "Misc": {
         "n_sims": 15,

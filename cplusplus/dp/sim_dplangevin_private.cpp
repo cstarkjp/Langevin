@@ -18,7 +18,7 @@ int SimDP::count_epochs() const
     double t; 
     for (
         n_epochs=0, t=0; 
-        t<p.t_final; 
+        t<my_round(p.t_final, n_decimals);
         t=my_round(t+p.dt, n_decimals), n_epochs++
     ) {}
     return n_epochs+1;

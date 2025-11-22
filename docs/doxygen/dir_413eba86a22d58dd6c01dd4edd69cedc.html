@@ -104,10 +104,10 @@ Build notes</h1>
 <p>First step: having cloned the repo, enter the root directory; don't try to build from the <span class="tt">src/</span> directory.</p>
 <p>Second step: build and deploy as a Python package: </p><pre class="fragment">rm -rf build; pip install .
 </pre><p>or just build and <em>not</em> deploy: </p><pre class="fragment">rm -rf build; meson setup build; meson compile -C build   
-</pre><p>Then, test your build/deployment using the Python script and Jupyter notebook in <span class="tt">tests/</span>. See the <a href="https://github.com/cstarkjp/Langevin/tree/main/tests/README.md">README</a> there for more details.</p>
+</pre><p>Then, check your build/deployment using the Python script and Jupyter notebook in <span class="tt">demos/</span>. See the <a href="https://github.com/cstarkjp/Langevin/tree/main/demos/README.md">README</a> there for more details.</p>
 <p>If you choose to build the <span class="tt">langevin</span> package and subsequently use it in-place, without deployment, you will need something like the following in all your Python scripts: </p><pre class="fragment">import sys, os
 sys.path.insert(0, os.path.join(os.path.pardir, "build"))
-</pre><p>Here, the assumption is you're running the script from a directory parallel with <span class="tt">build/</span>, such as in <span class="tt">tests/</span>. </p>
+</pre><p>Here, the assumption is you're running the script from a directory parallel with <span class="tt">build/</span>, such as in <span class="tt">demos/</span>. </p>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

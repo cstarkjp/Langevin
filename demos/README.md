@@ -3,7 +3,7 @@
 A simple demo of `langevin.dplvn` integration of a directed-percolation Langevin equation
  is provided in the Python script:
 
-    python demo_periodic.py
+    python dp_periodic.py
 
 This script runs a short simulation on a small rectangular 2D grid with periodic edge topology (aka a toroidal grid) and
 floating boundary conditions. The grid-averaged mean density 
@@ -15,12 +15,12 @@ A second demo shows how to simulate a 2d grid with both periodic and bounded
 grid edge topologies (aka a cylindrical grid) and mixed boundary conditions 
 (constant flux b.c.s along the bounded edges):
 
-    python demo_mixed.py
+    python dp_mixed.py
 
 The following Jupyter notebook has cells that do both of the above and more
 (just uncomment/comment out as needed):
 
-    ipython Demo.ipynb  
+    ipython DP.ipynb  
 
 In this notebook, the final density grid is rendered as an image, and the mean-density time series is graphed. Both plots are exported to PNG files. 
 

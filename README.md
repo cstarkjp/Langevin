@@ -125,7 +125,7 @@ Some build info is provided in the [`cplusplus/`](https://github.com/cstarkjp/La
 
 ## Usage
 
-Simple demos are provided in the [`tests/`](https://github.com/cstarkjp/Langevin/tree/main/tests/README.md) directory. The easiest route is to `git` clone the repo to get these files, or you can download one-by-one.
+Simple demonstration scripts are provided in [`demos/`](https://github.com/cstarkjp/Langevin/tree/main/demos/README.md). More complete examples are provided in the [`simulation/`](https://github.com/cstarkjp/Langevin/tree/main/simulation/dp/) directory. The easiest route is to `git` clone the repo to get these files, or you can download one-by-one.
 
 
 ## References

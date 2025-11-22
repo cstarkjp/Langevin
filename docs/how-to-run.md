@@ -10,9 +10,9 @@ These notes expand on the instructions in [How to install](how-to-install.md) an
         git clone https://github.com/cstarkjp/Langevin.git
 
     This will create a folder called `Langevin/`.
-    We are going to use its subfolders `tests/`, `simulations/`, and `experiments/`.
+    We are going to use its subfolders `demos/`, `simulations/`, and `experiments/`.
 
-1. Elsewhere, out of this folder hierarchy, create your own "work" folder. Let's say you call it `MyDPLangevin/`. Copy the three subfolders into it. Your folder should now look like this:
+1. Elsewhere, out of this folder hierarchy, create your own "work" folder. Let's say you call it `MyDPLangevin/`. Copy the three subfolders into it. Your folder should now look something like this:
 
     ![](images/how_to_run1.jpg)
 
@@ -37,7 +37,7 @@ If you choose not to set up a virtual environment, you will need to install the 
 <!-- ![](https://raw.githubusercontent.com/cstarkjp/Langevin/main/images/ρ_a1p18950_b1_D0p04_η1_x100_y50_Δx1_Δt0p1_rs1.gif
  "Density field evolution over time") -->
 
-Navigate to the `tests/` folder. Run the demo scripts there as explained on the [Tests page](tests-reference.md).
+Navigate to the `demos/` folder. Run the demonstration scripts there as explained on the [Demos page](demos-reference.md).
 
 ## Full simulations
 

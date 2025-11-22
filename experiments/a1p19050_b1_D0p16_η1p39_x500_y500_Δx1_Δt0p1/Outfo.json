@@ -1,17 +1,17 @@
 {
     "Parameters": {
-        "linear": 1.18855,
+        "linear": 1.1905,
         "quadratic": 1,
-        "diffusion": 0.04,
-        "noise": 1,
+        "diffusion": 0.16,
+        "noise": 1.3995,
         "dx": 1,
         "dt": 0.1,
         "t_final": 10000.0,
         "random_seed": 1,
         "grid_dimension": "D2",
         "grid_size": [
-            31,
-            31
+            500,
+            500
         ],
         "grid_topologies": [
             "BOUNDED",
@@ -26,23 +26,22 @@
         "initial_condition": "RANDOM_UNIFORM",
         "ic_values": [
             0,
-            10
+            4
         ],
         "integration_method": "RUNGE_KUTTA"
     },
     "Analysis": {
-        "a_c": 1.18857,
-        "dp_β": 0.5834,
-        "dp_ν_pp": 0.7333,
+        "a_c": 1.1905,
+        "dp_β": 0.584,
+        "dp_ν_pp": 0.734,
         "dp_ν_ll": 1.295,
-        "dp_δ": 0.4505,
-        "dp_z": 1.766,
+        "dp_δ": 0.451,
         "n_epochs": 100001
     },
     "Misc": {
         "n_sims": 15,
         "Δa_range": 0.01,
-        "n_round_Δt_summation": 15,
+        "n_round_Δt_summation": 5,
         "n_segments": 500,
         "n_digits": 6,
         "do_export_combo_graphs": false,
@@ -52,15 +51,16 @@
         "do_export_images": false,
         "do_make_video": false,
         "ylimits_log": [
-            0.0005,
-            2.0
+            0.003,
+            3.0
         ],
         "xlimits_log": [
             0.5,
             12000.0
         ],
+        "ysf_log": 0.78,
         "ylimits_rescaled": [
-            0.03,
+            0.1,
             10.0
         ],
         "xlimits_rescaled": [
@@ -69,14 +69,8 @@
         ],
         "video_frame_rate": 50,
         "video_format": "mp4",
-        "path": [
-            "..",
-            "..",
-            "experiments",
-            "a1p18855_b1_D0p04_η1_x31_y31_Δx1_Δt0p1"
-        ],
-        "name": "a1p18855_b1_D0p04_η1_x31_y31_Δx1_Δt0p1",
         "dplvn_version": "2025.11.19a1",
-        "date_time": "2025-11-22 10:23:40"
+        "date_time": "2025-11-22 13:14:58",
+        "computation_time": "0:18:06"
     }
 }

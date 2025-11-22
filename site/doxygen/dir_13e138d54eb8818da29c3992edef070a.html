@@ -94,19 +94,19 @@ $(function(){initNavTree('dir_13e138d54eb8818da29c3992edef070a.html','',''); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-files" class="groupheader"><a id="files" name="files"></a>
 Files</h2></td></tr>
-<tr class="memitem:demo_5Fmixed_2Epy" id="r_demo_5Fmixed_2Epy"><td class="memItemLeft" align="right" valign="top"><a href="demo__mixed_8py_source.html"><span class="icondoc"><div class="doc-icon"></div></span></a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="demo__mixed_8py.html">demo_mixed.py</a></td></tr>
+<tr class="memitem:demo_5Fmixed_2Epy" id="r_demo_5Fmixed_2Epy"><td class="memItemLeft" align="right" valign="top"><a href="demo__mixed_8py_source.html"><span class="icondoc"><div class="doc-icon"></div></span></a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="demo__mixed_8py.html">dp_mixed.py</a></td></tr>
 <tr class="memdesc:demo__mixed_8py"><td class="mdescLeft">&#160;</td><td class="mdescRight">Demo 2d Langevin simulation with mixed grid topology and boundary conditions. <br /></td></tr>
-<tr class="memitem:demo_5Fperiodic_2Epy" id="r_demo_5Fperiodic_2Epy"><td class="memItemLeft" align="right" valign="top"><a href="demo__periodic_8py_source.html"><span class="icondoc"><div class="doc-icon"></div></span></a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="demo__periodic_8py.html">demo_periodic.py</a></td></tr>
+<tr class="memitem:demo_5Fperiodic_2Epy" id="r_demo_5Fperiodic_2Epy"><td class="memItemLeft" align="right" valign="top"><a href="demo__periodic_8py_source.html"><span class="icondoc"><div class="doc-icon"></div></span></a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="demo__periodic_8py.html">dp_periodic.py</a></td></tr>
 <tr class="memdesc:demo__periodic_8py"><td class="mdescLeft">&#160;</td><td class="mdescRight">Demo 2d Langevin simulation with periodic grid topology. <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
 Testing</h1>
 <p>A simple demo of <span class="tt">dplvn</span> integration of a directed-percolation Langevin equation is provided in the Python script:</p>
-<p>python <a class="el" href="demo__periodic_8py.html" title="Demo 2d Langevin simulation with periodic grid topology.">demo_periodic.py</a></p>
+<p>python <a class="el" href="demo__periodic_8py.html" title="Demo 2d Langevin simulation with periodic grid topology.">dp_periodic.py</a></p>
 <p>This script runs a short simulation on a small rectangular 2D grid with periodic edge topology (aka a toroidal grid) and floating boundary conditions. The grid-averaged mean density is written out as a time series into a text file named "solution.txt" for all simulation time steps ("epochs"). Time slices of the density grid are printed for selected epochs.</p>
-<p>A second demo shows how to simulate a 2d grid with both periodic and bounded grid edge topologies (aka a cylindrical grid) and mixed boundary conditions (constant flux b.c.s along the bounded edges): </p><pre class="fragment">python demo_mixed.py
-</pre><p>The following Jupyter notebook has cells that do both of the above and more (just uncomment/comment out as needed): </p><pre class="fragment">ipython Demo.ipynb  
+<p>A second demo shows how to simulate a 2d grid with both periodic and bounded grid edge topologies (aka a cylindrical grid) and mixed boundary conditions (constant flux b.c.s along the bounded edges): </p><pre class="fragment">python dp_mixed.py
+</pre><p>The following Jupyter notebook has cells that do both of the above and more (just uncomment/comment out as needed): </p><pre class="fragment">ipython DP.ipynb  
 </pre><p>In this notebook, the final density grid is rendered as an image, and the mean-density time series is graphed. Both plots are exported to PNG files.</p>
 <p>If you build from source, and don't install <span class="tt">dplvn</span> in the Python environment's standard package path, you will need to point Python to this local build. Uncomment the following lines in the demo scripts/notebook: </p><pre class="fragment">import sys, os
 sys.path.insert(0, os.path.join(os.path.pardir, "build"))
