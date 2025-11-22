@@ -5,6 +5,7 @@
 """
 
 import unittest
+import langevin
 from langevin.dp import dplvn # type: ignore
 
 def instantiate_sim_defaults() -> dplvn.SimDP:
@@ -33,13 +34,17 @@ def instantiate_sim_verbose() -> dplvn.SimDP:
 
 class TestCreateSimDP(unittest.TestCase):
 
+    def test_langevin_version(self):
+        self.assertIn("__version__", langevin.__dict__)
+        print(f"langevin version:  {langevin.__version__}")
+
     def test_instantiate_sim_defaults(self):
         sim = instantiate_sim_defaults()
-        self.assertTrue(type(sim), dplvn.SimDP)
+        self.assertIsInstance(sim, dplvn.SimDP)
 
     def test_instantiate_sim_specifics(self):
         sim = instantiate_sim_specific()
-        self.assertTrue(type(sim), dplvn.SimDP)
+        self.assertIsInstance(sim, dplvn.SimDP)
 
     def test_initialize_sim(self):
         sim = instantiate_sim_specific()
