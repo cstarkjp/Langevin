@@ -41,6 +41,10 @@ int SimDP::count_epochs() const
                 << p.t_final 
                 << std::endl;
         }
+        if (n_epochs>static_cast<unsigned int>(p.t_final/p.dt))
+        {
+            break;
+        }
     }
     return n_epochs+1;
 }
