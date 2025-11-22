@@ -95,9 +95,9 @@ $(function(){initNavTree('sim__dplangevin__private_8cpp_source.html','',''); });
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="sim__dplangevin_8hpp.html">sim_dplangevin.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keywordtype">double</span> my_round(<span class="keyword">const</span> <span class="keywordtype">double</span> value, <span class="keyword">const</span> <span class="keywordtype">int</span> n_decimals) {</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keywordtype">double</span> round_up(<span class="keyword">const</span> <span class="keywordtype">double</span> value, <span class="keyword">const</span> <span class="keywordtype">int</span> n_decimals) {</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="keyword">const</span> <span class="keywordtype">double</span> multiplier = std::pow(10, n_decimals);</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keywordflow">return</span> std::round(value * multiplier) / multiplier;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keywordflow">return</span> std::round((value+1e-14) * multiplier) / multiplier;</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>}</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span></div>
@@ -108,8 +108,8 @@ $(function(){initNavTree('sim__dplangevin__private_8cpp_source.html','',''); });
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">double</span> t; </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordflow">for</span> (</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <a class="code hl_variable" href="class_sim_d_p.html#aa0794cf12da5c60de961f66d882bd00f">n_epochs</a>=0, t=0; </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        t&lt;my_round(<a class="code hl_variable" href="class_sim_d_p.html#a49ffbb20dcee99eb8399fb149cbb79e4">p</a>.t_final, <a class="code hl_variable" href="class_sim_d_p.html#ac9818c1fcb3f3ab022f61cc5eaa5d760">n_decimals</a>);</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        t=my_round(t+<a class="code hl_variable" href="class_sim_d_p.html#a49ffbb20dcee99eb8399fb149cbb79e4">p</a>.dt, <a class="code hl_variable" href="class_sim_d_p.html#ac9818c1fcb3f3ab022f61cc5eaa5d760">n_decimals</a>), <a class="code hl_variable" href="class_sim_d_p.html#aa0794cf12da5c60de961f66d882bd00f">n_epochs</a>++</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        t&lt;round_up(<a class="code hl_variable" href="class_sim_d_p.html#a49ffbb20dcee99eb8399fb149cbb79e4">p</a>.t_final, <a class="code hl_variable" href="class_sim_d_p.html#ac9818c1fcb3f3ab022f61cc5eaa5d760">n_decimals</a>);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        t=round_up(t+<a class="code hl_variable" href="class_sim_d_p.html#a49ffbb20dcee99eb8399fb149cbb79e4">p</a>.dt, <a class="code hl_variable" href="class_sim_d_p.html#ac9818c1fcb3f3ab022f61cc5eaa5d760">n_decimals</a>), <a class="code hl_variable" href="class_sim_d_p.html#aa0794cf12da5c60de961f66d882bd00f">n_epochs</a>++</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    ) {}</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_sim_d_p.html#aa0794cf12da5c60de961f66d882bd00f">n_epochs</a>+1;</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>}</div>
@@ -163,7 +163,7 @@ $(function(){initNavTree('sim__dplangevin__private_8cpp_source.html','',''); });
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordflow">for</span> (</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        i=<a class="code hl_variable" href="class_sim_d_p.html#a326dfd7d46fc1c78c1d5a1250a8af880">i_next_epoch</a>, t=<a class="code hl_variable" href="class_sim_d_p.html#a75928d98a0773f49f202dbcc8e7e035f">t_next_epoch</a>; </div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        i&lt;<a class="code hl_variable" href="class_sim_d_p.html#a326dfd7d46fc1c78c1d5a1250a8af880">i_next_epoch</a>+n_next_epochs; </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        t=my_round(t+<a class="code hl_variable" href="class_sim_d_p.html#a49ffbb20dcee99eb8399fb149cbb79e4">p</a>.dt, <a class="code hl_variable" href="class_sim_d_p.html#ac9818c1fcb3f3ab022f61cc5eaa5d760">n_decimals</a>), i++</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        t=round_up(t+<a class="code hl_variable" href="class_sim_d_p.html#a49ffbb20dcee99eb8399fb149cbb79e4">p</a>.dt, <a class="code hl_variable" href="class_sim_d_p.html#ac9818c1fcb3f3ab022f61cc5eaa5d760">n_decimals</a>), i++</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    )</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    {</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="comment">// Reapply boundary conditions prior to integrating</span></div>
