@@ -199,10 +199,19 @@ jobs:
           python -m pip install -r requirements.txt
           python -m pip install build
 
-      - name: Build & install package
+      - name: Build package
         run: |
           python -m build
-          python -m pip install *.whl
+
+      - name: Upload for testing
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos-latest-test
+          path: test/
+
+      - name: Install package
+        run: |
+          python -m pip install test/*.whl
 
       - name: Unit tests
         run: python -m unittest discover tests
