@@ -20,6 +20,17 @@ def instantiate_sim_specific() -> dplvn.SimDP:
         grid_size=(10, 5,),
     )
 
+def instantiate_sim_verbose() -> dplvn.SimDP:
+    return dplvn.SimDP(
+        linear=1.1895, quadratic=1.0, diffusion=0.04, noise=1.0, 
+        t_final=3, 
+        dx=1, dt=0.1,
+        random_seed=1,
+        grid_dimension=dplvn.D2,
+        grid_size=(10, 5,),
+        do_verbose=True,
+    )
+
 class TestCreateSimDP(unittest.TestCase):
 
     def test_instantiate_sim_defaults(self):
@@ -35,7 +46,7 @@ class TestCreateSimDP(unittest.TestCase):
         self.assertTrue(sim.initialize(5))
 
     def test_count_epochs_round5(self):
-        sim = instantiate_sim_specific()
+        sim = instantiate_sim_verbose()
         _ = sim.initialize(5)
         n_epochs: int = sim.get_n_epochs()
         n_segments: int = 5

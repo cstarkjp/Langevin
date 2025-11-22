@@ -18,9 +18,19 @@ int SimDP::count_epochs() const
     double t; 
     for (
         n_epochs=0, t=0; 
-        t<round_up(p.t_final, n_decimals);
+        t<p.t_final;
         t=round_up(t+p.dt, n_decimals), n_epochs++
-    ) {}
+    ) 
+    {
+        if (do_verbose) {
+            std::cout 
+                << n_epochs << ", "
+                << t << ", "
+                << round_up(t+p.dt, n_decimals) << ", "
+                << p.t_final 
+                << std::endl;
+        }
+    }
     return n_epochs+1;
 }
 

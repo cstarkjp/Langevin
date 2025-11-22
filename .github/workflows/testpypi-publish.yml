@@ -236,7 +236,7 @@ jobs:
       - name: Build & install package
         run: |
           python -m build
-          python -m pip install langevin
+          # python -m pip install langevin
 
       - name: Unit tests
         run: python -m unittest discover tests
@@ -269,7 +269,7 @@ jobs:
       - name: Build & install package
         run: |
           python -m build
-          python -m pip install langevin
+          # python -m pip install langevin
 
       - name: Unit tests
         run: python -m unittest discover tests
