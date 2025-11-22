@@ -201,10 +201,9 @@ jobs:
 
       - name: Install
         run: |
-          # source venv/bin/activate
           python -m pip install --upgrade pip
-          python -m pip install $HOME/work/Langevin/Langevin/dist/*.whl
-          # python -m pip install -r requirements.txt
+          pip install -e .
+          # pip install $HOME/work/Langevin/Langevin/dist/*.whl
 
       - name: Unit tests
         run: python -m unittest discover tests
@@ -232,16 +231,25 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: windows-dist
-          path: dist\
+          path: dist
 
       - name: Install
         run: |
           python -m pip install --upgrade pip
-          python -m pip install pybind11 numpy jupyter ipython matplotlib pandas tqdm ffmpeg-python
-          python -m pip install --no-index --find-links=D:\a\Langevin\Langevin\dist\ langevin
-
+          pip install pybind11 numpy jupyter ipython matplotlib pandas tqdm ffmpeg-python
+          pip install -e .
+          # pip install --no-index --find-links=D:\a\Langevin\Langevin\dist\ langevin
+          
       - name: Unit tests
-        run: python -m unittest discover tests
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: 
+          dir 
+          python -m unittest discover tests
+          # echo "C:\path\to\dlls" | Out-File -FilePath $env:GITHUB_PATH -Append
+
+          #os.add_dll_directory()
+
 
   publish-to-testpypi:
     runs-on: ubuntu-latest
