@@ -1,4 +1,4 @@
-name: Upload Python Package to PyPI
+name: Publish to PyPI
 
 # Consider switching to using
 #   https://cibuildwheel.pypa.io/en/stable/ci-services/#
