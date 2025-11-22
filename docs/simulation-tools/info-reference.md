@@ -27,7 +27,7 @@ Here is one example, taken from [`Langevin/experiments/a1p18855_b1_D0p04_η1_x12
         "Misc": {
             "n_sims": 15,
             "Δa_range": 0.01,
-            "n_round_Δt_summation": 15,
+            "n_round_Δt_summation": 5,
             "n_segments": 500,
             "n_digits": 6,
             "do_export_combo_graphs": false,

@@ -41,7 +41,7 @@
     "Misc": {
         "n_sims": 15,
         "Δa_range": 0.01,
-        "n_round_Δt_summation": 15,
+        "n_round_Δt_summation": 5,
         "n_segments": 500,
         "n_digits": 6,
         "do_export_combo_graphs": false,
@@ -69,7 +69,7 @@
         ],
         "video_frame_rate": 50,
         "video_format": "mp4",
-        "dplvn_version": "2025.11.22a4",
+        "dplvn_version": "2025.11.22a5",
         "date_time": "2025-11-21 13:18:09",
         "computation_time": "0:04:40"
     }
