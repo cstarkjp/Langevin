@@ -238,11 +238,20 @@ jobs:
           # python -m pip install --upgrade pip
           pip install -e .
 
-      - name: Run scripts
+      - name: Run demo
         shell: powershell
         run: 
-          python demos\dp_mixed.py
+          $userBinPath = "$env:USERPROFILE\.local\bin"
+          Add-Content -Path $env:GITHUB_PATH -Value $userBinPath
+
+      - name: Run unit test
+        shell: powershell
+        run: 
           python -m unittest tests\test_langevin_version.py 
+
+      - name: Run all unit tests
+        shell: powershell
+        run: 
           python -m unittest discover tests
 
 
