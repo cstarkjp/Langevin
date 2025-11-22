@@ -207,6 +207,12 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
           # python -m pip install build
+
+      - name: Build & install package
+        run: |
+          python -m build
+          python -m pip install langevin
+
       - name: Unit tests
         run: python -m unittest discover tests
 
@@ -231,6 +237,11 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
           python -m pip install build
+
+      - name: Build & install package
+        run: |
+          python -m build
+          python -m pip install langevin
 
       - name: Unit tests
         run: python -m unittest discover tests
