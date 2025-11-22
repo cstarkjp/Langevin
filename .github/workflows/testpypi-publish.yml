@@ -204,12 +204,11 @@ jobs:
           ls -l ./dist     
           ls -l $HOME/work/Langevin/Langevin/dist
           # ls -l /Users/runner/work/Langevin/Langevin/dist        
-          # unzip /Users/runner/work/Langevin/Langevin/dist/*.zip -d testing/
 
       - name: Install
         run: |
           python -m pip install --upgrade pip
-          python -m pip install $HOME/work/Langevin/Langevin/*.whl
+          python -m pip install $HOME/work/Langevin/Langevin/dist/*.whl
           python -m pip install -r requirements.txt
 
       # - name: Install package
@@ -247,13 +246,12 @@ jobs:
         run: |
           ls -l ./dist        
           ls -l $HOME/work/Langevin/Langevin/dist        
-          # unzip /home/runner/work/Langevin/Langevin/dist/*.zip -d testing/
 
       - name: Install dependencies
         run: |
           # source venv/bin/activate
           python -m pip install --upgrade pip
-          python -m pip install $HOME/work/Langevin/Langevin/dist /*.whl
+          python -m pip install $HOME/work/Langevin/Langevin/dist/*.whl
           python -m pip install -r requirements.txt
 
       # - name: Install package
