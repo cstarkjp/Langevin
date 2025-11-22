@@ -202,7 +202,7 @@ jobs:
       - name: Build & install package
         run: |
           python -m build
-          python -m pip install langevin
+          python -m pip install *.whl
 
       - name: Unit tests
         run: python -m unittest discover tests
@@ -236,7 +236,8 @@ jobs:
       - name: Build & install package
         run: |
           python -m build
-          # python -m pip install langevin
+          # python -m pip install langevin-2025.11.22a3-cp314-cp314-linux_x86_64.whl
+          python -m pip install *.whl
 
       - name: Unit tests
         run: python -m unittest discover tests
@@ -269,7 +270,7 @@ jobs:
       - name: Build & install package
         run: |
           python -m build
-          # python -m pip install langevin
+          python -m pip install *.whl
 
       - name: Unit tests
         run: python -m unittest discover tests
