@@ -240,10 +240,9 @@ jobs:
 
       - name: Run scripts
         shell: powershell
-        working-directory: ./Langevin/Langevin
         run: 
-          python -m demos/dp_mixed.py
-          python -m unittest tests/test_langevin_version.py 
+          python -m demos\dp_mixed.py
+          python -m unittest tests\test_langevin_version.py 
           python -m unittest discover tests
 
 
