@@ -233,11 +233,13 @@ jobs:
           path: dist
 
       - name: Install
+        shell: powershell
         run: |
           # python -m pip install --upgrade pip
           pip install -e .
 
       - name: Run scripts
+        shell: powershell
         working-directory: ./Langevin/Langevin
         run: 
           python -m demos/dp_mixed.py
