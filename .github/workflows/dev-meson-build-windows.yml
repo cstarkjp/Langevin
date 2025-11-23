@@ -22,19 +22,15 @@ jobs:
             # Invoke vcvarsall and capture environment
             $envChanges = & "$vcvarsallPath" x64 -vcvars_dump
             
-            # Export changes as GitHub Actions environment variables
+            # Export changes to GITHUB_ENV
             foreach ($line in $envChanges) {
                 if ($line -match '^SET\s+(\w+)=(.+)$') {
-                    Write-Host "::set-output name=$($matches[1])::$($matches[2])"
+                    "$(($matches[1]))=$(($matches[2]))" | Out-File -FilePath $env:GITHUB_ENV -Append
                 }
             }
-        id: vcvars
+
       - name: Configure and Build with Meson
         run: |
-            # Use the exported environment variables
-            ${{ steps.vcvars.outputs.all_env_vars }}
-            
-            # Now run Meson commands
             python -m pip install meson
             meson setup builddir
             meson compile -C builddir

@@ -98,11 +98,3 @@ jobs:
   #         # pip install pybind11 numpy jupyter ipython matplotlib pandas tqdm ffmpeg-python
   #         # pip install --no-index --find-links=D:\a\Langevin\Langevin\dist\ langevin
           
-  #     # - name: Unit tests
-  #     #   #if:runner.os == 'Windows'
-  #     #   # shell: powershell
-  #     #   run: 
-  #     #     python -m unittest discover tests
-  #     #     # echo "C:\path\to\dlls" | Out-File -FilePath $env:GITHUB_PATH -Append
-  #     #     #os.add_dll_directory()
-
