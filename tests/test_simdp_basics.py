@@ -10,7 +10,10 @@ import sys
 dp_dir = os.path.abspath("C:\\hostedtoolcache\\windows\\Python\\3.14.0\\x64\\Lib\\site-packages\\langevin\\dp")
 if sys.platform == "win32" and os.path.exists(dp_dir):
     os.add_dll_directory(dp_dir)
+    sys.path.insert(0, dp_dir)
+    print
     print(sys.path)
+    print
 from langevin.dp import dplvn # type: ignore
 
 def instantiate_sim_defaults() -> dplvn.SimDP:
