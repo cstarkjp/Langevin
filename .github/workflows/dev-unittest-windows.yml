@@ -1,0 +1,35 @@
+name: Windows
+
+on:
+  # release:
+  #   types: [published]
+  push:
+    branches:
+      - dev
+
+permissions:
+  contents: read
+
+jobs:
+  test-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install langevin
+      - name: Check Python path
+        shell: powershell
+        run: python -c "import sys; print(sys.path)"
+      - name: Check repo checkout
+        run: dir
+      - name: Check langevin pkg install
+        run: dir C:\hostedtoolcache\windows\Python\3.14.0\x64\Lib\site-packages\langevin\dp
+      - name: Run version no. unit test
+        run: python -m unittest discover tests -p "*langevin*"
+      - name: Run all unit tests
+        run: python -m unittest discover tests
