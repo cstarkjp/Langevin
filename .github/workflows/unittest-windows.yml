@@ -19,11 +19,13 @@ jobs:
         with:
           python-version: "3.14"
 
-      - name: Prepare MSVC
-        uses: bus1/cabuild/action/msdevshell@v1
-        with:
-          architecture: x64
-      - name: Download and Install Visual C++ Redistributable
+      # - name: Prepare MSVC
+      #   uses: bus1/cabuild/action/msdevshell@v1
+      #   with:
+      #     architecture: x64
+
+      # https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170
+      - name: Download and install MSVC redistributable
         run: |
           # Download the latest supported Visual C++ Redistributable (2015-2022)
           # You can find the direct download link on the official Microsoft website
