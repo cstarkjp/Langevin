@@ -4,7 +4,9 @@ name: TestPyPI
 #   https://cibuildwheel.pypa.io/en/stable/ci-services/#
 
 # gh action publish to pypi changes windows .lib to .dll.a
-# Try to use cibuildwheel
+# cibuildwheel "works" but is super slow, and appears to fail
+#  after completing only one job (gives up on the others)
+# Might be fixable if more correct/up-to-date syntax used?
 
 
 on:
@@ -16,331 +18,350 @@ permissions:
   contents: read
 
 jobs:
-
-  # build-macos-latest:
-  #   runs-on: macos-latest
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: actions/setup-python@v5
-  #       with:
-  #         python-version: "3.14"
-          
-  #     - name: Install dependencies
-  #       run: |
-  #         python -m pip install --upgrade pip
-  #         python -m pip install build
-          
-  #     - name: Build package
-  #       run: |
-  #         python -m build
-          
-  #     - name: Upload distribution
-  #       uses: actions/upload-artifact@v4
-  #       with:
-  #         name: macos-latest-dist
-  #         path: dist/
-
-  # build-macos-14:
-  #   runs-on: macos-14
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: actions/setup-python@v5
-  #       with:
-  #         python-version: "3.14"
-          
-  #     - name: Install dependencies
-  #       run: |
-  #         python -m pip install --upgrade pip
-  #         python -m pip install build
-          
-  #     - name: Build package
-  #       run: |
-  #         python -m build
-          
-  #     - name: Upload distribution
-  #       uses: actions/upload-artifact@v4
-  #       with:
-  #         name: macos-14-dist
-  #         path: dist/
-
-  # build-macos-15:
-  #   runs-on: macos-15
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: actions/setup-python@v5
-  #       with:
-  #         python-version: "3.14"
-          
-  #     - name: Install dependencies
-  #       run: |
-  #         python -m pip install --upgrade pip
-  #         python -m pip install build
-          
-  #     - name: Build package
-  #       run: |
-  #         python -m build
-          
-  #     - name: Upload distribution
-  #       uses: actions/upload-artifact@v4
-  #       with:
-  #         name: macos-15-dist
-  #         path: dist/
-
-  # build-linux:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: actions/setup-python@v5
-  #       with:
-  #         python-version: "3.14"
-          
-  #     - name: Install dependencies
-  #       run: |
-  #         python -m pip install --upgrade pip
-  #         python -m pip install build auditwheel
-          
-  #     - name: Build package
-  #       run: |
-  #         python -m build
-  #         mv dist dist_tmp
-  #         auditwheel repair dist_tmp/*.whl --wheel-dir dist
-  #         rm -f dist/*-linux_x86_64.whl
-          
-  #     - name: Upload distribution
-  #       uses: actions/upload-artifact@v4
-  #       with:
-  #         name: linux-dist
-  #         path: dist/
-
-  # build-windows:
-  #   runs-on: windows-latest
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: actions/setup-python@v5
-  #       with:
-  #         python-version: "3.14"
-          
-  #     - name: Install dependencies
-  #       run: |
-  #         python -m pip install --upgrade pip
-  #         python -m pip install build
-
-  #     - name: Prepare MSVC
-  #       uses: bus1/cabuild/action/msdevshell@v1
-  #       with:
-  #         architecture: x64
-
-  #     - name: Build package
-  #       run: python -m build
-
-  #     - name: Upload distribution
-  #       uses: actions/upload-artifact@v4
-  #       with:
-  #         name: windows-dist
-  #         path: dist/
-
-  build-wheels:
-    name: Build wheels on ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        # windows-latest,
-        os: [ubuntu-latest, macos-latest]
-
+  build-macos-latest:
+    runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v5
-
-      - name: Build wheels
-        run: pipx run cibuildwheel==3.3.0
-
-      - uses: actions/upload-artifact@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
-          name: cibw-wheels-${{ matrix.os }}-${{ strategy.job-index }}
-          path: ./wheelhouse/*.whl
+          python-version: "3.14"
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install build
+          
+      - name: Build package
+        run: |
+          python -m build
+          
+      - name: Upload distribution
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos-latest-dist
+          path: dist/
 
-  publish:
-    needs: build-wheels
+  build-macos-14:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install build
+          
+      - name: Build package
+        run: |
+          python -m build
+          
+      - name: Upload distribution
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos-14-dist
+          path: dist/
+
+  build-macos-15:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install build
+          
+      - name: Build package
+        run: |
+          python -m build
+          
+      - name: Upload distribution
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos-15-dist
+          path: dist/
+
+  build-linux:
     runs-on: ubuntu-latest
     steps:
-      - name: Download all the dists
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install build auditwheel
+          
+      - name: Build package
+        run: |
+          python -m build
+          mv dist dist_tmp
+          auditwheel repair dist_tmp/*.whl --wheel-dir dist
+          rm -f dist/*-linux_x86_64.whl
+          
+      - name: Upload distribution
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-dist
+          path: dist/
+
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install build
+
+      - name: Prepare MSVC
+        uses: bus1/cabuild/action/msdevshell@v1
+        with:
+          architecture: x64
+
+      - name: Build package
+        run: python -m build
+
+      - name: Upload distribution
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-dist
+          path: dist/
+
+  # build-wheels:
+  #   name: Build wheels on ${{ matrix.os }}
+  #   runs-on: ${{ matrix.os }}
+  #   strategy:
+  #     matrix:
+  #       # windows-latest,
+  #       os: [ubuntu-latest, macos-latest]
+
+  #   steps:
+  #     - uses: actions/checkout@v5
+
+  #     - name: Build wheels
+  #       run: pipx run cibuildwheel==3.3.0
+
+  #     - uses: actions/upload-artifact@v4
+  #       with:
+  #         name: cibw-wheels-${{ matrix.os }}-${{ strategy.job-index }}
+  #         path: ./wheelhouse/*.whl
+
+  # publish:
+  #   needs: build-wheels
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Download all the dists
+  #       uses: actions/download-artifact@v4
+  #       with:
+  #         name: python-package-distributions
+  #         path: dist
+  #     - name: Publish distribution to TestPyPI
+  #       uses: pypa/gh-action-pypi-publish@release/v1
+  #       with:
+  #         repository-url: https://test.pypi.org/legacy/
+
+
+  test-macos:
+    runs-on: macos-latest
+    needs: build-macos-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with: 
+          python-version: "3.14"
+
+      - name: Add user bin to PATH
+        run: echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Retrieve linux artifact
         uses: actions/download-artifact@v4
         with:
-          name: python-package-distributions
+          name: macos-latest-dist
+          path: dist/
+
+      - name: Check package
+        run: |
+          ls -l ./dist     
+          # ls -l $HOME/work/Langevin/Langevin/dist
+          # ls -l /Users/runner/work/Langevin/Langevin/dist        
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install ./dist/*.whl
+
+      - name: Unit tests
+        run: python -m unittest discover tests
+
+  test-linux:
+    runs-on: ubuntu-latest
+    needs: build-linux
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with: 
+          python-version: "3.14"
+          
+      - name: Add user bin to PATH
+        run: echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Retrieve linux artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: linux-dist
+          path: dist/
+
+      - name: Check package
+        run: |
+          ls -l ./dist        
+          ls -l $HOME/work/Langevin/Langevin/dist        
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          # pip install -e .
+          pip install $HOME/work/Langevin/Langevin/dist/*.whl
+
+      - name: Unit tests
+        run: python -m unittest discover tests
+
+  test-windows:
+    runs-on: windows-latest
+    needs: build-windows
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with: 
+          python-version: "3.14"
+
+      - name: Add user bin to PATH on Windows
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: |
+          $userBinPath = "$env:USERPROFILE\.local\bin"
+          Add-Content -Path $env:GITHUB_PATH -Value $userBinPath
+
+      - name: Retrieve windows artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: windows-dist
           path: dist
-      - name: Publish distribution to TestPyPI
+          
+      - name: Install
+        shell: powershell
+        run: |
+          python -m pip install --upgrade pip
+          $wheels = Get-ChildItem -Path dist\*.whl -File
+          Write-Output ($wheels -join "`n") 
+          $wheel = $wheels[0]
+          Write-Output $wheel
+          pip install $wheel
+
+      - name: Check Python path
+        shell: powershell
+        run: python -c "import sys; print(sys.path)"
+      - name: Check Python details
+        run: |
+          python --version
+          where python
+          pip list
+      - name: Run version no. unit test
+        run: python -m unittest discover tests -p "*langevin*"
+      - name: Run all unit tests
+        run: python -m unittest discover tests 
+      - name: Run demo
+        shell: powershell
+        run: |
+          # $userBinPath = "$env:USERPROFILE\.local\bin"
+          # Add-Content -Path $env:GITHUB_PATH -Value $userBinPath
+          python demos\dp_mixed.py
+
+  publish-to-testpypi:
+    runs-on: ubuntu-latest
+    needs: [
+      build-macos-14, 
+      build-macos-15, 
+      build-macos-latest, 
+      build-linux,
+      build-windows, 
+      test-linux,
+      test-macos,
+      test-windows
+    ]
+    permissions:
+      id-token: write # Required for OIDC authentication
+      contents: read # To checkout the repository
+
+    steps:
+      - name: Retrieve macos-14 artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: macos-14-dist
+          path: dist/
+      - name: Retrieve macos-15 artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: macos-15-dist
+          path: dist/
+      - name: Retrieve macos artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: macos-latest-dist
+          path: dist/
+      - name: Retrieve linux artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: linux-dist
+          path: dist/
+      - name: Retrieve windows artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: windows-dist
+          path: dist/
+
+      - name: Check dist
+        run: |
+          ls -l dist/
+          
+      - name: Publish to TestPyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           repository-url: https://test.pypi.org/legacy/
 
 
-  # test-macos:
-  #   runs-on: macos-latest
-  #   needs: build-macos-latest
-  #   steps:
-  #     - name: Checkout Code
-  #       uses: actions/checkout@v4
-        
-  #     - name: Setup Python
-  #       uses: actions/setup-python@v5
-  #       with: 
-  #         python-version: "3.14"
+#   # .github/workflows/ci-cd.yml
+# jobs:
+#   pypi-publish:
+#     name: Upload release to PyPI
+#     runs-on: ubuntu-latest
+#     environment:
+#       name: pypi
+#       url: https://pypi.org/p/<your-pypi-project-name>
+#     permissions:
+#       id-token: write  # IMPORTANT: this permission is mandatory for trusted publishing
+#     steps:
+#     # retrieve your distributions here
 
-  #     - name: Add user bin to PATH
-  #       run: echo "$HOME/.local/bin" >> $GITHUB_PATH
-
-  #     - name: Retrieve linux artifact
-  #       uses: actions/download-artifact@v4
-  #       with:
-  #         name: macos-latest-dist
-  #         path: dist/
-
-  #     - name: Check package
-  #       run: |
-  #         ls -l ./dist     
-  #         # ls -l $HOME/work/Langevin/Langevin/dist
-  #         # ls -l /Users/runner/work/Langevin/Langevin/dist        
-
-  #     - name: Install
-  #       run: |
-  #         python -m pip install --upgrade pip
-  #         python -m pip install ./dist/*.whl
-
-  #     - name: Unit tests
-  #       run: python -m unittest discover tests
-
-  # test-linux:
-  #   runs-on: ubuntu-latest
-  #   needs: build-linux
-  #   steps:
-  #     - name: Checkout Code
-  #       uses: actions/checkout@v4
-  #     - name: Setup Python
-  #       uses: actions/setup-python@v5
-  #       with: 
-  #         python-version: "3.14"
-          
-  #     - name: Add user bin to PATH
-  #       run: echo "$HOME/.local/bin" >> $GITHUB_PATH
-
-  #     - name: Retrieve linux artifact
-  #       uses: actions/download-artifact@v4
-  #       with:
-  #         name: linux-dist
-  #         path: dist/
-
-  #     - name: Check package
-  #       run: |
-  #         ls -l ./dist        
-  #         ls -l $HOME/work/Langevin/Langevin/dist        
-
-  #     - name: Install
-  #       run: |
-  #         python -m pip install --upgrade pip
-  #         # pip install -e .
-  #         pip install $HOME/work/Langevin/Langevin/dist/*.whl
-
-  #     - name: Unit tests
-  #       run: python -m unittest discover tests
-
-  # test-windows:
-  #   runs-on: windows-latest
-  #   needs: build-windows
-  #   steps:
-  #     - name: Checkout Code
-  #       uses: actions/checkout@v4
-        
-  #     - name: Setup Python
-  #       uses: actions/setup-python@v5
-  #       with: 
-  #         python-version: "3.14"
-
-  #     - name: Add user bin to PATH on Windows
-  #       if: runner.os == 'Windows'
-  #       shell: powershell
-  #       run: |
-  #         $userBinPath = "$env:USERPROFILE\.local\bin"
-  #         Add-Content -Path $env:GITHUB_PATH -Value $userBinPath
-
-  #     - name: Retrieve windows artifact
-  #       uses: actions/download-artifact@v4
-  #       with:
-  #         name: windows-dist
-  #         path: dist
-          
-  #     - name: Install
-  #       shell: powershell
-  #       run: |
-  #         python -m pip install --upgrade pip
-  #         $wheels = Get-ChildItem -Path dist\*.whl -File
-  #         Write-Output ($wheels -join "`n") 
-  #         $wheel = $wheels[0]
-  #         Write-Output $wheel
-  #         pip install $wheel
-
-  #     - name: Check Python path
-  #       shell: powershell
-  #       run: python -c "import sys; print(sys.path)"
-  #     - name: Check Python details
-  #       run: |
-  #         python --version
-  #         where python
-  #         pip list
-  #     - name: Run version no. unit test
-  #       run: python -m unittest discover tests -p "*langevin*"
-  #     - name: Run all unit tests
-  #       run: python -m unittest discover tests 
-  #     - name: Run demo
-  #       shell: powershell
-  #       run: |
-  #         # $userBinPath = "$env:USERPROFILE\.local\bin"
-  #         # Add-Content -Path $env:GITHUB_PATH -Value $userBinPath
-  #         python demos\dp_mixed.py
-
-  # publish-to-testpypi:
-  #   runs-on: ubuntu-latest
-  #   needs: [
-  #     build-macos-14, 
-  #     build-macos-15, 
-  #     build-macos-latest, 
-  #     build-linux,
-  #     build-windows, 
-  #     test-linux,
-  #     test-macos,
-  #     test-windows
-  #   ]
-  #   permissions:
-  #     id-token: write # Required for OIDC authentication
-  #     contents: read # To checkout the repository
-
-  #   steps:
-  #     - name: Retrieve macos-14 artifact
-  #       uses: actions/download-artifact@v4
-  #       with:
-  #         name: macos-14-dist
-  #         path: dist/
-  #     - name: Retrieve macos-15 artifact
-  #       uses: actions/download-artifact@v4
-  #       with:
-  #         name: macos-15-dist
-  #         path: dist/
-  #     - name: Retrieve macos artifact
-  #       uses: actions/download-artifact@v4
-  #       with:
-  #         name: macos-latest-dist
-  #         path: dist/
-  #     - name: Retrieve linux artifact
-  #       uses: actions/download-artifact@v4
-  #       with:
-  #         name: linux-dist
-  #         path: dist/
-  #     - name: Retrieve windows artifact
-  #       uses: actions/download-artifact@v4
-  #       with:
-  #         name: windows-dist
-  #         path: dist/
-          
-  #     - name: Publish to TestPyPI
-  #       uses: pypa/gh-action-pypi-publish@release/v1
-  #       with:
-  #         repository-url: https://test.pypi.org/legacy/
-
+#     - name: Publish package distributions to PyPI
+#       uses: pypa/gh-action-pypi-publish@release/v1
