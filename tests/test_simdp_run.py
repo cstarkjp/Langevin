@@ -39,12 +39,8 @@ def run_and_postprocess_simdp(
             raise Exception("Failed to run sim")
         was_success &= sim.postprocess()
         i_epochs[i_segment] = int(sim.get_i_current_epoch())
-        t_epoch_ = sim.get_t_current_epoch()
-        t_epochs[i_segment] = (
-            float(np.round(t_epoch_, 5)) if np.abs(t_epoch_)>1e-15
-            else 0
-        )
-        print(i_segment, t_epoch_, float(np.round(t_epoch_, 5)), t_epochs[i_segment])
+        t_epochs[i_segment] = float(np.round(sim.get_t_current_epoch(), 5))
+        print(i_segment, float(np.round(sim.get_t_current_epoch(), 5)), t_epochs[i_segment])
     return (was_success, i_epochs, t_epochs,)
 
 
@@ -68,10 +64,20 @@ class TestRunSimDP(unittest.TestCase):
         (was_success, i_epochs, t_epochs,) \
             = run_and_postprocess_simdp(sim, n_segments, n_segment_epochs,)
         self.assertTrue(was_success)
-        t_epochs[0] = 0
-        self.assertEqual(i_epochs, [0, 6, 12, 18, 24, 30])
+        self.assertEqual(
+            i_epochs, 
+            [0, 6, 12, 18, 24, 30]
+        )
         print(f"Comparing:  {t_epochs[1:]} {[0.6, 1.2, 1.8, 2.4, 3.0]}")
-        self.assertEqual(t_epochs[1:], [0.6, 1.2, 1.8, 2.4, 3.0])
+        self.assertEqual(
+            t_epochs[1:], 
+            [0.6, 1.2, 1.8, 2.4, 3.0]
+        )
+        # print(f"Comparing:  {np.array(t_epochs, dtype=np.float64)} {np.array([0.0, 0.6, 1.2, 1.8, 2.4, 3.0], dtype=np.float64)}")
+        # self.assertTrue(np.array_equal(
+        #     np.round(np.array(t_epochs),5), 
+        #     np.round(np.array([0.0, 0.6, 1.2, 1.8, 2.4, 3.0]))
+        # ))
 
 if __name__ == '__main__':
     unittest.main()
