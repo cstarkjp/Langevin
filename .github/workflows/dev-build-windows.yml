@@ -3,7 +3,7 @@ name: dev build Windows
 on:
   push:
     branches:
-      - none
+      - dev
 
 permissions:
   contents: read
@@ -80,6 +80,13 @@ jobs:
           python --version
           where python
           pip list
+
+      - name: Check site-packages
+        run: |
+          dir C:\hostedtoolcache\windows\Python\3.14.0\x64\Lib\site-packages\langevin
+          dir C:\hostedtoolcache\windows\Python\3.14.0\x64\Lib\site-packages\langevin\base
+          dir C:\hostedtoolcache\windows\Python\3.14.0\x64\Lib\site-packages\langevin\dp
+
       - name: Run version no. unit test
         run: python -m unittest discover tests -p "*langevin*"
       - name: Run all unit tests
