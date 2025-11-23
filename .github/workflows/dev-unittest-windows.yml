@@ -1,4 +1,5 @@
 name: dev test Windows
+# https://docs.github.com/en/actions/reference/runners/github-hosted-runners
 
 on:
   # release:
@@ -25,6 +26,11 @@ jobs:
       - name: Check Python path
         shell: powershell
         run: python -c "import sys; print(sys.path)"
+      - name: Check Python details
+        run: |
+          python --version
+          where python
+          pip list        
       - name: Check repo checkout
         run: dir
       - name: Check site-packages
