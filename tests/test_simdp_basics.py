@@ -5,6 +5,12 @@
 """
 
 import unittest
+import os
+import sys
+dp_dir = os.path.abspath("C:\\hostedtoolcache\\windows\\Python\\3.14.0\\x64\\Lib\\site-packages\\langevin\\dp")
+if sys.platform == "win32" and os.path.exists(dp_dir):
+    os.add_dll_directory(dp_dir)
+    print(sys.path)
 from langevin.dp import dplvn # type: ignore
 
 def instantiate_sim_defaults() -> dplvn.SimDP:

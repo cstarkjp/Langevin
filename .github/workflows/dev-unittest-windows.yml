@@ -1,4 +1,4 @@
-name: Windows
+name: dev test Windows
 
 on:
   # release:
@@ -11,7 +11,7 @@ permissions:
   contents: read
 
 jobs:
-  test-windows:
+  dev-test-windows:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
