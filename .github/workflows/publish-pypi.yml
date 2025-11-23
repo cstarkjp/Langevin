@@ -1,4 +1,4 @@
-name: Publish to PyPI
+name: PyPI
 
 # Consider switching to using
 #   https://cibuildwheel.pypa.io/en/stable/ci-services/#
