@@ -5,7 +5,7 @@
 project(
     'Langevin',
     'cpp',
-    version: '2025.11.23a3',
+    version: '2025.11.23a4',
     default_options: ['cpp_std=c++11'],
 )
 add_project_arguments(
