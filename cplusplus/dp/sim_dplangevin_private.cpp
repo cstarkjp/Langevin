@@ -14,10 +14,15 @@
 //     // return std::round((value+1e-14) * multiplier) / multiplier;
 // }
 
-double round_up(const double value, const int n_decimals) {
+double round_time(const double time) {
     const double multiplier = std::pow(10, 15);
-    return std::round((value*multiplier+0.5))/multiplier;
-    // const unsigned int int_value 
+    if (std::abs(time)<std::pow(10, -15)) {
+        return 0.0;
+    }
+    else {
+        return std::round((std::abs(time)*multiplier+0.5))/multiplier;
+    }
+   // const unsigned int int_value 
     //     = static_cast<unsigned int>((value) * multiplier);
     // const double rounded_value = (static_cast<double>(int_value)) / multiplier;
     // return rounded_value;
@@ -28,22 +33,9 @@ int SimDP::count_epochs() const
 {
     int n_epochs;
     double t=0; 
-    for (n_epochs=0; t<p.t_final; t=round_up(t+p.dt, n_decimals)) 
+    for (n_epochs=0; t<p.t_final; t=round_time(t+p.dt)) 
     {
         n_epochs++;
-        // if (do_verbose) {
-        //     std::cout 
-        //         << "SimDP::count_epochs:  "
-        //         << n_epochs << ", "
-        //         << t << ", "
-        //         << round_up(t+p.dt, n_decimals) << ", "
-        //         << p.t_final 
-        //         << std::endl;
-        // }
-        // if (n_epochs>static_cast<unsigned int>(p.t_final/p.dt))
-        // {
-        //     break;
-        // }
     }
     return n_epochs+1;
 }
@@ -90,10 +82,11 @@ bool SimDP::integrate(const int n_next_epochs)
     // Effectively increment epoch counter and add to Δt to time counter
     // so that both point the state *after* each integration step is complete.
     // In so doing, we will record t_epochs.size() + 1 total integration steps.
+    t_epochs[0] = 0;
     for (
         i=i_next_epoch, t=t_next_epoch; 
         i<i_next_epoch+n_next_epochs; 
-        t=round_up(t+p.dt, n_decimals), i++
+        t=round_time(t+p.dt), i++
     )
     {
         // Reapply boundary conditions prior to integrating

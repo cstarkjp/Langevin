@@ -269,8 +269,8 @@ jobs:
       build-linux,
       build-windows, 
       test-linux,
-      test-macos
-      # test-windows
+      test-macos,
+      test-windows
     ]
     permissions:
       id-token: write # Required for OIDC authentication
