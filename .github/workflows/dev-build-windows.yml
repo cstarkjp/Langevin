@@ -3,7 +3,7 @@ name: dev build Windows
 on:
   push:
     branches:
-      - dev
+      - none
 
 permissions:
   contents: read
@@ -61,12 +61,6 @@ jobs:
         with:
           name: windows-dist
           path: dist
-
-      # - name: Install (hard-wired)
-      #   shell: powershell
-      #   run: |
-      #     python -m pip install --upgrade pip
-      #     pip install dist/langevin-2025.11.23a2-cp314-cp314-win_amd64.whl
 
       - name: Install
         shell: powershell
