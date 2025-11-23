@@ -22,27 +22,15 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install build
 
-      - name: Prepare MSVC
-        uses: bus1/cabuild/action/msdevshell@v1
-        with:
-          architecture: x64
+      # - name: Prepare MSVC
+      #   uses: bus1/cabuild/action/msdevshell@v1
+      #   with:
+      #     architecture: x64
 
-      # - name: Install Visual C++ Build Tools
-      #   shell: powershell
-      #   run: |
-      #     Invoke-WebRequest -Uri "https://aka.ms/vs/17/release/vc_redist.x64.exe" -OutFile "vc_redist.x64.exe"
-      #     .\vc_redist.x64.exe /install /quiet /norestart
-          
       - name: Build package
         run: |
           python -m build
 
-      # - name: Copy Redistributable DLLs
-      #   run: |
-      #     mkdir release_dlls
-      #     cp "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Redist\MSVC\14.36.32532\x64\Microsoft.VC143.CRT\*.dll" release_dlls/
-      #     # ... then include these DLLs in your final artifact
-          
       - name: Upload distribution
         uses: actions/upload-artifact@v4
         with:
@@ -98,7 +86,3 @@ jobs:
           # $userBinPath = "$env:USERPROFILE\.local\bin"
           # Add-Content -Path $env:GITHUB_PATH -Value $userBinPath
           python demos\dp_mixed.py
-
-  #         # pip install pybind11 numpy jupyter ipython matplotlib pandas tqdm ffmpeg-python
-  #         # pip install --no-index --find-links=D:\a\Langevin\Langevin\dist\ langevin
-          
