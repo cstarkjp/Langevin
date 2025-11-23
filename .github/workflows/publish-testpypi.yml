@@ -143,11 +143,11 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [
-          ubuntu-latest, 
-          # windows-latest, 
-          macos-latest, macos-14, macos-15
-        ]
+        os: 
+          [ubuntu-latest, macos-latestx]
+          # windows-latest,  macos-latest, macos-14, macos-15
+        
+      
     permissions:
       id-token: write # Required for OIDC authentication
       contents: read # To checkout the repository
