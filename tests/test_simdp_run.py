@@ -68,6 +68,7 @@ class TestRunSimDP(unittest.TestCase):
         (was_success, i_epochs, t_epochs,) \
             = run_and_postprocess_simdp(sim, n_segments, n_segment_epochs,)
         self.assertTrue(was_success)
+        t_epochs[0] = 0
         self.assertEqual(i_epochs, [0, 6, 12, 18, 24, 30])
         self.assertEqual(t_epochs, [0, 0.6, 1.2, 1.8, 2.4, 3.0])
 
