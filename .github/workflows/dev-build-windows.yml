@@ -62,13 +62,13 @@ jobs:
           name: windows-dist
           path: dist
 
-      - name: Install (hard-wired)
-        shell: powershell
-        run: |
-          python -m pip install --upgrade pip
-          pip install dist/langevin-2025.11.23a2-cp314-cp314-win_amd64.whl
+      # - name: Install (hard-wired)
+      #   shell: powershell
+      #   run: |
+      #     python -m pip install --upgrade pip
+      #     pip install dist/langevin-2025.11.23a2-cp314-cp314-win_amd64.whl
 
-      - name: Install (wildcard)
+      - name: Install
         shell: powershell
         run: |
           python -m pip install --upgrade pip
@@ -76,7 +76,7 @@ jobs:
           Write-Output ($wheels -join "`n") 
           $wheel = $wheels[0]
           Write-Output $wheel
-          pip install dist\$wheel
+          pip install $wheel
 
       - name: Check Python path
         shell: powershell
