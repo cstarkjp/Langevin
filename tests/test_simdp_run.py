@@ -7,6 +7,8 @@
 import unittest
 import numpy as np
 from numpy.typing import NDArray
+import os
+import sys
 dp_dir = os.path.abspath("C:\\hostedtoolcache\\windows\\Python\\3.14.0\\x64\\Lib\\site-packages\\langevin\\dp")
 if sys.platform == "win32" and os.path.exists(dp_dir):
     os.add_dll_directory(dp_dir)
