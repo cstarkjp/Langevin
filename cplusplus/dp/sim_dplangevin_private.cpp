@@ -86,7 +86,7 @@ bool SimDP::integrate(const int n_next_epochs)
     for (
         i=i_next_epoch, t=t_next_epoch; 
         i<i_next_epoch+n_next_epochs; 
-        t=(i+1)*p.dt, i++
+        t=round_time(t+p.dt), i++
     )
     {
         // Reapply boundary conditions prior to integrating
