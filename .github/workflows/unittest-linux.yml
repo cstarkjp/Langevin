@@ -1,4 +1,4 @@
-name: macOS
+name: Linux
 
 on:
   # release:
