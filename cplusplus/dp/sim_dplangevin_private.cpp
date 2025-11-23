@@ -14,9 +14,9 @@
 //     // return std::round((value+1e-14) * multiplier) / multiplier;
 // }
 
-double round_time(const int i, const double time) {
+double round_time(const double time) {
     const double multiplier = std::pow(10, 15);
-    if (i==0) {
+    if (std::abs(time)<std::pow(10, -15)) {
         return 0.0;
     }
     else {
@@ -33,7 +33,7 @@ int SimDP::count_epochs() const
 {
     int n_epochs;
     double t=0; 
-    for (n_epochs=0; t<p.t_final; t=round_time(n_epochs, t+p.dt)) 
+    for (n_epochs=0; t<p.t_final; t=round_time(t+p.dt)) 
     {
         n_epochs++;
     }
@@ -86,7 +86,7 @@ bool SimDP::integrate(const int n_next_epochs)
     for (
         i=i_next_epoch, t=t_next_epoch; 
         i<i_next_epoch+n_next_epochs; 
-        t=round_time(i, t+p.dt), i++
+        t=(i+1)*p.dt, i++
     )
     {
         // Reapply boundary conditions prior to integrating
