@@ -6,7 +6,7 @@ on:
   #   types: [published]
   push:
     branches:
-      - dev
+      - none
 
 permissions:
   contents: read

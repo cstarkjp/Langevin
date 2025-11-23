@@ -126,6 +126,12 @@ jobs:
       - name: Build package
         run: |
           python -m build
+
+      # - name: Copy Redistributable DLLs
+      #   run: |
+      #     mkdir release_dlls
+      #     cp "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Redist\MSVC\14.36.32532\x64\Microsoft.VC143.CRT\*.dll" release_dlls/
+      #     # ... then include these DLLs in your final artifact
           
       - name: Upload distribution
         uses: actions/upload-artifact@v4
