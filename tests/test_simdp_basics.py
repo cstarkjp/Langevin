@@ -5,11 +5,6 @@
 """
 
 import unittest
-# import os
-# import sys
-# dll_dir = os.path.abspath('path/to/your/dlls')
-# if sys.platform == "win32" and os.path.exists(dll_dir):
-#     os.add_dll_directory(dll_dir)
 from langevin.dp import dplvn # type: ignore
 
 def instantiate_sim_defaults() -> dplvn.SimDP:

@@ -6,6 +6,13 @@
 
 import unittest
 import langevin
+import os
+import sys
+# lvn_dir = os.path.abspath("C:\hostedtoolcache\windows\Python\3.14.0\x64\Lib\site-packages\langevin")
+dp_dir = os.path.abspath("C:\hostedtoolcache\windows\Python\3.14.0\x64\Lib\site-packages\langevin\dp")
+if sys.platform == "win32" and os.path.exists(dp_dir):
+    os.add_dll_directory(dp_dir)
+    # os.add_dll_directory(lvn_dir)
 
 class TestLangevinVersion(unittest.TestCase):
 
