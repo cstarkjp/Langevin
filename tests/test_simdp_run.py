@@ -41,7 +41,7 @@ def run_and_postprocess_simdp(
         i_epochs[i_segment] = int(sim.get_i_current_epoch())
         t_epoch_ = sim.get_t_current_epoch()
         t_epochs[i_segment] = (
-            float(np.round(t_epoch_, 5)) if not np.abs(t_epoch_)>1e-15
+            float(np.round(t_epoch_, 5)) if np.abs(t_epoch_)>1e-15
             else 0
         )
         print(i_segment, t_epoch_, float(np.round(t_epoch_, 5)), t_epochs[i_segment])
