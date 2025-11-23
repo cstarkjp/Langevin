@@ -27,7 +27,12 @@ build-local: $(HPP) $(CPP) $(PY) meson.build
 	@echo "****************************************************************"
 	@echo "Build Python package locally"
 	rm -rf build
-	meson setup build
+	@if [ $(shell uname) = "Windows_NT" ]; then \
+		meson setup build --vsenv builddir ; \
+	elif [ $(shell uname) = "Darwin" ]; then \
+		meson setup build; \
+	fi
+# 	endif
 	meson compile -C build
 	@echo "Done"
 	@echo "****************************************************************"
