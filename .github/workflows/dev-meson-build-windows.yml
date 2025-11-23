@@ -1,0 +1,40 @@
+name: Meson MSVC Build
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+      - name: Setup MSVC environment
+        shell: pwsh
+        run: |
+            # Find vcvarsall.bat
+            $vcvarsallPath = (vswhere -latest -products Microsoft.VisualStudio.Product.BuildTools -property installationPath) + "\VC\Auxiliary\Build\vcvarsall.bat"
+            
+            # Invoke vcvarsall and capture environment
+            $envChanges = & "$vcvarsallPath" x64 -vcvars_dump
+            
+            # Export changes as GitHub Actions environment variables
+            foreach ($line in $envChanges) {
+                if ($line -match '^SET\s+(\w+)=(.+)$') {
+                    Write-Host "::set-output name=$($matches[1])::$($matches[2])"
+                }
+            }
+        id: vcvars
+      - name: Configure and Build with Meson
+        run: |
+            # Use the exported environment variables
+            ${{ steps.vcvars.outputs.all_env_vars }}
+            
+            # Now run Meson commands
+            python -m pip install meson
+            meson setup builddir
+            meson compile -C builddir
