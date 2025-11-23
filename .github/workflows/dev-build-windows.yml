@@ -3,7 +3,7 @@ name: dev build Windows
 on:
   push:
     branches:
-      - dev
+      - none
 
 permissions:
   contents: read
