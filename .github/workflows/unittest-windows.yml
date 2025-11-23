@@ -14,10 +14,19 @@ jobs:
   test-windows:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Checkout Langevin repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.14"
+
+      - name: Add user bin to PATH on Windows
+        shell: powershell
+        run: |
+          $userBinPath = "$env:USERPROFILE\.local\bin"
+          Add-Content -Path $env:GITHUB_PATH -Value $userBinPath
 
       # - name: Prepare MSVC
       #   uses: bus1/cabuild/action/msdevshell@v1
@@ -38,10 +47,11 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install langevin
-          # pip install --index https://test.pypi.org/simple/ --default-index https://pypi.org/simple/  langevin
+
       - name: Check Python path
         shell: powershell
         run: python -c "import sys; print(sys.path)"
+
       - name: Check Python details
         run: |
           python --version
