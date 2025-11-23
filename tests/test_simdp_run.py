@@ -70,7 +70,8 @@ class TestRunSimDP(unittest.TestCase):
         self.assertTrue(was_success)
         t_epochs[0] = 0
         self.assertEqual(i_epochs, [0, 6, 12, 18, 24, 30])
-        self.assertEqual(t_epochs, [0, 0.6, 1.2, 1.8, 2.4, 3.0])
+        print(f"Comparing:  {t_epochs[1:]} {[0.6, 1.2, 1.8, 2.4, 3.0]}")
+        self.assertEqual(t_epochs[1:], [0.6, 1.2, 1.8, 2.4, 3.0])
 
 if __name__ == '__main__':
     unittest.main()

@@ -32,11 +32,11 @@ private:
     //! Total number of simulation time steps aka "epochs"
     int n_epochs;
     //! Index of current epoch aka time step
-    int i_current_epoch;
+    int i_current_epoch = 0;
     //! Index of next epoch aka time step
     int i_next_epoch;
     //! Time of current epoch
-    double t_current_epoch;
+    double t_current_epoch = 0.0;
     //! Time of next epoch
     double t_next_epoch;
     //! Vector time-series of epochs
