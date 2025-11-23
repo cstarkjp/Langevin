@@ -16,7 +16,7 @@
 
 double round_up(const double value, const int n_decimals) {
     const double multiplier = std::pow(10, 15);
-    return std::round((value*multiplier+0.5))/multiplier;
+    return std::round((std::abs(value)*multiplier+0.5))/multiplier;
     // const unsigned int int_value 
     //     = static_cast<unsigned int>((value) * multiplier);
     // const double rounded_value = (static_cast<double>(int_value)) / multiplier;
