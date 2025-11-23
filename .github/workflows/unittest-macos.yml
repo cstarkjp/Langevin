@@ -20,5 +20,5 @@ jobs:
           pip install langevin
       - name: Run unit tests
         run: |
-          ls -l ./dist     
+          ls -l .     
           python -m unittest discover tests
