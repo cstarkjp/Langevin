@@ -40,8 +40,8 @@ def run_and_postprocess_simdp(
         was_success &= sim.postprocess()
         i_epochs[i_segment] = int(sim.get_i_current_epoch())
         t_epoch_ = sim.get_t_current_epoch()
-        t_epochs[i_segment] = float(
-            np.round(t_epoch_, 5) if not np.isclose(t_epoch_, 0)
+        t_epochs[i_segment] = (
+            float(np.round(t_epoch_, 5)) if not np.abs(t_epoch_)>1e-15
             else 0
         )
         print(i_segment, t_epoch_, float(np.round(t_epoch_, 5)), t_epochs[i_segment])
@@ -69,7 +69,7 @@ class TestRunSimDP(unittest.TestCase):
             = run_and_postprocess_simdp(sim, n_segments, n_segment_epochs,)
         self.assertTrue(was_success)
         self.assertEqual(i_epochs, [0, 6, 12, 18, 24, 30])
-        self.assertEqual(t_epochs, [0.0, 0.6, 1.2, 1.8, 2.4, 3.0])
+        self.assertEqual(t_epochs, [0, 0.6, 1.2, 1.8, 2.4, 3.0])
 
 if __name__ == '__main__':
     unittest.main()
