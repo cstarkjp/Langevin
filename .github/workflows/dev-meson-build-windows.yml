@@ -3,7 +3,7 @@ name: Meson MSVC Build
 on:
   push:
     branches:
-      - dev
+      - none
 
 jobs:
   build:

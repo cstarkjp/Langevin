@@ -22,11 +22,16 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install build
 
-      - name: Install Visual C++ Build Tools
-        shell: powershell
-        run: |
-          Invoke-WebRequest -Uri "https://aka.ms/vs/17/release/vc_redist.x64.exe" -OutFile "vc_redist.x64.exe"
-          .\vc_redist.x64.exe /install /quiet /norestart
+      - name: Prepare MSVC
+        uses: bus1/cabuild/action/msdevshell@v1
+        with:
+          architecture: x64
+
+      # - name: Install Visual C++ Build Tools
+      #   shell: powershell
+      #   run: |
+      #     Invoke-WebRequest -Uri "https://aka.ms/vs/17/release/vc_redist.x64.exe" -OutFile "vc_redist.x64.exe"
+      #     .\vc_redist.x64.exe /install /quiet /norestart
           
       - name: Build package
         run: |
