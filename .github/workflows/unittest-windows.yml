@@ -23,8 +23,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install langevin
       - name: Check repo
-        working-directory: .\work\Langevin\Langevin
         run: dir 
       - name: Run unit tests
-        working-directory: .\work\Langevin\Langevin
         run: python -m unittest discover tests
