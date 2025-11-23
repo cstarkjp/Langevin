@@ -14,13 +14,13 @@
 //     // return std::round((value+1e-14) * multiplier) / multiplier;
 // }
 
-double round_time(const int i, const double value) {
+double round_time(const int i, const double time) {
     const double multiplier = std::pow(10, 15);
     if (i==0) {
         return 0.0;
     }
     else {
-        return std::round((std::abs(value)*multiplier+0.5))/multiplier;
+        return std::round((std::abs(time)*multiplier+0.5))/multiplier;
     }
    // const unsigned int int_value 
     //     = static_cast<unsigned int>((value) * multiplier);

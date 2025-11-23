@@ -6,6 +6,7 @@
 
 import unittest
 import numpy as np
+from numpy.typing import NDArray
 from langevin.dp import dplvn # type: ignore
 
 def instantiate_sim_specific() -> dplvn.SimDP:
@@ -30,18 +31,18 @@ def run_simdp(
 def run_and_postprocess_simdp(
         sim: dplvn.SimDP, n_segments: int, n_segment_epochs: int,
     ) -> tuple[bool, list, list]:
-    i_epochs: list = []
-    t_epochs: list = []
+    i_epochs: NDArray = np.zeros(n_segments+1)
+    t_epochs: NDArray = np.zeros(n_segments+1)
     was_success: bool = True
     for i_segment in range(0, n_segments+1, 1):
         if i_segment>0 and not sim.run(n_segment_epochs):
             raise Exception("Failed to run sim")
         was_success &= sim.postprocess()
-        i_epochs.append(sim.get_i_current_epoch())
+        i_epochs[i_segment] = (sim.get_i_current_epoch())
         # t_epochs.append(sim.get_t_current_epoch())
         t_epoch_ = sim.get_t_current_epoch()
-        print(t_epoch_, np.round(t_epoch_, 5))
-        t_epochs.append(np.round(t_epoch_, 5))
+        t_epochs[i_segment] = (np.round(t_epoch_, 5))
+        print(i_segment, t_epoch_, np.round(t_epoch_, 5), t_epochs[i_segment])
     return (was_success, i_epochs, t_epochs,)
 
 
@@ -66,8 +67,8 @@ class TestRunSimDP(unittest.TestCase):
             = run_and_postprocess_simdp(sim, n_segments, n_segment_epochs,)
         # print((i_epochs, t_epochs,))
         self.assertTrue(was_success)
-        self.assertEqual(i_epochs, [0, 6, 12, 18, 24, 30])
-        self.assertEqual(t_epochs, [0.0, 0.6, 1.2, 1.8, 2.4, 3.0])
+        self.assertEqual(list(i_epochs), [0, 6, 12, 18, 24, 30])
+        self.assertEqual(list(t_epochs), [0.0, 0.6, 1.2, 1.8, 2.4, 3.0])
 
 if __name__ == '__main__':
     unittest.main()
