@@ -22,10 +22,10 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install build
 
-      # - name: Prepare MSVC
-      #   uses: bus1/cabuild/action/msdevshell@v1
-      #   with:
-      #     architecture: x64
+      - name: Prepare MSVC
+        uses: bus1/cabuild/action/msdevshell@v1
+        with:
+          architecture: x64
 
       - name: Build package
         run: |
@@ -62,11 +62,21 @@ jobs:
           name: windows-dist
           path: dist
 
-      - name: Install
+      - name: Install (hard-wired)
         shell: powershell
         run: |
           python -m pip install --upgrade pip
           pip install dist/langevin-2025.11.23a2-cp314-cp314-win_amd64.whl
+
+      - name: Install (wildcard)
+        shell: powershell
+        run: |
+          python -m pip install --upgrade pip
+          $wheels = Get-ChildItem -Path dist\*.whl -File
+          Write-Output ($wheels -join "`n") 
+          $wheel = $wheels[0]
+          Write-Output $wheel
+          pip install dist\$wheel
 
       - name: Check Python path
         shell: powershell
