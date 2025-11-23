@@ -1,6 +1,7 @@
 # **langevin**
 
-[![Publish to PyPI](https://github.com/cstarkjp/Langevin/actions/workflows/pypi-publish.yml/badge.svg)](https://github.com/cstarkjp/Langevin/actions/workflows/pypi-publish.yml)
+[![PyPI](https://github.com/cstarkjp/Langevin/actions/workflows/pypi-publish.yml/badge.svg)](https://github.com/cstarkjp/Langevin/actions/workflows/pypi-publish.yml)
+[![macOS](https://github.com/cstarkjp/Langevin/actions/workflows/unittest-macos.yml/badge.svg)](https://github.com/cstarkjp/Langevin/actions/workflows/unittest-macos.yml)
 
 Tools to integrate Langevin equations of absorbing phase transition (APT) type — with a focus on solution of the directed percolation (DP) Langevin equation.
 

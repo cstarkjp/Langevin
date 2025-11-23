@@ -11,8 +11,8 @@ permissions:
   contents: read
 
 jobs:
-  test-macos:
-    runs-on: linux-latest
+  test-windows:
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -23,10 +23,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install langevin
       - name: Check repo
-        run: |
-          ls -l $HOME/work/Langevin/Langevin
+        working-directory: .\work\Langevin\Langevin
+        run: dir 
       - name: Run unit tests
-        run: |
-          cd $HOME/work/Langevin/Langevin
-          ls -l .     
-          python -m unittest discover tests
+        working-directory: .\work\Langevin\Langevin
+        run: python -m unittest discover tests

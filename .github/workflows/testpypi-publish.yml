@@ -1,4 +1,4 @@
-name: Publish to TestPyPI
+name: TestPyPI
 
 # Consider switching to using
 #   https://cibuildwheel.pypa.io/en/stable/ci-services/#
