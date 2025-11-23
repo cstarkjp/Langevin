@@ -82,6 +82,7 @@ bool SimDP::integrate(const int n_next_epochs)
     // Effectively increment epoch counter and add to Δt to time counter
     // so that both point the state *after* each integration step is complete.
     // In so doing, we will record t_epochs.size() + 1 total integration steps.
+    t_epochs[0] = 0;
     for (
         i=i_next_epoch, t=t_next_epoch; 
         i<i_next_epoch+n_next_epochs; 

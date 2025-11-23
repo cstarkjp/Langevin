@@ -39,7 +39,9 @@ def run_and_postprocess_simdp(
         was_success &= sim.postprocess()
         i_epochs.append(sim.get_i_current_epoch())
         # t_epochs.append(sim.get_t_current_epoch())
-        t_epochs.append(np.round(sim.get_t_current_epoch(), 5))
+        t_epoch_ = sim.get_t_current_epoch()
+        print(t_epoch_, np.round(t_epoch_, 5))
+        t_epochs.append(np.round(t_epoch_, 5))
     return (was_success, i_epochs, t_epochs,)
 
 
