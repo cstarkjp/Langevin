@@ -38,10 +38,10 @@ def run_and_postprocess_simdp(
         if i_segment>0 and not sim.run(n_segment_epochs):
             raise Exception("Failed to run sim")
         was_success &= sim.postprocess()
-        i_epochs[i_segment] = (sim.get_i_current_epoch())
+        i_epochs[i_segment] = int(sim.get_i_current_epoch())
         # t_epochs.append(sim.get_t_current_epoch())
-        t_epoch_ = sim.get_t_current_epoch()
-        t_epochs[i_segment] = (np.round(t_epoch_, 5))
+        t_epoch_ = float(sim.get_t_current_epoch())
+        t_epochs[i_segment] = np.round(t_epoch_, 5)
         print(i_segment, t_epoch_, np.round(t_epoch_, 5), t_epochs[i_segment])
     return (was_success, i_epochs, t_epochs,)
 
