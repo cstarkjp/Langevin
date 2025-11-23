@@ -3,7 +3,8 @@
 ###  _Tools for integrating the directed-percolation Langevin equation_
 
 
-[![](https://github.com/cstarkjp/Langevin/actions/workflows/pypi-publish.yml/badge.svg)](https://github.com/cstarkjp/Langevin/actions/workflows/pypi-publish.yml)
+[![](https://github.com/cstarkjp/Langevin/actions/workflows/publish-pypi.yml/badge.svg)](https://github.com/cstarkjp/Langevin/actions/workflows/publish-pypi.yml)
+[![](https://github.com/cstarkjp/Langevin/actions/workflows/publish-testpypi.yml/badge.svg)](https://github.com/cstarkjp/Langevin/actions/workflows/publish-testpypi.yml)
 [![](https://github.com/cstarkjp/Langevin/actions/workflows/unittest-macos.yml/badge.svg)](https://github.com/cstarkjp/Langevin/actions/workflows/unittest-macos.yml)
 [![](https://github.com/cstarkjp/Langevin/actions/workflows/unittest-linux.yml/badge.svg)](https://github.com/cstarkjp/Langevin/actions/workflows/unittest-linux.yml)
 [![](https://github.com/cstarkjp/Langevin/actions/workflows/unittest-windows.yml/badge.svg)](https://github.com/cstarkjp/Langevin/actions/workflows/unittest-windows.yml)
