@@ -1,6 +1,7 @@
 # **langevin**
 
-[![PyPI](https://github.com/cstarkjp/Langevin/actions/workflows/pypi-publish.yml/badge.svg)](https://github.com/cstarkjp/Langevin/actions/workflows/pypi-publish.yml)
+[![PyPI](https://github.com/cstarkjp/Langevin/actions/workflows/publish-pypi.yml/badge.svg)](https://github.com/cstarkjp/Langevin/actions/workflows/publish-pypi.yml)
+[![TestPyPi](https://github.com/cstarkjp/Langevin/actions/workflows/publish-testpypi.yml/badge.svg)](https://github.com/cstarkjp/Langevin/actions/workflows/publish-testpypi.yml)
 [![macOS](https://github.com/cstarkjp/Langevin/actions/workflows/unittest-macos.yml/badge.svg)](https://github.com/cstarkjp/Langevin/actions/workflows/unittest-macos.yml)
 [![Linux](https://github.com/cstarkjp/Langevin/actions/workflows/unittest-linux.yml/badge.svg)](https://github.com/cstarkjp/Langevin/actions/workflows/unittest-linux.yml)
 [![Windows](https://github.com/cstarkjp/Langevin/actions/workflows/unittest-windows.yml/badge.svg)](https://github.com/cstarkjp/Langevin/actions/workflows/unittest-windows.yml)
