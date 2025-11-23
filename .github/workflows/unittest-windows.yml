@@ -19,20 +19,22 @@ jobs:
         with:
           python-version: "3.14"
 
-      - name: Prepare MSVC
-        uses: bus1/cabuild/action/msdevshell@v1
-        with:
-          architecture: x64
-      - name: Download and Install Visual C++ Redistributable
+      # - name: Prepare MSVC
+      #   uses: bus1/cabuild/action/msdevshell@v1
+      #   with:
+      #     architecture: x64
+
+      # https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170
+      - name: Download and install MSVC redistributable
         run: |
           # Download the latest supported Visual C++ Redistributable (2015-2022)
           # You can find the direct download link on the official Microsoft website
           # For x64 systems, use the vc_redist.x64.exe
-          Invoke-WebRequest -Uri "https://aka.ms/vs/17/release/vc_redist.x64.exe" -OutFile "vc_redist.x64.exe"
+          Invoke-WebRequest -Uri "https://aka.ms/vc14/vc_redist.x64.exe" -OutFile "vc_redist.x64.exe"
           .\vc_redist.x64.exe /install /quiet /norestart
         shell: powershell
-                  
-      - name: Install
+ 
+      - name: Install Langevin
         run: |
           python -m pip install --upgrade pip
           pip install langevin
@@ -45,6 +47,11 @@ jobs:
           python --version
           where python
           pip list
+      - name: Check site-packages
+        run: |
+          dir C:\hostedtoolcache\windows\Python\3.14.0\x64\Lib\site-packages\langevin
+          dir C:\hostedtoolcache\windows\Python\3.14.0\x64\Lib\site-packages\langevin\base
+          dir C:\hostedtoolcache\windows\Python\3.14.0\x64\Lib\site-packages\langevin\dp
 
       - name: Run version no. unit test
         run: python -m unittest discover tests -p "*langevin*"
