@@ -9,7 +9,6 @@ permissions:
   contents: read
 
 jobs:
-
   build-windows:
     runs-on: windows-latest
     steps:
@@ -74,7 +73,7 @@ jobs:
         shell: powershell
         run: |
           python -m pip install --upgrade pip
-          pip install -e .
+          pip install dist/langevin-2025.11.23a2-cp314-cp314-win_amd64.whl
 
       - name: Check Python path
         shell: powershell
