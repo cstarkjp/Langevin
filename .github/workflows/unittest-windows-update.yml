@@ -5,7 +5,7 @@ on:
   #   types: [published]
   push:
     branches:
-      - none
+      - unittests
 
 permissions:
   contents: read
@@ -57,20 +57,36 @@ jobs:
           python --version
           where python
           pip list
-      - name: Check site-packages
-        run: |
-          dir C:\hostedtoolcache\windows\Python\3.14.0\x64\Lib\site-packages\langevin
-          dir C:\hostedtoolcache\windows\Python\3.14.0\x64\Lib\site-packages\langevin\base
-          dir C:\hostedtoolcache\windows\Python\3.14.0\x64\Lib\site-packages\langevin\dp
+      # - name: Check site-packages
+      #   run: |
+      #     dir C:\hostedtoolcache\windows\Python\3.14.0\x64\Lib\site-packages\langevin
+      #     dir C:\hostedtoolcache\windows\Python\3.14.0\x64\Lib\site-packages\langevin\base
+      #     dir C:\hostedtoolcache\windows\Python\3.14.0\x64\Lib\site-packages\langevin\dp
 
       - name: Run version no. unit test
         run: python -m unittest discover tests -p "*langevin*"
       - name: Run all unit tests
         run: python -m unittest discover tests 
-      - name: Run demo
+      - name: Run demo dp_mixed.py in Python
         shell: powershell
         run: |
           # $userBinPath = "$env:USERPROFILE\.local\bin"
           # Add-Content -Path $env:GITHUB_PATH -Value $userBinPath
           python demos\dp_mixed.py
+      - name: Run DemoDP.ipynb in IPython
+        shell: powershell
+        run: |
+          # $userBinPath = "$env:USERPROFILE\.local\bin"
+          # Add-Content -Path $env:GITHUB_PATH -Value $userBinPath
+          cd demos
+          dir
+          ipython DemoDP.ipynb
+      - name: Run SimulationDP.ipynb in IPython
+        shell: powershell
+        run: |
+          # $userBinPath = "$env:USERPROFILE\.local\bin"
+          # Add-Content -Path $env:GITHUB_PATH -Value $userBinPath
+          cd demos
+          dir
+          ipython SimulationDP.ipynb
 

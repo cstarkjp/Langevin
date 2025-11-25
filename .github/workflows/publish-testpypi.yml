@@ -152,40 +152,6 @@ jobs:
           name: windows-dist
           path: dist/
 
-  # build-wheels:
-  #   name: Build wheels on ${{ matrix.os }}
-  #   runs-on: ${{ matrix.os }}
-  #   strategy:
-  #     matrix:
-  #       # windows-latest,
-  #       os: [ubuntu-latest, macos-latest]
-
-  #   steps:
-  #     - uses: actions/checkout@v5
-
-  #     - name: Build wheels
-  #       run: pipx run cibuildwheel==3.3.0
-
-  #     - uses: actions/upload-artifact@v4
-  #       with:
-  #         name: cibw-wheels-${{ matrix.os }}-${{ strategy.job-index }}
-  #         path: ./wheelhouse/*.whl
-
-  # publish:
-  #   needs: build-wheels
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Download all the dists
-  #       uses: actions/download-artifact@v4
-  #       with:
-  #         name: python-package-distributions
-  #         path: dist
-  #     - name: Publish distribution to TestPyPI
-  #       uses: pypa/gh-action-pypi-publish@release/v1
-  #       with:
-  #         repository-url: https://test.pypi.org/legacy/
-
-
   test-macos:
     runs-on: macos-latest
     needs: build-macos-latest
@@ -221,6 +187,19 @@ jobs:
       - name: Unit tests
         run: python -m unittest discover tests
 
+      - name: Run demo dp_mixed.py in Python
+        run: |
+          cd $HOME/work/Langevin/Langevin/demos
+          python dp_mixed.py
+      - name: Run DemoDP.ipynb in IPython
+        run: |
+          cd $HOME/work/Langevin/Langevin/demos
+          ipython DemoDP.ipynb
+      - name: Run SimulationDP.ipynb in IPython
+        run: |
+          cd $HOME/work/Langevin/Langevin/demos
+          ipython SimulationDP.ipynb
+
   test-linux:
     runs-on: ubuntu-latest
     needs: build-linux
@@ -254,6 +233,19 @@ jobs:
 
       - name: Unit tests
         run: python -m unittest discover tests
+  
+      - name: Run demo dp_mixed.py in Python
+        run: |
+          cd $HOME/work/Langevin/Langevin/demos
+          python dp_mixed.py
+      - name: Run DemoDP.ipynb in IPython
+        run: |
+          cd $HOME/work/Langevin/Langevin/demos
+          ipython DemoDP.ipynb
+      - name: Run SimulationDP.ipynb in IPython
+        run: |
+          cd $HOME/work/Langevin/Langevin/demos
+          ipython SimulationDP.ipynb
 
   test-windows:
     runs-on: windows-latest
@@ -298,16 +290,34 @@ jobs:
           python --version
           where python
           pip list
+
       - name: Run version no. unit test
         run: python -m unittest discover tests -p "*langevin*"
       - name: Run all unit tests
         run: python -m unittest discover tests 
-      - name: Run demo
+
+      - name: Run demo dp_mixed.py in Python
         shell: powershell
         run: |
           # $userBinPath = "$env:USERPROFILE\.local\bin"
           # Add-Content -Path $env:GITHUB_PATH -Value $userBinPath
           python demos\dp_mixed.py
+      - name: Run DemoDP.ipynb in IPython
+        shell: powershell
+        run: |
+          # $userBinPath = "$env:USERPROFILE\.local\bin"
+          # Add-Content -Path $env:GITHUB_PATH -Value $userBinPath
+          cd demos
+          dir
+          ipython DemoDP.ipynb
+      - name: Run SimulationDP.ipynb in IPython
+        shell: powershell
+        run: |
+          # $userBinPath = "$env:USERPROFILE\.local\bin"
+          # Add-Content -Path $env:GITHUB_PATH -Value $userBinPath
+          cd demos
+          dir
+          ipython SimulationDP.ipynb
 
   publish-to-testpypi:
     runs-on: ubuntu-latest
@@ -361,19 +371,3 @@ jobs:
         with:
           repository-url: https://test.pypi.org/legacy/
 
-
-#   # .github/workflows/ci-cd.yml
-# jobs:
-#   pypi-publish:
-#     name: Upload release to PyPI
-#     runs-on: ubuntu-latest
-#     environment:
-#       name: pypi
-#       url: https://pypi.org/p/<your-pypi-project-name>
-#     permissions:
-#       id-token: write  # IMPORTANT: this permission is mandatory for trusted publishing
-#     steps:
-#     # retrieve your distributions here
-
-#     - name: Publish package distributions to PyPI
-#       uses: pypa/gh-action-pypi-publish@release/v1

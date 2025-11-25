@@ -1,19 +1,38 @@
 # How to install
 
-<!-- ## **Step 1:** Set up **langevin** in a custom Python environment -->
-
 ## Best practice: use **uv**
 
-Using `uv`, the creation of a virtual Python environment, installation of dependent packages, and installation of `langevin` itself can all be achieved in three simple command lines:
+Using `uv`, the creation of a virtual Python environment, installation of dependent packages, and installation of `langevin` itself is all straightforward.
+
+First, install `uv`
+following the [instructions here](https://docs.astral.sh/uv/getting-started/installation/).
+
+Then, depending on your platform:
+
+### macOS and Linux 
+
+After creating and navigating into your Langevin work directory, execute the following in a terminal:
 
     uv venv --python=3.14
     source .venv/bin/activate
     uv pip install langevin
 
-_Note that before doing this you'll have [to install `uv`](https://docs.astral.sh/uv/getting-started/installation/) on your machine._
+The first command creates a Python virtual environment in the current directory, forcing a choice of version 3.14. The second activates this virtual environment, ensuring that all subsequent references to Python, and all `pip` installs, etc., take place here only. The third command installs the `langevin` package along with all its dependencies. Note: if you want to generate animations using `ffmpeg-python`, which is one of these dependent packages, you will need to separately install `ffmpeg` itself on your system (this is not a Python thing).
+
+### Windows
+
+Installation on a Windows PC is similar to the macOS/Linux procedure, and involves only one extra step.
+Start a PowerShell, create and navigate into a Langevin work folder, and execute:
+
+    uv venv --python=3.14
+    Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+    .\.venv\Scripts\Activate.ps1
+    uv pip install langevin
+
+The extra command here ensures that PowerShell is allowed to run local scripts.
 
 
-## Alternative: by hand
+## Alternative: by hand (instructions for macOS/Linux only)
 Alternatively, you can employ the following two-step process.
 
 1. Install Python $\geq$ 3.12, ideally in a Python environment; Python 3.14 is recommended, and current development uses this version. 

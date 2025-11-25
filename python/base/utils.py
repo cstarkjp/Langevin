@@ -225,7 +225,7 @@ def make_dataframe(p: dict) -> DataFrame:
     df.rename(columns={0:"value"}, inplace=True,)
     return df
 
-def fetch_image(dir: tuple, file_name: str, width: int=600,) -> Image:
+def fetch_image(dir: tuple, file_name: str, width: int=600,) -> Image | None:
     """
     Read an image file and return for embedded display.
 
@@ -238,4 +238,9 @@ def fetch_image(dir: tuple, file_name: str, width: int=600,) -> Image:
         resized image as IPython display image
 
     """
-    return Image(join(*dir, file_name), width=width,)
+    image: Image | None = None
+    try:
+        image = Image(join(*dir, file_name), width=width,)
+    except:
+        pass
+    return image

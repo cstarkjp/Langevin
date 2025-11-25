@@ -29,6 +29,11 @@ from langevin.dp.vizdp import VizDP
 
 from pprint import PrettyPrinter
 pp = PrettyPrinter(indent=4).pprint
+
+# Possible fix to Windows issue with printing unicode characters 
+import io
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+
 warnings.filterwarnings("ignore")
 
 __all__ = [
@@ -201,8 +206,11 @@ class Simulation:
             do_dummy: just print (possibly create) the output folders
             do_verbose: report how the exporting is going
         """
-        if self.do_verbose | do_verbose:
-            print(f"Outfo/graphs/videos/data path:  {self.misc["path"]}")
+        try:
+            if self.do_verbose | do_verbose:
+                print(f"Outfo/graphs/videos/data path:  {self.misc["path"]}")
+        except:
+            print(f"Issue printing Outfo/graphs/videos/data path")
         seed_dir_name: str = f"rs{self.parameters["random_seed"]}"
     
         outfo_path: str = \

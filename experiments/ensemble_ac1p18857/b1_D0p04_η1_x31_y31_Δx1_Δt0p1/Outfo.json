@@ -1,0 +1,158 @@
+{
+    "Analysis": {
+        "a_c": 1.18857
+    },
+    "Parameters": {
+        "dx": 1,
+        "dt": 0.1,
+        "t_final": 10000.0,
+        "grid_dimension": "D2",
+        "grid_size": [
+            31,
+            31
+        ],
+        "grid_topologies": [
+            "BOUNDED",
+            "BOUNDED"
+        ],
+        "boundary_conditions": [
+            "FLOATING",
+            "FLOATING",
+            "FLOATING",
+            "FLOATING"
+        ],
+        "initial_condition": "RANDOM_UNIFORM",
+        "ic_values": [
+            0,
+            10
+        ],
+        "integration_method": "RUNGE_KUTTA",
+        "linear_list": [
+            1.19857,
+            1.197141,
+            1.195713,
+            1.194284,
+            1.192856,
+            1.191427,
+            1.189999,
+            1.18857,
+            1.187141,
+            1.185713,
+            1.184284,
+            1.182856,
+            1.181427,
+            1.179999,
+            1.17857
+        ],
+        "quadratic_list": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+        ],
+        "diffusion_list": [
+            0.04,
+            0.04,
+            0.04,
+            0.04,
+            0.04,
+            0.04,
+            0.04,
+            0.04,
+            0.04,
+            0.04,
+            0.04,
+            0.04,
+            0.04,
+            0.04,
+            0.04
+        ],
+        "noise_list": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+        ],
+        "random_seed_list": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+        ]
+    },
+    "Misc": {
+        "n_sims": 15,
+        "Δa_range": 0.01,
+        "n_round_Δt_summation": 5,
+        "n_segments": 500,
+        "n_digits": 6,
+        "do_export_combo_graphs": true,
+        "do_export_combo_data": true,
+        "do_export_graphs": false,
+        "do_export_data": false,
+        "do_export_images": false,
+        "do_make_video": false,
+        "ylimits_log": [
+            0.0005,
+            2.0
+        ],
+        "xlimits_log": [
+            0.5,
+            12000.0
+        ],
+        "ylimits_rescaled": [
+            0.03,
+            10.0
+        ],
+        "xlimits_rescaled": [
+            5e-05,
+            2000.0
+        ],
+        "video_frame_rate": 50,
+        "video_format": "mp4",
+        "path": [
+            "..",
+            "..",
+            "experiments",
+            "ensemble_ac1p18857",
+            "b1_D0p04_η1_x31_y31_Δx1_Δt0p1"
+        ],
+        "n_cores": 16,
+        "computation_time": "0:00:05",
+        "dplvn_version": "2025.11.25a1",
+        "date_time": "2025-11-25 09:31:17"
+    }
+}
