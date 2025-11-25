@@ -63,7 +63,7 @@ dev:
 unittests:
 	git checkout unittests
 	git merge dev
-	git push
+	git push origin HEAD
 	git checkout dev
 
 # Clean-up
