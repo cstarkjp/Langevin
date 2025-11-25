@@ -31,3 +31,6 @@ but be aware that two output graph PNG files will be written to the current dire
 
 More sophisticated 2d DP Langevin integration.
 
+    ipython demos/SimulationDP.ipynb
+
+
