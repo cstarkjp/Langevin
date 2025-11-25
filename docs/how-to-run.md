@@ -2,6 +2,9 @@
 
 These notes expand on the instructions in [How to install](how-to-install.md) and tailor them to the task of setting up simulations.
 
+!!! note "Under reconstruction"
+    These notes are a bit stale and need updating.
+
 ## Setting up
 
 

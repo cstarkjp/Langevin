@@ -58,6 +58,14 @@ dev:
 	git merge main
 	git push
 
+# Sync unittests branch with main
+.PHONY: unittests
+unittests:
+	git checkout unittests
+	git merge dev
+	git push origin HEAD
+	git checkout dev
+
 # Clean-up
 .PHONY: clean
 clean:

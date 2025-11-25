@@ -32,7 +32,10 @@ pp = PrettyPrinter(indent=4).pprint
 
 # Possible fix to Windows issue with printing unicode characters 
 import io
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+try:
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+except:
+    pass
 
 warnings.filterwarnings("ignore")
 
