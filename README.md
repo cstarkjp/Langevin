@@ -4,7 +4,7 @@
 [![TestPyPi](https://github.com/cstarkjp/Langevin/actions/workflows/publish-testpypi.yml/badge.svg?style=cache-control=no-cache)](https://github.com/cstarkjp/Langevin/actions/workflows/publish-testpypi.yml)
 [![macOS](https://github.com/cstarkjp/Langevin/actions/workflows/unittest-macos.yml/badge.svg?style=cache-control=no-cache)](https://github.com/cstarkjp/Langevin/actions/workflows/unittest-macos.yml)
 [![Linux](https://github.com/cstarkjp/Langevin/actions/workflows/unittest-linux.yml/badge.svg?style=cache-control=no-cache)](https://github.com/cstarkjp/Langevin/actions/workflows/unittest-linux.yml)
-[![Windows](https://github.com/cstarkjp/Langevin/actions/workflows/unittest-windows-update.yml/badge.svg?style=cache-control=no-cache)](https://github.com/cstarkjp/Langevin/actions/workflows/unittest-windows-update.yml)
+[![Windows](https://github.com/cstarkjp/Langevin/actions/workflows/unittest-windows.yml/badge.svg?style=cache-control=no-cache)](https://github.com/cstarkjp/Langevin/actions/workflows/unittest-windows.yml)
 
 Tools to integrate Langevin equations of absorbing phase transition (APT) type — with a focus on solution of the directed percolation (DP) Langevin equation.
 

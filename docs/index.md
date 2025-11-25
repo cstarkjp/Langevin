@@ -6,7 +6,7 @@
 [![](https://github.com/cstarkjp/Langevin/actions/workflows/publish-testpypi.yml/badge.svg?style=cache-control=no-cache)](https://github.com/cstarkjp/Langevin/actions/workflows/publish-testpypi.yml)
 [![](https://github.com/cstarkjp/Langevin/actions/workflows/unittest-macos.yml/badge.svg?style=cache-control=no-cache)](https://github.com/cstarkjp/Langevin/actions/workflows/unittest-macos.yml)
 [![](https://github.com/cstarkjp/Langevin/actions/workflows/unittest-linux.yml/badge.svg?style=cache-control=no-cache)](https://github.com/cstarkjp/Langevin/actions/workflows/unittest-linux.yml)
-[![](https://github.com/cstarkjp/Langevin/actions/workflows/unittest-windows-update.yml/badge.svg?style=cache-control=no-cache)](https://github.com/cstarkjp/Langevin/actions/workflows/unittest-windows-update.yml)
+[![](https://github.com/cstarkjp/Langevin/actions/workflows/unittest-windows.yml/badge.svg?style=cache-control=no-cache)](https://github.com/cstarkjp/Langevin/actions/workflows/unittest-windows.yml)
 
 
 

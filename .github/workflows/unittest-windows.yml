@@ -28,11 +28,6 @@ jobs:
           $userBinPath = "$env:USERPROFILE\.local\bin"
           Add-Content -Path $env:GITHUB_PATH -Value $userBinPath
 
-      # - name: Prepare MSVC
-      #   uses: bus1/cabuild/action/msdevshell@v1
-      #   with:
-      #     architecture: x64
-
       # https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170
       - name: Download and install MSVC redistributable
         run: |

@@ -1853,9 +1853,9 @@ following the <a href="https://docs.astral.sh/uv/getting-started/installation/">
 source .venv/bin/activate
 uv pip install langevin
 </code></pre></div>
-<p>The first command creates a Python virtual environment in the current directory, forcing a choice of version 3.14. The second activates this virtual environment, ensuring that all subsequent references to Python, and all <code>pip</code> installs, take place here only. The third command install the <code>langevin</code> package along with all its dependencies. Note: if you want to generate animations using <code>ffmpeg-python</code>, which is one of these dependent packages, you will also need to separately install <code>ffmpeg</code> itself.</p>
+<p>The first command creates a Python virtual environment in the current directory, forcing a choice of version 3.14. The second activates this virtual environment, ensuring that all subsequent references to Python, and all <code>pip</code> installs, etc., take place here only. The third command installs the <code>langevin</code> package along with all its dependencies. Note: if you want to generate animations using <code>ffmpeg-python</code>, which is one of these dependent packages, you will need to separately install <code>ffmpeg</code> itself on your system (this is not a Python thing).</p>
 <h3 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">¶</a></h3>
-<p>The procedure is similar the macOS/Linux procedure, with only one extra.
+<p>Installation on a Windows PC is similar to the macOS/Linux procedure, and involves only one extra step.
 Start a PowerShell, create and navigate into a Langevin work folder, and execute:</p>
 <div class="language-text highlight"><pre><span></span><code>uv venv --python=3.14
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
