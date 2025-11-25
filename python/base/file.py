@@ -154,7 +154,7 @@ def export_info(
     ]
 
     file: TextIOWrapper
-    with open(join(*info_path), "w", encoding=encoding) as file:
+    with open(join(*info_path), "w", encoding=encoding,) as file:
         logging.info(join(*info_path))
         dump(serializable_dict, file, indent=4, ensure_ascii=False,) #separators=(", \n", ": ")
     return (serializable_dict, info_dir,)
