@@ -12,7 +12,7 @@ name: TestPyPI
 on:
   push:
     branches:
-      - dev
+      - main
 
 permissions:
   contents: read
@@ -319,55 +319,55 @@ jobs:
           dir
           ipython SimulationDP.ipynb
 
-  # publish-to-testpypi:
-  #   runs-on: ubuntu-latest
-  #   needs: [
-  #     build-macos-14, 
-  #     build-macos-15, 
-  #     build-macos-latest, 
-  #     build-linux,
-  #     build-windows, 
-  #     test-linux,
-  #     test-macos,
-  #     test-windows
-  #   ]
-  #   permissions:
-  #     id-token: write # Required for OIDC authentication
-  #     contents: read # To checkout the repository
+  publish-to-testpypi:
+    runs-on: ubuntu-latest
+    needs: [
+      build-macos-14, 
+      build-macos-15, 
+      build-macos-latest, 
+      build-linux,
+      build-windows, 
+      test-linux,
+      test-macos,
+      test-windows
+    ]
+    permissions:
+      id-token: write # Required for OIDC authentication
+      contents: read # To checkout the repository
 
-  #   steps:
-  #     - name: Retrieve macos-14 artifact
-  #       uses: actions/download-artifact@v4
-  #       with:
-  #         name: macos-14-dist
-  #         path: dist/
-  #     - name: Retrieve macos-15 artifact
-  #       uses: actions/download-artifact@v4
-  #       with:
-  #         name: macos-15-dist
-  #         path: dist/
-  #     - name: Retrieve macos artifact
-  #       uses: actions/download-artifact@v4
-  #       with:
-  #         name: macos-latest-dist
-  #         path: dist/
-  #     - name: Retrieve linux artifact
-  #       uses: actions/download-artifact@v4
-  #       with:
-  #         name: linux-dist
-  #         path: dist/
-  #     - name: Retrieve windows artifact
-  #       uses: actions/download-artifact@v4
-  #       with:
-  #         name: windows-dist
-  #         path: dist/
+    steps:
+      - name: Retrieve macos-14 artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: macos-14-dist
+          path: dist/
+      - name: Retrieve macos-15 artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: macos-15-dist
+          path: dist/
+      - name: Retrieve macos artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: macos-latest-dist
+          path: dist/
+      - name: Retrieve linux artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: linux-dist
+          path: dist/
+      - name: Retrieve windows artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: windows-dist
+          path: dist/
 
-  #     - name: Check dist
-  #       run: |
-  #         ls -l dist/
+      - name: Check dist
+        run: |
+          ls -l dist/
           
-  #     - name: Publish to TestPyPI
-  #       uses: pypa/gh-action-pypi-publish@release/v1
-  #       with:
-  #         repository-url: https://test.pypi.org/legacy/
+      - name: Publish to TestPyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          repository-url: https://test.pypi.org/legacy/
 
