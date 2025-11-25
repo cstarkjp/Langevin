@@ -37,9 +37,9 @@ jobs:
       - name: Run DemoDP.ipynb in IPython
         run: |
           cd $HOME/work/Langevin/Langevin/demos
-          ipython DemoDP.py
+          ipython DemoDP.ipynb
       - name: Run SimulationDP.ipynb in IPython
         run: |
           cd $HOME/work/Langevin/Langevin/demos
-          ipython SimulationDP.py
+          ipython SimulationDP.ipynb
 

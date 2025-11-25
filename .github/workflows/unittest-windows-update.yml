@@ -78,15 +78,15 @@ jobs:
         run: |
           # $userBinPath = "$env:USERPROFILE\.local\bin"
           # Add-Content -Path $env:GITHUB_PATH -Value $userBinPath
-          dir
           cd demos
-          ipython DemoDP.py
+          dir
+          ipython DemoDP.ipynb
       - name: Run SimulationDP.ipynb in IPython
         shell: powershell
         run: |
           # $userBinPath = "$env:USERPROFILE\.local\bin"
           # Add-Content -Path $env:GITHUB_PATH -Value $userBinPath
-          dir
           cd demos
-          ipython SimulationDP.py
+          dir
+          ipython SimulationDP.ipynb
 

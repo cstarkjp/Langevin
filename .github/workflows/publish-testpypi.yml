@@ -186,7 +186,7 @@ jobs:
 
       - name: Unit tests
         run: python -m unittest discover tests
-        
+
       - name: Run demo dp_mixed.py in Python
         run: |
           cd $HOME/work/Langevin/Langevin/demos
@@ -194,11 +194,11 @@ jobs:
       - name: Run DemoDP.ipynb in IPython
         run: |
           cd $HOME/work/Langevin/Langevin/demos
-          ipython DemoDP.py
+          ipython DemoDP.ipynb
       - name: Run SimulationDP.ipynb in IPython
         run: |
           cd $HOME/work/Langevin/Langevin/demos
-          ipython SimulationDP.py
+          ipython SimulationDP.ipynb
 
   test-linux:
     runs-on: ubuntu-latest
@@ -241,11 +241,11 @@ jobs:
       - name: Run DemoDP.ipynb in IPython
         run: |
           cd $HOME/work/Langevin/Langevin/demos
-          ipython DemoDP.py
+          ipython DemoDP.ipynb
       - name: Run SimulationDP.ipynb in IPython
         run: |
           cd $HOME/work/Langevin/Langevin/demos
-          ipython SimulationDP.py
+          ipython SimulationDP.ipynb
 
   test-windows:
     runs-on: windows-latest
@@ -307,17 +307,17 @@ jobs:
         run: |
           # $userBinPath = "$env:USERPROFILE\.local\bin"
           # Add-Content -Path $env:GITHUB_PATH -Value $userBinPath
-          dir
           cd demos
-          ipython DemoDP.py
+          dir
+          ipython DemoDP.ipynb
       - name: Run SimulationDP.ipynb in IPython
         shell: powershell
         run: |
           # $userBinPath = "$env:USERPROFILE\.local\bin"
           # Add-Content -Path $env:GITHUB_PATH -Value $userBinPath
-          dir
           cd demos
-          ipython SimulationDP.py
+          dir
+          ipython SimulationDP.ipynb
 
   # publish-to-testpypi:
   #   runs-on: ubuntu-latest
