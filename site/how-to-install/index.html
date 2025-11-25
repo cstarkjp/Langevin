@@ -650,13 +650,41 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Best practice: use uv">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#macos-and-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        macOS and Linux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#alternative-by-hand" class="md-nav__link">
+  <a href="#alternative-by-hand-instructions-for-macoslinux-only" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Alternative: by hand
+        Alternative: by hand (instructions for macOS/Linux only)
       
     </span>
   </a>
@@ -1744,13 +1772,41 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Best practice: use uv">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#macos-and-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        macOS and Linux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#alternative-by-hand" class="md-nav__link">
+  <a href="#alternative-by-hand-instructions-for-macoslinux-only" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Alternative: by hand
+        Alternative: by hand (instructions for macOS/Linux only)
       
     </span>
   </a>
@@ -1786,16 +1842,28 @@
 
 
 <h1 id="how-to-install">How to install<a class="headerlink" href="#how-to-install" title="Permanent link">¶</a></h1>
-<!-- ## **Step 1:** Set up **langevin** in a custom Python environment -->
-
 <h2 id="best-practice-use-uv">Best practice: use <strong>uv</strong><a class="headerlink" href="#best-practice-use-uv" title="Permanent link">¶</a></h2>
-<p>Using <code>uv</code>, the creation of a virtual Python environment, installation of dependent packages, and installation of <code>langevin</code> itself can all be achieved in three simple command lines:</p>
+<p>Using <code>uv</code>, the creation of a virtual Python environment, installation of dependent packages, and installation of <code>langevin</code> itself is all straightforward.</p>
+<p>First, install <code>uv</code>
+following the <a href="https://docs.astral.sh/uv/getting-started/installation/">instructions here</a>.</p>
+<p>Then, depending on your platform:</p>
+<h3 id="macos-and-linux">macOS and Linux<a class="headerlink" href="#macos-and-linux" title="Permanent link">¶</a></h3>
+<p>After creating and navigating into your Langevin work directory, execute the following in a terminal:</p>
 <div class="language-text highlight"><pre><span></span><code>uv venv --python=3.14
 source .venv/bin/activate
 uv pip install langevin
 </code></pre></div>
-<p><em>Note that before doing this you'll have <a href="https://docs.astral.sh/uv/getting-started/installation/">to install <code>uv</code></a> on your machine.</em></p>
-<h2 id="alternative-by-hand">Alternative: by hand<a class="headerlink" href="#alternative-by-hand" title="Permanent link">¶</a></h2>
+<p>The first command creates a Python virtual environment in the current directory, forcing a choice of version 3.14. The second activates this virtual environment, ensuring that all subsequent references to Python, and all <code>pip</code> installs, take place here only. The third command install the <code>langevin</code> package along with all its dependencies. Note: if you want to generate animations using <code>ffmpeg-python</code>, which is one of these dependent packages, you will also need to separately install <code>ffmpeg</code> itself.</p>
+<h3 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">¶</a></h3>
+<p>The procedure is similar the macOS/Linux procedure, with only one extra.
+Start a PowerShell, create and navigate into a Langevin work folder, and execute:</p>
+<div class="language-text highlight"><pre><span></span><code>uv venv --python=3.14
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+.\.venv\Scripts\Activate.ps1
+uv pip install langevin
+</code></pre></div>
+<p>The extra command here ensures that PowerShell is allowed to run local scripts.</p>
+<h2 id="alternative-by-hand-instructions-for-macoslinux-only">Alternative: by hand (instructions for macOS/Linux only)<a class="headerlink" href="#alternative-by-hand-instructions-for-macoslinux-only" title="Permanent link">¶</a></h2>
 <p>Alternatively, you can employ the following two-step process.</p>
 <ol type="1">
 <li>

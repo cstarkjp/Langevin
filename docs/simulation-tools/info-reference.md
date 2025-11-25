@@ -1,28 +1,28 @@
 # Example `Info.json` file
 
 JSON-format files (essentially Python dictionaries) are used to drive the DP Langevin simulations.
-Here is one example, taken from [`Langevin/experiments/a1p18855_b1_D0p04_η1_x125_y125_Δx1_Δt0p1/Info.json`](https://github.com/cstarkjp/Langevin/blob/main/experiments/a1p18855_b1_D0p04_%CE%B71_x125_y125_%CE%94x1_%CE%94t0p1/Info.json):
+Here is one example, taken from [`Langevin/experiments/a1p19050_b1_D0p04_η1_x250_y250_Δx1_Δt0p1/Info.json`](https://github.com/cstarkjp/Langevin/blob/main/experiments/a1p19050_b1_D0p04_%CE%B71_x125_y125_%CE%94x1_%CE%94t0p1/Info.json):
 
     {
         "Parameters": {
-            "linear": 1.18855,
+            "linear": 1.19050,
             "quadratic": 1,
             "diffusion": 0.04,
-            "noise": 1,
+            "noise": 1.0,
             "dx": 1,
             "dt": 0.1,
             "t_final": 10000.0,
             "random_seed": 1,
             "grid_dimension": "D2",
-            "grid_size": [125, 125],
+            "grid_size": [250, 250],
             "grid_topologies": ["BOUNDED", "BOUNDED"],
             "boundary_conditions": ["FLOATING","FLOATING","FLOATING","FLOATING"],
             "initial_condition": "RANDOM_UNIFORM",
-            "ic_values": [0, 10],
+            "ic_values": [0, 15],
             "integration_method": "RUNGE_KUTTA"
         },
         "Analysis": {
-            "a_c": 1.18857
+            "a_c": 1.19045
         },
         "Misc": {
             "n_sims": 15,
@@ -34,11 +34,12 @@ Here is one example, taken from [`Langevin/experiments/a1p18855_b1_D0p04_η1_x12
             "do_export_combo_data": false,
             "do_export_graphs": true,
             "do_export_data": true,
-            "do_export_images": true,
-            "do_make_video": true,
-            "ylimits_log": [5e-4, 2e0],
+            "do_export_images": false,
+            "do_make_video": false,
+            "ylimits_log": [3e-3, 3e0],
             "xlimits_log": [5e-1, 1.2e4],
-            "ylimits_rescaled": [3e-2, 1e1],
+            "ysf_log": 0.75,
+            "ylimits_rescaled": [1e-1, 1e1],
             "xlimits_rescaled": [5e-5, 2e3],
             "video_frame_rate": 50,
             "video_format": "mp4"

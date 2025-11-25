@@ -30,3 +30,15 @@ jobs:
           cd $HOME/work/Langevin/Langevin
           ls -l .     
           python -m unittest discover tests
+      - name: Run demo dp_mixed.py in Python
+        run: |
+          cd $HOME/work/Langevin/Langevin/demos
+          python dp_mixed.py
+      - name: Run DemoDP.ipynb in IPython
+        run: |
+          cd $HOME/work/Langevin/Langevin/demos
+          ipython DemoDP.py
+      - name: Run SimulationDP.ipynb in IPython
+        run: |
+          cd $HOME/work/Langevin/Langevin/demos
+          ipython SimulationDP.py

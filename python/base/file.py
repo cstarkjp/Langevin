@@ -80,6 +80,7 @@ def import_info(
         info_dir: str, 
         file_name: str,
         module: Any,
+        # encoding: str = "utf-8",
     ) -> dict:
     """
     Read and adapt parameters specified in a JSON file.
@@ -94,7 +95,7 @@ def import_info(
     file: TextIOWrapper
     raw_info: dict
     info_path = [str(info_dir)] + [f"{file_name}.json"]
-    with open(join(*info_path), "r",) as file:
+    with open(join(*info_path), "rb",) as file:
         raw_info = load(file)
     parameters: dict = {}
     for item_ in raw_info["Parameters"].items():
@@ -161,6 +162,7 @@ def export_info(
 def read_info(
         path: Sequence[str],
         module: Any,
+        # encoding: str = "utf-8",
     ) -> tuple[str, dict]:
     """
     Wrapper around method to import info dictionary.

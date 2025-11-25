@@ -9,7 +9,7 @@ def report_computation_times(ensemble: Ensemble) -> None:
         print(f"{sim_.misc["name"]}: {sim_.misc["computation_time"]}")
 
 def main() -> None:
-    a_critical: str =  "ac1p18857"
+    a_critical: str =  "ensemble_ac1p18857"
     sizes: Sequence[int] = (
         # 2000, 1000, 500, 250, 125,
         62, 31,  

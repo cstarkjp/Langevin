@@ -17,12 +17,17 @@ Example 2D grid with mixed edge (cylindrical) topology. Run with:
 
 ## Notebooks
 
-### [DP.ipynb](https://github.com/cstarkjp/Langevin/tree/main/demos/DP.ipynb)
+### [DemoDP.ipynb](https://github.com/cstarkjp/Langevin/tree/main/demos/DemoDP.ipynb)
 
-2d grid demo. Run either in Jupyter or JupyterLab, or using IPython:
+Simple demo of DP Langevin integration on a 2d grid. Run either in Jupyter or JupyterLab, or using IPython:
 
     ipython demos/DP.ipynb
 
 but be aware that two output graph PNG files will be written to the current directory.
 
+
+
+### [SimulationDP.ipynb](https://github.com/cstarkjp/Langevin/tree/main/demos/SimulationDP.ipynb)
+
+More sophisticated 2d DP Langevin integration.
 
