@@ -65,6 +65,8 @@ Next, the code is split into a hierarchy of three groups, with each correspondin
 
 ## Installation
 
+For [`here for more comprehensive installation notes`](https://cstarkjp.github.io/Langevin/how-to-install/) that cover multiple platforms. The info below applies only to Linux and macOS. 
+
 ### Python environment 
 First, set up a suitable Python environment. 
 The simplest tool is `uv`, but there are several other options. 
