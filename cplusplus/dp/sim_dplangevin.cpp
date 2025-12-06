@@ -113,15 +113,16 @@ bool SimDP::run(const int n_next_epochs)
 //! state is desired.
 bool SimDP::postprocess()
 {
-    if (not is_initialized) 
-    { 
+    if (not is_initialized) { 
         std::cout 
             << "SimDP::postprocess failure: no data to process yet" 
             << std::endl;
         return false; 
     }
     bool did_process_grid;
-    if (do_snapshot_grid) { did_process_grid = pyprep_density_grid(); }
+    if (do_snapshot_grid) { 
+        did_process_grid = pyprep_density_grid(); 
+    }
     else { did_process_grid = true; }
     bool did_process_time_series = (
         pyprep_t_epochs() and pyprep_mean_densities() 

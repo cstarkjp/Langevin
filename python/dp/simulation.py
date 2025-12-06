@@ -107,7 +107,11 @@ class Simulation:
         """
         Create and initialize a `dpvln.SimSP` class instance.
         """
-        self.sim = dplvn.SimDP(**self.parameters, do_verbose=self.do_verbose,)
+        self.sim = dplvn.SimDP(
+            **self.parameters, 
+            do_snapshot_grid=self.do_snapshot_grid,
+            do_verbose=self.do_verbose,
+        )
         if not self.sim.initialize(self.misc["n_round_Δt_summation"]):
             raise Exception("Failed to initialize sim")
         self.analysis["n_epochs"] = self.sim.get_n_epochs()
@@ -130,9 +134,13 @@ class Simulation:
         def step(i_segment_: int,):
             if i_segment_>0 and not self.sim.run(n_segment_epochs):
                 raise Exception("Failed to run sim")
+            self.sim.postprocess()
             if not self.sim.postprocess():
                 raise Exception("Failed to process sim results")
-            t_epoch_ = self.sim.get_t_current_epoch()
+            t_epoch_ = np.round(
+                self.sim.get_t_current_epoch(), 
+                self.misc["n_round_Δt_summation"]
+            )
             if self.do_snapshot_grid:
                 self.density_dict[t_epoch_] = self.sim.get_density()
         # This ridiculous verbiage is needed because tqdm, even when
@@ -145,7 +153,10 @@ class Simulation:
         else:
             for i_segment_ in range(0, n_segments+1, 1):
                 step(i_segment_)
-        self.t_epochs = np.round(self.sim.get_t_epochs(), self.misc["n_round_Δt_summation"])
+        self.t_epochs = np.round(
+            self.sim.get_t_epochs(), 
+            self.misc["n_round_Δt_summation"]
+        )
         self.mean_densities = self.sim.get_mean_densities()
 
     def run_wrapper(self) -> str:
