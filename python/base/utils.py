@@ -193,7 +193,7 @@ def make_sim_title(
             else "          "
         ) \
         + (
-            rf"$a_c \approx ${analysis["a_c"]:0.5f}" if not do_omit_a 
+            rf"$a_c \approx ${analysis["a_c"]:0.6f}" if not do_omit_a 
             else ""
         ) \
         + "\n" \

@@ -107,5 +107,6 @@ tests/*png
 demos/*png
 experiments/*/Data/*
 experiments/*/Graphs/*
-experiments/*/*/npz
-experiments/*/*/png
+experiments/*/*/*npz
+experiments/*/*/*png
+experiments/*/Images/*png

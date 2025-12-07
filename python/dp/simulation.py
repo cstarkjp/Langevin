@@ -191,6 +191,11 @@ class Simulation:
         )
 
     def plot(self) -> None:
+        """Plot everything"""
+        self.plot_graphs()
+        self.plot_images()
+
+    def plot_graphs(self) -> None:
         """
         Generate all the required graphs and images.
         """
@@ -198,20 +203,60 @@ class Simulation:
         self.images: VizDP = VizDP()
         self.graphs.plot_mean_density_evolution(
             "ρ_t_loglog",
-            self.parameters, self.analysis, self.misc,
-            self.t_epochs, self.mean_densities, 
-            do_rescale=False, y_sf=0.75,
+            self.parameters, 
+            self.analysis, 
+            self.misc,
+            self.t_epochs, 
+            self.mean_densities, 
+            do_rescale=False, 
+            y_sf=0.75,
         )
         self.graphs.plot_mean_density_evolution(
             "ρ_t_rescaled",
-            self.parameters, self.analysis, self.misc,
-            self.t_epochs, self.mean_densities, 
+            self.parameters, 
+            self.analysis, 
+            self.misc,
+            self.t_epochs, 
+            self.mean_densities, 
             do_rescale=True,
         )
+        t_final = self.t_epochs[-1]
+        self.graphs.plot_density_profile(
+            "ρ_y_wall",
+            self.parameters, 
+            self.analysis, 
+            self.density_dict, 
+            self.t_epochs, 
+            t_final/5,
+            t_final,
+            y_offset=self.parameters["dx"],
+            y_sf=0.71,
+            y_limits=(3e-3, None,),
+        )
+
+    def plot_images(self) -> None:
+        n_digits: int = self.misc["n_digits"]
+        name_: str 
+        density_: NDArray
+        for i_epoch_, t_epoch_ in progress(enumerate(self.density_dict.keys())):
+            name_ =  f"ρ_t{t_epoch_:0{n_digits}.1f}".replace(".","p")
+            density_ = self.density_dict[t_epoch_]
+            # print(i_epoch_, t_epoch_, name_, density_.shape)
+            self.density_image_dict[i_epoch_] = self.images.plot_density_image(
+                name_, 
+                self.parameters, 
+                self.analysis,
+                t_epoch_, 
+                density_, 
+                density_max=3,
+                tick_Δρ=1,
+                do_extend_if_periodic=False,
+                n_digits=n_digits,
+            )
 
     def save(
             self, module: Any, do_dummy: bool=False, do_verbose: bool=False,
-        ) -> None:
+        ) -> str | None:
         """
         Export outfo JSON, graphs, and data files.
 
@@ -267,28 +312,40 @@ class Simulation:
                         do_verbose=self.do_verbose,
                     )
 
-        if self.misc["do_make_video"]:
-            print("Video export not working yet")
-            # videos_path: str = create_directories(
-            #     (pardir, pardir, "experiments", sim_dir_name,), "Videos",
-            # )
+        if "do_export_images" in self.misc and self.misc["do_export_images"]:
+            images_path: str = \
+                create_directories(
+                    (*self.misc["path"], seed_dir_name,), "Images", 
+                )
+            if not do_dummy:
+                _ = export_plots(self.images.fdict, images_path)
 
-            # video_frame_rate: int = misc["video_frame_rate"]
-            # video_format: str = misc["video_format"]
-            # video_images_wildcard: str = "ρ_t"+"?"*n_digits+".png"
-            # input = ffmpeg.input( 
-            #     join(images_path, video_images_wildcard), 
-            #     pattern_type="glob", 
-            #     framerate=video_frame_rate, 
-            #     pix_fmt="yuv420p",
-            # )
-            # output = ffmpeg.output(
-            #     input.video,
-            #     join(
-            #         videos_path, 
-            #         f"ρ_{sim_dir_name}_rs{parameters["random_seed"]}.{video_format}"
-            #     ),
-            #     vf="crop=floor(iw/2)*2:floor(ih/2)*2",
-            #     vcodec="libx264",
-            #     format=video_format,
-            # )
+        if self.misc["do_make_video"]:
+            videos_path: str = create_directories(
+                (*self.misc["path"], seed_dir_name,), ".",
+            )
+
+            video_frame_rate: int = self.misc["video_frame_rate"]
+            video_format: str = self.misc["video_format"]
+            n_digits: int = self.misc["n_digits"]+1
+            video_images_wildcard: str = "ρ_t"+"?"*n_digits+".png"
+            input = ffmpeg.input( 
+                join(images_path, video_images_wildcard), 
+                pattern_type="glob", 
+                framerate=video_frame_rate, 
+                pix_fmt="yuv420p",
+            )
+            output = ffmpeg.output(
+                input.video,
+                join(
+                    videos_path, 
+                    f"ρ_{seed_dir_name}_rs{self.parameters["random_seed"]}.{video_format}"
+                ),
+                vf="crop=floor(iw/2)*2:floor(ih/2)*2",
+                vcodec="libx264",
+                format=video_format,
+            )
+            stderr_output: str = output.overwrite_output().run(capture_stderr=True,)
+            return stderr_output
+        
+        return None
