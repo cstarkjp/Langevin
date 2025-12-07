@@ -195,7 +195,7 @@ class Simulation:
         self.plot_graphs()
         self.plot_images()
 
-    def plot_graphs(self) -> None:
+    def plot_graphs(self, do_profile: bool=False,) -> None:
         """
         Generate all the required graphs and images.
         """
@@ -220,18 +220,19 @@ class Simulation:
             self.mean_densities, 
             do_rescale=True,
         )
-        t_final = self.t_epochs[-1]
-        self.graphs.plot_density_profile(
-            "ρ_y_wall",
-            self.parameters, 
-            self.analysis, 
-            self.density_dict, 
-            self.t_epochs, 
-            t_final/5,
-            t_final,
-            y_offset=self.parameters["dx"],
-            y_sf=0.71,
-            y_limits=(3e-3, None,),
+        if do_profile:
+            t_final = self.t_epochs[-1]
+            self.graphs.plot_density_profile(
+                "ρ_y_wall",
+                self.parameters, 
+                self.analysis, 
+                self.density_dict, 
+                self.t_epochs, 
+                t_final/5,
+                t_final,
+                y_offset=self.parameters["dx"],
+                y_sf=0.71,
+                y_limits=(3e-3, None,),
         )
 
     def plot_images(self) -> None:
