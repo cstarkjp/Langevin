@@ -236,10 +236,16 @@ class Simulation:
         )
 
     def plot_images(self) -> None:
-        n_digits: int = self.misc["n_digits"]
+        t_last: float = list(self.density_dict.keys())[-1]
+        n_digits: int = len(f"{t_last:0{self.misc["n_digits"]}.1f}".replace(".","p"))
+        # print(f"ρ_t{0:0{n_digits}.1f}".replace(".","p"))
+        # print(f"ρ_t{t_last:0{n_digits}.1f}".replace(".","p"))
         name_: str 
         density_: NDArray
-        for i_epoch_, t_epoch_ in progress(enumerate(self.density_dict.keys())):
+        progress_bar: Callable = (
+            progress if self.do_verbose else progress_disabled
+        )
+        for i_epoch_, t_epoch_ in progress_bar(enumerate(self.density_dict.keys())):
             name_ =  f"ρ_t{t_epoch_:0{n_digits}.1f}".replace(".","p")
             density_ = self.density_dict[t_epoch_]
             # print(i_epoch_, t_epoch_, name_, density_.shape)
@@ -319,7 +325,11 @@ class Simulation:
                     (*self.misc["path"], seed_dir_name,), "Images", 
                 )
             if not do_dummy:
-                _ = export_plots(self.images.fdict, images_path)
+                _ = export_plots(
+                        self.images.fdict, 
+                        images_path,
+                        do_verbose=self.do_verbose,
+                    )
 
         if self.misc["do_make_video"]:
             videos_path: str = create_directories(
@@ -340,7 +350,7 @@ class Simulation:
                 input.video,
                 join(
                     videos_path, 
-                    f"ρ_{seed_dir_name}_rs{self.parameters["random_seed"]}.{video_format}"
+                    f"ρ_{seed_dir_name}.{video_format}"
                 ),
                 vf="crop=floor(iw/2)*2:floor(ih/2)*2",
                 vcodec="libx264",
