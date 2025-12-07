@@ -236,7 +236,10 @@ class Simulation:
         )
 
     def plot_images(self) -> None:
-        t_last: float = list(self.density_dict.keys())[-1]
+        t_epochs: tuple = tuple(self.density_dict.keys())
+        if len(t_epochs)==0: 
+            return None
+        t_last: float = t_epochs[-1]
         n_digits: int = len(f"{t_last:0{self.misc["n_digits"]}.1f}".replace(".","p"))
         # print(f"ρ_t{0:0{n_digits}.1f}".replace(".","p"))
         # print(f"ρ_t{t_last:0{n_digits}.1f}".replace(".","p"))
