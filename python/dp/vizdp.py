@@ -55,7 +55,8 @@ class VizDP(Viz):
         fig = self.create_figure(fig_name=name, fig_size=fig_size,)
 
         prefix: str = (
-            r"$\rho(\mathbf{x},t=$" + f"{t_epoch:0{n_digits+2}.1f}" + r"$)$  "
+            r"$\rho(\mathbf{x},t=$" + f"{t_epoch:0{n_digits+2}.0f}" + r"$)$  "
+            # r"$\rho(\mathbf{x},t=$" + f"{t_epoch:0{n_digits+2}.1f}" + r"$)$  "
         )
         title = make_sim_title(
             parameters, analysis, dplvn,
