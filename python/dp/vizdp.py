@@ -3,6 +3,7 @@ Provide a data visualization class.
 """
 import warnings
 from typing import Any
+from functools import reduce
 import numpy as np
 from numpy.typing import NDArray
 import matplotlib as mpl
@@ -87,8 +88,15 @@ class VizDP(Viz):
             vmin=0, vmax=density_max,
         )
         ticks: NDArray = np.arange(0, density_max+1, tick_Δρ,)
+        bar_shrink: float
+        if n_lr/n_ud<3:
+            bar_shrink = 0.35 
+        elif n_lr/n_ud<4:
+            bar_shrink = 0.23
+        else:
+            bar_shrink = 0.17
         color_bar: Any = plt.colorbar(
-            shrink=0.35, pad=0.05, aspect=12, ticks=ticks, extend="max",
+            shrink=bar_shrink, pad=0.05, aspect=12, ticks=ticks, extend="max",
         )
         color_bar.set_label(r"$\rho(\mathbf{x},t)$  [-]")
         plt.xlabel(r"$x$   [-]")
@@ -356,6 +364,83 @@ class VizDP(Viz):
             title=r"$100(a-a_c)$", title_fontsize=8,
             loc=("upper left" if do_rescale else "lower left"),
         )
+        plt.grid(ls=":")
+        plt.close()
+        return fig
+    
+    def plot_density_profile(
+            self,
+            name: str, 
+            parameters: dict,
+            analysis: dict,
+            density_dict: dict,
+            t_epochs: NDArray,
+            t_begin: float,
+            t_end: float,
+            y_offset: float,
+            do_loglog: bool=True,
+            y_sf: float=0.71,
+            y_limits: tuple[float|None, float|None] = (1e-2, None,),
+        ) -> Figure:
+        """
+        Plot a graph of the time- and transverse-mean density ρ(t) versus wall distance.
+
+        Args:
+            name: of figure to be used as key in viz dictionary
+            parameters: sim parameters dictionary
+            analysis: sim analysis dictionary
+            density_dict: density field snapshots
+            t_epochs: time slices of simulation
+            t_begin: when to begin time integration
+            t_end: when to end time integration
+            y_offset: effective distance of wall cell from boundary condition
+            do_loglog: use log axes
+            y_sf: scale ρ values by this amount
+            y_limits: optionally control y axis limits
+
+        Returns:
+            Matplotlib figure instance.
+        """
+        fig_size: tuple[float,float] = (6, 4,)
+        fig = self.create_figure(fig_name=name, fig_size=fig_size,)
+
+        title = make_sim_title(
+            parameters, analysis, dplvn,
+        )
+        plt.title(title, fontdict={"size":11},)
+
+        dp_β: float    = analysis["dp_β"]
+        dp_ν_pp: float = analysis["dp_ν_pp"]
+
+        t_final = t_epochs[-1]
+        subset_t_epochs = tuple(
+            filter(lambda t: t>=t_begin and t<=t_end, density_dict.keys())
+        )
+        n_x, n_y = parameters["grid_size"]
+        density_profile = reduce(
+            lambda x, y: x + y, 
+            [np.sum(density_dict[t_epoch_], axis=0,) 
+            for t_epoch_ in subset_t_epochs]
+        )/(len(subset_t_epochs)*n_x)
+        dy = parameters["dx"]
+        y_ = np.arange(n_y, 0, -1)*dy - dy/2 + y_offset
+        plt.plot(
+            y_, density_profile, "-", 
+            label=r"DP simulation"
+        )
+        plt.plot(
+            y_, y_**(-dp_β/dp_ν_pp)*y_sf, ":", 
+            label=r"$\widebar\rho \sim y^{-\beta/\nu_{\!\perp}} \sim y^{-0.796}$"
+        )
+        if do_loglog:
+            axes = plt.gca()
+            axes.set_yscale("log")
+            axes.set_xscale("log")
+        plt.autoscale(enable=True, axis="x", tight=True,)
+        plt.ylim(*y_limits)
+        plt.ylabel(r"Time- & wall-parallel-averaged density  $\rho$")
+        plt.xlabel(r"Distance from wall $y$")
+        plt.legend(fontsize=11,)
         plt.grid(ls=":")
         plt.close()
         return fig

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from essentials import *
+from dp_essentials import *
 
 def report_computation_times(ensemble: Ensemble) -> None:
     print("Computation times:")

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from essentials import *
+from dp_essentials import *
 
 def main() -> None:
     sim_name: str = "a1p19050_b1_D0p04_η1_x250_y250_Δx1_Δt0p1"

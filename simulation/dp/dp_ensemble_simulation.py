@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from essentials import *
+from dp_essentials import *
 
 #  "b1_D0p04_η1_x62_y62_Δx1_Δt0p1"
 #  "b1_D0p04_η1_x125_y125_Δx1_Δt0p1"
