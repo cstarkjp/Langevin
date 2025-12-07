@@ -119,13 +119,13 @@ nav:
     - Simulation tools: 
       - simulation-tools/index.md
       - Notebooks:
-          - dp/SimulationDirect.ipynb: simulation-tools/dp-SimulationDirect-ipynb-reference.md
-          - dp/Simulation.ipynb: simulation-tools/dp-Simulation-ipynb-reference.md
-          - dp/Ensemble.ipynb: simulation-tools/dp-EnsembleSimulation-ipynb-reference.md
+          - dp/DPSimulationDirect.ipynb: simulation-tools/dp-DPSimulationDirect-ipynb-reference.md
+          - dp/DPSimulation.ipynb: simulation-tools/dp-DPSimulation-ipynb-reference.md
+          - dp/DPEnsemble.ipynb: simulation-tools/dp-DPEnsembleSimulation-ipynb-reference.md
       - Scripts:
-          - dp/simulation.py: simulation-tools/dp-simulation-py-reference.md
-          - dp/ensemble_simulation.py: simulation-tools/dp-ensemble_simulation-py-reference.md
-          - dp/batch_ensemble.py: simulation-tools/dp-batch_ensemble-py-reference.md
+          - dp/dp_simulation.py: simulation-tools/dp-simulation-py-reference.md
+          - dp/dp_ensemble_simulation.py: simulation-tools/dp-ensemble_simulation-py-reference.md
+          - dp/dp_batch_ensemble.py: simulation-tools/dp-batch_ensemble-py-reference.md
       - JSON info files: 
           - Example: simulation-tools/info-reference.md
     - Python modules: 

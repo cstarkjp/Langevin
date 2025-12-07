@@ -1,7 +1,7 @@
 # Example `Info.json` file
 
 JSON-format files (essentially Python dictionaries) are used to drive the DP Langevin simulations.
-Here is one example, taken from [`Langevin/experiments/a1p19050_b1_D0p04_η1_x250_y250_Δx1_Δt0p1/Info.json`](https://github.com/cstarkjp/Langevin/blob/main/experiments/a1p19050_b1_D0p04_%CE%B71_x125_y125_%CE%94x1_%CE%94t0p1/Info.json):
+Here is one example, taken from [`Langevin/experiments/a1p19050_b1_D0p04_η1_x250_y250_Δx1_Δt0p1/Info.json`](https://github.com/cstarkjp/Langevin/blob/main/experiments/a1p19050_b1_D0p04_%CE%B71_x250_y250_%CE%94x1_%CE%94t0p1/Info.json):
 
     {
         "Parameters": {

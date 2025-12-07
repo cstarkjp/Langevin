@@ -61,7 +61,7 @@ Simulations work with `Info.json` parameters files in correspondingly named fold
 
 ### Running a simulation for fixed grid size
 
-Consider the notebook [`Simulation.ipynb`](simulation-tools/dp-Simulation-ipynb-reference.md), which runs a job entitled `a1p18855_b1_D0p04_η1_x31_y31_Δx1_Δt0p1`. 
+Consider the notebook [`Simulation.ipynb`](simulation-tools/dp-DPSimulation-ipynb-reference.md), which runs a job entitled `a1p18855_b1_D0p04_η1_x31_y31_Δx1_Δt0p1`. 
 
 This cumbersome name is a concatenation of the key DP model parameters employed in this particular simulation. 
 It corresponds to a subfolder in `experiments/` called `a1p18855_b1_D0p04_η1_x31_y31_Δx1_Δt0p1/`. 
@@ -98,7 +98,7 @@ _In summary: if you want to run single-grid simulations, with a single set of La
 
 ### Running an ensemble of simulations for fixed grid size
 
-If instead you want to run an ensemble of simulations for a _range_ of Langevin equation coefficients, look at [`EnsembleSimulation.ipynb`](simulation-tools/dp-EnsembleSimulation-ipynb-reference.md).
+If instead you want to run an ensemble of simulations for a _range_ of Langevin equation coefficients, look at [`EnsembleSimulation.ipynb`](simulation-tools/dp-DPEnsembleSimulation-ipynb-reference.md).
 
         ipython EnsembleSimulation.ipynb
 
