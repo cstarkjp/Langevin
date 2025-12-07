@@ -87,8 +87,15 @@ class VizDP(Viz):
             vmin=0, vmax=density_max,
         )
         ticks: NDArray = np.arange(0, density_max+1, tick_Δρ,)
+        bar_shrink: float
+        if n_lr/n_ud<3:
+            bar_shrink = 0.35 
+        elif n_lr/n_ud<4:
+            bar_shrink = 0.23
+        else:
+            bar_shrink = 0.17
         color_bar: Any = plt.colorbar(
-            shrink=0.35, pad=0.05, aspect=12, ticks=ticks, extend="max",
+            shrink=bar_shrink, pad=0.05, aspect=12, ticks=ticks, extend="max",
         )
         color_bar.set_label(r"$\rho(\mathbf{x},t)$  [-]")
         plt.xlabel(r"$x$   [-]")
