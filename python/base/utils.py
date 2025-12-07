@@ -201,8 +201,8 @@ def make_sim_title(
         + rf"$n_y$={p["grid_size"][1]}   "   \
         + rf"$\Delta$$x$={p["dx"]}   " \
         + rf"$\Delta$$t$={p["dt"]}   " \
-        + rf"gt:({grid_topology(0)}, {grid_topology(1)})  " \
-        + rf"bc:({boundary_condition(0)}, {boundary_condition(1)}, " \
+        + rf"gt:({grid_topology(0)}; {grid_topology(1)})  " \
+        + rf"bc:({boundary_condition(0)}, {boundary_condition(1)}; " \
             +rf"{boundary_condition(2)}, {boundary_condition(3)})   " 
         # + (rf"$t$={t_epoch:08.2f}     " if t_epoch is not None else "")
     return title
