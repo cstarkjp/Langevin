@@ -16,7 +16,8 @@ except:
     # Quietly fail
     pass
 import sys, os
-from os.path import join, pardir
+from os.path import join, pardir, isfile
+from os import listdir, remove
 sys.path.insert(0, join(pardir, "Packages"))
 from langevin.base.file import (
     create_directories, export_info, export_plots,
@@ -197,10 +198,9 @@ class Simulation:
 
     def plot_graphs(self, do_profile: bool=False,) -> None:
         """
-        Generate all the required graphs and images.
+        Generate all the required graphs.
         """
         self.graphs: VizDP = VizDP()
-        self.images: VizDP = VizDP()
         self.graphs.plot_mean_density_evolution(
             "ρ_t_loglog",
             self.parameters, 
@@ -228,14 +228,18 @@ class Simulation:
                 self.analysis, 
                 self.density_dict, 
                 self.t_epochs, 
-                t_final/5,
+                t_final*0.2,
                 t_final,
                 y_offset=self.parameters["dx"],
-                y_sf=0.71,
+                y_sf=0.705,
                 y_limits=(3e-3, None,),
         )
 
     def plot_images(self) -> None:
+        """
+        Generate all the required images.
+        """
+        self.images: VizDP = VizDP()
         t_epochs: tuple = tuple(self.density_dict.keys())
         if len(t_epochs)==0: 
             return None
@@ -277,9 +281,9 @@ class Simulation:
         """
         try:
             if self.do_verbose | do_verbose:
-                print(f"Outfo/graphs/videos/data path:  {self.misc["path"]}")
+                print(f"Outfo|graphs|videos|data path:  {self.misc["path"]}")
         except:
-            print(f"Issue printing Outfo/graphs/videos/data path")
+            print(f"Issue printing Outfo|graphs|videos|data path")
         seed_dir_name: str = f"rs{self.parameters["random_seed"]}"
     
         outfo_path: str = \
@@ -328,6 +332,11 @@ class Simulation:
                     (*self.misc["path"], seed_dir_name,), "Images", 
                 )
             if not do_dummy:
+                # Remove all pre-existing image files, if any
+                for filename_ in listdir(images_path):
+                    file_path_ = join(images_path, filename_)
+                    if isfile(file_path_):
+                        remove(file_path_)
                 _ = export_plots(
                         self.images.fdict, 
                         images_path,
@@ -342,24 +351,41 @@ class Simulation:
             video_frame_rate: int = self.misc["video_frame_rate"]
             video_format: str = self.misc["video_format"]
             n_digits: int = self.misc["n_digits"]+1
-            video_images_wildcard: str = "ρ_t"+"?"*n_digits+".png"
-            input = ffmpeg.input( 
-                join(images_path, video_images_wildcard), 
-                pattern_type="glob", 
-                framerate=video_frame_rate, 
-                pix_fmt="yuv420p",
-            )
-            output = ffmpeg.output(
-                input.video,
-                join(
-                    videos_path, 
-                    f"ρ_{seed_dir_name}.{video_format}"
-                ),
-                vf="crop=floor(iw/2)*2:floor(ih/2)*2",
-                vcodec="libx264",
-                format=video_format,
-            )
-            stderr_output: str = output.overwrite_output().run(capture_stderr=True,)
-            return stderr_output
+            # video_images_wildcard: str = "ρ_t"+"?"*n_digits+".png"
+            video_images_wildcard: str = "ρ_t*.png"
+            # video_images_wildcard: str = f"ρ_t%0{n_digits-2}p0.png"
+            try:
+                input = ffmpeg.input( 
+                    join(images_path, video_images_wildcard), 
+                    pattern_type="glob",  
+                    framerate=video_frame_rate, 
+                    # pix_fmt="yuv420p",
+                    analyzeduration="2000000",
+                    probesize="2000000",
+                )
+                print(f"ffmpeg input:   '{input}'")
+            except:
+                raise Exception("Failed to set ffmpeg input")
+            try:
+                output = ffmpeg.output(
+                    input.video,
+                    join(
+                        videos_path, 
+                        f"ρ_{seed_dir_name}.{video_format}"
+                    ),
+                    vf="crop=floor(iw/2)*2:floor(ih/2)*2",
+                    vcodec="libx264",
+                    format=video_format,
+                )
+                print(f"ffmpeg output:   '{output}'")
+            except:
+                raise Exception("Failed to set ffmpeg output")
+            try:
+                stderr_output: str \
+                    = output.overwrite_output().run(capture_stderr=True,)
+                # print(f"ffmpeg stderr_output:   '{stderr_output}'")
+            except:
+                raise Exception("Failed to run ffmpeg")
+            return None
         
         return None

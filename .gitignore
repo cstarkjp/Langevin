@@ -110,3 +110,4 @@ experiments/*/Graphs/*
 experiments/*/*/*npz
 experiments/*/*/*png
 experiments/*/Images/*png
+experiments/*/*/Images/*png

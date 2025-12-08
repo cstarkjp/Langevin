@@ -151,8 +151,8 @@
             "b1_D0p04_η1_x31_y31_Δx1_Δt0p1"
         ],
         "n_cores": 16,
-        "computation_time": "0:00:05",
-        "dplvn_version": "2025.12.7a2",
-        "date_time": "2025-12-07 14:01:31"
+        "computation_time": "0:00:06",
+        "dplvn_version": "2025.12.8a1",
+        "date_time": "2025-12-08 12:31:22"
     }
 }

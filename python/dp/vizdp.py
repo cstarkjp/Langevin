@@ -51,7 +51,9 @@ class VizDP(Viz):
         Returns:
             Matplotlib figure instance.
         """
-        fig_size: tuple[float,float] = (6.5, 6.5,)
+        aspect_ratio: float = reduce(lambda nx, ny: nx/ny, parameters["grid_size"])
+        sf: float = (aspect_ratio)**(0.3)/1.15
+        fig_size: tuple[float,float] = (6.5*sf, 6.5/sf,)
         fig = self.create_figure(fig_name=name, fig_size=fig_size,)
 
         prefix: str = (
@@ -95,7 +97,7 @@ class VizDP(Viz):
         elif n_lr/n_ud<4:
             bar_shrink = 0.23
         else:
-            bar_shrink = 0.17
+            bar_shrink = 0.23 #0.17
         color_bar: Any = plt.colorbar(
             shrink=bar_shrink, pad=0.05, aspect=12, ticks=ticks, extend="max",
         )
