@@ -4,6 +4,7 @@ Provide a data visualization class.
 import warnings
 from typing import Any
 from functools import reduce
+from copy import deepcopy
 import numpy as np
 from numpy.typing import NDArray
 import matplotlib as mpl
@@ -33,6 +34,7 @@ class VizDP(Viz):
             tick_Δρ: float=0.5,
             do_extend_if_periodic: bool=False,
             n_digits: int=6,
+            color_palette: str="plasma_r",
         ) -> Figure:
         """
         Generate an image grid of the Langevin density field.
@@ -47,6 +49,7 @@ class VizDP(Viz):
             tick_Δρ: step in density colorbar labeling
             do_extend_if_periodic: artificially extend grid by ~20% in periodic directions
             n_digits: number of digits to be used in title when printing linear coefficient a
+            color_palette: for image grid rendering
 
         Returns:
             Matplotlib figure instance.
@@ -65,8 +68,9 @@ class VizDP(Viz):
         )
         plt.title(prefix+title, fontdict={"size":10},)
 
-        color_palette: str = "inferno_r"
-        color_map: Colormap = plt.get_cmap(color_palette) #type: ignore
+        # Fix absorbing phase ρ=0 to be gray
+        color_map: Colormap = mpl.colormaps[color_palette].resampled(1000)
+        color_map.colors[0] = [0.9, 0.9, 0.9, 0.9]
         grid_: NDArray = np.flipud(density.T)
         n_pad_ud: int
         n_pad_lr: int
@@ -119,6 +123,8 @@ class VizDP(Viz):
             do_loglog: bool=True,
             y_sf: float=1,
             n_digits: int=6,
+            t_begin: float=0.5,
+            t_end: float | None=None,
         ) -> Figure:
         """
         Plot a graph of the mean density ρ(t) versus time t.
@@ -156,8 +162,9 @@ class VizDP(Viz):
 
         t : NDArray= t_epochs[mean_densities>0]
         md: NDArray = mean_densities[mean_densities>0]
-        md = md[t>=5e-1]
-        t = t[t>=5e-1]
+        if (t[t>=t_begin].shape[0])>0:
+            md = md[t>=t_begin]
+            t = t[t>=t_begin]
 
         t_: NDArray
         md_: NDArray
@@ -207,7 +214,9 @@ class VizDP(Viz):
                 plt.autoscale(
                     enable=True, axis='both', tight=True,
                 )
-                plt.ylim(0, None,)
+                plt.ylim(0, None)
+                # print(t_begin, t_[-1])
+                # plt.xlim(t_begin, t_[-1])
         if do_loglog:
             plt.loglog()
 
@@ -225,6 +234,7 @@ class VizDP(Viz):
             y_sf: float=1,
             n_digits: int=6,
             do_label_Δ: bool=True,
+            color_palette: str="coolwarm",
         ) -> Figure:
         """
         Plot an ensemble graph of the mean density ρ(t) versus time t for all sims.
@@ -274,7 +284,6 @@ class VizDP(Viz):
         dp_z: float    = analysis_list[0]["dp_z"]
 
         n_sims: int = len(sims_list)
-        color_palette: str = "coolwarm" #"viridis_r"
         cmap: ListedColormap = mpl.colormaps[color_palette] #type: ignore
         color_list: NDArray = cmap(np.linspace(0, 1, n_sims,))*0.75 #type: ignore
         i_: int
@@ -382,8 +391,10 @@ class VizDP(Viz):
             t_end: float,
             y_offset: float,
             do_loglog: bool=True,
+            do_powerlawtrend: bool=True,
             y_sf: float=0.71,
-            y_limits: tuple[float|None, float|None] = (1e-2, None,),
+            x_limits: None | tuple[float|None, float|None]=None,
+            y_limits: None | tuple[float|None, float|None]=None,
         ) -> Figure:
         """
         Plot a graph of the time- and transverse-mean density ρ(t) versus wall distance.
@@ -398,7 +409,9 @@ class VizDP(Viz):
             t_end: when to end time integration
             y_offset: effective distance of wall cell from boundary condition
             do_loglog: use log axes
+            do_powerlawtrend: plot DP model wall scaling curve
             y_sf: scale ρ values by this amount
+            x_limits: optionally control x axis limits
             y_limits: optionally control y axis limits
 
         Returns:
@@ -431,16 +444,20 @@ class VizDP(Viz):
             y_, density_profile, "-", 
             label=r"DP simulation"
         )
-        plt.plot(
-            y_, y_**(-dp_β/dp_ν_pp)*y_sf, ":", 
-            label=r"$\widebar\rho \sim y^{-\beta/\nu_{\!\perp}} \sim y^{-0.796}$"
-        )
+        if do_powerlawtrend:
+            plt.plot(
+                y_, y_**(-dp_β/dp_ν_pp)*y_sf, ":", 
+                label=r"$\widebar\rho \sim y^{-\beta/\nu_{\!\perp}} \sim y^{-0.796}$"
+            )
         if do_loglog:
             axes = plt.gca()
             axes.set_yscale("log")
             axes.set_xscale("log")
         plt.autoscale(enable=True, axis="x", tight=True,)
-        plt.ylim(*y_limits)
+        if x_limits is not None:
+            plt.xlim(*x_limits)
+        if y_limits is not None:
+            plt.ylim(*y_limits)
         plt.ylabel(r"Time- & wall-parallel-averaged density  $\rho$")
         plt.xlabel(r"Distance from wall $y$")
         plt.legend(fontsize=11,)

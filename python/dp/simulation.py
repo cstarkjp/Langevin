@@ -43,6 +43,7 @@ warnings.filterwarnings("ignore")
 __all__ = [
     "Simulation", 
 ]
+
 class Simulation:
     """
     Class to manage a single DP Langevin field integration.
@@ -172,7 +173,7 @@ class Simulation:
         tock: float = perf_counter()
         self.misc["computation_time"] = f"{timedelta(seconds=round(tock-tick))}"
         return (f"Computation time = {self.misc["computation_time"]}")
-
+    
     def exec(self) -> Sequence[tuple]:
         """
         Carry out all simulation steps, including initialization & running.
@@ -190,7 +191,7 @@ class Simulation:
             tuple(self.mean_densities.tolist()),
             self.misc["computation_time"],
         )
-
+    
     def plot(self) -> None:
         """Plot everything"""
         self.plot_graphs()
@@ -201,38 +202,55 @@ class Simulation:
         Generate all the required graphs.
         """
         self.graphs: VizDP = VizDP()
-        self.graphs.plot_mean_density_evolution(
-            "ρ_t_loglog",
-            self.parameters, 
-            self.analysis, 
-            self.misc,
-            self.t_epochs, 
-            self.mean_densities, 
+        self.plot_mean_density_evolution(
+            "ρ_t",
+            do_loglog=False,
             do_rescale=False, 
             y_sf=0.75,
+            # t_begin=self.t_epochs[-1]/10,
         )
-        self.graphs.plot_mean_density_evolution(
+        self.plot_mean_density_evolution(
+            "ρ_t_loglog",
+            do_rescale=False, 
+            y_sf=self.misc["ysf_log"],
+        )
+        self.plot_mean_density_evolution(
             "ρ_t_rescaled",
-            self.parameters, 
-            self.analysis, 
-            self.misc,
-            self.t_epochs, 
-            self.mean_densities, 
             do_rescale=True,
         )
         if do_profile:
             t_final = self.t_epochs[-1]
-            self.graphs.plot_density_profile(
-                "ρ_y_wall",
-                self.parameters, 
-                self.analysis, 
-                self.density_dict, 
-                self.t_epochs, 
-                t_final*0.2,
-                t_final,
+            self.plot_density_profile(
+                "ρ_y_wall_loglog",
+                t_begin=t_final*0.2,
+                t_end=t_final,
                 y_offset=self.parameters["dx"],
                 y_sf=0.705,
+                x_limits=None,
                 y_limits=(3e-3, None,),
+        )
+    
+    def plot_mean_density_evolution(self, name, *args, **kwargs,):
+        self.graphs.plot_mean_density_evolution(
+            name,
+            self.parameters, 
+            self.analysis, 
+            self.misc,
+            self.t_epochs, 
+            self.mean_densities, 
+            *args, 
+            **kwargs,
+        )
+            
+    def plot_density_profile(self, name, *args, **kwargs,):
+        self.graphs.plot_density_profile(
+            name,
+            self.parameters, 
+            self.analysis, 
+            self.density_dict, 
+            self.t_epochs, 
+            *args, 
+            **kwargs,
         )
 
     def plot_images(self) -> None:
@@ -252,6 +270,9 @@ class Simulation:
         progress_bar: Callable = (
             progress if self.do_verbose else progress_disabled
         )
+        density_max: float = (
+            3 if "ρ_max" not in self.misc else self.misc["ρ_max"]
+        )
         for i_epoch_, t_epoch_ in progress_bar(enumerate(self.density_dict.keys())):
             name_ =  f"ρ_t{t_epoch_:0{n_digits}.1f}".replace(".","p")
             density_ = self.density_dict[t_epoch_]
@@ -262,14 +283,21 @@ class Simulation:
                 self.analysis,
                 t_epoch_, 
                 density_, 
-                density_max=3,
-                tick_Δρ=1,
+                density_max=density_max,
+                tick_Δρ=(1 if density_max>=2 else (
+                    0.1 if density_max<=0.5 else 0.5)
+                ),
                 do_extend_if_periodic=False,
                 n_digits=n_digits,
+                # color_palette="magma_r",
             )
 
     def save(
-            self, module: Any, do_dummy: bool=False, do_verbose: bool=False,
+            self, 
+            module: Any, 
+            do_dummy: bool=False, 
+            do_verbose: bool=False,
+            do_export_images: bool=True,
         ) -> str | None:
         """
         Export outfo JSON, graphs, and data files.
@@ -326,7 +354,10 @@ class Simulation:
                         do_verbose=self.do_verbose,
                     )
 
-        if "do_export_images" in self.misc and self.misc["do_export_images"]:
+        if (
+            do_export_images and 
+            ("do_export_images" in self.misc and self.misc["do_export_images"])
+        ):
             images_path: str = \
                 create_directories(
                     (*self.misc["path"], seed_dir_name,), "Images", 
