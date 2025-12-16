@@ -1,10 +1,10 @@
 """
-Provide a data visualization class.
+Provide a data visualization class for DP simulations.
 """
 import warnings
 from typing import Any
 from functools import reduce
-from copy import deepcopy
+# from copy import deepcopy
 import numpy as np
 from numpy.typing import NDArray
 import matplotlib as mpl
@@ -30,11 +30,11 @@ class VizDP(Viz):
             analysis: dict,
             t_epoch: float, 
             density: NDArray,
-            density_max: float=5,
+            density_max: float=0.5,
             tick_Δρ: float=0.5,
             do_extend_if_periodic: bool=False,
             n_digits: int=6,
-            color_palette: str="plasma_r",
+            color_palette: str="plasma",
         ) -> Figure:
         """
         Generate an image grid of the Langevin density field.
@@ -68,9 +68,6 @@ class VizDP(Viz):
         )
         plt.title(prefix+title, fontdict={"size":10},)
 
-        # Fix absorbing phase ρ=0 to be gray
-        color_map: Colormap = mpl.colormaps[color_palette].resampled(1000)
-        color_map.colors[0] = [0.9, 0.9, 0.9, 0.9]
         grid_: NDArray = np.flipud(density.T)
         n_pad_ud: int
         n_pad_lr: int
@@ -87,12 +84,15 @@ class VizDP(Viz):
             n_pad_lr = max(grid_.shape[1]//5, 10)
             grid_ = np.hstack([grid_, grid_[:,:n_pad_lr]])
         (n_ud, n_lr,) = grid_.shape
-        # print((n_ud, n_lr,))
+        # Fix absorbing phase ρ=0 to be gray
+        color_map: Colormap = mpl.colormaps[color_palette].resampled(1000)
+        color_map.colors[0] = [0.9, 0.9, 0.9, 0.9]
         plt.imshow(
             grid_,  
             extent=(0, n_lr, 0, n_ud), 
             cmap=color_map,
-            vmin=0, vmax=density_max,
+            vmin=0, 
+            vmax=density_max,
         )
         ticks: NDArray = np.arange(0, density_max+1, tick_Δρ,)
         bar_shrink: float
@@ -441,8 +441,10 @@ class VizDP(Viz):
         dy = parameters["dx"]
         y_ = np.arange(n_y, 0, -1)*dy - dy/2 + y_offset
         plt.plot(
-            y_, density_profile, "-", 
-            label=r"DP simulation"
+            y_, density_profile, 
+            "-", 
+            lw=1,
+            label=(r"DP simulation" if do_powerlawtrend else None)
         )
         if do_powerlawtrend:
             plt.plot(

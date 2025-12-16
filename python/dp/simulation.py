@@ -43,7 +43,6 @@ warnings.filterwarnings("ignore")
 __all__ = [
     "Simulation", 
 ]
-
 class Simulation:
     """
     Class to manage a single DP Langevin field integration.
@@ -173,7 +172,7 @@ class Simulation:
         tock: float = perf_counter()
         self.misc["computation_time"] = f"{timedelta(seconds=round(tock-tick))}"
         return (f"Computation time = {self.misc["computation_time"]}")
-    
+
     def exec(self) -> Sequence[tuple]:
         """
         Carry out all simulation steps, including initialization & running.
@@ -191,7 +190,7 @@ class Simulation:
             tuple(self.mean_densities.tolist()),
             self.misc["computation_time"],
         )
-    
+
     def plot(self) -> None:
         """Plot everything"""
         self.plot_graphs()
@@ -263,8 +262,6 @@ class Simulation:
             return None
         t_last: float = t_epochs[-1]
         n_digits: int = len(f"{t_last:0{self.misc["n_digits"]}.1f}".replace(".","p"))
-        # print(f"ρ_t{0:0{n_digits}.1f}".replace(".","p"))
-        # print(f"ρ_t{t_last:0{n_digits}.1f}".replace(".","p"))
         name_: str 
         density_: NDArray
         progress_bar: Callable = (
@@ -276,21 +273,20 @@ class Simulation:
         for i_epoch_, t_epoch_ in progress_bar(enumerate(self.density_dict.keys())):
             name_ =  f"ρ_t{t_epoch_:0{n_digits}.1f}".replace(".","p")
             density_ = self.density_dict[t_epoch_]
-            # print(i_epoch_, t_epoch_, name_, density_.shape)
-            self.density_image_dict[i_epoch_] = self.images.plot_density_image(
-                name_, 
-                self.parameters, 
-                self.analysis,
-                t_epoch_, 
-                density_, 
-                density_max=density_max,
-                tick_Δρ=(1 if density_max>=2 else (
-                    0.1 if density_max<=0.5 else 0.5)
-                ),
-                do_extend_if_periodic=False,
-                n_digits=n_digits,
-                # color_palette="magma_r",
-            )
+            self.density_image_dict[i_epoch_] \
+                = self.images.plot_density_image(
+                    name_, 
+                    self.parameters, 
+                    self.analysis,
+                    t_epoch_, 
+                    density_, 
+                    density_max=density_max,
+                    tick_Δρ=(1 if density_max>=2 else (
+                        0.1 if density_max<=0.5 else 0.5)
+                    ),
+                    do_extend_if_periodic=False,
+                    n_digits=n_digits,
+                )
 
     def save(
             self, 
