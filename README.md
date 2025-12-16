@@ -8,7 +8,7 @@
 
 Tools to integrate Langevin equations of absorbing phase transition (APT) type — with a focus on solution of the directed percolation (DP) Langevin equation.
 
-![](https://raw.githubusercontent.com/cstarkjp/Langevin/main/images/ρ_rs1_a0p28000_b1_D1p00_η1_x100_y50_Δx1_Δt0p1.gif
+![](https://raw.githubusercontent.com/cstarkjp/Langevin/main/images/ρ_a0p26850_b1_D1p00_η1_x100_y50_Δx1_Δt0p1_rs1.gif
  "Density field evolution over time")
 
  <!-- ![](https://raw.githubusercontent.com/cstarkjp/Langevin/main/images/density_grid.png
@@ -22,7 +22,7 @@ grid dimension and size, boundary topology (bounded or periodic), boundary condi
 in batches, time-slicing the Langevin field grid, and recording of time-series
 of grid properties.
 
-![](https://raw.githubusercontent.com/cstarkjp/Langevin/main/images/meandensity_time.png
+![](https://raw.githubusercontent.com/cstarkjp/Langevin/main/images/ρ_t.png
  "Mean density over time")
 
 The equation solved in the demo here is the DP Langevin for a 2D grid with initial values sampled from U[0,1]: 
@@ -39,7 +39,44 @@ See
 [Victor Buendía's fork of Paula Villa Martín's repo](https://github.com/VictorSeven/Dornic_et_al_integration_class/tree/victor-update)
  for details on more general applications and on how the integration scheme is implemented.
 
-## Software design
+
+# Installation
+
+For [`here for more comprehensive installation notes`](https://cstarkjp.github.io/Langevin/how-to-install/) that cover multiple platforms. The info below applies only to Linux and macOS. 
+
+## Optional: Python environment 
+First, set up a suitable Python environment. This is optional, but recommended.
+The simplest tool is `uv`, but there are several other options. 
+If you use `conda` or `miniconda`, take a look at the `environment.yml` file provided.
+
+Using `uv`, all that's needed is to create an
+appropriately named folder (within which you want to use the environment), navigate to it, and execute:
+
+    uv venv --python=3.14
+    source .venv/bin/activate
+
+where the `--python` option forces `uv` to choose version 3.14 of the Python interpreter (recommended).
+
+## Package from PyPI
+
+Then, install the `langevin` package from PyPI:
+
+    [uv] pip install langevin
+
+where `uv` is needed only if you are using that tool.
+This step should automatically install all the dependencies as well. 
+If it does not, see below.
+
+# Usage
+
+Simple demonstration scripts are provided in [`demos/`](https://github.com/cstarkjp/Langevin/tree/main/demos/README.md). More complete examples are provided in the [`simulation/`](https://github.com/cstarkjp/Langevin/tree/main/simulation/dp/) directory. The easiest route is to `git` clone the repo to get these files, or you can download one-by-one.
+
+# Platform support
+
+All major platforms (Linux, macOS, Windows) are supported: binary wheels are provided for all the recent releases. If you have a different vintage OS, you can build from source (using `pip` — see below), and the code should work fine.
+
+
+# Software design
 
 The structure of the DP/APT Langevin-equation integrator package is broadly as follows 
 (detailed documentation is available 
@@ -63,48 +100,10 @@ Next, the code is split into a hierarchy of three groups, with each correspondin
    3. The [`cplusplus/langevin_*`](https://github.com/cstarkjp/Langevin/tree/main/cplusplus) source files provide the base `BaseLangevin` class that implements the operator-splitting integration method in a fairly general fashion. Grid geometry and topology, boundary conditions, initial conditions, the integration scheme, and a general form of the Langevin equation are all coded here. The core Dornic-style integrator is a heavily altered version of the Villa-Martín and Buendía code.
 
 
-## Installation
+# Build from source
 
-For [`here for more comprehensive installation notes`](https://cstarkjp.github.io/Langevin/how-to-install/) that cover multiple platforms. The info below applies only to Linux and macOS. 
 
-### Python environment 
-First, set up a suitable Python environment. 
-The simplest tool is `uv`, but there are several other options. 
-If you use `conda` or `miniconda`, take a look at the `environment.yml` file provided.
-
-We recommend installing Python 3.14 since development of `langevin` uses this version.
-
-For example, if you're using `uv`, all that's needed is to create an
-appropriately named folder, navigate to it, and execute:
-
-    uv venv --python=3.14
-    source .venv/bin/activate
-
-where the `--python` option forces `uv` to choose that version of the Python intepreter.
-
-### Package from PyPI
-
-Then, install the `langevin` package from PyPI:
-
-    pip install langevin
-
-if you're using `uv`, this command will be
-
-    uv pip install langevin
-
-This step should automatically install all the dependencies as well. 
-If it does not, see below.
-
-### Alternative: Package from TestPyPI
-
-If you want to access more regular updates, you can install from TestPyPI:
-
-    [uv] pip install --index https://test.pypi.org/simple/ \
-                --default-index https://pypi.org/simple/  langevin
-
-Note: the `--default-index` ensures that package dependencies are fetched from the main PyPI repository where needed.
-
-### Dependencies
+## Dependencies
 
 At minimum, `langevin` needs Python≥3.12 and the package `pybind11`. To run the demos, you will also need `numpy`, `matplotlib`, `jupyter`, `ipython`, along with `pandas`, `tqdm`, and  `ffmpeg-python`. 
 If you are using `conda` or `miniconda`, it would be best to install them using
@@ -116,27 +115,21 @@ To turn density field image sequences into animations, `langevin` uses `ffmpeg-p
 
 On Linux platforms, `matplotlib` has a tendency to complain about missing fonts, e.g., Arial, generating large numbers of warnings in some of the notebooks. This can be fixed by installing the missing fonts and ensuring that `matplotlib`'s cache is refreshed.
 
-### Platform support
-
-We currently have pre-built binary wheels macOS 14, macOS 15, the latest macOS build, and multiple flavors of Linux (most of which have been tested), as well as Windows (but not yet tested). 
-
-## Build from source
+## Build using `pip install`
 
 If your platform is not explicitly supported with a pre-built binary, the following will force a build from source:
 
     [uv] pip install -v langevin --no-binary langevin
 
+## Alternative: build by hand
     
 The package can also be built "by hand."
 Some build info is provided in the [`cplusplus/`](https://github.com/cstarkjp/Langevin/tree/main/cplusplus/README.md) directory. The build system is [meson-python](https://mesonbuild.com/meson-python/), using [pybind11](https://pybind11.readthedocs.io/en/stable/) as the C++ wrapper. 
 
 
-## Usage
-
-Simple demonstration scripts are provided in [`demos/`](https://github.com/cstarkjp/Langevin/tree/main/demos/README.md). More complete examples are provided in the [`simulation/`](https://github.com/cstarkjp/Langevin/tree/main/simulation/dp/) directory. The easiest route is to `git` clone the repo to get these files, or you can download one-by-one.
 
 
-## References
+# References
 
    - [Buendía, 2019: "Dornic integration method for multipicative [sic] noise" (fork of GitHub repo by Villa Martín)](https://github.com/VictorSeven/Dornic_et_al_integration_class/tree/victor-update)  
    <!-- [[shared PDF]](https://www.dropbox.com/scl/fi/jzu0hxbifu8g8njglwfh1/VillaMartin_2014_CatastrophicShiftsLangevinSimulation2D.pdf?rlkey=i9s6s1i19jtgk6pua7xwdaa1a&st=qpfzqyyw&dl=0)  -->

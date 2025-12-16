@@ -2075,10 +2075,7 @@
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>.venv/lib/python3.14/site-packages/langevin/dp/ensemble.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-166">166</a></span>
-<span class="normal"><a href="#__codelineno-0-167">167</a></span>
-<span class="normal"><a href="#__codelineno-0-168">168</a></span>
-<span class="normal"><a href="#__codelineno-0-169">169</a></span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-169">169</a></span>
 <span class="normal"><a href="#__codelineno-0-170">170</a></span>
 <span class="normal"><a href="#__codelineno-0-171">171</a></span>
 <span class="normal"><a href="#__codelineno-0-172">172</a></span>
@@ -2089,21 +2086,24 @@
 <span class="normal"><a href="#__codelineno-0-177">177</a></span>
 <span class="normal"><a href="#__codelineno-0-178">178</a></span>
 <span class="normal"><a href="#__codelineno-0-179">179</a></span>
-<span class="normal"><a href="#__codelineno-0-180">180</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-166"><a id="__codelineno-0-166" name="__codelineno-0-166"></a><span class="k">def</span><span class="w"> </span><span class="nf">exec</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="__span-0-167"><a id="__codelineno-0-167" name="__codelineno-0-167"></a><span class="w">    </span><span class="sd">"""</span>
-</span><span id="__span-0-168"><a id="__codelineno-0-168" name="__codelineno-0-168"></a><span class="sd">    Execute an ensemble of sims in parallel using `multiprocessing`.</span>
-</span><span id="__span-0-169"><a id="__codelineno-0-169" name="__codelineno-0-169"></a><span class="sd">    """</span>
-</span><span id="__span-0-170"><a id="__codelineno-0-170" name="__codelineno-0-170"></a>    <span class="n">ensemble_results</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]]</span> \
-</span><span id="__span-0-171"><a id="__codelineno-0-171" name="__codelineno-0-171"></a>        <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exec_multiple_sims</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sim_exec_wrapper</span><span class="p">)</span>
-</span><span id="__span-0-172"><a id="__codelineno-0-172" name="__codelineno-0-172"></a>    <span class="k">for</span> <span class="p">(</span><span class="n">sim_results_</span><span class="p">,</span> <span class="n">sim_</span><span class="p">,)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ensemble_results</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim_list</span><span class="p">):</span>
-</span><span id="__span-0-173"><a id="__codelineno-0-173" name="__codelineno-0-173"></a>        <span class="n">sim_</span><span class="o">.</span><span class="n">t_epochs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sim_results_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</span><span id="__span-0-174"><a id="__codelineno-0-174" name="__codelineno-0-174"></a>        <span class="n">sim_</span><span class="o">.</span><span class="n">mean_densities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sim_results_</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-</span><span id="__span-0-175"><a id="__codelineno-0-175" name="__codelineno-0-175"></a>        <span class="n">sim_</span><span class="o">.</span><span class="n">misc</span><span class="p">[</span><span class="s2">"computation_time"</span><span class="p">]</span> <span class="o">=</span> <span class="n">sim_results_</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-</span><span id="__span-0-176"><a id="__codelineno-0-176" name="__codelineno-0-176"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">"Misc"</span><span class="p">][</span><span class="s2">"computation_time"</span><span class="p">]</span> <span class="o">=</span> <span class="n">sim_results_</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-</span><span id="__span-0-177"><a id="__codelineno-0-177" name="__codelineno-0-177"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">"Misc"</span><span class="p">][</span><span class="s2">"dplvn_version"</span><span class="p">]</span> \
-</span><span id="__span-0-178"><a id="__codelineno-0-178" name="__codelineno-0-178"></a>        <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">misc</span><span class="p">[</span><span class="s2">"dplvn_version"</span><span class="p">]</span>
-</span><span id="__span-0-179"><a id="__codelineno-0-179" name="__codelineno-0-179"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">"Misc"</span><span class="p">][</span><span class="s2">"date_time"</span><span class="p">]</span> \
-</span><span id="__span-0-180"><a id="__codelineno-0-180" name="__codelineno-0-180"></a>        <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">misc</span><span class="p">[</span><span class="s2">"date_time"</span><span class="p">]</span>
+<span class="normal"><a href="#__codelineno-0-180">180</a></span>
+<span class="normal"><a href="#__codelineno-0-181">181</a></span>
+<span class="normal"><a href="#__codelineno-0-182">182</a></span>
+<span class="normal"><a href="#__codelineno-0-183">183</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-169"><a id="__codelineno-0-169" name="__codelineno-0-169"></a><span class="k">def</span><span class="w"> </span><span class="nf">exec</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-0-170"><a id="__codelineno-0-170" name="__codelineno-0-170"></a><span class="w">    </span><span class="sd">"""</span>
+</span><span id="__span-0-171"><a id="__codelineno-0-171" name="__codelineno-0-171"></a><span class="sd">    Execute an ensemble of sims in parallel using `multiprocessing`.</span>
+</span><span id="__span-0-172"><a id="__codelineno-0-172" name="__codelineno-0-172"></a><span class="sd">    """</span>
+</span><span id="__span-0-173"><a id="__codelineno-0-173" name="__codelineno-0-173"></a>    <span class="n">ensemble_results</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]]</span> \
+</span><span id="__span-0-174"><a id="__codelineno-0-174" name="__codelineno-0-174"></a>        <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exec_multiple_sims</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sim_exec_wrapper</span><span class="p">)</span>
+</span><span id="__span-0-175"><a id="__codelineno-0-175" name="__codelineno-0-175"></a>    <span class="k">for</span> <span class="p">(</span><span class="n">sim_results_</span><span class="p">,</span> <span class="n">sim_</span><span class="p">,)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ensemble_results</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim_list</span><span class="p">):</span>
+</span><span id="__span-0-176"><a id="__codelineno-0-176" name="__codelineno-0-176"></a>        <span class="n">sim_</span><span class="o">.</span><span class="n">t_epochs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sim_results_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span><span id="__span-0-177"><a id="__codelineno-0-177" name="__codelineno-0-177"></a>        <span class="n">sim_</span><span class="o">.</span><span class="n">mean_densities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sim_results_</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span><span id="__span-0-178"><a id="__codelineno-0-178" name="__codelineno-0-178"></a>        <span class="n">sim_</span><span class="o">.</span><span class="n">misc</span><span class="p">[</span><span class="s2">"computation_time"</span><span class="p">]</span> <span class="o">=</span> <span class="n">sim_results_</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</span><span id="__span-0-179"><a id="__codelineno-0-179" name="__codelineno-0-179"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">"Misc"</span><span class="p">][</span><span class="s2">"computation_time"</span><span class="p">]</span> <span class="o">=</span> <span class="n">sim_results_</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</span><span id="__span-0-180"><a id="__codelineno-0-180" name="__codelineno-0-180"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">"Misc"</span><span class="p">][</span><span class="s2">"dplvn_version"</span><span class="p">]</span> \
+</span><span id="__span-0-181"><a id="__codelineno-0-181" name="__codelineno-0-181"></a>        <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">misc</span><span class="p">[</span><span class="s2">"dplvn_version"</span><span class="p">]</span>
+</span><span id="__span-0-182"><a id="__codelineno-0-182" name="__codelineno-0-182"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">"Misc"</span><span class="p">][</span><span class="s2">"date_time"</span><span class="p">]</span> \
+</span><span id="__span-0-183"><a id="__codelineno-0-183" name="__codelineno-0-183"></a>        <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">misc</span><span class="p">[</span><span class="s2">"date_time"</span><span class="p">]</span>
 </span></code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -2154,10 +2154,7 @@
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>.venv/lib/python3.14/site-packages/langevin/dp/ensemble.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-151">151</a></span>
-<span class="normal"><a href="#__codelineno-0-152">152</a></span>
-<span class="normal"><a href="#__codelineno-0-153">153</a></span>
-<span class="normal"><a href="#__codelineno-0-154">154</a></span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-154">154</a></span>
 <span class="normal"><a href="#__codelineno-0-155">155</a></span>
 <span class="normal"><a href="#__codelineno-0-156">156</a></span>
 <span class="normal"><a href="#__codelineno-0-157">157</a></span>
@@ -2167,20 +2164,23 @@
 <span class="normal"><a href="#__codelineno-0-161">161</a></span>
 <span class="normal"><a href="#__codelineno-0-162">162</a></span>
 <span class="normal"><a href="#__codelineno-0-163">163</a></span>
-<span class="normal"><a href="#__codelineno-0-164">164</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-151"><a id="__codelineno-0-151" name="__codelineno-0-151"></a><span class="k">def</span><span class="w"> </span><span class="nf">exec_multiple_sims</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">function</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]]:</span>
-</span><span id="__span-0-152"><a id="__codelineno-0-152" name="__codelineno-0-152"></a><span class="w">    </span><span class="sd">"""</span>
-</span><span id="__span-0-153"><a id="__codelineno-0-153" name="__codelineno-0-153"></a><span class="sd">    Carry out the `multiprocessing` parallelization of the ensemble of sims.</span>
-</span><span id="__span-0-154"><a id="__codelineno-0-154" name="__codelineno-0-154"></a>
-</span><span id="__span-0-155"><a id="__codelineno-0-155" name="__codelineno-0-155"></a><span class="sd">    Args:</span>
-</span><span id="__span-0-156"><a id="__codelineno-0-156" name="__codelineno-0-156"></a><span class="sd">        function: wrapper passed to pool to act on each sim instance.</span>
+<span class="normal"><a href="#__codelineno-0-164">164</a></span>
+<span class="normal"><a href="#__codelineno-0-165">165</a></span>
+<span class="normal"><a href="#__codelineno-0-166">166</a></span>
+<span class="normal"><a href="#__codelineno-0-167">167</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-154"><a id="__codelineno-0-154" name="__codelineno-0-154"></a><span class="k">def</span><span class="w"> </span><span class="nf">exec_multiple_sims</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">function</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]]:</span>
+</span><span id="__span-0-155"><a id="__codelineno-0-155" name="__codelineno-0-155"></a><span class="w">    </span><span class="sd">"""</span>
+</span><span id="__span-0-156"><a id="__codelineno-0-156" name="__codelineno-0-156"></a><span class="sd">    Carry out the `multiprocessing` parallelization of the ensemble of sims.</span>
 </span><span id="__span-0-157"><a id="__codelineno-0-157" name="__codelineno-0-157"></a>
-</span><span id="__span-0-158"><a id="__codelineno-0-158" name="__codelineno-0-158"></a><span class="sd">    Returns:</span>
-</span><span id="__span-0-159"><a id="__codelineno-0-159" name="__codelineno-0-159"></a><span class="sd">        list of serialized outputs returned by each completed sim.</span>
-</span><span id="__span-0-160"><a id="__codelineno-0-160" name="__codelineno-0-160"></a><span class="sd">    """</span>
-</span><span id="__span-0-161"><a id="__codelineno-0-161" name="__codelineno-0-161"></a>    <span class="n">ensemble_results</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]]</span>
-</span><span id="__span-0-162"><a id="__codelineno-0-162" name="__codelineno-0-162"></a>    <span class="k">with</span> <span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">"Misc"</span><span class="p">][</span><span class="s2">"n_cores"</span><span class="p">])</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
-</span><span id="__span-0-163"><a id="__codelineno-0-163" name="__codelineno-0-163"></a>        <span class="n">ensemble_results</span> <span class="o">=</span> <span class="p">(</span><span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim_list</span><span class="p">,))</span>
-</span><span id="__span-0-164"><a id="__codelineno-0-164" name="__codelineno-0-164"></a>    <span class="k">return</span> <span class="n">ensemble_results</span>
+</span><span id="__span-0-158"><a id="__codelineno-0-158" name="__codelineno-0-158"></a><span class="sd">    Args:</span>
+</span><span id="__span-0-159"><a id="__codelineno-0-159" name="__codelineno-0-159"></a><span class="sd">        function: wrapper passed to pool to act on each sim instance.</span>
+</span><span id="__span-0-160"><a id="__codelineno-0-160" name="__codelineno-0-160"></a>
+</span><span id="__span-0-161"><a id="__codelineno-0-161" name="__codelineno-0-161"></a><span class="sd">    Returns:</span>
+</span><span id="__span-0-162"><a id="__codelineno-0-162" name="__codelineno-0-162"></a><span class="sd">        list of serialized outputs returned by each completed sim.</span>
+</span><span id="__span-0-163"><a id="__codelineno-0-163" name="__codelineno-0-163"></a><span class="sd">    """</span>
+</span><span id="__span-0-164"><a id="__codelineno-0-164" name="__codelineno-0-164"></a>    <span class="n">ensemble_results</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]]</span>
+</span><span id="__span-0-165"><a id="__codelineno-0-165" name="__codelineno-0-165"></a>    <span class="k">with</span> <span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">"Misc"</span><span class="p">][</span><span class="s2">"n_cores"</span><span class="p">])</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
+</span><span id="__span-0-166"><a id="__codelineno-0-166" name="__codelineno-0-166"></a>        <span class="n">ensemble_results</span> <span class="o">=</span> <span class="p">(</span><span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim_list</span><span class="p">,))</span>
+</span><span id="__span-0-167"><a id="__codelineno-0-167" name="__codelineno-0-167"></a>    <span class="k">return</span> <span class="n">ensemble_results</span>
 </span></code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -2245,10 +2245,7 @@
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>.venv/lib/python3.14/site-packages/langevin/dp/ensemble.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-182">182</a></span>
-<span class="normal"><a href="#__codelineno-0-183">183</a></span>
-<span class="normal"><a href="#__codelineno-0-184">184</a></span>
-<span class="normal"><a href="#__codelineno-0-185">185</a></span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-185">185</a></span>
 <span class="normal"><a href="#__codelineno-0-186">186</a></span>
 <span class="normal"><a href="#__codelineno-0-187">187</a></span>
 <span class="normal"><a href="#__codelineno-0-188">188</a></span>
@@ -2260,22 +2257,25 @@
 <span class="normal"><a href="#__codelineno-0-194">194</a></span>
 <span class="normal"><a href="#__codelineno-0-195">195</a></span>
 <span class="normal"><a href="#__codelineno-0-196">196</a></span>
-<span class="normal"><a href="#__codelineno-0-197">197</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-182"><a id="__codelineno-0-182" name="__codelineno-0-182"></a><span class="k">def</span><span class="w"> </span><span class="nf">multi_plot</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="__span-0-183"><a id="__codelineno-0-183" name="__codelineno-0-183"></a><span class="w">    </span><span class="sd">"""</span>
-</span><span id="__span-0-184"><a id="__codelineno-0-184" name="__codelineno-0-184"></a><span class="sd">    Generate graphs of the ensemble results.</span>
-</span><span id="__span-0-185"><a id="__codelineno-0-185" name="__codelineno-0-185"></a><span class="sd">    """</span>
-</span><span id="__span-0-186"><a id="__codelineno-0-186" name="__codelineno-0-186"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"graphs"</span><span class="p">):</span>
-</span><span id="__span-0-187"><a id="__codelineno-0-187" name="__codelineno-0-187"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">graphs</span> <span class="o">=</span> <span class="n">VizDP</span><span class="p">()</span>
-</span><span id="__span-0-188"><a id="__codelineno-0-188" name="__codelineno-0-188"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">graphs</span><span class="o">.</span><span class="n">multiplot_mean_density_evolution</span><span class="p">(</span>
-</span><span id="__span-0-189"><a id="__codelineno-0-189" name="__codelineno-0-189"></a>        <span class="s2">"ρ_t_loglog"</span><span class="p">,</span>
-</span><span id="__span-0-190"><a id="__codelineno-0-190" name="__codelineno-0-190"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim_list</span><span class="p">,</span>
-</span><span id="__span-0-191"><a id="__codelineno-0-191" name="__codelineno-0-191"></a>        <span class="n">do_rescale</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">y_sf</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span>
-</span><span id="__span-0-192"><a id="__codelineno-0-192" name="__codelineno-0-192"></a>    <span class="p">)</span>
-</span><span id="__span-0-193"><a id="__codelineno-0-193" name="__codelineno-0-193"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">graphs</span><span class="o">.</span><span class="n">multiplot_mean_density_evolution</span><span class="p">(</span>
-</span><span id="__span-0-194"><a id="__codelineno-0-194" name="__codelineno-0-194"></a>        <span class="s2">"ρ_t_rescaled"</span><span class="p">,</span>
-</span><span id="__span-0-195"><a id="__codelineno-0-195" name="__codelineno-0-195"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim_list</span><span class="p">,</span>
-</span><span id="__span-0-196"><a id="__codelineno-0-196" name="__codelineno-0-196"></a>        <span class="n">do_rescale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-</span><span id="__span-0-197"><a id="__codelineno-0-197" name="__codelineno-0-197"></a>    <span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-197">197</a></span>
+<span class="normal"><a href="#__codelineno-0-198">198</a></span>
+<span class="normal"><a href="#__codelineno-0-199">199</a></span>
+<span class="normal"><a href="#__codelineno-0-200">200</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-185"><a id="__codelineno-0-185" name="__codelineno-0-185"></a><span class="k">def</span><span class="w"> </span><span class="nf">multi_plot</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-0-186"><a id="__codelineno-0-186" name="__codelineno-0-186"></a><span class="w">    </span><span class="sd">"""</span>
+</span><span id="__span-0-187"><a id="__codelineno-0-187" name="__codelineno-0-187"></a><span class="sd">    Generate graphs of the ensemble results.</span>
+</span><span id="__span-0-188"><a id="__codelineno-0-188" name="__codelineno-0-188"></a><span class="sd">    """</span>
+</span><span id="__span-0-189"><a id="__codelineno-0-189" name="__codelineno-0-189"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"graphs"</span><span class="p">):</span>
+</span><span id="__span-0-190"><a id="__codelineno-0-190" name="__codelineno-0-190"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">graphs</span> <span class="o">=</span> <span class="n">VizDP</span><span class="p">()</span>
+</span><span id="__span-0-191"><a id="__codelineno-0-191" name="__codelineno-0-191"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">graphs</span><span class="o">.</span><span class="n">multiplot_mean_density_evolution</span><span class="p">(</span>
+</span><span id="__span-0-192"><a id="__codelineno-0-192" name="__codelineno-0-192"></a>        <span class="s2">"ρ_t_loglog"</span><span class="p">,</span>
+</span><span id="__span-0-193"><a id="__codelineno-0-193" name="__codelineno-0-193"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim_list</span><span class="p">,</span>
+</span><span id="__span-0-194"><a id="__codelineno-0-194" name="__codelineno-0-194"></a>        <span class="n">do_rescale</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">y_sf</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span>
+</span><span id="__span-0-195"><a id="__codelineno-0-195" name="__codelineno-0-195"></a>    <span class="p">)</span>
+</span><span id="__span-0-196"><a id="__codelineno-0-196" name="__codelineno-0-196"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">graphs</span><span class="o">.</span><span class="n">multiplot_mean_density_evolution</span><span class="p">(</span>
+</span><span id="__span-0-197"><a id="__codelineno-0-197" name="__codelineno-0-197"></a>        <span class="s2">"ρ_t_rescaled"</span><span class="p">,</span>
+</span><span id="__span-0-198"><a id="__codelineno-0-198" name="__codelineno-0-198"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim_list</span><span class="p">,</span>
+</span><span id="__span-0-199"><a id="__codelineno-0-199" name="__codelineno-0-199"></a>        <span class="n">do_rescale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span><span id="__span-0-200"><a id="__codelineno-0-200" name="__codelineno-0-200"></a>    <span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -2301,17 +2301,17 @@
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>.venv/lib/python3.14/site-packages/langevin/dp/ensemble.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-205">205</a></span>
-<span class="normal"><a href="#__codelineno-0-206">206</a></span>
-<span class="normal"><a href="#__codelineno-0-207">207</a></span>
-<span class="normal"><a href="#__codelineno-0-208">208</a></span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-208">208</a></span>
 <span class="normal"><a href="#__codelineno-0-209">209</a></span>
-<span class="normal"><a href="#__codelineno-0-210">210</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-205"><a id="__codelineno-0-205" name="__codelineno-0-205"></a><span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="__span-0-206"><a id="__codelineno-0-206" name="__codelineno-0-206"></a><span class="w">    </span><span class="sd">"""</span>
-</span><span id="__span-0-207"><a id="__codelineno-0-207" name="__codelineno-0-207"></a><span class="sd">    Generate graphs for results from a single sim.</span>
-</span><span id="__span-0-208"><a id="__codelineno-0-208" name="__codelineno-0-208"></a><span class="sd">    """</span>
-</span><span id="__span-0-209"><a id="__codelineno-0-209" name="__codelineno-0-209"></a>    <span class="k">for</span> <span class="n">sim_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim_list</span><span class="p">:</span>
-</span><span id="__span-0-210"><a id="__codelineno-0-210" name="__codelineno-0-210"></a>        <span class="n">sim_</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="normal"><a href="#__codelineno-0-210">210</a></span>
+<span class="normal"><a href="#__codelineno-0-211">211</a></span>
+<span class="normal"><a href="#__codelineno-0-212">212</a></span>
+<span class="normal"><a href="#__codelineno-0-213">213</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-208"><a id="__codelineno-0-208" name="__codelineno-0-208"></a><span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-0-209"><a id="__codelineno-0-209" name="__codelineno-0-209"></a><span class="w">    </span><span class="sd">"""</span>
+</span><span id="__span-0-210"><a id="__codelineno-0-210" name="__codelineno-0-210"></a><span class="sd">    Generate graphs for results from a single sim.</span>
+</span><span id="__span-0-211"><a id="__codelineno-0-211" name="__codelineno-0-211"></a><span class="sd">    """</span>
+</span><span id="__span-0-212"><a id="__codelineno-0-212" name="__codelineno-0-212"></a>    <span class="k">for</span> <span class="n">sim_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim_list</span><span class="p">:</span>
+</span><span id="__span-0-213"><a id="__codelineno-0-213" name="__codelineno-0-213"></a>        <span class="n">sim_</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </span></code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -2354,10 +2354,7 @@ for all simulations into separate folders.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>.venv/lib/python3.14/site-packages/langevin/dp/ensemble.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-212">212</a></span>
-<span class="normal"><a href="#__codelineno-0-213">213</a></span>
-<span class="normal"><a href="#__codelineno-0-214">214</a></span>
-<span class="normal"><a href="#__codelineno-0-215">215</a></span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-215">215</a></span>
 <span class="normal"><a href="#__codelineno-0-216">216</a></span>
 <span class="normal"><a href="#__codelineno-0-217">217</a></span>
 <span class="normal"><a href="#__codelineno-0-218">218</a></span>
@@ -2400,53 +2397,56 @@ for all simulations into separate folders.</p>
 <span class="normal"><a href="#__codelineno-0-255">255</a></span>
 <span class="normal"><a href="#__codelineno-0-256">256</a></span>
 <span class="normal"><a href="#__codelineno-0-257">257</a></span>
-<span class="normal"><a href="#__codelineno-0-258">258</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-212"><a id="__codelineno-0-212" name="__codelineno-0-212"></a><span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">module</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">do_dummy</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="__span-0-213"><a id="__codelineno-0-213" name="__codelineno-0-213"></a><span class="w">    </span><span class="sd">"""</span>
-</span><span id="__span-0-214"><a id="__codelineno-0-214" name="__codelineno-0-214"></a><span class="sd">    Export Outfo.json, graphs, and data files.</span>
-</span><span id="__span-0-215"><a id="__codelineno-0-215" name="__codelineno-0-215"></a>
-</span><span id="__span-0-216"><a id="__codelineno-0-216" name="__codelineno-0-216"></a><span class="sd">    Args:</span>
-</span><span id="__span-0-217"><a id="__codelineno-0-217" name="__codelineno-0-217"></a><span class="sd">        do_dummy: only create &amp; report anticipated output folders.</span>
+<span class="normal"><a href="#__codelineno-0-258">258</a></span>
+<span class="normal"><a href="#__codelineno-0-259">259</a></span>
+<span class="normal"><a href="#__codelineno-0-260">260</a></span>
+<span class="normal"><a href="#__codelineno-0-261">261</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-215"><a id="__codelineno-0-215" name="__codelineno-0-215"></a><span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">module</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">do_dummy</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-0-216"><a id="__codelineno-0-216" name="__codelineno-0-216"></a><span class="w">    </span><span class="sd">"""</span>
+</span><span id="__span-0-217"><a id="__codelineno-0-217" name="__codelineno-0-217"></a><span class="sd">    Export Outfo.json, graphs, and data files.</span>
 </span><span id="__span-0-218"><a id="__codelineno-0-218" name="__codelineno-0-218"></a>
-</span><span id="__span-0-219"><a id="__codelineno-0-219" name="__codelineno-0-219"></a><span class="sd">    Depending on Info.json settings, output also may be carried out </span>
-</span><span id="__span-0-220"><a id="__codelineno-0-220" name="__codelineno-0-220"></a><span class="sd">    for all simulations into separate folders.</span>
-</span><span id="__span-0-221"><a id="__codelineno-0-221" name="__codelineno-0-221"></a><span class="sd">    """</span>
-</span><span id="__span-0-222"><a id="__codelineno-0-222" name="__codelineno-0-222"></a>    <span class="n">outfo_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> \
-</span><span id="__span-0-223"><a id="__codelineno-0-223" name="__codelineno-0-223"></a>        <span class="n">create_directories</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">"Misc"</span><span class="p">][</span><span class="s2">"path"</span><span class="p">],</span> <span class="s2">""</span><span class="p">,)</span>
-</span><span id="__span-0-224"><a id="__codelineno-0-224" name="__codelineno-0-224"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">do_verbose</span><span class="p">:</span>
-</span><span id="__span-0-225"><a id="__codelineno-0-225" name="__codelineno-0-225"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"experiments outfo path:  </span><span class="si">{</span><span class="n">outfo_path</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</span><span id="__span-0-226"><a id="__codelineno-0-226" name="__codelineno-0-226"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">do_dummy</span><span class="p">:</span>
-</span><span id="__span-0-227"><a id="__codelineno-0-227" name="__codelineno-0-227"></a>        <span class="n">_</span> <span class="o">=</span> <span class="n">export_info</span><span class="p">(</span><span class="n">outfo_path</span><span class="p">,</span> <span class="s2">"Outfo"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">,</span> <span class="n">module</span><span class="p">,)</span>
-</span><span id="__span-0-228"><a id="__codelineno-0-228" name="__codelineno-0-228"></a>
-</span><span id="__span-0-229"><a id="__codelineno-0-229" name="__codelineno-0-229"></a>    <span class="n">graphs_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> \
-</span><span id="__span-0-230"><a id="__codelineno-0-230" name="__codelineno-0-230"></a>        <span class="n">create_directories</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">"Misc"</span><span class="p">][</span><span class="s2">"path"</span><span class="p">],</span> <span class="s2">""</span><span class="p">,)</span>
-</span><span id="__span-0-231"><a id="__codelineno-0-231" name="__codelineno-0-231"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">do_verbose</span><span class="p">:</span>
-</span><span id="__span-0-232"><a id="__codelineno-0-232" name="__codelineno-0-232"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Combo graph path:  </span><span class="si">{</span><span class="n">graphs_path</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</span><span id="__span-0-233"><a id="__codelineno-0-233" name="__codelineno-0-233"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">"Misc"</span><span class="p">][</span><span class="s2">"do_export_combo_graphs"</span><span class="p">]</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">do_dummy</span><span class="p">:</span>
-</span><span id="__span-0-234"><a id="__codelineno-0-234" name="__codelineno-0-234"></a>        <span class="n">_</span> <span class="o">=</span> <span class="n">export_plots</span><span class="p">(</span>
-</span><span id="__span-0-235"><a id="__codelineno-0-235" name="__codelineno-0-235"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">graphs</span><span class="o">.</span><span class="n">fdict</span><span class="p">,</span> 
-</span><span id="__span-0-236"><a id="__codelineno-0-236" name="__codelineno-0-236"></a>            <span class="n">graphs_path</span><span class="p">,</span>
-</span><span id="__span-0-237"><a id="__codelineno-0-237" name="__codelineno-0-237"></a>            <span class="n">do_verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-</span><span id="__span-0-238"><a id="__codelineno-0-238" name="__codelineno-0-238"></a>        <span class="p">)</span>
-</span><span id="__span-0-239"><a id="__codelineno-0-239" name="__codelineno-0-239"></a>
-</span><span id="__span-0-240"><a id="__codelineno-0-240" name="__codelineno-0-240"></a>    <span class="n">data_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> \
-</span><span id="__span-0-241"><a id="__codelineno-0-241" name="__codelineno-0-241"></a>        <span class="n">create_directories</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">"Misc"</span><span class="p">][</span><span class="s2">"path"</span><span class="p">],</span> <span class="s2">""</span><span class="p">,)</span>
-</span><span id="__span-0-242"><a id="__codelineno-0-242" name="__codelineno-0-242"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">do_verbose</span><span class="p">:</span>
-</span><span id="__span-0-243"><a id="__codelineno-0-243" name="__codelineno-0-243"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Combo data path:  </span><span class="si">{</span><span class="n">outfo_path</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</span><span id="__span-0-244"><a id="__codelineno-0-244" name="__codelineno-0-244"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">"Misc"</span><span class="p">][</span><span class="s2">"do_export_combo_data"</span><span class="p">]:</span>
-</span><span id="__span-0-245"><a id="__codelineno-0-245" name="__codelineno-0-245"></a>        <span class="n">t_epochs</span><span class="p">:</span> <span class="n">NDArray</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">t_epochs</span>
-</span><span id="__span-0-246"><a id="__codelineno-0-246" name="__codelineno-0-246"></a>        <span class="n">mean_densities</span><span class="p">:</span> <span class="n">NDArray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-</span><span id="__span-0-247"><a id="__codelineno-0-247" name="__codelineno-0-247"></a>            <span class="n">sim_</span><span class="o">.</span><span class="n">mean_densities</span> <span class="k">for</span> <span class="n">sim_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim_list</span>
-</span><span id="__span-0-248"><a id="__codelineno-0-248" name="__codelineno-0-248"></a>        <span class="p">])</span>
-</span><span id="__span-0-249"><a id="__codelineno-0-249" name="__codelineno-0-249"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">do_dummy</span><span class="p">:</span>
-</span><span id="__span-0-250"><a id="__codelineno-0-250" name="__codelineno-0-250"></a>        <span class="n">np</span><span class="o">.</span><span class="n">savez_compressed</span><span class="p">(</span>
-</span><span id="__span-0-251"><a id="__codelineno-0-251" name="__codelineno-0-251"></a>            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="s2">"combo_ρ_t"</span><span class="p">,),</span> 
-</span><span id="__span-0-252"><a id="__codelineno-0-252" name="__codelineno-0-252"></a>            <span class="n">t_epochs</span><span class="o">=</span><span class="n">t_epochs</span><span class="p">,</span>
-</span><span id="__span-0-253"><a id="__codelineno-0-253" name="__codelineno-0-253"></a>            <span class="n">mean_densities</span><span class="o">=</span><span class="n">mean_densities</span><span class="p">,</span>
-</span><span id="__span-0-254"><a id="__codelineno-0-254" name="__codelineno-0-254"></a>        <span class="p">)</span>
-</span><span id="__span-0-255"><a id="__codelineno-0-255" name="__codelineno-0-255"></a>
-</span><span id="__span-0-256"><a id="__codelineno-0-256" name="__codelineno-0-256"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">"Misc"</span><span class="p">][</span><span class="s2">"do_export_data"</span><span class="p">]:</span>
-</span><span id="__span-0-257"><a id="__codelineno-0-257" name="__codelineno-0-257"></a>        <span class="k">for</span> <span class="p">(</span><span class="n">i_</span><span class="p">,</span> <span class="n">sim_</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sim_list</span><span class="p">):</span>
-</span><span id="__span-0-258"><a id="__codelineno-0-258" name="__codelineno-0-258"></a>            <span class="n">sim_</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">dplvn</span><span class="p">,</span> <span class="n">do_dummy</span><span class="p">,</span> <span class="n">do_verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,)</span>
+</span><span id="__span-0-219"><a id="__codelineno-0-219" name="__codelineno-0-219"></a><span class="sd">    Args:</span>
+</span><span id="__span-0-220"><a id="__codelineno-0-220" name="__codelineno-0-220"></a><span class="sd">        do_dummy: only create &amp; report anticipated output folders.</span>
+</span><span id="__span-0-221"><a id="__codelineno-0-221" name="__codelineno-0-221"></a>
+</span><span id="__span-0-222"><a id="__codelineno-0-222" name="__codelineno-0-222"></a><span class="sd">    Depending on Info.json settings, output also may be carried out </span>
+</span><span id="__span-0-223"><a id="__codelineno-0-223" name="__codelineno-0-223"></a><span class="sd">    for all simulations into separate folders.</span>
+</span><span id="__span-0-224"><a id="__codelineno-0-224" name="__codelineno-0-224"></a><span class="sd">    """</span>
+</span><span id="__span-0-225"><a id="__codelineno-0-225" name="__codelineno-0-225"></a>    <span class="n">outfo_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> \
+</span><span id="__span-0-226"><a id="__codelineno-0-226" name="__codelineno-0-226"></a>        <span class="n">create_directories</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">"Misc"</span><span class="p">][</span><span class="s2">"path"</span><span class="p">],</span> <span class="s2">""</span><span class="p">,)</span>
+</span><span id="__span-0-227"><a id="__codelineno-0-227" name="__codelineno-0-227"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">do_verbose</span><span class="p">:</span>
+</span><span id="__span-0-228"><a id="__codelineno-0-228" name="__codelineno-0-228"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"experiments outfo path:  </span><span class="si">{</span><span class="n">outfo_path</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-0-229"><a id="__codelineno-0-229" name="__codelineno-0-229"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">do_dummy</span><span class="p">:</span>
+</span><span id="__span-0-230"><a id="__codelineno-0-230" name="__codelineno-0-230"></a>        <span class="n">_</span> <span class="o">=</span> <span class="n">export_info</span><span class="p">(</span><span class="n">outfo_path</span><span class="p">,</span> <span class="s2">"Outfo"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">,</span> <span class="n">module</span><span class="p">,)</span>
+</span><span id="__span-0-231"><a id="__codelineno-0-231" name="__codelineno-0-231"></a>
+</span><span id="__span-0-232"><a id="__codelineno-0-232" name="__codelineno-0-232"></a>    <span class="n">graphs_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> \
+</span><span id="__span-0-233"><a id="__codelineno-0-233" name="__codelineno-0-233"></a>        <span class="n">create_directories</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">"Misc"</span><span class="p">][</span><span class="s2">"path"</span><span class="p">],</span> <span class="s2">""</span><span class="p">,)</span>
+</span><span id="__span-0-234"><a id="__codelineno-0-234" name="__codelineno-0-234"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">do_verbose</span><span class="p">:</span>
+</span><span id="__span-0-235"><a id="__codelineno-0-235" name="__codelineno-0-235"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Combo graph path:  </span><span class="si">{</span><span class="n">graphs_path</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-0-236"><a id="__codelineno-0-236" name="__codelineno-0-236"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">"Misc"</span><span class="p">][</span><span class="s2">"do_export_combo_graphs"</span><span class="p">]</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">do_dummy</span><span class="p">:</span>
+</span><span id="__span-0-237"><a id="__codelineno-0-237" name="__codelineno-0-237"></a>        <span class="n">_</span> <span class="o">=</span> <span class="n">export_plots</span><span class="p">(</span>
+</span><span id="__span-0-238"><a id="__codelineno-0-238" name="__codelineno-0-238"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">graphs</span><span class="o">.</span><span class="n">fdict</span><span class="p">,</span> 
+</span><span id="__span-0-239"><a id="__codelineno-0-239" name="__codelineno-0-239"></a>            <span class="n">graphs_path</span><span class="p">,</span>
+</span><span id="__span-0-240"><a id="__codelineno-0-240" name="__codelineno-0-240"></a>            <span class="n">do_verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+</span><span id="__span-0-241"><a id="__codelineno-0-241" name="__codelineno-0-241"></a>        <span class="p">)</span>
+</span><span id="__span-0-242"><a id="__codelineno-0-242" name="__codelineno-0-242"></a>
+</span><span id="__span-0-243"><a id="__codelineno-0-243" name="__codelineno-0-243"></a>    <span class="n">data_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> \
+</span><span id="__span-0-244"><a id="__codelineno-0-244" name="__codelineno-0-244"></a>        <span class="n">create_directories</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">"Misc"</span><span class="p">][</span><span class="s2">"path"</span><span class="p">],</span> <span class="s2">""</span><span class="p">,)</span>
+</span><span id="__span-0-245"><a id="__codelineno-0-245" name="__codelineno-0-245"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">do_verbose</span><span class="p">:</span>
+</span><span id="__span-0-246"><a id="__codelineno-0-246" name="__codelineno-0-246"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Combo data path:  </span><span class="si">{</span><span class="n">outfo_path</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-0-247"><a id="__codelineno-0-247" name="__codelineno-0-247"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">"Misc"</span><span class="p">][</span><span class="s2">"do_export_combo_data"</span><span class="p">]:</span>
+</span><span id="__span-0-248"><a id="__codelineno-0-248" name="__codelineno-0-248"></a>        <span class="n">t_epochs</span><span class="p">:</span> <span class="n">NDArray</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">t_epochs</span>
+</span><span id="__span-0-249"><a id="__codelineno-0-249" name="__codelineno-0-249"></a>        <span class="n">mean_densities</span><span class="p">:</span> <span class="n">NDArray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+</span><span id="__span-0-250"><a id="__codelineno-0-250" name="__codelineno-0-250"></a>            <span class="n">sim_</span><span class="o">.</span><span class="n">mean_densities</span> <span class="k">for</span> <span class="n">sim_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim_list</span>
+</span><span id="__span-0-251"><a id="__codelineno-0-251" name="__codelineno-0-251"></a>        <span class="p">])</span>
+</span><span id="__span-0-252"><a id="__codelineno-0-252" name="__codelineno-0-252"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">do_dummy</span><span class="p">:</span>
+</span><span id="__span-0-253"><a id="__codelineno-0-253" name="__codelineno-0-253"></a>        <span class="n">np</span><span class="o">.</span><span class="n">savez_compressed</span><span class="p">(</span>
+</span><span id="__span-0-254"><a id="__codelineno-0-254" name="__codelineno-0-254"></a>            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="s2">"combo_ρ_t"</span><span class="p">,),</span> 
+</span><span id="__span-0-255"><a id="__codelineno-0-255" name="__codelineno-0-255"></a>            <span class="n">t_epochs</span><span class="o">=</span><span class="n">t_epochs</span><span class="p">,</span>
+</span><span id="__span-0-256"><a id="__codelineno-0-256" name="__codelineno-0-256"></a>            <span class="n">mean_densities</span><span class="o">=</span><span class="n">mean_densities</span><span class="p">,</span>
+</span><span id="__span-0-257"><a id="__codelineno-0-257" name="__codelineno-0-257"></a>        <span class="p">)</span>
+</span><span id="__span-0-258"><a id="__codelineno-0-258" name="__codelineno-0-258"></a>
+</span><span id="__span-0-259"><a id="__codelineno-0-259" name="__codelineno-0-259"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">"Misc"</span><span class="p">][</span><span class="s2">"do_export_data"</span><span class="p">]:</span>
+</span><span id="__span-0-260"><a id="__codelineno-0-260" name="__codelineno-0-260"></a>        <span class="k">for</span> <span class="p">(</span><span class="n">i_</span><span class="p">,</span> <span class="n">sim_</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sim_list</span><span class="p">):</span>
+</span><span id="__span-0-261"><a id="__codelineno-0-261" name="__codelineno-0-261"></a>            <span class="n">sim_</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">dplvn</span><span class="p">,</span> <span class="n">do_dummy</span><span class="p">,</span> <span class="n">do_verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,)</span>
 </span></code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -2465,12 +2465,25 @@ for all simulations into separate folders.</p>
   </span>
 
 <a href="#langevin.dp.ensemble.Ensemble.sim_exec_wrapper" class="headerlink" title="Permanent link">¶</a></h2>
-<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">sim_exec_wrapper</span><span class="p">(</span><span class="n"><span title="langevin.dp.ensemble.Ensemble.sim_exec_wrapper(sim)">sim</span></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="&lt;code class=&quot;doc-symbol doc-symbol-heading doc-symbol-class&quot;&gt;&lt;/code&gt;            &lt;span class=&quot;doc doc-object-name doc-class-name&quot;&gt;Simulation&lt;/span&gt; (&lt;code&gt;langevin.dp.simulation.Simulation&lt;/code&gt;)" href="../simulation-reference/#langevin.dp.simulation.Simulation">Simulation</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" title="&lt;code&gt;collections.abc.Sequence&lt;/code&gt;" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence">Sequence</a></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></span><span class="p">]</span>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">sim_exec_wrapper</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;sim&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;langevin.dp.ensemble.Ensemble.sim_exec_wrapper(sim)&lt;/code&gt;)" href="#langevin.dp.ensemble.Ensemble.sim_exec_wrapper(sim)">sim</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="&lt;code class=&quot;doc-symbol doc-symbol-heading doc-symbol-class&quot;&gt;&lt;/code&gt;            &lt;span class=&quot;doc doc-object-name doc-class-name&quot;&gt;Simulation&lt;/span&gt; (&lt;code&gt;langevin.dp.simulation.Simulation&lt;/code&gt;)" href="../simulation-reference/#langevin.dp.simulation.Simulation">Simulation</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" title="&lt;code&gt;collections.abc.Sequence&lt;/code&gt;" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence">Sequence</a></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></span><span class="p">]</span>
 </span></code></pre></div>
 
     <div class="doc doc-contents ">
 
         <p>Pool wrapper to execute a specific sim instance.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<h3 id="langevin.dp.ensemble.Ensemble.sim_exec_wrapper(sim)" class="doc doc-heading doc-heading-parameter">              <b><code>sim</code></b>
+<a href="#langevin.dp.ensemble.Ensemble.sim_exec_wrapper(sim)" class="headerlink" title="Permanent link">¶</a></h3>              (<code><a class="autorefs autorefs-internal" title="&lt;code class=&quot;doc-symbol doc-symbol-heading doc-symbol-class&quot;&gt;&lt;/code&gt;            &lt;span class=&quot;doc doc-object-name doc-class-name&quot;&gt;Simulation&lt;/span&gt; (&lt;code&gt;langevin.dp.simulation.Simulation&lt;/code&gt;)" href="../simulation-reference/#langevin.dp.simulation.Simulation">Simulation</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>simulation instance</p>
+          </div>
+        </li>
+    </ul>
 
 
 <p><span class="doc-section-title">Returns:</span></p>
@@ -2506,25 +2519,31 @@ for all simulations into separate folders.</p>
 <span class="normal"><a href="#__codelineno-0-146">146</a></span>
 <span class="normal"><a href="#__codelineno-0-147">147</a></span>
 <span class="normal"><a href="#__codelineno-0-148">148</a></span>
-<span class="normal"><a href="#__codelineno-0-149">149</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-131"><a id="__codelineno-0-131" name="__codelineno-0-131"></a><span class="nd">@staticmethod</span>
+<span class="normal"><a href="#__codelineno-0-149">149</a></span>
+<span class="normal"><a href="#__codelineno-0-150">150</a></span>
+<span class="normal"><a href="#__codelineno-0-151">151</a></span>
+<span class="normal"><a href="#__codelineno-0-152">152</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-131"><a id="__codelineno-0-131" name="__codelineno-0-131"></a><span class="nd">@staticmethod</span>
 </span><span id="__span-0-132"><a id="__codelineno-0-132" name="__codelineno-0-132"></a><span class="k">def</span><span class="w"> </span><span class="nf">sim_exec_wrapper</span><span class="p">(</span><span class="n">sim</span><span class="p">:</span> <span class="n">Simulation</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]:</span>
 </span><span id="__span-0-133"><a id="__codelineno-0-133" name="__codelineno-0-133"></a><span class="w">    </span><span class="sd">"""</span>
 </span><span id="__span-0-134"><a id="__codelineno-0-134" name="__codelineno-0-134"></a><span class="sd">    Pool wrapper to execute a specific sim instance.</span>
 </span><span id="__span-0-135"><a id="__codelineno-0-135" name="__codelineno-0-135"></a>
-</span><span id="__span-0-136"><a id="__codelineno-0-136" name="__codelineno-0-136"></a><span class="sd">    Returns:</span>
-</span><span id="__span-0-137"><a id="__codelineno-0-137" name="__codelineno-0-137"></a><span class="sd">        serialized output returned by the completed sim.</span>
-</span><span id="__span-0-138"><a id="__codelineno-0-138" name="__codelineno-0-138"></a><span class="sd">    """</span>
-</span><span id="__span-0-139"><a id="__codelineno-0-139" name="__codelineno-0-139"></a>    <span class="n">result</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]</span>
-</span><span id="__span-0-140"><a id="__codelineno-0-140" name="__codelineno-0-140"></a>    <span class="k">try</span><span class="p">:</span>
-</span><span id="__span-0-141"><a id="__codelineno-0-141" name="__codelineno-0-141"></a>        <span class="k">if</span> <span class="n">sim</span><span class="o">.</span><span class="n">do_verbose</span><span class="p">:</span>
-</span><span id="__span-0-142"><a id="__codelineno-0-142" name="__codelineno-0-142"></a>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Sim exec starting: </span><span class="si">{</span><span class="n">sim</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</span><span id="__span-0-143"><a id="__codelineno-0-143" name="__codelineno-0-143"></a>        <span class="n">result</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
-</span><span id="__span-0-144"><a id="__codelineno-0-144" name="__codelineno-0-144"></a>    <span class="k">except</span><span class="p">:</span>
-</span><span id="__span-0-145"><a id="__codelineno-0-145" name="__codelineno-0-145"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Sim exec error: </span><span class="si">{</span><span class="n">sim</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</span><span id="__span-0-146"><a id="__codelineno-0-146" name="__codelineno-0-146"></a>    <span class="k">finally</span><span class="p">:</span>
-</span><span id="__span-0-147"><a id="__codelineno-0-147" name="__codelineno-0-147"></a>        <span class="k">if</span> <span class="n">sim</span><span class="o">.</span><span class="n">do_verbose</span><span class="p">:</span>
-</span><span id="__span-0-148"><a id="__codelineno-0-148" name="__codelineno-0-148"></a>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Sim exec completion: </span><span class="si">{</span><span class="n">sim</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</span><span id="__span-0-149"><a id="__codelineno-0-149" name="__codelineno-0-149"></a>    <span class="k">return</span> <span class="n">result</span>
+</span><span id="__span-0-136"><a id="__codelineno-0-136" name="__codelineno-0-136"></a><span class="sd">    Args:</span>
+</span><span id="__span-0-137"><a id="__codelineno-0-137" name="__codelineno-0-137"></a><span class="sd">        sim: simulation instance</span>
+</span><span id="__span-0-138"><a id="__codelineno-0-138" name="__codelineno-0-138"></a>
+</span><span id="__span-0-139"><a id="__codelineno-0-139" name="__codelineno-0-139"></a><span class="sd">    Returns:</span>
+</span><span id="__span-0-140"><a id="__codelineno-0-140" name="__codelineno-0-140"></a><span class="sd">        serialized output returned by the completed sim.</span>
+</span><span id="__span-0-141"><a id="__codelineno-0-141" name="__codelineno-0-141"></a><span class="sd">    """</span>
+</span><span id="__span-0-142"><a id="__codelineno-0-142" name="__codelineno-0-142"></a>    <span class="n">result</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]</span>
+</span><span id="__span-0-143"><a id="__codelineno-0-143" name="__codelineno-0-143"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-0-144"><a id="__codelineno-0-144" name="__codelineno-0-144"></a>        <span class="k">if</span> <span class="n">sim</span><span class="o">.</span><span class="n">do_verbose</span><span class="p">:</span>
+</span><span id="__span-0-145"><a id="__codelineno-0-145" name="__codelineno-0-145"></a>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Sim exec starting: </span><span class="si">{</span><span class="n">sim</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-0-146"><a id="__codelineno-0-146" name="__codelineno-0-146"></a>        <span class="n">result</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
+</span><span id="__span-0-147"><a id="__codelineno-0-147" name="__codelineno-0-147"></a>    <span class="k">except</span><span class="p">:</span>
+</span><span id="__span-0-148"><a id="__codelineno-0-148" name="__codelineno-0-148"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Sim exec error: </span><span class="si">{</span><span class="n">sim</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-0-149"><a id="__codelineno-0-149" name="__codelineno-0-149"></a>    <span class="k">finally</span><span class="p">:</span>
+</span><span id="__span-0-150"><a id="__codelineno-0-150" name="__codelineno-0-150"></a>        <span class="k">if</span> <span class="n">sim</span><span class="o">.</span><span class="n">do_verbose</span><span class="p">:</span>
+</span><span id="__span-0-151"><a id="__codelineno-0-151" name="__codelineno-0-151"></a>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Sim exec completion: </span><span class="si">{</span><span class="n">sim</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-0-152"><a id="__codelineno-0-152" name="__codelineno-0-152"></a>    <span class="k">return</span> <span class="n">result</span>
 </span></code></pre></div></td></tr></table></div>
             </details>
     </div>
