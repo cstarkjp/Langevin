@@ -1,0 +1,90 @@
+{
+    "Parameters": {
+        "linear": 0.28,
+        "quadratic": 1,
+        "diffusion": 1.0,
+        "noise": 1.0,
+        "dx": 1,
+        "dt": 0.1,
+        "t_final": 100.0,
+        "random_seed": 1,
+        "grid_dimension": "D2",
+        "grid_size": [
+            100,
+            50
+        ],
+        "grid_topologies": [
+            "PERIODIC",
+            "PERIODIC"
+        ],
+        "boundary_conditions": [
+            "FLOATING",
+            "FLOATING",
+            "FLOATING",
+            "FLOATING"
+        ],
+        "initial_condition": "RANDOM_UNIFORM",
+        "bc_values": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "ic_values": [
+            0,
+            0.3
+        ],
+        "integration_method": "RUNGE_KUTTA"
+    },
+    "Analysis": {
+        "a_c": 0.2685,
+        "dp_β": 0.5834,
+        "dp_ν_pp": 0.7333,
+        "dp_ν_ll": 1.295,
+        "dp_δ": 0.4505,
+        "dp_z": 1.766,
+        "n_epochs": 1001
+    },
+    "Misc": {
+        "n_sims": 15,
+        "Δa_range": 0.01,
+        "n_round_Δt_summation": 5,
+        "n_segments": 500,
+        "n_digits": 6,
+        "do_export_combo_graphs": false,
+        "do_export_combo_data": false,
+        "do_export_graphs": true,
+        "do_export_data": true,
+        "do_export_images": true,
+        "do_make_video": true,
+        "ylimits_log": [
+            0.003,
+            0.3
+        ],
+        "xlimits_log": [
+            0.5,
+            12000.0
+        ],
+        "ysf_log": 1.9,
+        "ρ_max": 1.2,
+        "ylimits_rescaled": [
+            0.03,
+            10.0
+        ],
+        "xlimits_rescaled": [
+            5e-05,
+            2000.0
+        ],
+        "video_frame_rate": 50,
+        "video_format": "mp4",
+        "path": [
+            "..",
+            "..",
+            "demos",
+            "a0p28000_b1_D1p00_η1_x100_y50_Δx1_Δt0p1"
+        ],
+        "name": "a0p28000_b1_D1p00_η1_x100_y50_Δx1_Δt0p1",
+        "dplvn_version": "2025.12.16a2",
+        "date_time": "2025-12-16 13:32:57"
+    }
+}
