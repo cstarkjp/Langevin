@@ -42,7 +42,9 @@ See
 
 # Installation
 
-For [`here for more comprehensive installation notes`](https://cstarkjp.github.io/Langevin/how-to-install/) that cover multiple platforms. The info below applies only to Linux and macOS. 
+In most circumstances, `pip install langevin` should suffice to get things up and running.
+See below more comprehensive installation notes, or [`here`](https://cstarkjp.github.io/Langevin/how-to-install/) in the main documentation.
+ 
 
 ## Optional: Python environment 
 First, set up a suitable Python environment. This is optional, but recommended.
