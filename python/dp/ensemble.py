@@ -133,6 +133,9 @@ class Ensemble:
         """
         Pool wrapper to execute a specific sim instance.
 
+        Args:
+            sim: simulation instance
+
         Returns:
             serialized output returned by the completed sim.
         """

@@ -1,21 +1,21 @@
 {
     "Parameters": {
-        "linear": 1.1905,
+        "linear": 0.28,
         "quadratic": 1,
-        "diffusion": 0.04,
+        "diffusion": 1.0,
         "noise": 1.0,
         "dx": 1,
         "dt": 0.1,
         "t_final": 10000.0,
-        "random_seed": 1,
+        "random_seed": 2,
         "grid_dimension": "D2",
         "grid_size": [
-            31,
-            31
+            62,
+            62
         ],
         "grid_topologies": [
-            "BOUNDED",
-            "BOUNDED"
+            "PERIODIC",
+            "PERIODIC"
         ],
         "boundary_conditions": [
             "FLOATING",
@@ -24,14 +24,20 @@
             "FLOATING"
         ],
         "initial_condition": "RANDOM_UNIFORM",
+        "bc_values": [
+            0,
+            0,
+            0,
+            0
+        ],
         "ic_values": [
             0,
-            15
+            0.3
         ],
         "integration_method": "RUNGE_KUTTA"
     },
     "Analysis": {
-        "a_c": 1.19045,
+        "a_c": 0.2685,
         "dp_β": 0.5834,
         "dp_ν_pp": 0.7333,
         "dp_ν_ll": 1.295,
@@ -49,19 +55,20 @@
         "do_export_combo_data": false,
         "do_export_graphs": true,
         "do_export_data": true,
-        "do_export_images": false,
-        "do_make_video": false,
+        "do_export_images": true,
+        "do_make_video": true,
         "ylimits_log": [
             0.003,
-            3.0
+            0.3
         ],
         "xlimits_log": [
             0.5,
             12000.0
         ],
-        "ysf_log": 0.75,
+        "ysf_log": 1.9,
+        "ρ_max": 1.2,
         "ylimits_rescaled": [
-            0.1,
+            0.03,
             10.0
         ],
         "xlimits_rescaled": [
@@ -71,10 +78,10 @@
         "video_frame_rate": 50,
         "video_format": "mp4",
         "path": [
-            "a1p19050_b1_D0p04_η1_x31_y31_Δx1_Δt0p1"
+            "a0p28000_b1_D1p00_η1_x62_y62_Δx1_Δt0p1"
         ],
-        "name": "a1p19050_b1_D0p04_η1_x31_y31_Δx1_Δt0p1",
+        "name": "a0p28000_b1_D1p00_η1_x62_y62_Δx1_Δt0p1",
         "dplvn_version": "2025.12.16a1",
-        "date_time": "2025-12-14 23:20:50"
+        "date_time": "2025-12-14 16:31:52"
     }
 }
