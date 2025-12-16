@@ -8,7 +8,7 @@
 
 Tools to integrate Langevin equations of absorbing phase transition (APT) type — with a focus on solution of the directed percolation (DP) Langevin equation.
 
-![](https://raw.githubusercontent.com/cstarkjp/Langevin/main/images/ρ_a1p18950_b1_D0p04_η1_x100_y50_Δx1_Δt0p1_rs1.gif
+![](https://raw.githubusercontent.com/cstarkjp/Langevin/main/images/ρ_rs1_a0p28000_b1_D1p00_η1_x100_y50_Δx1_Δt0p1.gif
  "Density field evolution over time")
 
  <!-- ![](https://raw.githubusercontent.com/cstarkjp/Langevin/main/images/density_grid.png
