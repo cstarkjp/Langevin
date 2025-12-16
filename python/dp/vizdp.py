@@ -391,7 +391,10 @@ class VizDP(Viz):
             t_end: float,
             y_offset: float,
             do_loglog: bool=True,
+            do_loglinear: bool=False,
             do_powerlawtrend: bool=True,
+            do_exponentialtrend: bool=False,
+            exponential_factor: float=10,
             y_sf: float=0.71,
             x_limits: None | tuple[float|None, float|None]=None,
             y_limits: None | tuple[float|None, float|None]=None,
@@ -446,14 +449,20 @@ class VizDP(Viz):
             lw=1,
             label=(r"DP simulation" if do_powerlawtrend else None)
         )
-        if do_powerlawtrend:
+        if do_exponentialtrend:
+            plt.plot(
+                y_, np.exp(-y_/exponential_factor)*y_sf, ":", 
+                label=r"$\widebar\rho \sim e^{-y/"+f"{exponential_factor}"+r"}$"
+            )
+        elif do_powerlawtrend:
             plt.plot(
                 y_, y_**(-dp_β/dp_ν_pp)*y_sf, ":", 
                 label=r"$\widebar\rho \sim y^{-\beta/\nu_{\!\perp}} \sim y^{-0.796}$"
             )
-        if do_loglog:
-            axes = plt.gca()
+        axes = plt.gca()
+        if do_loglinear | do_loglog:
             axes.set_yscale("log")
+        if do_loglog:
             axes.set_xscale("log")
         plt.autoscale(enable=True, axis="x", tight=True,)
         if x_limits is not None:
