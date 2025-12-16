@@ -25,7 +25,7 @@ of grid properties.
 ![](https://raw.githubusercontent.com/cstarkjp/Langevin/main/images/ρ_t.png
  "Mean density over time")
 
-The equation solved in the demo here is the DP Langevin for a 2D grid with initial values sampled from U[0,1]: 
+The equation solved in the demo here is the DP Langevin for a 2D grid with initial values sampled from U[0, 0.3]: 
 
 ![](https://raw.githubusercontent.com/cstarkjp/Langevin/main/images/dplangevin_equation3.png
  "DP Langevin equation")
