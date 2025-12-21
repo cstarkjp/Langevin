@@ -43,7 +43,7 @@ protected:
     //! Dornic method stochastic-step variable
     double lambda;
     //! Dornic method stochastic-step variable
-    double lambda_on_explcdt;
+    double lambda_scaled;
 
     //! Runge-Kutta variable grid #1
     grid_t k1_grid;
@@ -51,10 +51,14 @@ protected:
     grid_t k2_grid;
     //! Runge-Kutta variable grid #3
     grid_t k3_grid;
+    //! Runge-Kutta variable grid #4
+    grid_t k4_grid;
     //! Temporary density grid used to perform an integration step
-    grid_t aux_grid1;
+    grid_t density_plusk1_grid;
     //! Temporary density grid used to perform an integration step
-    grid_t aux_grid2;
+    grid_t density_plusk2_grid;
+    //! Temporary density grid used to perform an integration step
+    grid_t density_plusk3_grid;
 
 public:
     //! Default constructor
@@ -86,7 +90,7 @@ public:
     //! Method to set nonlinear coefficients for deterministic integration step: to be defined by application
     virtual void set_nonlinear_coefficients(const Coefficients& coefficients) {};
     //! Method to set nonlinear RHS of Langevin equation for deterministic integration step: to be defined by application
-    virtual double nonlinear_rhs(const int i_cell, const grid_t& field) const 
+    virtual double ddensitydt_nonlinear(const int i_cell, const grid_t& field) const 
         { return 0; };
 };
 

@@ -11,7 +11,7 @@ import numpy as np
 from numpy.typing import NDArray
 import os
 from langevin.base.file import (
-    create_directories, export_info, read_info, export_plots
+    create_directories, export_info, read_info, export_plots,
 )
 from langevin.dp import dplvn
 from langevin.dp.simulation import Simulation

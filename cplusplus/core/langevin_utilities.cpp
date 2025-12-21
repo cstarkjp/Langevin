@@ -22,5 +22,5 @@ double BaseLangevin::get_mean_density() const
 //! which should be equal to the Poisson distribution mean
 double BaseLangevin::get_poisson_mean() const
 {
-    return lambda_on_explcdt * mean_density;
+    return lambda_scaled * mean_density;
 }

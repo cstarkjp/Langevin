@@ -27,7 +27,7 @@ var class_base_langevin =
     [ "k2_grid", "class_base_langevin.html#ae90291c345f2e38d7cf9a2ade6ccd7cd", null ],
     [ "k3_grid", "class_base_langevin.html#af1e69fe1571999dc28977505b86f3fce", null ],
     [ "lambda", "class_base_langevin.html#a188d74016c9ad9cd915fc385476720a0", null ],
-    [ "lambda_on_explcdt", "class_base_langevin.html#a2b04a9ba2f607d81d061c3039ab5e65c", null ],
+    [ "lambda_scaled", "class_base_langevin.html#a2b04a9ba2f607d81d061c3039ab5e65c", null ],
     [ "linear_coefficient", "class_base_langevin.html#a4c159e8f3feba3731a2c9ed752320156", null ],
     [ "mean_density", "class_base_langevin.html#a7307bed54a012d55cf847fb89853b8db", null ],
     [ "n_cells", "class_base_langevin.html#a22830e75995d3d0bf5405dd18912fa46", null ],

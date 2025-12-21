@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['run_0',['run',['../class_sim_d_p.html#a1373e7e03fbe12b058fa9011839ffc19',1,'SimDP']]]
+  ['set_5fnonlinear_5fcoefficients_0',['set_nonlinear_coefficients',['../class_base_langevin.html#adfcbb53015503e909b0b2c2b5549ae5b',1,'BaseLangevin::set_nonlinear_coefficients()'],['../class_d_p_langevin.html#a0008b416d0460cdcb34646733dae8156',1,'DPLangevin::set_nonlinear_coefficients()']]],
+  ['simdp_1',['SimDP',['../class_sim_d_p.html#a568ad2d7eb11633e74aa9782d96aaeed',1,'SimDP']]]
 ];

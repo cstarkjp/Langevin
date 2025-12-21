@@ -19,7 +19,7 @@ void BaseLangevin::prepare(const Coefficients& coefficients)
             / 
         ((1-explcdt)*(noise_coefficient*noise_coefficient))
     );
-    lambda_on_explcdt = lambda / explcdt;
+    lambda_scaled = lambda / explcdt;
     // Set "nonlinear" coefficients in function supplied by child class
     set_nonlinear_coefficients(coefficients);
 }
